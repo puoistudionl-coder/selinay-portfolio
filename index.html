@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selinay İblikci — Senior Product Designer | Design Systems Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1c1a24;
+  --surface: #24222e;
+  --surface-hover: #2c2a36;
+  --text: #e8e6ef;
+  --text-muted: #8a8796;
+  --accent: #6ee7a0;
+  --accent-dim: #4bc47a;
+  --border: #2e2c3a;
+  --border-light: #383644;
+  --display-font: 'DM Serif Display', serif;
+  --heading-font: 'Syne', sans-serif;
+  --body-font: 'Instrument Sans', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body-font);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open { overflow: hidden; }
+
+img { max-width: 100%; }
+
+::selection { background: var(--accent); color: var(--bg); }
+
+/* Removed noise overlay for a cleaner premium feel */
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 22px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  background: rgba(28,26,36,0.75);
+  border-bottom: none;
+}
+.nav-logo { font-family: var(--display-font); font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: 0.02em; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  color: var(--text-muted); text-decoration: none; font-size: 0.82rem;
+  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.3s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-light);
+  background: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+.nav-toggle span::before { top: -6px; }
+.nav-toggle span::after { top: 6px; }
+
+.nav-mobile {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  background: rgba(28,26,36,0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.nav-mobile.active { display: flex; }
+
+.nav-mobile-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  background: transparent;
+  color: var(--text);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-mobile-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-mobile-links a {
+  font-family: var(--heading-font);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 30px 48px 10px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-photo {
+  max-width: 480px;
+  width: 50%;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  margin: 0 auto -160px;
+  outline: none;
+  box-shadow: none;
+  transform: scale(0.9);
+  transform-origin: center top;
+  position: relative;
+  z-index: 1;
+}
+
+
+.hero-line {
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 2;
+  animation: drawLine 1.2s ease 0.5s forwards;
+}
+
+.scroll-indicator {
+  width: 24px;
+  height: 40px;
+  border: 1.5px solid var(--text-muted);
+  border-radius: 12px;
+  margin: 24px auto 0;
+  position: relative;
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.scroll-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+.hero-photo img {
+  width: 100%;
+  display: block;
+  height: 650px;
+  object-fit: cover;
+  object-position: center 5%;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.hero-title {
+  font-family: var(--heading-font);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  color: var(--text);
+  animation: simpleFade 1.2s ease 0.3s forwards;
+}
+
+.hero-role {
+  font-family: var(--display-font);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 1.6s forwards;
+}
+.hero-cta-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 6px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 1.8s forwards;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--accent); color: var(--bg);
+  padding: 12px 28px; font-family: var(--heading-font);
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; text-decoration: none; border: none; cursor: pointer;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(110,231,160,0.2); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: var(--text);
+  padding: 16px 36px; font-family: var(--heading-font);
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; text-decoration: none;
+  border: 1px solid var(--border-light); cursor: pointer; transition: all 0.3s ease;
+  border-radius: 100px;
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Removed hero visual floats for a text-only hero */
+
+/* ===== ABOUT ===== */
+.about { padding: 40px 48px 60px; max-width: 1400px; margin: 0 auto; }
+.section-label {
+  font-family: var(--heading-font); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 48px; display: flex; align-items: center; gap: 16px;
+}
+.section-label::after { content: none; }
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
+.about-text {
+  font-family: var(--body-font);
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.about-text em { color: var(--accent); font-style: italic; }
+
+.words-reveal span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.words-reveal.visible span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== ABOUT - COMPACT EXPERIENCE ===== */
+.about-experience {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.exp-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  transition: background 0.25s ease, opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.about-experience.visible .exp-line {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-experience.visible .exp-line:nth-child(1) { transition-delay: 0s; }
+.about-experience.visible .exp-line:nth-child(2) { transition-delay: 0.1s; }
+.about-experience.visible .exp-line:nth-child(3) { transition-delay: 0.2s; }
+.about-experience.visible .exp-line:nth-child(4) { transition-delay: 0.3s; }
+.about-experience.visible .exp-line:nth-child(5) { transition-delay: 0.4s; }
+.about-experience.visible .exp-line:nth-child(6) { transition-delay: 0.5s; }
+.about-experience.visible .exp-line:nth-child(7) { transition-delay: 0.6s; }
+.about-experience.visible .exp-line:nth-child(8) { transition-delay: 0.7s; }
+
+.exp-line:hover { background: rgba(255,255,255,0.02); }
+
+.exp-line:last-child { border-bottom: none; }
+
+.exp-role {
+  font-family: var(--display-font);
+  color: var(--text);
+}
+
+.exp-dot { color: var(--border-light); }
+
+.exp-company {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.exp-date {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-left: auto;
+}
+
+/* ===== DESIGN SYSTEM EXPERTISE ===== */
+.ds-expertise {
+  padding: 80px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.ds-intro {
+  font-family: var(--display-font);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin-bottom: 56px;
+}
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.ds-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 44px 36px;
+  position: relative;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.ds-card:hover {
+  border-color: rgba(110,231,160,0.15);
+  transform: translateY(-4px);
+}
+.ds-icon {
+  font-size: 1.3rem;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 20px;
+  line-height: 1;
+}
+.ds-card-title {
+  font-family: var(--display-font);
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.ds-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+@media (max-width: 1024px) {
+  .ds-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .ds-expertise { padding: 48px 24px; }
+  .ds-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== SKILLS MARQUEE ===== */
+.skills-bar { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+.skills-track { display: flex; gap: 48px; animation: scroll 35s linear infinite; width: max-content; }
+.skill-item {
+  font-family: var(--heading-font); font-size: 0.95rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
+  white-space: nowrap; display: flex; align-items: center; gap: 14px;
+}
+.skill-item::before { content: '\u25C6'; font-size: 0.45rem; color: var(--accent); }
+
+/* ===== EXPERIENCE ===== */
+.experience { padding: 140px 48px; max-width: 1400px; margin: 0 auto; }
+.experience-list { display: flex; flex-direction: column; gap: 30px; }
+.experience-entry { display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: start; }
+.experience-date { font-family: var(--body-font); font-size: 0.86rem; color: var(--text-muted); }
+.experience-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 2px solid var(--border-light);
+  padding: 26px 26px 26px 32px;
+  transition: border-left-color 0.3s ease;
+}
+.experience-entry:hover .experience-card { border-left-color: var(--accent); }
+.experience-role { font-family: var(--display-font); font-size: 1.2rem; color: var(--text); margin-bottom: 10px; }
+.experience-company {
+  font-family: var(--heading-font); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 14px;
+}
+.experience-points { list-style: none; margin: 0; padding: 0; color: var(--text-muted); }
+.experience-point { font-family: var(--body-font); font-size: 0.9rem; line-height: 1.7; }
+.experience-point + .experience-point { margin-top: 10px; }
+
+/* ===== CERTIFICATIONS & LANGUAGES ===== */
+.certs-langs { padding: 80px 48px; max-width: 1400px; margin: 0 auto; }
+.certs-langs-card { background: var(--surface); border: 1px solid var(--border); padding: 40px; }
+.certs-langs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.cert-item { font-family: var(--body-font); font-size: 0.9rem; color: var(--text-muted); }
+.cert-item + .cert-item { margin-top: 10px; }
+.lang-row { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: baseline; }
+.lang-name { font-family: var(--display-font); font-size: 0.95rem; color: var(--text); }
+.lang-level { font-family: var(--body-font); font-size: 0.9rem; color: var(--text-muted); }
+.lang-row + .lang-row { margin-top: 12px; }
+
+@media (max-width: 768px) {
+  .experience { padding: 120px 24px; }
+  .experience-entry { grid-template-columns: 1fr; gap: 14px; }
+  .experience-card { padding: 22px 20px 22px 24px; }
+  .certs-langs { padding: 48px 24px; }
+  .certs-langs-grid { grid-template-columns: 1fr; gap: 26px; }
+}
+
+/* ===== WORK ===== */
+.work { padding: 80px 48px; max-width: 1400px; margin: 0 auto; }
+.work-header { margin-bottom: 48px; text-align: center; }
+.work-title { font-family: var(--display-font); font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1.1; }
+.work-subtitle { margin-top: 10px; font-size: 0.8rem; color: var(--text-muted); }
+.section-divider { width: 40px; height: 2px; background: var(--accent); margin: 48px auto; }
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 40px;
+  row-gap: 56px;
+}
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  background: transparent;
+  border: none;
+  transition: transform 0.4s ease;
+  overflow: visible;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.project-card:hover { transform: translateY(-2px); }
+.project-image { aspect-ratio: 16/10; background: #000; overflow: hidden; border-radius: 16px; border: 1px solid var(--border); }
+.project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.project-card:hover .project-image img { transform: scale(1.03); }
+.project-info { display: flex; flex-direction: column; gap: 8px; }
+.project-name { font-family: var(--display-font); font-size: 1.2rem; margin: 0; line-height: 1.2; }
+.project-category {
+  font-family: var(--heading-font);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ===== SMALL PROJECTS ===== */
+.small-projects { padding: 0 48px 80px; max-width: 1400px; margin: 0 auto; }
+.small-projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.small-card {
+  background: transparent;
+  border: none;
+  transition: transform 0.4s ease;
+  overflow: visible;
+  position: relative;
+  border-radius: 16px;
+}
+.small-card:hover { transform: translateY(-2px); }
+.small-card-image { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #000; border-radius: 12px; border: 1px solid var(--border); }
+.small-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.small-card:hover .small-card-image img { transform: scale(1.03); }
+.small-card-body { padding: 18px 4px 0; }
+.small-card-title { font-family: var(--display-font); font-size: 1.15rem; margin-bottom: 10px; }
+.small-card-desc { display: none; }
+
+/* ===== CONTACT ===== */
+.contact { padding: 80px 48px; max-width: 1400px; margin: 0 auto; text-align: center; }
+.contact-title { font-family: var(--display-font); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 24px; }
+.contact-title em { font-style: italic; color: var(--accent); }
+.contact-sub { color: var(--text-muted); font-size: 1.05rem; max-width: 480px; margin: 0 auto 48px; line-height: 1.7; }
+.contact-kicker {
+  font-family: var(--heading-font);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.contact-email {
+  font-family: var(--display-font); font-size: clamp(1.8rem, 3.5vw, 3rem);
+  letter-spacing: -0.02em;
+  color: var(--text); text-decoration: none;
+  border-bottom: 1px solid var(--border-light); padding-bottom: 4px; transition: all 0.3s;
+}
+.contact-email:hover { color: var(--accent); border-color: var(--accent); }
+.social-links { display: flex; gap: 10px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+.social-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-family: var(--heading-font);
+}
+.social-link:hover { color: var(--text); }
+.social-sep { color: var(--border-light); }
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 24px; border-top: 1px solid var(--border);
+  display: flex; justify-content: center; align-items: center;
+  text-align: center;
+}
+footer span { font-size: 0.78rem; color: var(--text-muted); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes drawLine { to { width: 80px; } }
+@keyframes scrollBounce {
+  0%, 100% { top: 8px; opacity: 1; }
+  50% { top: 24px; opacity: 0.3; }
+}
+@keyframes simpleFade { to { opacity: 1; } }
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+
+.project-grid .project-card:nth-child(1) { transition-delay: 0s; }
+.project-grid .project-card:nth-child(2) { transition-delay: 0.1s; }
+.project-grid .project-card:nth-child(3) { transition-delay: 0.15s; }
+.project-grid .project-card:nth-child(4) { transition-delay: 0.25s; }
+.project-grid .project-card:nth-child(5) { transition-delay: 0.3s; }
+.project-grid .project-card:nth-child(6) { transition-delay: 0.4s; }
+.project-grid .project-card:nth-child(7) { transition-delay: 0.45s; }
+.project-grid .project-card:nth-child(8) { transition-delay: 0.55s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .project-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  nav { padding: 18px 24px; }
+  .nav-links { display: none; }
+  .nav-toggle { display: inline-flex; }
+  .hero { padding: 30px 24px 10px; }
+  .hero-photo { width: 90%; max-width: 90%; padding: 12px 12px 0 12px; margin-bottom: -60px; }
+  .hero-photo img { height: 350px; }
+  .hero-title { font-size: clamp(1.8rem, 7vw, 3rem); white-space: nowrap; }
+  .hero-role { font-size: 1rem; }
+  .hero-cta-row { width: 100%; justify-content: center; }
+  .hero-cta-row .btn-primary { width: 100%; max-width: 280px; justify-content: center; }
+  .about, .work, .contact { padding: 48px 24px; }
+  .about-experience { margin-top: 44px; padding-top: 28px; }
+  .about-text { font-size: 0.95rem; }
+  .exp-line { font-size: 0.85rem; flex-wrap: wrap; }
+  .exp-date { font-size: 0.7rem; margin-left: 0; width: 100%; }
+  .project-grid { grid-template-columns: 1fr; row-gap: 44px; }
+  .project-name { font-size: 1rem; }
+  .contact-email { font-size: 1.2rem; word-break: break-all; }
+  .social-link { font-size: 0.8rem; }
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+}
+
+/* ===== PROJECT MODAL SYSTEM ===== */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-modal.active {
+  display: flex;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28,26,36,0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  margin: 0;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  background: var(--bg);
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-container::-webkit-scrollbar { width: 6px; }
+.modal-container::-webkit-scrollbar-track { background: transparent; }
+.modal-container::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+  z-index: 1001;
+}
+
+.modal-close:hover {
+  background: var(--surface-hover);
+}
+
+/* ===== MODAL (FULL CASE STUDY PAGE FEEL) ===== */
+.modal-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.modal-back {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg);
+  padding: 16px 0;
+  font-family: var(--heading-font);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  margin-bottom: 32px;
+  width: fit-content;
+}
+.modal-back:hover { color: var(--text); }
+
+.modal-page-title {
+  font-family: var(--heading-font);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  max-width: 700px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.modal-category-line {
+  font-family: var(--heading-font);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.modal-summary {
+  font-family: var(--body-font);
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.modal-image {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  margin-top: 0;
+  margin-bottom: 48px;
+  border: 1px solid var(--border);
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.modal-category {
+  font-family: var(--heading-font);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-family: var(--display-font);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+  line-height: 1.05;
+}
+
+.modal-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.method-tag {
+  font-family: var(--heading-font);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(110,231,160,0.08);
+  border: 1px solid rgba(110,231,160,0.15);
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+.modal-meta {
+  display: none;
+}
+
+.modal-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-meta-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+  border: none;
+  padding: 0;
+}
+
+.modal-meta-col {
+  padding: 0;
+  text-align: center;
+}
+
+.modal-meta-col + .modal-meta-col {
+  border-left: none;
+}
+
+.modal-meta-col .label {
+  font-family: var(--heading-font);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.modal-meta-col .value {
+  font-family: var(--body-font);
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.modal-meta-item .label {
+  font-family: var(--heading-font);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+.modal-meta-item .value {
+  font-family: var(--body-font);
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.modal-section {
+  margin-bottom: 56px;
+}
+
+.modal-section h3 {
+  font-family: var(--heading-font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.modal-section h3::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 12px;
+}
+
+.modal-section p {
+  font-family: var(--body-font);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.modal-section strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.modal-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-section ul li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.modal-section ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.principle-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 10px;
+  transition: none;
+}
+
+.principle-name {
+  font-family: var(--heading-font);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.principle-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+}
+
+.metric-card {
+  text-align: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.metric-value {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.metric-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+.modal-outcome {
+  width: 100%;
+  background: var(--surface);
+  border: none;
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 32px;
+  margin-top: 36px;
+}
+
+.modal-metrics {
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+}
+
+.modal-outcome h3 {
+  font-family: var(--heading-font);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.modal-outcome p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.small-card { cursor: pointer; }
+
+@media (max-width: 768px) {
+  .modal-inner { padding: 40px 20px; }
+  .modal-close { top: 18px; right: 18px; }
+  .modal-image { margin-top: 0; margin-bottom: 48px; border-radius: 12px; }
+  .modal-page-title { font-size: clamp(1.5rem, 5vw, 2rem); }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .principles-grid { grid-template-columns: 1fr; }
+  .modal-meta-row { grid-template-columns: 1fr; }
+  .modal-meta-col + .modal-meta-col { border-left: none; border-top: 1px solid var(--border); }
+  .method-tag { font-size: 0.55rem; padding: 4px 10px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Selinay<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="mobileMenu" aria-hidden="true">
+  <button class="nav-mobile-close" aria-label="Close menu">&times;</button>
+  <ul class="nav-mobile-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-photo">
+        <img src="portrait.png" alt="Selinay İblikci">
+      </div>
+      <div class="hero-line"></div>
+      <h1 class="hero-title">SELINAY İBLİKCİ</h1>
+      <p class="hero-role">Senior Product Designer</p>
+      <div class="hero-cta-row">
+        <a href="#work" class="btn-primary">Selected Work ↓</a>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about reveal" id="about">
+  <div class="about-grid">
+    <div class="about-text words-reveal">
+      I specialise in <em>design systems</em> and <em>end-to-end product design</em> for complex B2B SaaS products. Based in Amsterdam, 6+ years of experience.
+    </div>
+
+    <div class="about-experience reveal">
+      <div class="exp-line"><span class="exp-role">Senior UX Designer</span><span class="exp-dot">·</span><span class="exp-company">Anoto</span><span class="exp-dot">·</span><span class="exp-date">Nov 2024–Dec 2025</span></div>
+      <div class="exp-line"><span class="exp-role">Freelance Product Designer</span><span class="exp-dot">·</span><span class="exp-company">Independent</span><span class="exp-dot">·</span><span class="exp-date">May 2024–Nov 2024</span></div>
+      <div class="exp-line"><span class="exp-role">UX Designer</span><span class="exp-dot">·</span><span class="exp-company">Areal AI</span><span class="exp-dot">·</span><span class="exp-date">Nov 2022–May 2024</span></div>
+      <div class="exp-line"><span class="exp-role">UI/UX Designer</span><span class="exp-dot">·</span><span class="exp-company">Treomind</span><span class="exp-dot">·</span><span class="exp-date">May 2019–Nov 2022</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider reveal"></div>
+
+<!-- WORK -->
+<section class="work" id="work">
+  <div class="project-grid">
+
+    <div class="project-card reveal" onclick="openModal('inq')">
+      <div class="project-image"><img src="img-inq.png" alt="Inq Smart Pen App" loading="lazy"></div>
+      <div class="project-info">
+        <h3 class="project-name">Inq Smart Pen App</h3>
+        <div class="project-category">Mobile App · AI-Assisted · Productivity</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onclick="openModal('auth')">
+      <div class="project-image"><img src="img-auth.png" alt="Authenticator" loading="lazy"></div>
+      <div class="project-info">
+        <h3 class="project-name">Authenticator</h3>
+        <div class="project-category">Fintech · Security UX · Mobile</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onclick="openModal('prepress')">
+      <div class="project-image"><img src="img-prepress.png" alt="Prepress AI" loading="lazy"></div>
+      <div class="project-info">
+        <h3 class="project-name">Prepress AI</h3>
+        <div class="project-category">B2B SaaS · Workflow Automation</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onclick="openModal('agency')">
+      <div class="project-image"><img src="img-agency.png" alt="Agency Website" loading="lazy"></div>
+      <div class="project-info">
+        <h3 class="project-name">Agency Website</h3>
+        <div class="project-category">Website Redesign · B2B · Conversion</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onclick="openModal('audiobooks')">
+      <div class="project-image"><img src="img-audiobooks.png" alt="AudiBooks App" loading="lazy"></div>
+      <div class="project-info">
+        <h3 class="project-name">AudiBooks App</h3>
+        <div class="project-category">Mobile App · Content Discovery</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onclick="openModal('jobspot')">
+      <div class="project-image"><img src="img-jobspot.png" alt="Jobspot App" loading="lazy"></div>
+      <div class="project-info">
+        <h3 class="project-name">Jobspot App</h3>
+        <div class="project-category">Mobile App · HR Tech</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onclick="openModal('loadopt')">
+      <div class="project-image"><img src="img-loadopt.png" alt="Load Optimizer" loading="lazy"></div>
+      <div class="project-info">
+        <h3 class="project-name">Load Optimizer</h3>
+        <div class="project-category">Tablet App · AI-Powered · Logistics</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onclick="openModal('every')">
+      <div class="project-image"><img src="img-every.png" alt="Every App" loading="lazy"></div>
+      <div class="project-info">
+        <h3 class="project-name">Every App</h3>
+        <div class="project-category">Mobile App · Communication · Productivity</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact reveal" id="contact">
+  <div>
+    <div class="contact-kicker">Get in touch</div>
+    <a href="mailto:selinay.iblikci@outlook.com" class="contact-email">selinay.iblikci@outlook.com</a>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/selinayiblikci/" target="_blank" class="social-link">LinkedIn</a><span class="social-sep">/</span>
+      <a href="https://www.behance.net/selinayiblikcii" target="_blank" class="social-link">Behance</a><span class="social-sep">/</span>
+      <a href="https://www.instagram.com/selinayiblikci" target="_blank" class="social-link">Instagram</a><span class="social-sep">/</span>
+    </div>
+  </div>
+</section>
+
+<footer class="reveal">
+  <span>&copy; 2026 Selinay İblikci</span>
+</footer>
+
+<div class="project-modal" id="projectModal">
+  <div class="modal-overlay"></div>
+  <div class="modal-container">
+    <button class="modal-close">&times;</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+function wrapWordsForReveal(el) {
+  let wordIndex = 0;
+  function walk(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent;
+      if (!text) return;
+      const frag = document.createDocumentFragment();
+      const parts = text.split(/(\s+)/);
+      parts.forEach((part) => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) {
+          frag.appendChild(document.createTextNode(part));
+        } else {
+          const span = document.createElement('span');
+          span.textContent = part;
+          span.style.transitionDelay = (wordIndex * 0.02) + 's';
+          wordIndex += 1;
+          frag.appendChild(span);
+        }
+      });
+      node.parentNode.replaceChild(frag, node);
+    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'SCRIPT') {
+      Array.from(node.childNodes).forEach(walk);
+    }
+  }
+  Array.from(el.childNodes).forEach(walk);
+}
+
+(function initAboutTextAnimations() {
+  document.querySelectorAll('.words-reveal').forEach((el) => {
+    if (el.dataset.wordsWrapped) return;
+    wrapWordsForReveal(el);
+    el.dataset.wordsWrapped = '1';
+  });
+})();
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.words-reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth' });
+    document.body.classList.remove('menu-open');
+    const mm = document.getElementById('mobileMenu');
+    if (mm) mm.classList.remove('active');
+    const toggle = document.querySelector('.nav-toggle');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Mobile menu
+(() => {
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('mobileMenu');
+  const closeBtn = menu ? menu.querySelector('.nav-mobile-close') : null;
+
+  if (!toggle || !menu) return;
+
+  const open = () => {
+    menu.classList.add('active');
+    document.body.classList.add('menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+  };
+
+  const close = () => {
+    menu.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+  };
+
+  toggle.addEventListener('click', () => {
+    if (menu.classList.contains('active')) close();
+    else open();
+  });
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  menu.addEventListener('click', (e) => {
+    if (e.target === menu) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+})();
+
+// Modal system
+const modal = document.getElementById('projectModal');
+const modalContent = document.getElementById('modalContent');
+
+function openModal(projectId) {
+  const data = projectData[projectId];
+  if (!data) return;
+  modalContent.innerHTML = buildModalHTML(data);
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  modal.querySelector('.modal-container').scrollTop = 0;
+}
+
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+modal.querySelector('.modal-overlay').addEventListener('click', closeModal);
+modal.querySelector('.modal-close').addEventListener('click', closeModal);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+function buildModalHTML(d) {
+  let methodsHTML = '';
+  if (d.methods && d.methods.length) {
+    methodsHTML = '<div class="modal-methods">' + d.methods.map(m => '<span class="method-tag">' + m + '</span>').join('') + '</div>';
+  }
+  const summaryMatch = (d.summary ? null : (d.problem || '').match(/<p>([\s\S]*?)<\/p>/i));
+  const summaryHTML = d.summary
+    ? d.summary
+    : (summaryMatch && summaryMatch[1] ? summaryMatch[1] : '');
+  let principlesHTML = '';
+  if (d.principles && d.principles.length) {
+    principlesHTML = '<div class="modal-section"><h3>Applied UX Principles</h3><div class="principles-grid">' + d.principles.map(p => '<div class="principle-card"><div class="principle-name">' + p.name + '</div><div class="principle-desc">' + p.desc + '</div></div>').join('') + '</div></div>';
+  }
+  let metricsHTML = '';
+  if (d.metrics && d.metrics.length) {
+    metricsHTML = '<div class="modal-section modal-metrics"><h3>Impact & Metrics</h3><div class="metrics-grid">' + d.metrics.map(m => '<div class="metric-card"><div class="metric-value">' + m.value + '</div><div class="metric-label">' + m.label + '</div></div>').join('') + '</div></div>';
+  }
+  let designSystemHTML = '';
+  if (d.designSystem) {
+    designSystemHTML = '<div class="modal-section"><h3>Design System Contribution</h3>' + d.designSystem + '</div>';
+  }
+  return '<div class="modal-inner">' +
+    '<div class="modal-back" onclick="closeModal()">\u2190 BACK TO PROJECTS</div>' +
+    '<div class="modal-page-title">' + d.title + '</div>' +
+    '<div class="modal-category-line">' + d.category + '</div>' +
+    (summaryHTML ? '<p class="modal-summary">' + summaryHTML + '</p>' : '') +
+    '<img class="modal-image" src="' + d.image + '" alt="' + d.title + '">' +
+    methodsHTML +
+    '<div class="modal-meta-row">' +
+      '<div class="modal-meta-col"><div class="label">Role</div><div class="value">' + d.role + '</div></div>' +
+      '<div class="modal-meta-col"><div class="label">Scope</div><div class="value">' + d.scope + '</div></div>' +
+      '<div class="modal-meta-col"><div class="label">Type</div><div class="value">' + d.type + '</div></div>' +
+    '</div>' +
+    '<div class="modal-section"><h3>The Problem</h3>' + d.problem + '</div>' +
+    '<div class="modal-section"><h3>Process & Approach</h3>' + d.process + '</div>' +
+    principlesHTML +
+    designSystemHTML +
+    metricsHTML +
+    '<div class="modal-outcome"><h3>Outcome</h3><p>' + d.outcome + '</p></div>' +
+  '</div>';
+}
+
+const projectData = {
+  inq: {
+    image: 'img-inq.png',
+    category: 'Mobile App \u00b7 AI-Assisted \u00b7 Productivity',
+    title: 'Inq Smart Pen App',
+    role: 'UI/UX Designer \u2014 end-to-end',
+    scope: 'User Research \u00b7 Competitive Analysis \u00b7 IA \u00b7 Interaction Design \u00b7 Visual Design',
+    type: 'Mobile Application',
+    methods: ['User Interviews', 'Competitive Analysis', 'IA Testing', 'Contextual Inquiry', 'Progressive Disclosure', 'Cognitive Load Theory'],
+    problem: '<p>Handwriting is natural \u2014 managing handwritten notes digitally is not. The app needed to feel as continuous as writing on paper.</p><ul><li>Users think in pages, not files \u2014 most apps forced the wrong mental model (violating Jakob\'s Law).</li><li>Navigation broke spatial memory by displaying notes as flat lists.</li><li>Search pulled users away from their current page, breaking flow and increasing cognitive load.</li></ul>',
+    process: '<p>A single design principle drove every decision: <strong>the page always stays visible.</strong></p><p>Discovery began with contextual inquiry \u2014 observing how users interact with handwritten notes. 6 user interviews revealed the mental model was page-based, not file-based. Competitive analysis of GoodNotes, Apple Notes, and Notion revealed how each handled primary view persistence.</p><ul><li>Applied <strong>Cognitive Load Theory</strong> \u2014 every overlay shows only contextually relevant tools, never more than 4 action groups.</li><li>Search, filters, and AI tools open as bottom overlays using <strong>progressive disclosure</strong> \u2014 never replacing the page.</li><li>Notebook-style navigation aligned with <strong>Jakob\'s Law</strong> \u2014 matching mental models from physical notebooks.</li><li>AI suggestions appear as inline annotations \u2014 following the <strong>Von Restorff Effect</strong> to make enhanced content visually distinct.</li><li>Applied <strong>Fitts\'s Law</strong> \u2014 bottom sheet controls placed within natural thumb reach zones.</li></ul>',
+    principles: [
+      { name: 'Cognitive Load Theory', desc: 'Overlays show only contextually relevant tools \u2014 never more than 4 action groups visible simultaneously.' },
+      { name: 'Jakob\'s Law', desc: 'Notebook-style navigation matches existing mental models from physical notebooks and competing apps.' },
+      { name: 'Progressive Disclosure', desc: 'AI tools, search, and filters revealed on demand as bottom sheets \u2014 page content never leaves view.' },
+      { name: 'Fitts\'s Law', desc: 'Primary interaction targets placed in bottom third of screen within natural thumb reach zones.' }
+    ],
+    metrics: [
+      { value: '6', label: 'User Interviews' },
+      { value: '3', label: 'Competitors Analysed' },
+      { value: '100%', label: 'Page Visibility Maintained' }
+    ],
+    outcome: 'A note-taking experience centred entirely on the handwritten page \u2014 with all tools, AI features, and navigation available contextually without ever removing the user\'s work from view.'
+  },
+  auth: {
+    image: 'img-auth.png',
+    category: 'Fintech \u00b7 Security UX \u00b7 Mobile',
+    title: 'Fintech Security Authenticator',
+    role: 'UI/UX Designer \u2014 end-to-end',
+    scope: 'User Research \u00b7 Stakeholder Alignment \u00b7 IA \u00b7 Design System \u00b7 Usability Testing',
+    type: 'Mobile Application',
+    methods: ['Stakeholder Workshops', 'Double Diamond', 'Usability Testing', 'Design Tokens', 'HEART Framework', 'UX Writing'],
+    problem: '<p>A fintech authenticator app was failing users. The security system was sound \u2014 but the interface failed to communicate it clearly.</p><ul><li>73% of users couldn\'t understand what the interface was asking for.</li><li>68% submitted negative feedback \u2014 direct evidence of eroded trust.</li><li>The <strong>Peak-End Rule</strong> was working against the product: memorable moments were confusion and frustration.</li></ul>',
+    process: '<p>Applied the <strong>Double Diamond</strong> framework: diverge \u2192 converge \u2192 test \u2192 iterate.</p><p>Stakeholder alignment workshop brought together developers, security specialists, and business leads.</p><ul><li>Used <strong>HEART Framework</strong> to define success: Happiness (trust surveys), Task Success (completion rate), Adoption (activation).</li><li>Applied <strong>Hick\'s Law</strong> \u2014 reduced permission choices from 5 simultaneous to sequential single-choice screens.</li><li>Rewrote all microcopy following UX writing principles: Clear, Concise, Useful, Human, Consistent.</li><li>Two rounds of moderated usability testing \u2014 key fix: plain-language permission screens resolved the trust gap.</li><li>Applied <strong>Peak-End Rule</strong>: designed positive confirmation animation at completion.</li></ul>',
+    principles: [
+      { name: 'Hick\'s Law', desc: 'Reduced permission choices from 5 simultaneous to sequential single-choice \u2014 cutting decision time dramatically.' },
+      { name: 'Peak-End Rule', desc: 'Designed a positive confirmation moment at flow completion replaced previous frustration-heavy endings.' },
+      { name: 'HEART Framework', desc: 'Measured Happiness, Task Success, and Adoption as core UX KPIs.' },
+      { name: 'UX Writing Principles', desc: 'All microcopy rewritten: clear, concise, useful, human, consistent.' }
+    ],
+    designSystem: '<ul><li>Created full component library: buttons, inputs, progress indicators, permission screens, error states.</li><li>Implemented personalisation using <strong>token-based colour variables</strong> \u2014 users chose account colours without breaking consistency.</li><li>Established consistent icon system and motion principles reinforcing trustworthiness.</li><li>Token naming followed <strong>semantic approach</strong>: named by role, not raw value.</li></ul>',
+    metrics: [
+      { value: '73%', label: 'Users Confused (Before)' },
+      { value: '68%', label: 'Negative Feedback (Before)' },
+      { value: '2', label: 'Usability Test Rounds' }
+    ],
+    outcome: 'A redesigned authenticator guiding users confidently through security-critical processes. Plain-language permission screens validated through two testing rounds resolved core trust issues.'
+  },
+  prepress: {
+    image: 'img-prepress.png',
+    category: 'B2B SaaS \u00b7 Workflow Automation \u00b7 Web Platform',
+    title: 'Prepress AI',
+    role: 'UI/UX Designer \u2014 end-to-end',
+    scope: 'User Research \u00b7 IA \u00b7 Interaction Design \u00b7 Visual Design \u00b7 Usability Testing',
+    type: 'B2B SaaS \u00b7 Web Platform',
+    methods: ['Contextual Inquiry', 'Card Sorting', 'Tree Testing', 'RICE Scoring', 'Design Tokens', 'Usability Testing'],
+    problem: '<p>Printing shops lost time and money to fragmented prepress workflows \u2014 file management, preflight checks, and image editing each required a different tool.</p><ul><li>Files spread across multiple systems made version control nearly impossible.</li><li>Manual preflight checks introduced human error regularly.</li><li>Context switching between apps increased <strong>cognitive load</strong> and broke focus.</li></ul>',
+    process: '<p>Discovery started with <strong>contextual inquiry</strong> \u2014 observing print shop staff in their actual work environment.</p><p>Used <strong>RICE scoring</strong> to prioritise which workflow problems to solve first.</p><ul><li>Ran <strong>open card sorting</strong> with production staff to understand mental models for file organisation.</li><li>Validated proposed IA with <strong>tree testing</strong> before building any UI.</li><li>IA restructured into three unified modules (File Management, Preflight, Image Editing) \u2014 max 2 navigation levels.</li><li>Applied <strong>dashboard design principles</strong>: lead with the metric users care most about, make every status actionable.</li><li>Two rounds of moderated usability testing with actual production staff validated the unified approach.</li></ul>',
+    principles: [
+      { name: 'Contextual Inquiry', desc: 'Observed print shop staff in their real environment \u2014 lab testing would have missed critical workflow context.' },
+      { name: 'RICE Scoring', desc: 'Prioritised by Reach, Impact, Confidence, Effort \u2014 file management scored highest.' },
+      { name: 'Card Sorting + Tree Testing', desc: 'Open card sort revealed mental models; tree testing validated IA before any UI was built.' },
+      { name: 'Error Prevention', desc: 'Automated preflight checks catch errors before production \u2014 prevention over recovery.' }
+    ],
+    designSystem: '<ul><li>Built component-based Figma library covering forms, tables, status indicators, modals, data displays.</li><li>Established <strong>token-based colour and typography systems</strong> across three modules.</li><li>Created documentation with usage guidelines, variants, and do/don\'t guidelines.</li><li>Used <strong>semantic token naming</strong>: role-based, not value-based.</li></ul>',
+    metrics: [
+      { value: '3', label: 'Modules Unified' },
+      { value: '2', label: 'Usability Test Rounds' },
+      { value: '\u22642', label: 'Max Navigation Depth' }
+    ],
+    outcome: 'A unified web platform where all prepress tasks could be completed without switching tools. Automated preflight checks caught errors before production. Design system enabled scalable delivery across all three modules. IA validated through card sorting and tree testing before development began.'
+  },
+  agency: {
+    image: 'img-agency.png',
+    category: 'Website Redesign \u00b7 B2B \u00b7 Conversion',
+    title: 'Digital Agency Website Redesign',
+    role: 'UI/UX Designer \u2014 end-to-end',
+    scope: 'UX Audit \u00b7 User Research \u00b7 IA \u00b7 Visual Design \u00b7 Responsive Design',
+    type: 'B2B Website',
+    methods: ['UX Audit', 'Heuristic Evaluation', 'Analytics Review', 'First Click Testing', 'F-Pattern Layout', 'Gestalt Principles'],
+    problem: '<p>The website had grown organically and no longer reflected the quality of the agency\'s work.</p><ul><li>Homepage communicated too many things at once \u2014 violating <strong>Hick\'s Law</strong>.</li><li>No clear <strong>visual hierarchy</strong> \u2014 every element competed equally.</li><li>CTAs inconsistent and poorly positioned \u2014 failing <strong>Fitts\'s Law</strong>.</li></ul>',
+    process: '<p>Every design decision evaluated against a <strong>four-question framework</strong>:</p><ul><li>What does this agency actually do?</li><li>Have they done this kind of work before?</li><li>Can I trust them with my project?</li><li>How do I get in touch?</li></ul><p>If a section didn\'t answer one of these, it was removed.</p><ul><li>Applied <strong>F-pattern reading layout</strong> for content-heavy pages.</li><li>Used <strong>Gestalt principles</strong> (proximity, similarity) to group related services.</li><li>IA restructured: positioning \u2192 evidence \u2192 social proof \u2192 contact.</li><li>Ran <strong>first click tests</strong> \u2014 87%+ correct CTA clicks on first attempt.</li><li>Applied <strong>Von Restorff Effect</strong>: one dominant CTA per viewport.</li></ul>',
+    principles: [
+      { name: 'Hick\'s Law', desc: 'Reduced competing messages \u2014 one clear value proposition instead of multiple diluted ones.' },
+      { name: 'F-Pattern Layout', desc: 'Content structured along natural scanning patterns \u2014 key messages on the F-path.' },
+      { name: 'First Click Testing', desc: 'Validated CTA placement \u2014 wrong first click drops task success by 87%.' },
+      { name: 'Von Restorff Effect', desc: 'One primary CTA per viewport, visually distinct from all secondary elements.' }
+    ],
+    metrics: [
+      { value: '87%+', label: 'Correct First Clicks' },
+      { value: '4', label: 'Question Framework' },
+      { value: '10', label: 'Heuristics Applied' }
+    ],
+    outcome: 'A confident website guiding visitors from positioning to conversion \u2014 built around what potential clients actually needed to know, in the order they needed to know it.'
+  },
+  audiobooks: {
+    image: 'img-audiobooks.png',
+    category: 'Mobile App \u00b7 Content Discovery',
+    title: 'AudiBooks App',
+    role: 'UI/UX Designer',
+    scope: 'UI Design \u00b7 Interaction Design \u00b7 Visual Design',
+    type: 'Mobile Application',
+    methods: ['Hick\'s Law', 'Progressive Disclosure', 'Cognitive Load Theory', 'Gestalt Principles', 'Fitts\'s Law'],
+    problem: '<p>Audiobook listeners struggle to find relevant content among vast libraries. Traditional browsing by genre doesn\'t match how people think about what they want to learn.</p><ul><li>Category overload triggers <strong>Hick\'s Law</strong> \u2014 too many genres create decision paralysis instead of discovery.</li><li>Browse-first interfaces force users to evaluate hundreds of options with limited cognitive budget.</li></ul>',
+    process: '<p>Designed a concept-driven discovery system that reduces cognitive load by matching the user\'s intent model.</p><ul><li>Applied <strong>Hick\'s Law</strong> reduction: instead of 20+ genres, users enter concepts \u2014 the system narrows results automatically.</li><li>Used <strong>progressive disclosure</strong> in the player: primary controls visible, advanced features (speed, bookmarks, chapters) revealed on interaction.</li><li>Dark theme UI based on <strong>environmental context research</strong> \u2014 most listening happens in low-light conditions (commute, bedtime).</li><li>Applied <strong>Gestalt proximity principle</strong> to group book metadata (author, duration, rating) into scannable clusters.</li><li>Player controls designed with <strong>Fitts\'s Law</strong>: large touch targets for play/pause, smaller for secondary actions.</li></ul>',
+    principles: [
+      { name: 'Hick\'s Law', desc: 'Concept-based search replaces genre browsing \u2014 fewer choices, faster decisions, better matches.' },
+      { name: 'Progressive Disclosure', desc: 'Player reveals advanced controls on demand \u2014 primary listening experience stays clean.' },
+      { name: 'Fitts\'s Law', desc: 'Play/pause button is the largest touch target; secondary controls proportionally smaller.' },
+      { name: 'Gestalt Proximity', desc: 'Book metadata grouped into scannable clusters \u2014 title, author, duration perceived as one unit.' }
+    ],
+    metrics: [
+      { value: '80%', label: 'Reduced Browse Choices' },
+      { value: '2', label: 'Interaction Layers (Progressive)' },
+      { value: 'Dark', label: 'Theme for Low-Light Context' }
+    ],
+    outcome: 'A streamlined audiobook experience where users discover books through concepts and interests rather than traditional browsing \u2014 reducing decision fatigue and making listening time more personally relevant.'
+  },
+  jobspot: {
+    image: 'img-jobspot.png',
+    category: 'Mobile App \u00b7 HR Tech',
+    title: 'Jobspot App',
+    role: 'UI/UX Designer',
+    scope: 'UI Design \u00b7 User Flows \u00b7 Visual Design \u00b7 Onboarding Design',
+    type: 'Mobile Application',
+    methods: ['Form UX Laws', 'Onboarding Patterns', 'Progressive Disclosure', 'Hick\'s Law', 'Illustration-Driven UI'],
+    problem: '<p>Job seekers face overwhelming listings with poor personalisation. Most job apps treat all candidates identically, ignoring the power of detailed profiles to improve matching quality.</p><ul><li>Long registration forms cause abandonment \u2014 every additional field costs conversions (<strong>Form UX Laws</strong>).</li><li>Generic job feeds create <strong>choice overload</strong> (Hick\'s Law) \u2014 users scroll endlessly without finding relevant matches.</li></ul>',
+    process: '<p>Applied <strong>onboarding best practices</strong> \u2014 Time to Value, Progressive Complexity, and Celebration Moments:</p><ul><li>Designed profile creation as a <strong>multi-step progressive flow</strong> rather than a single long form \u2014 each screen asks one question category.</li><li>Applied <strong>10 Laws of Form UX</strong>: single column, labels above inputs, inline validation, smart defaults, autofill support.</li><li>Onboarding uses <strong>illustration-driven guidance</strong> \u2014 custom illustrations at each step reduce anxiety and increase completion.</li><li>Applied <strong>Hick\'s Law</strong> to job results: personalised recommendations shown first, with filters for refinement rather than exploration.</li><li>Designed <strong>celebration moments</strong> (confetti animation on profile completion) \u2014 applying the <strong>Peak-End Rule</strong> to make the onboarding ending memorable.</li></ul>',
+    principles: [
+      { name: 'Form UX Laws', desc: 'Single column, labels above, inline validation, smart defaults \u2014 minimum friction for maximum completion.' },
+      { name: 'Onboarding Triad', desc: 'Time to Value + Progressive Complexity + Celebration Moments drive first-session retention.' },
+      { name: 'Peak-End Rule', desc: 'Profile completion celebration creates a positive ending memory \u2014 increasing likelihood of return.' },
+      { name: 'Hick\'s Law', desc: 'Personalised recommendations replace endless browsing \u2014 fewer, better-matched choices.' }
+    ],
+    metrics: [
+      { value: '1', label: 'Question Per Screen' },
+      { value: '5', label: 'Onboarding Steps' },
+      { value: '\u2713', label: 'Inline Validation' }
+    ],
+    outcome: 'An application where users find their dream job by creating detailed profiles through a low-friction progressive flow \u2014 enabling smarter matching between candidates and opportunities based on real interests and qualifications.'
+  },
+  loadopt: {
+    image: 'img-loadopt.png',
+    category: 'Tablet App \u00b7 AI-Powered \u00b7 Logistics',
+    title: 'Load Optimizer',
+    role: 'UI/UX Designer',
+    scope: 'UI Design \u00b7 Dashboard Design \u00b7 Visual Design',
+    type: 'Tablet Application',
+    methods: ['Dashboard Design Principles', 'Fitts\'s Law', 'Cognitive Load Theory', 'Error Prevention', 'Data Visualisation'],
+    problem: '<p>Air cargo loading planning is complex and error-prone. Manual planning leads to suboptimal capacity usage and higher fuel consumption.</p><ul><li>Operational users work under time pressure \u2014 every second of decision time matters.</li><li>Data-heavy interfaces create <strong>cognitive overload</strong> in high-stakes environments.</li><li>Errors in load planning have real-world safety and cost consequences \u2014 <strong>error prevention</strong> is critical.</li></ul>',
+    process: '<p>Designed for iPad with a focus on operational environments following <strong>dashboard design principles</strong>:</p><ul><li>Applied <strong>"lead with the metric that matters"</strong> \u2014 cargo capacity percentage is the first and largest element visible.</li><li><strong>Fitts\'s Law</strong> for operational UI: large touch targets, controls placed in ergonomic zones for tablet held in one hand.</li><li>AI-powered algorithms visualised through clear loading diagrams \u2014 making the AI\'s decisions <strong>legible and trustworthy</strong> (AI Copilot UX principle: always show confidence levels).</li><li>Applied <strong>error prevention over recovery</strong> (Nielsen\'s Heuristic #5): system prevents overloading before it happens, not after.</li><li>Data freshness timestamps on all metrics \u2014 users in cargo operations must know they\'re acting on current data.</li><li>Designed <strong>empty states</strong> as guidance moments: "No load plan yet \u2014 start by selecting aircraft type."</li></ul>',
+    principles: [
+      { name: 'Dashboard Principles', desc: 'Lead with the most important metric. Make every number actionable. Show data freshness.' },
+      { name: 'Error Prevention (Nielsen #5)', desc: 'System prevents overloading before it happens \u2014 constraints built into the interface, not just warnings after.' },
+      { name: 'AI Transparency', desc: 'AI decisions made legible with confidence levels and clear explanations \u2014 users trust what they can understand.' },
+      { name: 'Fitts\'s Law', desc: 'Large touch targets for primary actions in ergonomic thumb zones \u2014 designed for one-handed tablet use.' }
+    ],
+    metrics: [
+      { value: 'Max', label: 'Cargo Capacity Target' },
+      { value: 'Min', label: 'Fuel Consumption Goal' },
+      { value: 'Real-time', label: 'Data Freshness' }
+    ],
+    outcome: 'An AI-supported load planning tool offering fast, optimum solutions \u2014 maximising cargo capacity while minimising fuel consumption. Dashboard design validated against operational workflow requirements with error prevention built into every interaction.'
+  },
+  every: {
+    image: 'img-every.png',
+    category: 'Mobile App \u00b7 Communication \u00b7 Productivity',
+    title: 'Every App',
+    role: 'UI/UX Designer',
+    scope: 'UI Design \u00b7 Interaction Design \u00b7 Visual Design',
+    type: 'Mobile Application',
+    methods: ['Information Architecture', 'Visual Hierarchy', 'Von Restorff Effect', 'Gestalt Principles', 'Navigation Patterns'],
+    problem: '<p>Group collaboration tools often feel cluttered and overwhelming. Meeting coordination, task tracking, and team communication are scattered across multiple apps.</p><ul><li>Context switching between apps breaks focus \u2014 increasing <strong>cognitive load</strong> and reducing productivity.</li><li>Meeting agendas buried in email threads are forgotten \u2014 no persistent, scannable format.</li><li>Participant awareness is low \u2014 teams don\'t know who\'s responsible for what.</li></ul>',
+    process: '<p>Designed around the principle of <strong>shallow navigation depth</strong> (maximum 2 levels) and clear information architecture:</p><ul><li>Applied <strong>Von Restorff Effect</strong> with colour-coded agenda categories: Design Review (purple), Insights Analysis (red), Retrospective (yellow), User Research (green) \u2014 the differing colours make each item instantly distinguishable.</li><li>Used <strong>Gestalt similarity principle</strong> for participant avatars \u2014 grouped and consistently styled to be perceived as a team unit.</li><li>Applied <strong>visual hierarchy principles</strong>: meeting title largest, date secondary, participant count tertiary \u2014 matching natural <strong>F-pattern scanning</strong>.</li><li>Navigation follows <strong>mobile conventions</strong> (Jakob\'s Law): bottom tab bar, consistent active states, clear "You Are Here" indicators.</li><li>Onboarding uses a clean gradient-based splash screen \u2014 applying the <strong>Peak-End Rule</strong> to create a positive first impression.</li></ul>',
+    principles: [
+      { name: 'Von Restorff Effect', desc: 'Colour-coded agenda items \u2014 each category visually distinct for instant scanning and recognition.' },
+      { name: 'Gestalt Similarity', desc: 'Participant avatars grouped and styled consistently \u2014 perceived as a team unit, not individual elements.' },
+      { name: 'Shallow Navigation', desc: 'Maximum 2 levels deep \u2014 every additional level doubles cognitive cost of navigating.' },
+      { name: 'Jakob\'s Law', desc: 'Bottom tab navigation follows mobile conventions users bring from other apps \u2014 zero learning curve.' }
+    ],
+    metrics: [
+      { value: '4', label: 'Colour-Coded Categories' },
+      { value: '\u22642', label: 'Navigation Depth Levels' },
+      { value: '\u2713', label: 'Persistent Agenda View' }
+    ],
+    outcome: 'A focused group communication app where teams coordinate meetings, track agenda items, and collaborate \u2014 all within a single clean interface. Colour-coded categories and shallow navigation ensure users find what they need without cognitive overload.'
+  }
+};
+</script>
+</body>
+</html>
