@@ -7,15 +7,15 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #1c1a24;
-  --surface: #24222e;
-  --surface-hover: #2c2a36;
-  --text: #e8e6ef;
-  --text-muted: #8a8796;
-  --accent: #6ee7a0;
-  --accent-dim: #4bc47a;
-  --border: #2e2c3a;
-  --border-light: #383644;
+  --bg: #1e1c20;
+  --surface: #27252a;
+  --surface-hover: #302e34;
+  --text: #ede9f2;
+  --text-muted: #8f8a96;
+  --accent: #b8a9e8;
+  --accent-dim: #9683d4;
+  --border: #332f38;
+  --border-light: #3d3944;
   --display-font: 'DM Serif Display', serif;
   --heading-font: 'Syne', sans-serif;
   --body-font: 'Instrument Sans', sans-serif;
@@ -47,7 +47,7 @@ nav {
   padding: 22px 48px;
   display: flex; justify-content: space-between; align-items: center;
   backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-  background: rgba(28,26,36,0.75);
+  background: rgba(30,28,32,0.75);
   border-bottom: none;
 }
 .nav-logo { font-family: var(--display-font); font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: 0.02em; }
@@ -105,7 +105,7 @@ nav {
   inset: 0;
   z-index: 200;
   display: none;
-  background: rgba(28,26,36,0.96);
+  background: rgba(30,28,32,0.96);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
@@ -289,7 +289,7 @@ nav {
   border-radius: 100px;
   transition: all 0.3s ease;
 }
-.btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(110,231,160,0.2); }
+.btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(184,169,232,0.2); }
 .btn-outline {
   display: inline-flex; align-items: center; gap: 10px;
   background: transparent; color: var(--text);
@@ -418,7 +418,7 @@ nav {
   border-radius: 16px;
 }
 .ds-card:hover {
-  border-color: rgba(110,231,160,0.15);
+  border-color: rgba(184,169,232,0.15);
   transform: translateY(-4px);
 }
 .ds-icon {
@@ -677,7 +677,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(28,26,36,0.88);
+  background: rgba(30,28,32,0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -756,19 +756,26 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
 }
 .modal-back:hover { color: var(--text); }
 
+.modal-number {
+  font-family: var(--heading-font);
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 800;
+  color: rgba(184,169,232,0.1);
+  line-height: 1;
+  margin-bottom: -20px;
+  letter-spacing: -0.03em;
+}
+
 .modal-page-title {
   font-family: var(--heading-font);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: -0.03em;
   line-height: 1.05;
   margin-bottom: 16px;
   max-width: 700px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  text-shadow: 0 0 40px rgba(184,169,232,0.2);
 }
 
 .modal-category-line {
@@ -790,13 +797,35 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
   margin-bottom: 40px;
 }
 
+.modal-image-wrap {
+  position: relative;
+  width: 100%;
+  margin: 0 0 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.modal-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(184,169,232,0.05);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.modal-image-wrap:hover::after {
+  opacity: 1;
+}
+
 .modal-image {
   width: 100%;
   display: block;
   border-radius: 12px;
-  margin-top: 0;
-  margin-bottom: 48px;
-  border: 1px solid var(--border);
+  margin: 0;
+  border: none;
   box-shadow: none;
   object-fit: cover;
 }
@@ -832,68 +861,48 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
-  background: rgba(110,231,160,0.08);
-  border: 1px solid rgba(110,231,160,0.15);
+  background: rgba(184,169,232,0.08);
+  border: 1px solid rgba(184,169,232,0.15);
   padding: 5px 12px;
   border-radius: 100px;
 }
 
 .modal-meta {
-  display: none;
+  display: flex;
+  gap: 40px;
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+  flex-wrap: wrap;
 }
 
 .modal-meta-item {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.modal-meta-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 48px;
-  border: none;
-  padding: 0;
-}
-
-.modal-meta-col {
-  padding: 0;
-  text-align: center;
-}
-
-.modal-meta-col + .modal-meta-col {
-  border-left: none;
-}
-
-.modal-meta-col .label {
-  font-family: var(--heading-font);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-.modal-meta-col .value {
-  font-family: var(--body-font);
-  font-size: 0.85rem;
-  color: var(--text);
-  line-height: 1.5;
+  align-items: baseline;
+  gap: 10px;
 }
 
 .modal-meta-item .label {
   font-family: var(--heading-font);
   font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  color: var(--accent);
 }
 
 .modal-meta-item .value {
-  font-family: var(--body-font);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text);
+}
+
+.modal-section-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.3;
+  margin: 0 auto 48px;
+  border: none;
 }
 
 .modal-section {
@@ -901,22 +910,13 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
 }
 
 .modal-section h3 {
-  font-family: var(--heading-font);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 20px;
-}
-
-.modal-section h3::before {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: var(--accent);
-  margin-bottom: 12px;
+  font-family: var(--display-font);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text);
+  margin-bottom: 24px;
 }
 
 .modal-section p {
@@ -932,90 +932,117 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
   font-weight: 600;
 }
 
-.modal-section ul {
-  list-style: none;
-  padding: 0;
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 16px;
 }
 
-.modal-section ul li {
-  padding-left: 20px;
-  position: relative;
-  margin-bottom: 10px;
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.65;
+.process-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
 }
 
-.modal-section ul li::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
-.principles-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.principle-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  padding: 20px;
-  border-radius: 10px;
-  transition: none;
-}
-
-.principle-name {
+.step-num {
   font-family: var(--heading-font);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 28px;
+  padding-top: 2px;
+}
+
+.process-step p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.principles-insights {
+  margin-top: 8px;
+}
+
+.insight {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.insight:last-child { border-bottom: none; }
+
+.insight-label {
+  font-family: var(--heading-font);
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--text);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
   margin-bottom: 8px;
 }
 
-.principle-desc {
-  font-size: 0.78rem;
+.insight p {
+  font-size: 0.9rem;
+  line-height: 1.7;
   color: var(--text-muted);
-  line-height: 1.6;
+  margin: 0;
 }
 
-.metrics-grid {
+.metrics-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 12px;
-  border-top: 1px solid var(--border);
-  padding-top: 32px;
+  gap: 32px;
+  margin-top: 20px;
 }
 
-.metric-card {
-  text-align: center;
-  background: transparent;
-  border: none;
-  padding: 0;
+.metric-col {
+  text-align: left;
 }
 
-.metric-value {
+.metric-big {
   font-family: var(--display-font);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 2.8rem);
   color: var(--accent);
   line-height: 1;
   margin-bottom: 8px;
 }
 
 .metric-label {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+.modal-design-system ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 12px;
+}
+
+.modal-design-system ul li {
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 12px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.modal-design-system ul li::before {
+  content: '\00b7';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 1.5rem;
+  line-height: 1;
+  top: -2px;
 }
 
 .modal-outcome {
   width: 100%;
-  background: var(--surface);
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(184,169,232,0.05) 100%);
   border: none;
   border-left: 3px solid var(--accent);
   border-radius: 10px;
@@ -1024,8 +1051,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
 }
 
 .modal-metrics {
-  border-top: 1px solid var(--border);
-  padding-top: 32px;
+  margin-top: 8px;
 }
 
 .modal-outcome h3 {
@@ -1049,12 +1075,13 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
 @media (max-width: 768px) {
   .modal-inner { padding: 40px 20px; }
   .modal-close { top: 18px; right: 18px; }
-  .modal-image { margin-top: 0; margin-bottom: 48px; border-radius: 12px; }
+  .modal-image-wrap { margin-bottom: 48px; border-radius: 12px; }
+  .modal-image { border-radius: 12px; }
   .modal-page-title { font-size: clamp(1.5rem, 5vw, 2rem); }
-  .metrics-grid { grid-template-columns: 1fr 1fr; }
-  .principles-grid { grid-template-columns: 1fr; }
-  .modal-meta-row { grid-template-columns: 1fr; }
-  .modal-meta-col + .modal-meta-col { border-left: none; border-top: 1px solid var(--border); }
+  .modal-number { font-size: clamp(3rem, 14vw, 4.5rem); margin-bottom: -12px; }
+  .modal-meta { flex-direction: column; gap: 16px; }
+  .metrics-row { gap: 20px; }
+  .metrics-row .metric-big { font-size: 1.6rem; }
   .method-tag { font-size: 0.55rem; padding: 4px 10px; }
 }
 
@@ -1332,6 +1359,10 @@ modal.querySelector('.modal-close').addEventListener('click', closeModal);
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
 function buildModalHTML(d) {
+  const sectionDivider = '<div class="modal-section-divider" aria-hidden="true"></div>';
+  const numStr = (d.number !== undefined && d.number !== null)
+    ? (d.number < 10 ? '0' + d.number : String(d.number))
+    : '';
   let methodsHTML = '';
   if (d.methods && d.methods.length) {
     methodsHTML = '<div class="modal-methods">' + d.methods.map(m => '<span class="method-tag">' + m + '</span>').join('') + '</div>';
@@ -1342,33 +1373,44 @@ function buildModalHTML(d) {
     : (summaryMatch && summaryMatch[1] ? summaryMatch[1] : '');
   let principlesHTML = '';
   if (d.principles && d.principles.length) {
-    principlesHTML = '<div class="modal-section"><h3>Applied UX Principles</h3><div class="principles-grid">' + d.principles.map(p => '<div class="principle-card"><div class="principle-name">' + p.name + '</div><div class="principle-desc">' + p.desc + '</div></div>').join('') + '</div></div>';
+    principlesHTML = '<div class="modal-section"><h3>Applied UX Principles</h3><div class="principles-insights">' + d.principles.map(p => '<div class="insight"><span class="insight-label">' + p.name + '</span><p>' + p.desc + '</p></div>').join('') + '</div></div>';
   }
   let metricsHTML = '';
   if (d.metrics && d.metrics.length) {
-    metricsHTML = '<div class="modal-section modal-metrics"><h3>Impact & Metrics</h3><div class="metrics-grid">' + d.metrics.map(m => '<div class="metric-card"><div class="metric-value">' + m.value + '</div><div class="metric-label">' + m.label + '</div></div>').join('') + '</div></div>';
+    metricsHTML =
+      '<div class="modal-section modal-metrics"><h3>Impact & Metrics</h3>' +
+      '<div class="metrics-row">' + d.metrics.map(m => '<div class="metric-col"><div class="metric-big">' + m.value + '</div><div class="metric-label">' + m.label + '</div></div>').join('') + '</div></div>';
   }
   let designSystemHTML = '';
   if (d.designSystem) {
-    designSystemHTML = '<div class="modal-section"><h3>Design System Contribution</h3>' + d.designSystem + '</div>';
+    designSystemHTML = '<div class="modal-section modal-design-system"><h3>Design System Contribution</h3>' + d.designSystem + '</div>';
+  }
+  let processHTML = '';
+  if (d.processSteps && d.processSteps.length) {
+    processHTML = '<div class="process-steps">' + d.processSteps.map((text, i) => '<div class="process-step"><span class="step-num">' + String(i + 1).padStart(2, '0') + '</span><p>' + text + '</p></div>').join('') + '</div>';
   }
   return '<div class="modal-inner">' +
     '<div class="modal-back" onclick="closeModal()">\u2190 BACK TO PROJECTS</div>' +
+    (numStr ? '<div class="modal-number">' + numStr + '</div>' : '') +
     '<div class="modal-page-title">' + d.title + '</div>' +
     '<div class="modal-category-line">' + d.category + '</div>' +
     (summaryHTML ? '<p class="modal-summary">' + summaryHTML + '</p>' : '') +
-    '<img class="modal-image" src="' + d.image + '" alt="' + d.title + '">' +
+    '<div class="modal-image-wrap"><img class="modal-image" src="' + d.image + '" alt="' + d.title + '"></div>' +
     methodsHTML +
-    '<div class="modal-meta-row">' +
-      '<div class="modal-meta-col"><div class="label">Role</div><div class="value">' + d.role + '</div></div>' +
-      '<div class="modal-meta-col"><div class="label">Scope</div><div class="value">' + d.scope + '</div></div>' +
-      '<div class="modal-meta-col"><div class="label">Type</div><div class="value">' + d.type + '</div></div>' +
+    sectionDivider +
+    '<div class="modal-meta">' +
+      '<div class="modal-meta-item"><span class="label">Role</span><span class="value">' + d.role + '</span></div>' +
+      '<div class="modal-meta-item"><span class="label">Scope</span><span class="value">' + d.scope + '</span></div>' +
+      '<div class="modal-meta-item"><span class="label">Type</span><span class="value">' + d.type + '</span></div>' +
     '</div>' +
+    sectionDivider +
     '<div class="modal-section"><h3>The Problem</h3>' + d.problem + '</div>' +
-    '<div class="modal-section"><h3>Process & Approach</h3>' + d.process + '</div>' +
-    principlesHTML +
-    designSystemHTML +
-    metricsHTML +
+    sectionDivider +
+    '<div class="modal-section"><h3>Process & Approach</h3>' + processHTML + '</div>' +
+    sectionDivider +
+    (principlesHTML ? principlesHTML + sectionDivider : '') +
+    (designSystemHTML ? designSystemHTML + sectionDivider : '') +
+    (metricsHTML ? metricsHTML + sectionDivider : '') +
     '<div class="modal-outcome"><h3>Outcome</h3><p>' + d.outcome + '</p></div>' +
   '</div>';
 }
@@ -1376,189 +1418,251 @@ function buildModalHTML(d) {
 const projectData = {
   inq: {
     image: 'img-inq.png',
+    number: 1,
     category: 'Mobile App \u00b7 AI-Assisted \u00b7 Productivity',
     title: 'Inq Smart Pen App',
     role: 'UI/UX Designer \u2014 end-to-end',
     scope: 'User Research \u00b7 Competitive Analysis \u00b7 IA \u00b7 Interaction Design \u00b7 Visual Design',
     type: 'Mobile Application',
     methods: ['User Interviews', 'Competitive Analysis', 'IA Testing', 'Contextual Inquiry', 'Progressive Disclosure', 'Cognitive Load Theory'],
-    problem: '<p>Handwriting is natural \u2014 managing handwritten notes digitally is not. The app needed to feel as continuous as writing on paper.</p><ul><li>Users think in pages, not files \u2014 most apps forced the wrong mental model (violating Jakob\'s Law).</li><li>Navigation broke spatial memory by displaying notes as flat lists.</li><li>Search pulled users away from their current page, breaking flow and increasing cognitive load.</li></ul>',
-    process: '<p>A single design principle drove every decision: <strong>the page always stays visible.</strong></p><p>Discovery began with contextual inquiry \u2014 observing how users interact with handwritten notes. 6 user interviews revealed the mental model was page-based, not file-based. Competitive analysis of GoodNotes, Apple Notes, and Notion revealed how each handled primary view persistence.</p><ul><li>Applied <strong>Cognitive Load Theory</strong> \u2014 every overlay shows only contextually relevant tools, never more than 4 action groups.</li><li>Search, filters, and AI tools open as bottom overlays using <strong>progressive disclosure</strong> \u2014 never replacing the page.</li><li>Notebook-style navigation aligned with <strong>Jakob\'s Law</strong> \u2014 matching mental models from physical notebooks.</li><li>AI suggestions appear as inline annotations \u2014 following the <strong>Von Restorff Effect</strong> to make enhanced content visually distinct.</li><li>Applied <strong>Fitts\'s Law</strong> \u2014 bottom sheet controls placed within natural thumb reach zones.</li></ul>',
+    problem: '<p>Every note-taking app I tested made the same mistake\u2014they treated handwritten notes like files. But people don\u2019t think in files. They think in pages.</p><p>The navigation was killing spatial memory. Flat lists replaced the natural flow of flipping through a notebook. And every time you searched for something, you lost your place entirely.</p><p>I set one rule for myself: the page stays visible. Everything else had to orbit that.</p>',
+    processSteps: [
+      'I started with contextual inquiry\u2014watching real people take notes where they actually work, not in a lab.',
+      'Six user interviews surfaced the same insight: the mental model is page-based, not file-based. I benchmarked GoodNotes, Apple Notes, and Notion to see who honoured the primary view.',
+      'I capped cognitive load in overlays\u2014never more than four action groups visible at once.',
+      'Search, filters, and AI open as bottom sheets so nothing replaces the page\u2014classic progressive disclosure.',
+      'Notebook-style navigation follows Jakob\u2019s Law: it should feel like something you already know.',
+      'AI lands as inline annotations (Von Restorff) and I pushed primary controls into the thumb zone with Fitts\u2019s Law in mind.'
+    ],
     principles: [
-      { name: 'Cognitive Load Theory', desc: 'Overlays show only contextually relevant tools \u2014 never more than 4 action groups visible simultaneously.' },
-      { name: 'Jakob\'s Law', desc: 'Notebook-style navigation matches existing mental models from physical notebooks and competing apps.' },
-      { name: 'Progressive Disclosure', desc: 'AI tools, search, and filters revealed on demand as bottom sheets \u2014 page content never leaves view.' },
-      { name: 'Fitts\'s Law', desc: 'Primary interaction targets placed in bottom third of screen within natural thumb reach zones.' }
+      { name: 'Cognitive Load Theory', desc: 'If the interface shouts, people stop writing. I kept each overlay to a tight set of tools so attention stays on the ink.' },
+      { name: 'Jakob\u2019s Law', desc: 'Borrow from notebooks and familiar apps\u2014spatial memory is real, and the UI has to respect it.' },
+      { name: 'Progressive Disclosure', desc: 'Power lives in sheets and panels that slide up; the page never gets swapped out from under you.' },
+      { name: 'Fitts\u2019s Law', desc: 'The stuff you tap all day sits where your thumb already is.' }
     ],
     metrics: [
-      { value: '6', label: 'User Interviews' },
-      { value: '3', label: 'Competitors Analysed' },
-      { value: '100%', label: 'Page Visibility Maintained' }
+      { value: '6', label: 'user interviews that shaped the model' },
+      { value: '3', label: 'competitors I tore apart for view persistence' },
+      { value: '100%', label: 'of flows where the page stayed on screen' }
     ],
-    outcome: 'A note-taking experience centred entirely on the handwritten page \u2014 with all tools, AI features, and navigation available contextually without ever removing the user\'s work from view.'
+    outcome: 'What shipped is a note experience built around the handwritten page\u2014tools, AI, and navigation sit beside the work instead of replacing it.'
   },
   auth: {
     image: 'img-auth.png',
+    number: 2,
     category: 'Fintech \u00b7 Security UX \u00b7 Mobile',
     title: 'Fintech Security Authenticator',
     role: 'UI/UX Designer \u2014 end-to-end',
     scope: 'User Research \u00b7 Stakeholder Alignment \u00b7 IA \u00b7 Design System \u00b7 Usability Testing',
     type: 'Mobile Application',
     methods: ['Stakeholder Workshops', 'Double Diamond', 'Usability Testing', 'Design Tokens', 'HEART Framework', 'UX Writing'],
-    problem: '<p>A fintech authenticator app was failing users. The security system was sound \u2014 but the interface failed to communicate it clearly.</p><ul><li>73% of users couldn\'t understand what the interface was asking for.</li><li>68% submitted negative feedback \u2014 direct evidence of eroded trust.</li><li>The <strong>Peak-End Rule</strong> was working against the product: memorable moments were confusion and frustration.</li></ul>',
-    process: '<p>Applied the <strong>Double Diamond</strong> framework: diverge \u2192 converge \u2192 test \u2192 iterate.</p><p>Stakeholder alignment workshop brought together developers, security specialists, and business leads.</p><ul><li>Used <strong>HEART Framework</strong> to define success: Happiness (trust surveys), Task Success (completion rate), Adoption (activation).</li><li>Applied <strong>Hick\'s Law</strong> \u2014 reduced permission choices from 5 simultaneous to sequential single-choice screens.</li><li>Rewrote all microcopy following UX writing principles: Clear, Concise, Useful, Human, Consistent.</li><li>Two rounds of moderated usability testing \u2014 key fix: plain-language permission screens resolved the trust gap.</li><li>Applied <strong>Peak-End Rule</strong>: designed positive confirmation animation at completion.</li></ul>',
+    problem: '<p>The cryptography was fine. The words on screen were not\u201473% of people told us they didn\u2019t understand what we wanted from them, and 68% left angry feedback. That\u2019s not a edge case; that\u2019s the product.</p><p>In fintech, confusion reads as risk. The Peak-End Rule was punishing us: what people remembered was friction, not safety.</p><p>I reframed the job as translation\u2014make permission flows legible without pretending security is simple.</p>',
+    processSteps: [
+      'I ran double diamond the honest way: diverge, converge, test, then do it again.',
+      'One workshop locked devs, security, and business into the same definition of \u201cdone.\u201d',
+      'HEART gave us real targets\u2014happiness signals, task success, adoption\u2014instead of vibes.',
+      'Hick\u2019s Law meant killing five simultaneous permission decisions. One choice per screen.',
+      'I rewrote every string: short, plain, human. No jargon cosplay.',
+      'Two moderated test rounds; plain-language screens fixed the trust gap. I ended the flow with a calm confirmation\u2014finally, a peak that didn\u2019t hurt.'
+    ],
     principles: [
-      { name: 'Hick\'s Law', desc: 'Reduced permission choices from 5 simultaneous to sequential single-choice \u2014 cutting decision time dramatically.' },
-      { name: 'Peak-End Rule', desc: 'Designed a positive confirmation moment at flow completion replaced previous frustration-heavy endings.' },
-      { name: 'HEART Framework', desc: 'Measured Happiness, Task Success, and Adoption as core UX KPIs.' },
-      { name: 'UX Writing Principles', desc: 'All microcopy rewritten: clear, concise, useful, human, consistent.' }
+      { name: 'Hick\u2019s Law', desc: 'Sequential beats simultaneous when people are already stressed.' },
+      { name: 'Peak-End Rule', desc: 'The last screen shouldn\u2019t be the worst screen\u2014I designed relief into the ending.' },
+      { name: 'HEART Framework', desc: 'Happiness, success, adoption\u2014if it isn\u2019t measurable, it isn\u2019t a requirement.' },
+      { name: 'UX Writing', desc: 'Voice is part of the system: clear, concise, useful, consistent.' }
     ],
-    designSystem: '<ul><li>Created full component library: buttons, inputs, progress indicators, permission screens, error states.</li><li>Implemented personalisation using <strong>token-based colour variables</strong> \u2014 users chose account colours without breaking consistency.</li><li>Established consistent icon system and motion principles reinforcing trustworthiness.</li><li>Token naming followed <strong>semantic approach</strong>: named by role, not raw value.</li></ul>',
+    designSystem: '<ul><li>Built the full kit: buttons, inputs, progress, permissions, errors.</li><li>Token-based colour so people could personalise accounts without breaking the brand.</li><li>One icon language and motion rules that feel calm, not flashy.</li><li>Semantic token names\u2014roles, not hex codes in disguise.</li></ul>',
     metrics: [
-      { value: '73%', label: 'Users Confused (Before)' },
-      { value: '68%', label: 'Negative Feedback (Before)' },
-      { value: '2', label: 'Usability Test Rounds' }
+      { value: '73%', label: 'confused on first try, before' },
+      { value: '68%', label: 'negative feedback, before' },
+      { value: '2', label: 'rounds of usability testing' }
     ],
-    outcome: 'A redesigned authenticator guiding users confidently through security-critical processes. Plain-language permission screens validated through two testing rounds resolved core trust issues.'
+    outcome: 'What went live is an authenticator that walks people through scary steps in plain language\u2014validated twice in testing, with a finish that finally feels trustworthy.'
   },
   prepress: {
     image: 'img-prepress.png',
+    number: 3,
     category: 'B2B SaaS \u00b7 Workflow Automation \u00b7 Web Platform',
     title: 'Prepress AI',
     role: 'UI/UX Designer \u2014 end-to-end',
     scope: 'User Research \u00b7 IA \u00b7 Interaction Design \u00b7 Visual Design \u00b7 Usability Testing',
     type: 'B2B SaaS \u00b7 Web Platform',
     methods: ['Contextual Inquiry', 'Card Sorting', 'Tree Testing', 'RICE Scoring', 'Design Tokens', 'Usability Testing'],
-    problem: '<p>Printing shops lost time and money to fragmented prepress workflows \u2014 file management, preflight checks, and image editing each required a different tool.</p><ul><li>Files spread across multiple systems made version control nearly impossible.</li><li>Manual preflight checks introduced human error regularly.</li><li>Context switching between apps increased <strong>cognitive load</strong> and broke focus.</li></ul>',
-    process: '<p>Discovery started with <strong>contextual inquiry</strong> \u2014 observing print shop staff in their actual work environment.</p><p>Used <strong>RICE scoring</strong> to prioritise which workflow problems to solve first.</p><ul><li>Ran <strong>open card sorting</strong> with production staff to understand mental models for file organisation.</li><li>Validated proposed IA with <strong>tree testing</strong> before building any UI.</li><li>IA restructured into three unified modules (File Management, Preflight, Image Editing) \u2014 max 2 navigation levels.</li><li>Applied <strong>dashboard design principles</strong>: lead with the metric users care most about, make every status actionable.</li><li>Two rounds of moderated usability testing with actual production staff validated the unified approach.</li></ul>',
+    problem: '<p>Print shops were bleeding time across three different worlds\u2014files in one place, preflight in another, retouching somewhere else. Version control was a myth.</p><p>Manual checks meant human error was part of the process. Every app switch was context-switch tax nobody was billing for.</p><p>I wanted one surface where production staff could trust the system to catch mistakes before ink hit paper.</p>',
+    processSteps: [
+      'I hung out on the shop floor\u2014contextual inquiry beats guessing from a conference room.',
+      'RICE helped me argue what to fix first instead of what sounded impressive.',
+      'Open card sorting with production staff exposed how they actually bucket work.',
+      'Tree testing proved the IA before we paid for pixels.',
+      'I merged everything into three modules\u2014files, preflight, image\u2014with two levels of nav max.',
+      'Dashboard rules: lead with the number they care about; every status should suggest a next step. Two test rounds with real staff closed the loop.'
+    ],
     principles: [
-      { name: 'Contextual Inquiry', desc: 'Observed print shop staff in their real environment \u2014 lab testing would have missed critical workflow context.' },
-      { name: 'RICE Scoring', desc: 'Prioritised by Reach, Impact, Confidence, Effort \u2014 file management scored highest.' },
-      { name: 'Card Sorting + Tree Testing', desc: 'Open card sort revealed mental models; tree testing validated IA before any UI was built.' },
-      { name: 'Error Prevention', desc: 'Automated preflight checks catch errors before production \u2014 prevention over recovery.' }
+      { name: 'Contextual Inquiry', desc: 'You don\u2019t learn prepress from a prototype in isolation\u2014noise, deadlines, and machines matter.' },
+      { name: 'RICE Scoring', desc: 'Reach \u00d7 impact, tempered by confidence and effort\u2014so politics lose to evidence.' },
+      { name: 'Card sort + tree test', desc: 'Sorts expose mental models; trees prove people can find things before engineering starts.' },
+      { name: 'Error prevention', desc: 'Automate the check before the mistake ships\u2014recovery is expensive at press time.' }
     ],
-    designSystem: '<ul><li>Built component-based Figma library covering forms, tables, status indicators, modals, data displays.</li><li>Established <strong>token-based colour and typography systems</strong> across three modules.</li><li>Created documentation with usage guidelines, variants, and do/don\'t guidelines.</li><li>Used <strong>semantic token naming</strong>: role-based, not value-based.</li></ul>',
+    designSystem: '<ul><li>Figma library: forms, tables, status chips, modals, dense data views.</li><li>Shared colour and type tokens across all three modules.</li><li>Docs with variants, do/don\u2019t, and copy-paste-ready specs.</li><li>Semantic naming so \u201cprimary\u201d survives a rebrand.</li></ul>',
     metrics: [
-      { value: '3', label: 'Modules Unified' },
-      { value: '2', label: 'Usability Test Rounds' },
-      { value: '\u22642', label: 'Max Navigation Depth' }
+      { value: '3', label: 'modules brought under one roof' },
+      { value: '2', label: 'usability rounds with production staff' },
+      { value: '\u22642', label: 'levels deep in the nav' }
     ],
-    outcome: 'A unified web platform where all prepress tasks could be completed without switching tools. Automated preflight checks caught errors before production. Design system enabled scalable delivery across all three modules. IA validated through card sorting and tree testing before development began.'
+    outcome: 'Teams ship prepress work without tab-hopping\u2014preflight catches issues early, the system scales because the kit is shared, and the IA was validated before a single route shipped.'
   },
   agency: {
     image: 'img-agency.png',
+    number: 4,
     category: 'Website Redesign \u00b7 B2B \u00b7 Conversion',
     title: 'Digital Agency Website Redesign',
     role: 'UI/UX Designer \u2014 end-to-end',
     scope: 'UX Audit \u00b7 User Research \u00b7 IA \u00b7 Visual Design \u00b7 Responsive Design',
     type: 'B2B Website',
     methods: ['UX Audit', 'Heuristic Evaluation', 'Analytics Review', 'First Click Testing', 'F-Pattern Layout', 'Gestalt Principles'],
-    problem: '<p>The website had grown organically and no longer reflected the quality of the agency\'s work.</p><ul><li>Homepage communicated too many things at once \u2014 violating <strong>Hick\'s Law</strong>.</li><li>No clear <strong>visual hierarchy</strong> \u2014 every element competed equally.</li><li>CTAs inconsistent and poorly positioned \u2014 failing <strong>Fitts\'s Law</strong>.</li></ul>',
-    process: '<p>Every design decision evaluated against a <strong>four-question framework</strong>:</p><ul><li>What does this agency actually do?</li><li>Have they done this kind of work before?</li><li>Can I trust them with my project?</li><li>How do I get in touch?</li></ul><p>If a section didn\'t answer one of these, it was removed.</p><ul><li>Applied <strong>F-pattern reading layout</strong> for content-heavy pages.</li><li>Used <strong>Gestalt principles</strong> (proximity, similarity) to group related services.</li><li>IA restructured: positioning \u2192 evidence \u2192 social proof \u2192 contact.</li><li>Ran <strong>first click tests</strong> \u2014 87%+ correct CTA clicks on first attempt.</li><li>Applied <strong>Von Restorff Effect</strong>: one dominant CTA per viewport.</li></ul>',
+    problem: '<p>The site had grown like a junk drawer\u2014every new service got a bandage, nothing felt intentional. The work in the portfolio deserved better than the wrapper around it.</p><p>The homepage shouted twelve things at once (classic Hick\u2019s Law). Hierarchy was flat, so nothing won. CTAs competed with each other and still lost.</p><p>I needed a ruthless filter: if a block didn\u2019t move a serious buyer forward, it left.</p>',
+    processSteps: [
+      'I held every section to four questions: what do you do, have you done it before, can I trust you, how do I reach you. No answer? Cut.',
+      'I leaned on F-pattern layout for dense pages\u2014headlines and proof live where eyes land first.',
+      'Gestalt grouping tied related services together so scanning felt effortless.',
+      'IA became positioning \u2192 proof \u2192 social proof \u2192 contact\u2014the order a real pitch follows.',
+      'First-click tests: 87%+ hit the right CTA on try one.',
+      'One dominant CTA per viewport (Von Restorff)\u2014everything else steps back.'
+    ],
     principles: [
-      { name: 'Hick\'s Law', desc: 'Reduced competing messages \u2014 one clear value proposition instead of multiple diluted ones.' },
-      { name: 'F-Pattern Layout', desc: 'Content structured along natural scanning patterns \u2014 key messages on the F-path.' },
-      { name: 'First Click Testing', desc: 'Validated CTA placement \u2014 wrong first click drops task success by 87%.' },
-      { name: 'Von Restorff Effect', desc: 'One primary CTA per viewport, visually distinct from all secondary elements.' }
+      { name: 'Hick\u2019s Law', desc: 'One sharp story beats twelve half-stories competing for attention.' },
+      { name: 'F-pattern', desc: 'Put the proof where people actually look on first scan.' },
+      { name: 'First click', desc: 'If the first tap is wrong, the rest of the funnel barely matters.' },
+      { name: 'Von Restorff', desc: 'Make the action obvious; mute the noise around it.' }
     ],
     metrics: [
-      { value: '87%+', label: 'Correct First Clicks' },
-      { value: '4', label: 'Question Framework' },
-      { value: '10', label: 'Heuristics Applied' }
+      { value: '87%+', label: 'correct first clicks in testing' },
+      { value: '4', label: 'questions every block had to answer' },
+      { value: '10', label: 'heuristics in the audit stack' }
     ],
-    outcome: 'A confident website guiding visitors from positioning to conversion \u2014 built around what potential clients actually needed to know, in the order they needed to know it.'
+    outcome: 'The live site walks a prospect from \u201cwho are you\u201d to \u201clet\u2019s talk\u201d without detours\u2014because the structure matches how people actually buy creative work.'
   },
   audiobooks: {
     image: 'img-audiobooks.png',
+    number: 5,
     category: 'Mobile App \u00b7 Content Discovery',
     title: 'AudiBooks App',
     role: 'UI/UX Designer',
     scope: 'UI Design \u00b7 Interaction Design \u00b7 Visual Design',
     type: 'Mobile Application',
     methods: ['Hick\'s Law', 'Progressive Disclosure', 'Cognitive Load Theory', 'Gestalt Principles', 'Fitts\'s Law'],
-    problem: '<p>Audiobook listeners struggle to find relevant content among vast libraries. Traditional browsing by genre doesn\'t match how people think about what they want to learn.</p><ul><li>Category overload triggers <strong>Hick\'s Law</strong> \u2014 too many genres create decision paralysis instead of discovery.</li><li>Browse-first interfaces force users to evaluate hundreds of options with limited cognitive budget.</li></ul>',
-    process: '<p>Designed a concept-driven discovery system that reduces cognitive load by matching the user\'s intent model.</p><ul><li>Applied <strong>Hick\'s Law</strong> reduction: instead of 20+ genres, users enter concepts \u2014 the system narrows results automatically.</li><li>Used <strong>progressive disclosure</strong> in the player: primary controls visible, advanced features (speed, bookmarks, chapters) revealed on interaction.</li><li>Dark theme UI based on <strong>environmental context research</strong> \u2014 most listening happens in low-light conditions (commute, bedtime).</li><li>Applied <strong>Gestalt proximity principle</strong> to group book metadata (author, duration, rating) into scannable clusters.</li><li>Player controls designed with <strong>Fitts\'s Law</strong>: large touch targets for play/pause, smaller for secondary actions.</li></ul>',
+    problem: '<p>Genre grids look logical in a spreadsheet; they feel cruel when you\u2019re tired on a train and just want something that fits your head.</p><p>Twenty-plus categories isn\u2019t discovery\u2014it\u2019s Hick\u2019s Law with a smile. Browse-first UI makes people scroll inventory instead of finding a match.</p><p>I pitched concept-led search: start from what you mean, let the system narrow the shelf.</p>',
+    processSteps: [
+      'I replaced the genre maze with concept input\u2014fewer upfront choices, tighter results.',
+      'The player stays clean: play/pause first; speed, bookmarks, and chapters appear only when you go looking.',
+      'Dark UI on purpose\u2014most listening is low light, commute, or almost-asleep.',
+      'Metadata clusters sit tight (Gestalt)\u2014title, author, duration read as one glance.',
+      'Fitts\u2019s Law: the thumb lives on the big play control; secondary taps are smaller on purpose.'
+    ],
     principles: [
-      { name: 'Hick\'s Law', desc: 'Concept-based search replaces genre browsing \u2014 fewer choices, faster decisions, better matches.' },
-      { name: 'Progressive Disclosure', desc: 'Player reveals advanced controls on demand \u2014 primary listening experience stays clean.' },
-      { name: 'Fitts\'s Law', desc: 'Play/pause button is the largest touch target; secondary controls proportionally smaller.' },
-      { name: 'Gestalt Proximity', desc: 'Book metadata grouped into scannable clusters \u2014 title, author, duration perceived as one unit.' }
+      { name: 'Hick\u2019s Law', desc: 'Concepts beat endless aisles\u2014less browsing, more \u201cthat\u2019s exactly it.\u201d' },
+      { name: 'Progressive disclosure', desc: 'Power features wait backstage so listening never feels like settings hell.' },
+      { name: 'Fitts\u2019s Law', desc: 'Primary actions are big and thumb-friendly; the rest can whisper.' },
+      { name: 'Gestalt proximity', desc: 'If it belongs together visually, people read it as one idea.' }
     ],
     metrics: [
-      { value: '80%', label: 'Reduced Browse Choices' },
-      { value: '2', label: 'Interaction Layers (Progressive)' },
-      { value: 'Dark', label: 'Theme for Low-Light Context' }
+      { value: '80%', label: 'fewer browse choices at entry' },
+      { value: '2', label: 'layers\u2014primary listen vs. advanced' },
+      { value: 'Dark', label: 'UI tuned for low-light listening' }
     ],
-    outcome: 'A streamlined audiobook experience where users discover books through concepts and interests rather than traditional browsing \u2014 reducing decision fatigue and making listening time more personally relevant.'
+    outcome: 'Discovery feels personal again\u2014you name the intent, the app trims the noise, and the player stays out of the way until you need more.'
   },
   jobspot: {
     image: 'img-jobspot.png',
+    number: 6,
     category: 'Mobile App \u00b7 HR Tech',
     title: 'Jobspot App',
     role: 'UI/UX Designer',
     scope: 'UI Design \u00b7 User Flows \u00b7 Visual Design \u00b7 Onboarding Design',
     type: 'Mobile Application',
     methods: ['Form UX Laws', 'Onboarding Patterns', 'Progressive Disclosure', 'Hick\'s Law', 'Illustration-Driven UI'],
-    problem: '<p>Job seekers face overwhelming listings with poor personalisation. Most job apps treat all candidates identically, ignoring the power of detailed profiles to improve matching quality.</p><ul><li>Long registration forms cause abandonment \u2014 every additional field costs conversions (<strong>Form UX Laws</strong>).</li><li>Generic job feeds create <strong>choice overload</strong> (Hick\'s Law) \u2014 users scroll endlessly without finding relevant matches.</li></ul>',
-    process: '<p>Applied <strong>onboarding best practices</strong> \u2014 Time to Value, Progressive Complexity, and Celebration Moments:</p><ul><li>Designed profile creation as a <strong>multi-step progressive flow</strong> rather than a single long form \u2014 each screen asks one question category.</li><li>Applied <strong>10 Laws of Form UX</strong>: single column, labels above inputs, inline validation, smart defaults, autofill support.</li><li>Onboarding uses <strong>illustration-driven guidance</strong> \u2014 custom illustrations at each step reduce anxiety and increase completion.</li><li>Applied <strong>Hick\'s Law</strong> to job results: personalised recommendations shown first, with filters for refinement rather than exploration.</li><li>Designed <strong>celebration moments</strong> (confetti animation on profile completion) \u2014 applying the <strong>Peak-End Rule</strong> to make the onboarding ending memorable.</li></ul>',
+    problem: '<p>Most job apps treat you like a row in a spreadsheet\u2014same feed, same filters, no memory of what you actually care about.</p><p>Long signup walls don\u2019t feel \u201cprofessional\u201d; they feel like punishment. Every extra field is tax on conversion.</p><p>I wanted profiles rich enough to match well, but built in bites people would actually finish.</p>',
+    processSteps: [
+      'I broke profile setup into a progressive flow\u2014one theme per screen, not one endless form.',
+      'Form UX laws for real: single column, labels up top, inline validation, smart defaults, autofill-friendly.',
+      'Custom illustrations at each step to kill the \u201cwhy am I doing this\u201d anxiety.',
+      'Results start with recommendations, not an infinite scroll\u2014Hick\u2019s Law on the job list too.',
+      'Profile completion gets a small celebration\u2014Peak-End so the ending isn\u2019t a sigh of relief alone.'
+    ],
     principles: [
-      { name: 'Form UX Laws', desc: 'Single column, labels above, inline validation, smart defaults \u2014 minimum friction for maximum completion.' },
-      { name: 'Onboarding Triad', desc: 'Time to Value + Progressive Complexity + Celebration Moments drive first-session retention.' },
-      { name: 'Peak-End Rule', desc: 'Profile completion celebration creates a positive ending memory \u2014 increasing likelihood of return.' },
-      { name: 'Hick\'s Law', desc: 'Personalised recommendations replace endless browsing \u2014 fewer, better-matched choices.' }
+      { name: 'Form UX', desc: 'Friction is measurable\u2014I designed for completion, not for \u201cwe might need that field someday.\u201d' },
+      { name: 'Onboarding triad', desc: 'Time to value, progressive complexity, and a moment that says \u201cyou\u2019re in.\u201d' },
+      { name: 'Peak-End Rule', desc: 'People remember the last beat\u2014I made it feel earned, not empty.' },
+      { name: 'Hick\u2019s Law', desc: 'Recommendations first, filters second\u2014browsing is optional, not mandatory.' }
     ],
     metrics: [
-      { value: '1', label: 'Question Per Screen' },
-      { value: '5', label: 'Onboarding Steps' },
-      { value: '\u2713', label: 'Inline Validation' }
+      { value: '1', label: 'question focus per screen' },
+      { value: '5', label: 'onboarding steps' },
+      { value: '\u2713', label: 'inline validation throughout' }
     ],
-    outcome: 'An application where users find their dream job by creating detailed profiles through a low-friction progressive flow \u2014 enabling smarter matching between candidates and opportunities based on real interests and qualifications.'
+    outcome: 'Candidates build a real profile without rage-quitting\u2014and the app can finally match on substance, not just keywords.'
   },
   loadopt: {
     image: 'img-loadopt.png',
+    number: 7,
     category: 'Tablet App \u00b7 AI-Powered \u00b7 Logistics',
     title: 'Load Optimizer',
     role: 'UI/UX Designer',
     scope: 'UI Design \u00b7 Dashboard Design \u00b7 Visual Design',
     type: 'Tablet Application',
     methods: ['Dashboard Design Principles', 'Fitts\'s Law', 'Cognitive Load Theory', 'Error Prevention', 'Data Visualisation'],
-    problem: '<p>Air cargo loading planning is complex and error-prone. Manual planning leads to suboptimal capacity usage and higher fuel consumption.</p><ul><li>Operational users work under time pressure \u2014 every second of decision time matters.</li><li>Data-heavy interfaces create <strong>cognitive overload</strong> in high-stakes environments.</li><li>Errors in load planning have real-world safety and cost consequences \u2014 <strong>error prevention</strong> is critical.</li></ul>',
-    process: '<p>Designed for iPad with a focus on operational environments following <strong>dashboard design principles</strong>:</p><ul><li>Applied <strong>"lead with the metric that matters"</strong> \u2014 cargo capacity percentage is the first and largest element visible.</li><li><strong>Fitts\'s Law</strong> for operational UI: large touch targets, controls placed in ergonomic zones for tablet held in one hand.</li><li>AI-powered algorithms visualised through clear loading diagrams \u2014 making the AI\'s decisions <strong>legible and trustworthy</strong> (AI Copilot UX principle: always show confidence levels).</li><li>Applied <strong>error prevention over recovery</strong> (Nielsen\'s Heuristic #5): system prevents overloading before it happens, not after.</li><li>Data freshness timestamps on all metrics \u2014 users in cargo operations must know they\'re acting on current data.</li><li>Designed <strong>empty states</strong> as guidance moments: "No load plan yet \u2014 start by selecting aircraft type."</li></ul>',
+    problem: '<p>Load planning isn\u2019t a spreadsheet exercise\u2014it\u2019s time-pressured, high-stakes, and when it goes wrong, fuel and safety pay the bill.</p><p>Throw a dense dashboard at an ops person and you don\u2019t get \u201cpower user\u201d\u2014you get mistakes.</p><p>I designed for one-handed iPad use on the floor: the hero metric first, the AI legible, and prevention before apology.</p>',
+    processSteps: [
+      'Cargo capacity leads\u2014big, immediate, impossible to miss.',
+      'Targets and thumbs: large hit areas in ergonomic zones for one-handed tablet work.',
+      'AI output shows as clear load diagrams plus confidence\u2014if you can\u2019t read the decision, you won\u2019t trust it.',
+      'Nielsen #5 for real: block bad states before they happen, not toast after.',
+      'Timestamps on every metric so nobody optimises on stale data.',
+      'Empty states coach: \u201cNo plan yet\u2014pick an aircraft type and we\u2019ll start.\u201d'
+    ],
     principles: [
-      { name: 'Dashboard Principles', desc: 'Lead with the most important metric. Make every number actionable. Show data freshness.' },
-      { name: 'Error Prevention (Nielsen #5)', desc: 'System prevents overloading before it happens \u2014 constraints built into the interface, not just warnings after.' },
-      { name: 'AI Transparency', desc: 'AI decisions made legible with confidence levels and clear explanations \u2014 users trust what they can understand.' },
-      { name: 'Fitts\'s Law', desc: 'Large touch targets for primary actions in ergonomic thumb zones \u2014 designed for one-handed tablet use.' }
+      { name: 'Dashboard craft', desc: 'Lead with what matters, make numbers actionable, show how fresh the data is.' },
+      { name: 'Error prevention', desc: 'Constraints beat warnings when the cost of a mistake is real.' },
+      { name: 'AI transparency', desc: 'Show the why and how confident you are\u2014trust needs legibility.' },
+      { name: 'Fitts\u2019s Law', desc: 'Primary taps are big and placed where hands already are.' }
     ],
     metrics: [
-      { value: 'Max', label: 'Cargo Capacity Target' },
-      { value: 'Min', label: 'Fuel Consumption Goal' },
-      { value: 'Real-time', label: 'Data Freshness' }
+      { value: 'Max', label: 'cargo capacity as the north star' },
+      { value: 'Min', label: 'fuel spend as the paired goal' },
+      { value: 'Real-time', label: 'stamps so data never feels stale' }
     ],
-    outcome: 'An AI-supported load planning tool offering fast, optimum solutions \u2014 maximising cargo capacity while minimising fuel consumption. Dashboard design validated against operational workflow requirements with error prevention built into every interaction.'
+    outcome: 'Ops gets fast, explainable load plans on a tablet that respects pressure and thumbs\u2014capacity up, fuel down, fewer \u201cfix it in post\u201d moments.'
   },
   every: {
     image: 'img-every.png',
+    number: 8,
     category: 'Mobile App \u00b7 Communication \u00b7 Productivity',
     title: 'Every App',
     role: 'UI/UX Designer',
     scope: 'UI Design \u00b7 Interaction Design \u00b7 Visual Design',
     type: 'Mobile Application',
     methods: ['Information Architecture', 'Visual Hierarchy', 'Von Restorff Effect', 'Gestalt Principles', 'Navigation Patterns'],
-    problem: '<p>Group collaboration tools often feel cluttered and overwhelming. Meeting coordination, task tracking, and team communication are scattered across multiple apps.</p><ul><li>Context switching between apps breaks focus \u2014 increasing <strong>cognitive load</strong> and reducing productivity.</li><li>Meeting agendas buried in email threads are forgotten \u2014 no persistent, scannable format.</li><li>Participant awareness is low \u2014 teams don\'t know who\'s responsible for what.</li></ul>',
-    process: '<p>Designed around the principle of <strong>shallow navigation depth</strong> (maximum 2 levels) and clear information architecture:</p><ul><li>Applied <strong>Von Restorff Effect</strong> with colour-coded agenda categories: Design Review (purple), Insights Analysis (red), Retrospective (yellow), User Research (green) \u2014 the differing colours make each item instantly distinguishable.</li><li>Used <strong>Gestalt similarity principle</strong> for participant avatars \u2014 grouped and consistently styled to be perceived as a team unit.</li><li>Applied <strong>visual hierarchy principles</strong>: meeting title largest, date secondary, participant count tertiary \u2014 matching natural <strong>F-pattern scanning</strong>.</li><li>Navigation follows <strong>mobile conventions</strong> (Jakob\'s Law): bottom tab bar, consistent active states, clear "You Are Here" indicators.</li><li>Onboarding uses a clean gradient-based splash screen \u2014 applying the <strong>Peak-End Rule</strong> to create a positive first impression.</li></ul>',
+    problem: '<p>Team coordination shouldn\u2019t live in three apps and a buried email thread\u2014but that\u2019s the default, and it fries focus.</p><p>Agendas evaporate because nothing stays in one scannable place. Ownership gets fuzzy because nobody sees the same picture.</p><p>I wanted one calm surface: shallow nav, obvious hierarchy, colour that actually means something.</p>',
+    processSteps: [
+      'I capped depth at two levels\u2014every extra hop doubles the mental tax.',
+      'Agenda categories get distinct colour (Von Restorff)\u2014purple, red, yellow, lavender lanes you can spot in a blink.',
+      'Avatars share one visual language (Gestalt similarity) so groups read as teams, not random circles.',
+      'Type scale follows the meeting itself: title loud, date clear, headcount tertiary\u2014F-pattern friendly.',
+      'Tabs follow mobile conventions (Jakob\u2019s Law) with obvious active states.',
+      'Splash stays minimal-gradient\u2014Peak-End on first open so day one doesn\u2019t feel cheap.'
+    ],
     principles: [
-      { name: 'Von Restorff Effect', desc: 'Colour-coded agenda items \u2014 each category visually distinct for instant scanning and recognition.' },
-      { name: 'Gestalt Similarity', desc: 'Participant avatars grouped and styled consistently \u2014 perceived as a team unit, not individual elements.' },
-      { name: 'Shallow Navigation', desc: 'Maximum 2 levels deep \u2014 every additional level doubles cognitive cost of navigating.' },
-      { name: 'Jakob\'s Law', desc: 'Bottom tab navigation follows mobile conventions users bring from other apps \u2014 zero learning curve.' }
+      { name: 'Von Restorff', desc: 'Colour carries meaning\u2014scanning an agenda shouldn\u2019t feel like reading grey soup.' },
+      { name: 'Gestalt similarity', desc: 'Repeat the avatar treatment and spacing so \u201cteam\u201d is instant.' },
+      { name: 'Shallow navigation', desc: 'Two levels max\u2014if you need three, the IA is lying to you.' },
+      { name: 'Jakob\u2019s Law', desc: 'Tabs and patterns people already know\u2014novelty wasn\u2019t the brief.' }
     ],
     metrics: [
-      { value: '4', label: 'Colour-Coded Categories' },
-      { value: '\u22642', label: 'Navigation Depth Levels' },
-      { value: '\u2713', label: 'Persistent Agenda View' }
+      { value: '4', label: 'colour-coded agenda lanes' },
+      { value: '\u22642', label: 'levels deep in the IA' },
+      { value: '\u2713', label: 'persistent agenda surface' }
     ],
-    outcome: 'A focused group communication app where teams coordinate meetings, track agenda items, and collaborate \u2014 all within a single clean interface. Colour-coded categories and shallow navigation ensure users find what they need without cognitive overload.'
+    outcome: 'One interface for meetings, agendas, and team context\u2014colour and shallow structure do the heavy lifting so people spend energy on the work, not the tool.'
   }
 };
 </script>
