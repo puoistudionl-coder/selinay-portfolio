@@ -1204,15 +1204,24 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
     padding: 12px 10px 10px;
   }
 
-  /* SaaS DS2 teal card: larger type + dark overlay for contrast on small screens */
+  /* SaaS DS2 teal card: taller strip so content fits; larger type + dark overlay */
   .project-card--featured .project-image.project-image--ds2 {
-    padding: 12px 16px 10px;
+    aspect-ratio: unset;
+    height: auto;
+    min-height: 0;
+    padding: 22px 18px 24px;
+    align-items: center;
+    justify-content: center;
     background:
       linear-gradient(rgba(6, 24, 22, 0.58), rgba(4, 18, 18, 0.52)),
       linear-gradient(145deg, #0d9488 0%, #134e4a 100%);
   }
   .project-card--featured .project-image.project-image--ds2 .ds2-poster-inner {
     gap: 10px;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    flex-shrink: 0;
   }
   .project-card--featured .project-image.project-image--ds2 .ds2-poster-title {
     font-size: 20px;
@@ -1894,22 +1903,6 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
       </div>
     </a>
 
-    <div class="project-card reveal" onclick="openModal('prepress')">
-      <div class="project-image"><img src="img-prepress.png" alt="Prepress AI" loading="lazy"></div>
-      <div class="project-info">
-        <h3 class="project-name">Prepress AI</h3>
-        <div class="project-category">B2B SaaS · Workflow Automation</div>
-      </div>
-    </div>
-
-    <div class="project-card reveal" onclick="openModal('inq')">
-      <div class="project-image"><img src="img-inq.png" alt="Inq Smart Pen App" loading="lazy"></div>
-      <div class="project-info">
-        <h3 class="project-name">Inq Smart Pen App</h3>
-        <div class="project-category">Mobile App · AI-Assisted · Productivity</div>
-      </div>
-    </div>
-
     <a class="project-card project-card--featured reveal" href="design-system-2.html">
       <div class="project-image project-image--ds2" aria-hidden="true">
         <div class="ds2-poster-inner">
@@ -1939,6 +1932,22 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
         <div class="project-category">Design System · Dashboard · Data Visualization</div>
       </div>
     </a>
+
+    <div class="project-card reveal" onclick="openModal('prepress')">
+      <div class="project-image"><img src="img-prepress.png" alt="Prepress AI" loading="lazy"></div>
+      <div class="project-info">
+        <h3 class="project-name">Prepress AI</h3>
+        <div class="project-category">B2B SaaS · Workflow Automation</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onclick="openModal('inq')">
+      <div class="project-image"><img src="img-inq.png" alt="Inq Smart Pen App" loading="lazy"></div>
+      <div class="project-info">
+        <h3 class="project-name">Inq Smart Pen App</h3>
+        <div class="project-category">Mobile App · AI-Assisted · Productivity</div>
+      </div>
+    </div>
 
     <div class="project-card reveal" onclick="openModal('jobspot')">
       <div class="project-image"><img src="img-jobspot.png" alt="Jobspot App" loading="lazy"></div>
