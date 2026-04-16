@@ -1,1 +1,30 @@
-All changes must be fully responsive. No horizontal scroll, no overflow, no cropping at any viewport width. Test at 375px (mobile), 768px (tablet), and 1440px (desktop).
+# Portfolio layout — no horizontal overflow (permanent)
+
+NEVER create horizontal scrollbars on the document. Always use `overflow-x: hidden` on `html` and `body`. Always use `box-sizing: border-box` on `*`, `*::before`, and `*::after`. Always use `100%` (or `max-width: 100%`) instead of `100vw` for full-width layouts so scrollbar gutter does not cause overflow.
+
+All static pages (`index.html`, case studies, `design-system*.html`, `brand-identity.html`, etc.) must be fully usable at **375px**, **768px**, and **1440px** widths: no horizontal overflow on any element, no clipped critical content.
+
+## Required global CSS pattern (every page)
+
+```css
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+```
+
+Keep margin/preset resets compatible with the above (e.g. same selector or separate `*, *::before, *::after { margin: 0; padding: 0; }`).
+
+## Implementation checklist
+
+- **Containers:** `max-width: 100%`, `min-width: 0` on flex/grid children where needed.
+- **Media:** `img`, `svg`, `video`: `max-width: 100%`; `height: auto` unless fixed intentionally inside a bounded box.
+- **Tables:** Wide tables only inside a wrapper with `overflow-x: auto`, `max-width: 100%`, `min-width: 0` (e.g. `.table-scroll`, `.scroll-x`).
+- **Grids:** default to **single column** on small viewports; avoid fixed multi-column min widths that exceed 375px.
+- **Color / token rows:** use `flex-wrap: wrap` or responsive grid so swatches never force page width.
+- **Avoid:** `100vw` on full-bleed sections; negative margins that pull content past the viewport; `white-space: nowrap` on long headings without `max-width` + truncation or wrapping.
+
+No future change should reintroduce a horizontal scrollbar on `html`/`body`.

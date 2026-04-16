@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PUOI Studio — Brand Identity & Guidelines — Selinay İblikci</title>
+  <style>
+html {
+  overflow-x: hidden !important;
+}
+</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #1e1c20;
+      --surface: #27252a;
+      --text: #ede9f2;
+      --text-muted: #8f8a96;
+      --accent: #f0a4bc;
+      --border: #332f38;
+      --border-light: #3d3944;
+      --page-font: "Inter", system-ui, -apple-system, sans-serif;
+      --brand-type: "Syne", system-ui, sans-serif;
+      --puoi-crimson: #c4004b;
+      --puoi-cream: #f5f0e8;
+      --puoi-dark: #1c1917;
+      --puoi-amber: #d4a017;
+      --shadow-md: 0 16px 40px rgba(0,0,0,0.55);
+      --shadow-sm: 0 10px 22px rgba(0,0,0,0.45);
+      --ring: 0 0 0 1px rgba(255,255,255,0.06) inset;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(1000px 600px at 12% -5%, rgba(196, 0, 75, 0.12), transparent 52%),
+        radial-gradient(700px 480px at 95% 8%, rgba(212, 160, 23, 0.06), transparent 48%),
+        linear-gradient(180deg, #242228 0%, #1e1c20 40%, #151319 100%);
+      color: var(--text);
+      font-family: var(--page-font);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding: 32px 24px 64px;
+      min-width: 0;
+    }
+
+    img, svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    main, .case-shell, .case-inner, .case-section-inner, .case-hero-inner {
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    ::selection {
+      background: var(--puoi-crimson);
+      color: var(--puoi-cream);
+    }
+
+    /* —— Nav (match design-system.html) —— */
+    .case-nav {
+      max-width: 1100px;
+      width: 100%;
+      min-width: 0;
+      margin: 0 auto 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--brand-type);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .case-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background: rgba(21, 19, 25, 0.72);
+      transition: all 0.25s ease;
+    }
+
+    .case-back:hover {
+      border-color: rgba(196, 0, 75, 0.55);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .case-nav-label { opacity: 0.7; }
+
+    .case-shell {
+      max-width: 1100px;
+      width: 100%;
+      min-width: 0;
+      margin: 0 auto;
+      border-radius: 28px;
+      border: 1px solid rgba(61, 57, 68, 0.9);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(0, 0, 0, 0.55);
+      overflow: hidden;
+      background: rgba(30, 28, 34, 0.35);
+    }
+
+    .case-inner {
+      padding: 36px 32px 48px;
+      min-width: 0;
+      overflow-x: clip;
+    }
+
+    /* —— Hero —— */
+    .case-hero {
+      padding: 40px 28px 44px;
+      border-radius: 24px;
+      margin-bottom: 20px;
+      background:
+        linear-gradient(135deg, rgba(196, 0, 75, 0.92) 0%, rgba(140, 0, 55, 0.95) 45%, #1c1917 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.08), transparent 42%),
+        repeating-linear-gradient(
+          -12deg,
+          transparent,
+          transparent 48px,
+          rgba(255, 255, 255, 0.03) 48px,
+          rgba(255, 255, 255, 0.03) 49px
+        );
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 28px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy { display: flex; flex-direction: column; gap: 16px; }
+
+    .case-eyebrow {
+      font-family: var(--brand-type);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.85);
+    }
+
+    .case-title {
+      font-family: var(--brand-type);
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #fff;
+      text-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .case-tagline {
+      font-family: var(--page-font);
+      font-size: clamp(1rem, 1.35vw, 1.15rem);
+      font-weight: 400;
+      color: rgba(245, 240, 232, 0.88);
+      max-width: 420px;
+      line-height: 1.55;
+    }
+
+    .hero-logos {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .hero-logo-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 16px 10px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-logo-card--dark { background: var(--puoi-dark); }
+    .hero-logo-card--brand { background: rgba(255, 255, 255, 0.1); }
+    .hero-logo-card--outline { background: var(--puoi-cream); }
+
+    .hero-logo-card img {
+      width: 100%;
+      max-height: 90px;
+      object-fit: contain;
+    }
+
+    .hero-logo-label {
+      font-family: var(--brand-type);
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.7);
+    }
+
+    .hero-logo-card--outline .hero-logo-label {
+      color: rgba(28, 25, 23, 0.5);
+    }
+
+    /* —— Section shell —— */
+    .case-section {
+      margin-bottom: 20px;
+      border-radius: 22px;
+      border: 1px solid rgba(51, 47, 56, 0.9);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .case-section--dark {
+      background: linear-gradient(145deg, rgba(39, 37, 42, 0.98), rgba(20, 18, 24, 0.98));
+      padding: 32px 26px 36px;
+    }
+
+    .case-section--cream {
+      background: var(--puoi-cream);
+      color: var(--puoi-dark);
+      padding: 32px 26px 36px;
+    }
+
+    .case-section--crimson {
+      background: linear-gradient(160deg, #d41455 0%, var(--puoi-crimson) 55%, #8f0038 100%);
+      color: #fff;
+      padding: 32px 26px 36px;
+    }
+
+    .case-section-inner {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .sec-bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .case-section--cream .sec-bar,
+    .case-section--crimson .sec-bar {
+      border-bottom-color: rgba(28, 25, 23, 0.12);
+    }
+
+    .case-section--crimson .sec-bar {
+      border-bottom-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .sec-num {
+      font-family: var(--brand-type);
+      font-weight: 800;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      color: var(--puoi-crimson);
+    }
+
+    .case-section--cream .sec-num { color: var(--puoi-crimson); }
+    .case-section--crimson .sec-num { color: rgba(255, 255, 255, 0.95); }
+
+    .sec-name {
+      font-family: var(--brand-type);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .case-section--cream .sec-name { color: var(--puoi-dark); }
+
+    .sec-right {
+      font-family: var(--brand-type);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    .case-kicker {
+      font-family: var(--brand-type);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .case-section--cream .case-kicker { color: var(--puoi-crimson); }
+    .case-section--crimson .case-kicker { color: rgba(255, 255, 255, 0.9); }
+
+    .case-h2 {
+      font-family: var(--brand-type);
+      font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .case-body {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      max-width: 680px;
+    }
+
+    .case-section--cream .case-body { color: rgba(28, 25, 23, 0.72); }
+    .case-section--crimson .case-body { color: rgba(255, 255, 255, 0.88); }
+
+    /* —— Contents board (Behance-style) —— */
+    .contents-head {
+      font-family: var(--brand-type);
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      opacity: 0.55;
+    }
+
+    .contents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 14px 20px;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .contents-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(28, 25, 23, 0.08);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .contents-item:hover {
+      border-bottom-color: var(--puoi-crimson);
+      color: var(--puoi-crimson);
+    }
+
+    .contents-num {
+      font-family: var(--brand-type);
+      font-weight: 800;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--puoi-crimson);
+    }
+
+    .contents-item:hover .contents-num { color: var(--puoi-dark); }
+
+    .contents-label {
+      font-family: var(--page-font);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* —— Logo idea —— */
+    .logo-idea-stage {
+      margin-top: 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(28, 25, 23, 0.1);
+      background: #fff;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .logo-idea-stage img {
+      width: min(100%, 280px);
+      height: auto;
+    }
+
+    /* —— Variations —— */
+    .var-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .var-cell {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      min-height: 200px;
+    }
+
+    .var-cell__art {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px;
+    }
+
+    .var-cell__art img { width: min(100%, 200px); max-height: 140px; object-fit: contain; }
+
+    .var-cell__foot {
+      font-family: var(--brand-type);
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 10px 12px;
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .var-cell--dark .var-cell__art { background: var(--puoi-dark); }
+    .var-cell--dark .var-cell__foot { background: #111; color: rgba(245, 240, 232, 0.75); }
+
+    .var-cell--crimson .var-cell__art { background: var(--puoi-crimson); }
+    .var-cell--crimson .var-cell__foot { background: #a8003d; color: rgba(255, 255, 255, 0.85); }
+
+    .var-cell--cream .var-cell__art { background: var(--puoi-cream); }
+    .var-cell--cream .var-cell__foot { background: #ebe4d9; color: rgba(28, 25, 23, 0.65); }
+
+    /* —— Construction —— */
+    .construction-wrap {
+      margin-top: 22px;
+      border-radius: 18px;
+      background: var(--puoi-cream);
+      border: 1px solid rgba(28, 25, 23, 0.1);
+      padding: 28px 20px 36px;
+      position: relative;
+      min-height: 320px;
+    }
+
+    .construction-inner {
+      position: relative;
+      width: min(100%, 360px);
+      margin: 0 auto;
+      aspect-ratio: 770 / 811;
+      max-height: 380px;
+    }
+
+    .construction-logo {
+      position: absolute;
+      inset: 12% 10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .construction-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .construction-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent calc(100% / 9 - 0.5px),
+          rgba(196, 0, 75, 0.22) calc(100% / 9),
+          rgba(196, 0, 75, 0.22) calc(100% / 9 + 0.5px)
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent calc(100% / 8 - 0.5px),
+          rgba(28, 25, 23, 0.12) calc(100% / 8),
+          rgba(28, 25, 23, 0.12) calc(100% / 8 + 0.5px)
+        );
+      border: 2px dashed rgba(28, 25, 23, 0.35);
+      border-radius: 8px;
+    }
+
+    .anno {
+      position: absolute;
+      font-family: var(--page-font);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--puoi-crimson);
+      z-index: 3;
+    }
+
+    .anno--top {
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .anno--top::after {
+      content: "";
+      width: 1px;
+      height: 14px;
+      background: var(--puoi-crimson);
+      opacity: 0.6;
+    }
+
+    .anno--left {
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      transform-origin: center center;
+    }
+
+    .anno-line-h {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      height: 0;
+      border-top: 1px dashed rgba(196, 0, 75, 0.55);
+      top: 22%;
+      z-index: 2;
+    }
+
+    .anno-line-v {
+      position: absolute;
+      top: 10%;
+      bottom: 18%;
+      width: 0;
+      border-left: 1px dashed rgba(28, 25, 23, 0.4);
+      left: 33%;
+      z-index: 2;
+    }
+
+    .construction-note {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(28, 25, 23, 0.55);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* —— Minimal size —— */
+    .size-board {
+      margin-top: 22px;
+      background: var(--puoi-cream);
+      border-radius: 18px;
+      border: 1px solid rgba(28, 25, 23, 0.1);
+      padding: 32px 28px 36px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .size-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px 48px;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .size-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .size-item__stage {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid rgba(28, 25, 23, 0.12);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 28px;
+    }
+
+    .size-item--full .size-item__stage {
+      padding: 28px 32px;
+    }
+
+    .size-item--min .size-item__stage {
+      padding: 26px 32px;
+      min-height: 96px;
+      min-width: 140px;
+    }
+
+    .size-item--tiny .size-item__stage {
+      padding: 28px 36px;
+      min-height: 104px;
+      min-width: 148px;
+    }
+
+    .size-item__stage img {
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .size-item__stage img.size-img--200 {
+      height: 200px;
+    }
+
+    .size-item__stage img.size-img--80 {
+      height: 80px;
+    }
+
+    .size-item__stage img.size-img--40 {
+      height: 40px;
+    }
+
+    .size-item__stage img.size-img--32 {
+      height: 32px;
+    }
+
+    .size-labels {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+      max-width: 160px;
+    }
+
+    .size-label-title {
+      font-family: var(--brand-type);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--puoi-dark);
+    }
+
+    .size-label-dim {
+      font-family: var(--page-font);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(28, 25, 23, 0.55);
+      letter-spacing: 0.02em;
+    }
+
+    .size-note {
+      margin-top: 20px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(196, 0, 75, 0.1);
+      border: 1px solid rgba(196, 0, 75, 0.25);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--puoi-crimson);
+    }
+
+    .case-section--dark .size-note {
+      background: rgba(196, 0, 75, 0.15);
+      color: #ffb3c9;
+      border-color: rgba(196, 0, 75, 0.35);
+    }
+
+    /* —— Typography showcase —— */
+    .type-board {
+      margin-top: 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(28, 25, 23, 0.1);
+      background: #fff;
+      padding: 28px 24px 32px;
+      color: var(--puoi-dark);
+    }
+
+    .type-board-name {
+      font-family: var(--brand-type);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .type-board-sub {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(28, 25, 23, 0.45);
+      margin-bottom: 22px;
+    }
+
+    .type-alpha {
+      font-family: var(--brand-type);
+      font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+      line-height: 1.5;
+      word-break: break-all;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .type-weights {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .type-w {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 12px;
+      align-items: baseline;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(28, 25, 23, 0.08);
+    }
+
+    .type-w span:first-child {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(28, 25, 23, 0.45);
+      font-weight: 600;
+    }
+
+    .type-scale-title {
+      font-family: var(--brand-type);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(28, 25, 23, 0.45);
+      margin-bottom: 10px;
+    }
+
+    .type-scale-rows { display: grid; gap: 8px; }
+
+    .type-scale-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .type-scale-row code {
+      font-size: 0.68rem;
+      color: rgba(28, 25, 23, 0.5);
+    }
+
+    /* —— Color palette —— */
+    .swatch-hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    @media (min-width: 720px) {
+      .swatch-hero-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+
+    .swatch-hero {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swatch-hero__color { flex: 1; min-height: 72px; }
+
+    .swatch-hero__meta {
+      padding: 12px 14px;
+      background: #fff;
+      font-size: 0.72rem;
+      line-height: 1.45;
+      color: var(--puoi-dark);
+    }
+
+    .swatch-hero__name {
+      font-family: var(--brand-type);
+      font-size: 0.55rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 4px;
+    }
+
+    .swatch-hero__hex {
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .tint-row-title {
+      font-family: var(--brand-type);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin: 22px 0 10px;
+      opacity: 0.55;
+    }
+
+    .tint-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .tint-cell {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .tint-cell__c { height: 48px; }
+
+    .tint-cell__m {
+      padding: 6px 8px;
+      background: #fff;
+      font-size: 0.62rem;
+      font-weight: 600;
+    }
+
+    .tint-cell__m small {
+      display: block;
+      font-weight: 400;
+      font-size: 0.55rem;
+      opacity: 0.65;
+    }
+
+    /* —— Business card —— */
+    .bc-layout {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .bc-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow-sm);
+      aspect-ratio: 85.6 / 54;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+    }
+
+    .bc-card--front {
+      background: var(--puoi-crimson);
+    }
+
+    .bc-card--front img {
+      width: 42%;
+      max-width: 120px;
+      height: auto;
+    }
+
+    .bc-card--back {
+      background: var(--puoi-cream);
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 16px 18px;
+    }
+
+    .bc-card--back img { width: 18%; max-width: 56px; height: auto; }
+
+    .bc-back-text { margin-top: auto; width: 100%; }
+
+    .bc-name {
+      font-family: var(--brand-type);
+      font-weight: 700;
+      font-size: clamp(0.72rem, 1.8vw, 0.88rem);
+      letter-spacing: 0.04em;
+      color: var(--puoi-dark);
+    }
+
+    .bc-title {
+      font-size: 0.62rem;
+      color: var(--puoi-crimson);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .bc-details {
+      font-size: 0.58rem;
+      color: rgba(28, 25, 23, 0.6);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .bc-specs {
+      margin-top: 18px;
+      font-size: 0.78rem;
+      color: rgba(28, 25, 23, 0.65);
+      line-height: 1.7;
+    }
+
+    .case-section--dark .bc-specs { color: var(--text-muted); }
+
+    .bc-specs dt {
+      font-family: var(--brand-type);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--puoi-crimson);
+      margin-top: 10px;
+    }
+
+    .case-section--dark .bc-specs dt { color: var(--accent); }
+
+    /* —— Social —— */
+    .social-layout {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .social-specs {
+      font-size: 0.8rem;
+      line-height: 1.65;
+      opacity: 0.92;
+    }
+
+    .social-specs strong {
+      display: block;
+      font-family: var(--brand-type);
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 14px;
+      margin-bottom: 4px;
+      opacity: 0.85;
+    }
+
+    .social-mocks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: flex-end;
+    }
+
+    .ig-post {
+      width: min(220px, 100%);
+      aspect-ratio: 1;
+      border-radius: 12px;
+      background: var(--puoi-crimson);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ig-post h4 {
+      font-family: var(--brand-type);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--puoi-cream);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+
+    .ig-post p {
+      font-size: 0.68rem;
+      color: rgba(245, 240, 232, 0.85);
+      line-height: 1.45;
+    }
+
+    .ig-post img { width: 32%; max-width: 72px; height: auto; align-self: flex-start; }
+
+    .ig-story {
+      width: min(160px, 100%);
+      aspect-ratio: 9 / 16;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #1c1917 0%, var(--puoi-crimson) 55%, #8f0038 100%);
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      padding: 24px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ig-story .safe {
+      flex: 1;
+      border: 1px dashed rgba(245, 240, 232, 0.35);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+    }
+
+    .ig-story h4 {
+      font-family: var(--brand-type);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .ig-story img { width: 40%; max-width: 64px; margin: 0 auto; }
+
+    /* —— Brand in use —— */
+    .use-grid {
+      margin-top: 22px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .use-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      background: rgba(12, 11, 16, 0.55);
+    }
+
+    .case-section--cream .use-card {
+      border-color: rgba(28, 25, 23, 0.1);
+      background: #faf8f5;
+    }
+
+    .use-label {
+      font-family: var(--brand-type);
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      opacity: 0.55;
+    }
+
+    .case-section--cream .use-label {
+      border-bottom-color: rgba(28, 25, 23, 0.08);
+      color: rgba(28, 25, 23, 0.55);
+    }
+
+    .use-body { padding: 14px 16px 18px; }
+
+    .mock-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--puoi-cream);
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(28, 25, 23, 0.08);
+    }
+
+    .mock-nav img { height: 26px; width: auto; }
+
+    .mock-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: var(--brand-type);
+      font-size: 0.52rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(28, 25, 23, 0.5);
+    }
+
+    .mock-email {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 12px;
+      align-items: center;
+      max-width: 340px;
+      background: #fff;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(28, 25, 23, 0.08);
+    }
+
+    .mock-email img { height: 40px; width: auto; }
+
+    .letter {
+      aspect-ratio: 210 / 297;
+      max-height: 340px;
+      background: #fff;
+      border: 1px solid rgba(28, 25, 23, 0.12);
+      border-radius: 4px;
+      padding: 14px 16px 0;
+      position: relative;
+      margin: 0 auto;
+      max-width: 240px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .letter img { height: 28px; width: auto; margin-bottom: 12px; }
+
+    .letter-rule {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 18%;
+      height: 4px;
+      background: var(--puoi-crimson);
+    }
+
+    /* —— Results —— */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .result-card {
+      border-radius: 14px;
+      padding: 18px 14px;
+      background:
+        radial-gradient(280px 100px at 20% 0%, rgba(196, 0, 75, 0.2), transparent 65%),
+        linear-gradient(145deg, rgba(30, 28, 36, 0.95), rgba(16, 14, 20, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .result-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent);
+      pointer-events: none;
+    }
+
+    .result-num {
+      font-family: var(--brand-type);
+      font-weight: 800;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .result-text {
+      font-family: var(--page-font);
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: rgba(245, 240, 232, 0.95);
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 900px) {
+      .case-inner { padding: 28px 20px 40px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-logos { max-width: 360px; margin: 0 auto; }
+      .var-grid { grid-template-columns: 1fr; }
+      .bc-layout { grid-template-columns: 1fr; }
+      .social-layout { grid-template-columns: 1fr; }
+      .social-mocks { justify-content: flex-start; }
+      .results-grid { grid-template-columns: 1fr; }
+      .swatch-hero-grid { grid-template-columns: 1fr 1fr; }
+      .size-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+      }
+      .size-board {
+        padding: 28px 18px 32px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 20px 16px 48px; }
+      .swatch-hero-grid { grid-template-columns: 1fr; }
+      .tint-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+  </style>
+</head>
+<body>
+  <header class="case-nav">
+    <a href="index.html" class="case-back">
+      <span>←</span>
+      <span>Back to projects</span>
+    </a>
+    <span class="case-nav-label">Case Study</span>
+  </header>
+
+  <main class="case-shell">
+    <div class="case-inner">
+      <!-- 1. HERO -->
+      <section class="case-hero" id="top">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="case-eyebrow">Brand Identity · Visual Design</div>
+            <h1 class="case-title">PUOI Studio</h1>
+            <p class="case-tagline">Crafting a bold visual identity for an independent design studio</p>
+          </div>
+          <div class="hero-logos" aria-label="PUOI logo variants">
+            <div class="hero-logo-card hero-logo-card--dark">
+              <img src="images/projects/brand-identity/Group_1.svg" alt="PUOI — primary dark" width="200" height="211">
+              <span class="hero-logo-label">Dark</span>
+            </div>
+            <div class="hero-logo-card hero-logo-card--brand">
+              <img src="images/projects/brand-identity/Group_2.svg" alt="PUOI — brand color" width="200" height="211">
+              <span class="hero-logo-label">Brand</span>
+            </div>
+            <div class="hero-logo-card hero-logo-card--outline">
+              <img src="images/projects/brand-identity/logo.svg" alt="PUOI — outline" width="200" height="211">
+              <span class="hero-logo-label">Outline</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. CONTENTS -->
+      <section class="case-section case-section--cream" id="contents">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">00</span><span class="sec-name">PUOI Studio</span></div>
+            <div class="sec-right">// Contents</div>
+          </div>
+          <div class="contents-head">In this guideline</div>
+          <nav class="contents-grid" aria-label="Case study sections">
+            <a class="contents-item" href="#about"><span class="contents-num">01</span><span class="contents-label">About</span></a>
+            <a class="contents-item" href="#logo-idea"><span class="contents-num">02</span><span class="contents-label">Logo idea</span></a>
+            <a class="contents-item" href="#variations"><span class="contents-num">03</span><span class="contents-label">Variations</span></a>
+            <a class="contents-item" href="#construction"><span class="contents-num">04</span><span class="contents-label">Construction</span></a>
+            <a class="contents-item" href="#minimal-size"><span class="contents-num">05</span><span class="contents-label">Minimal size</span></a>
+            <a class="contents-item" href="#typography"><span class="contents-num">06</span><span class="contents-label">Typography</span></a>
+            <a class="contents-item" href="#color"><span class="contents-num">07</span><span class="contents-label">Color palette</span></a>
+            <a class="contents-item" href="#business-card"><span class="contents-num">08</span><span class="contents-label">Business card</span></a>
+            <a class="contents-item" href="#social"><span class="contents-num">09</span><span class="contents-label">Social media</span></a>
+            <a class="contents-item" href="#brand-in-use"><span class="contents-num">10</span><span class="contents-label">Brand in use</span></a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- 3. ABOUT -->
+      <section class="case-section case-section--crimson" id="about">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">01</span><span class="sec-name">About</span></div>
+            <div class="sec-right">// Brand</div>
+          </div>
+          <p class="case-body" style="max-width: 100%;">
+            PUOI Studio is an independent design consultancy specializing in B2B SaaS product design. The brand needed to communicate boldness, precision, and creative confidence — standing out in a market of minimal studio identities.
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. LOGO IDEA -->
+      <section class="case-section case-section--cream" id="logo-idea">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">02</span><span class="sec-name">Logo idea</span></div>
+            <div class="sec-right">// Concept</div>
+          </div>
+          <div class="case-kicker">Logotype</div>
+          <p class="case-body" style="margin-bottom: 8px;">
+            The logotype is built on a custom geometric letterform system with a distinctive crossbar structure that creates visual rhythm and recognition.
+          </p>
+          <div class="logo-idea-stage">
+            <img src="images/projects/brand-identity/logo.svg" alt="PUOI logotype construction" width="400" height="421">
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. VARIATIONS -->
+      <section class="case-section case-section--dark" id="variations">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">03</span><span class="sec-name">Variations</span></div>
+            <div class="sec-right">// Lockups</div>
+          </div>
+          <div class="var-grid">
+            <div class="var-cell var-cell--dark">
+              <div class="var-cell__art">
+                <img src="images/projects/brand-identity/Group_1.svg" alt="" width="200" height="211" />
+              </div>
+              <div class="var-cell__foot">Primary / Dark</div>
+            </div>
+            <div class="var-cell var-cell--crimson">
+              <div class="var-cell__art">
+                <img src="images/projects/brand-identity/Group_2.svg" alt="" width="200" height="211" />
+              </div>
+              <div class="var-cell__foot">Brand / Color</div>
+            </div>
+            <div class="var-cell var-cell--cream">
+              <div class="var-cell__art">
+                <img src="images/projects/brand-identity/logo.svg" alt="" width="200" height="211" />
+              </div>
+              <div class="var-cell__foot">Outline / Light</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. CONSTRUCTION -->
+      <section class="case-section case-section--cream" id="construction">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">04</span><span class="sec-name">Construction</span></div>
+            <div class="sec-right">// Grid</div>
+          </div>
+          <div class="construction-wrap">
+            <div class="construction-inner">
+              <span class="anno anno--top">X</span>
+              <span class="anno anno--left">2X</span>
+              <div class="construction-logo">
+                <img src="images/projects/brand-identity/logo.svg" alt="" width="770" height="811" />
+              </div>
+              <div class="construction-grid" aria-hidden="true"></div>
+              <div class="anno-line-h" aria-hidden="true"></div>
+              <div class="anno-line-v" aria-hidden="true"></div>
+            </div>
+            <p class="construction-note">
+              Proportional grid (8 × 9) and dashed safe frame align the mark for digital and print reproduction. Key horizontal aligns to the crossbar rhythm; verticals follow letterform stems.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. MINIMAL SIZE -->
+      <section class="case-section case-section--dark" id="minimal-size">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">05</span><span class="sec-name">Minimal size</span></div>
+            <div class="sec-right">// Legibility</div>
+          </div>
+          <div class="size-board">
+            <div class="size-row">
+              <div class="size-item size-item--full">
+                <div class="size-item__stage">
+                  <img class="size-img--200" src="images/projects/brand-identity/logo.svg" alt="PUOI logotype at 200px height" width="190" height="200" />
+                </div>
+                <div class="size-labels">
+                  <span class="size-label-title">Full</span>
+                  <span class="size-label-dim">200px height</span>
+                </div>
+              </div>
+              <div class="size-item">
+                <div class="size-item__stage">
+                  <img class="size-img--80" src="images/projects/brand-identity/logo.svg" alt="PUOI logotype at 80px height" width="76" height="80" />
+                </div>
+                <div class="size-labels">
+                  <span class="size-label-title">Medium</span>
+                  <span class="size-label-dim">80px height</span>
+                </div>
+              </div>
+              <div class="size-item size-item--tiny">
+                <div class="size-item__stage">
+                  <img class="size-img--40" src="images/projects/brand-identity/logo.svg" alt="PUOI logotype at 40px height" width="38" height="40" />
+                </div>
+                <div class="size-labels">
+                  <span class="size-label-title">Small</span>
+                  <span class="size-label-dim">40px height</span>
+                </div>
+              </div>
+              <div class="size-item size-item--min">
+                <div class="size-item__stage">
+                  <img class="size-img--32" src="images/projects/brand-identity/logo.svg" alt="PUOI logotype at 32px minimum height" width="30" height="32" />
+                </div>
+                <div class="size-labels">
+                  <span class="size-label-title">Minimum</span>
+                  <span class="size-label-dim">32px height</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="size-note">Minimum reproduction size: 32px height</p>
+        </div>
+      </section>
+
+      <!-- 8. TYPOGRAPHY -->
+      <section class="case-section case-section--cream" id="typography">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">06</span><span class="sec-name">Typography</span></div>
+            <div class="sec-right">// Syne</div>
+          </div>
+          <div class="type-board">
+            <div class="type-board-name">Syne</div>
+            <div class="type-board-sub">Primary brand typeface · UI &amp; campaign headlines</div>
+            <p class="type-alpha" style="font-weight: 800;">
+              ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+              abcdefghijklmnopqrstuvwxyz<br />
+              0123456789
+            </p>
+            <div class="type-weights">
+              <div class="type-w"><span>Bold</span><span style="font-family: var(--brand-type); font-weight: 800;">The quick brown fox jumps over the lazy dog</span></div>
+              <div class="type-w"><span>Semi Bold</span><span style="font-family: var(--brand-type); font-weight: 600;">The quick brown fox jumps over the lazy dog</span></div>
+              <div class="type-w"><span>Regular</span><span style="font-family: var(--brand-type); font-weight: 400;">The quick brown fox jumps over the lazy dog</span></div>
+              <div class="type-w"><span>Light</span><span style="font-family: var(--brand-type); font-weight: 300;">The quick brown fox jumps over the lazy dog</span></div>
+            </div>
+            <div class="type-scale-title">Type scale — brand materials</div>
+            <div class="type-scale-rows">
+              <div class="type-scale-row"><code>Display</code><span style="font-family: var(--brand-type); font-weight: 800; font-size: 2rem;">PUOI Studio</span></div>
+              <div class="type-scale-row"><code>H1 · 32px</code><span style="font-family: var(--brand-type); font-weight: 800; font-size: 1.5rem;">Section title</span></div>
+              <div class="type-scale-row"><code>H2 · 24px</code><span style="font-family: var(--brand-type); font-weight: 700; font-size: 1.25rem;">Subsection</span></div>
+              <div class="type-scale-row"><code>Body · 16px</code><span style="font-family: var(--page-font); font-size: 1rem;">Supporting copy for guidelines and decks.</span></div>
+              <div class="type-scale-row"><code>Caption · 12px</code><span style="font-family: var(--page-font); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(28,25,23,0.55);">Metadata · v2.0</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. COLOR -->
+      <section class="case-section case-section--cream" id="color">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">07</span><span class="sec-name">Color palette</span></div>
+            <div class="sec-right">// Values</div>
+          </div>
+          <div class="swatch-hero-grid">
+            <div class="swatch-hero">
+              <div class="swatch-hero__color" style="background: #c4004b;"></div>
+              <div class="swatch-hero__meta">
+                <div class="swatch-hero__name">Primary crimson</div>
+                <div class="swatch-hero__hex">#C4004B</div>
+                <div>RGB 196 / 0 / 75<br />CMYK 0 / 100 / 62 / 23</div>
+              </div>
+            </div>
+            <div class="swatch-hero">
+              <div class="swatch-hero__color" style="background: #f5f0e8;"></div>
+              <div class="swatch-hero__meta">
+                <div class="swatch-hero__name">Cream</div>
+                <div class="swatch-hero__hex">#F5F0E8</div>
+                <div>RGB 245 / 240 / 232<br />CMYK 0 / 2 / 5 / 4</div>
+              </div>
+            </div>
+            <div class="swatch-hero">
+              <div class="swatch-hero__color" style="background: #1c1917;"></div>
+              <div class="swatch-hero__meta">
+                <div class="swatch-hero__name">Dark</div>
+                <div class="swatch-hero__hex">#1C1917</div>
+                <div>RGB 28 / 25 / 23<br />CMYK 0 / 11 / 18 / 89</div>
+              </div>
+            </div>
+            <div class="swatch-hero">
+              <div class="swatch-hero__color" style="background: #d4a017;"></div>
+              <div class="swatch-hero__meta">
+                <div class="swatch-hero__name">Amber gold</div>
+                <div class="swatch-hero__hex">#D4A017</div>
+                <div>RGB 212 / 160 / 23<br />CMYK 0 / 25 / 89 / 17</div>
+              </div>
+            </div>
+          </div>
+          <div class="tint-row-title">Crimson tints · 10% — 100%</div>
+          <div class="tint-strip">
+            <div class="tint-cell">
+              <div class="tint-cell__c" style="background: color-mix(in srgb, #c4004b 10%, white);"></div>
+              <div class="tint-cell__m">10%<small>Lightest</small></div>
+            </div>
+            <div class="tint-cell">
+              <div class="tint-cell__c" style="background: color-mix(in srgb, #c4004b 25%, white);"></div>
+              <div class="tint-cell__m">25%</div>
+            </div>
+            <div class="tint-cell">
+              <div class="tint-cell__c" style="background: color-mix(in srgb, #c4004b 50%, white);"></div>
+              <div class="tint-cell__m">50%</div>
+            </div>
+            <div class="tint-cell">
+              <div class="tint-cell__c" style="background: color-mix(in srgb, #c4004b 75%, white);"></div>
+              <div class="tint-cell__m">75%</div>
+            </div>
+            <div class="tint-cell">
+              <div class="tint-cell__c" style="background: #c4004b;"></div>
+              <div class="tint-cell__m">100%<small>Primary</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. BUSINESS CARD -->
+      <section class="case-section case-section--dark" id="business-card">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">08</span><span class="sec-name">Business card</span></div>
+            <div class="sec-right">// 85.6 × 54mm</div>
+          </div>
+          <div class="bc-layout">
+            <div class="bc-card bc-card--front">
+              <img src="images/projects/brand-identity/Group_2.svg" alt="PUOI" width="200" height="211" />
+            </div>
+            <div class="bc-card bc-card--back">
+              <img src="images/projects/brand-identity/logo.svg" alt="PUOI" width="120" height="126" />
+              <div class="bc-back-text">
+                <div class="bc-name">Selinay Iblikci</div>
+                <div class="bc-title">Founder &amp; Designer</div>
+                <div class="bc-details">hello@puoistudio.com<br />+1 (555) 010-2030<br />puoistudio.com</div>
+              </div>
+            </div>
+          </div>
+          <dl class="bc-specs">
+            <dt>Card size</dt>
+            <dd>85.6 × 54 mm (ISO 7810 ID-1 proportions)</dd>
+            <dt>Name</dt>
+            <dd>Syne · Semi Bold · 9pt (print) / clamp on screen</dd>
+            <dt>Title</dt>
+            <dd>Inter · Medium · 7.5pt</dd>
+            <dt>Details</dt>
+            <dd>Inter · Regular · 6.5pt · optical kerning</dd>
+          </dl>
+        </div>
+      </section>
+
+      <!-- 11. SOCIAL -->
+      <section class="case-section case-section--crimson" id="social">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">09</span><span class="sec-name">Social media</span></div>
+            <div class="sec-right">// Instagram</div>
+          </div>
+          <div class="social-layout">
+            <div class="social-specs">
+              <strong>Story headline</strong>
+              Syne · Bold · optical kerning · ~28–32px equivalent on 1080×1920 canvas
+              <strong>Post headline</strong>
+              Syne · Bold · ~22–26px on 1080×1080 canvas
+              <strong>Post body</strong>
+              Inter · Regular · 14–15px · line-height 1.45
+              <strong>Brandmark</strong>
+              Minimum clear space respected; mark width ~18–22% of post width
+            </div>
+            <div class="social-mocks">
+              <div class="ig-post">
+                <img src="images/projects/brand-identity/Group_2.svg" alt="" width="120" height="126" />
+                <h4>New work</h4>
+                <p>B2B SaaS product design — from discovery to scalable UI systems.</p>
+              </div>
+              <div class="ig-story">
+                <img src="images/projects/brand-identity/Group_2.svg" alt="" width="100" height="105" />
+                <div class="safe">
+                  <h4>Story headline area</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. BRAND IN USE -->
+      <section class="case-section case-section--cream" id="brand-in-use">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">10</span><span class="sec-name">Brand in use</span></div>
+            <div class="sec-right">// Applications</div>
+          </div>
+          <div class="use-grid">
+            <div class="use-card">
+              <div class="use-label">Website header</div>
+              <div class="use-body">
+                <div class="mock-nav">
+                  <img src="images/projects/brand-identity/logo.svg" alt="PUOI" width="120" height="126" />
+                  <div class="mock-nav-links">
+                    <span>Work</span><span>Services</span><span>About</span><span>Contact</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="use-card">
+              <div class="use-label">Email signature</div>
+              <div class="use-body">
+                <div class="mock-email">
+                  <img src="images/projects/brand-identity/logo.svg" alt="" width="80" height="84" />
+                  <div>
+                    <div class="bc-name">Selinay Iblikci</div>
+                    <div class="bc-title">Founder &amp; Designer · PUOI Studio</div>
+                    <div class="bc-details">hello@puoistudio.com</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="use-card">
+              <div class="use-label">Letterhead</div>
+              <div class="use-body">
+                <div class="letter">
+                  <img src="images/projects/brand-identity/logo.svg" alt="PUOI" width="120" height="126" />
+                  <div class="letter-rule" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13. RESULTS -->
+      <section class="case-section case-section--dark" id="results">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">11</span><span class="sec-name">Results</span></div>
+            <div class="sec-right">// Outcomes</div>
+          </div>
+          <div class="results-grid">
+            <article class="result-card">
+              <div class="result-num">01</div>
+              <p class="result-text">Cohesive brand identity across all touchpoints</p>
+            </article>
+            <article class="result-card">
+              <div class="result-num">02</div>
+              <p class="result-text">Professional studio presence for client acquisition</p>
+            </article>
+            <article class="result-card">
+              <div class="result-num">03</div>
+              <p class="result-text">Scalable system for future brand extensions</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
