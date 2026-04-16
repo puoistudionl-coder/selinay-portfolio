@@ -56,6 +56,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
@@ -68,6 +69,29 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       padding: 32px 24px 64px;
+      overflow-x: hidden;
+    }
+
+    img,
+    svg,
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    main,
+    .case-shell,
+    .case-inner,
+    .case-section-inner,
+    .case-hero-inner {
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
     }
 
     a {
@@ -83,6 +107,8 @@
     /* ===== SIMPLE TOP BAR ===== */
     .case-nav {
       max-width: 1100px;
+      width: 100%;
+      min-width: 0;
       margin: 0 auto 32px;
       display: flex;
       align-items: center;
@@ -119,6 +145,8 @@
     /* ===== LAYOUT WRAPPER ===== */
     .case-shell {
       max-width: 1100px;
+      width: 100%;
+      min-width: 0;
       margin: 0 auto;
       background: radial-gradient(circle at top left, rgba(184, 169, 232, 0.05), transparent 55%);
       border-radius: 28px;
@@ -155,6 +183,587 @@
     .case-section-inner {
       position: relative;
       z-index: 1;
+    }
+
+    /* ===== SECTION NUMBERING (EDITORIAL) ===== */
+    .sec-bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sec-left {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .sec-num {
+      font-family: var(--heading-font);
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(124,92,252,0.95);
+    }
+
+    .sec-name {
+      font-family: var(--heading-font);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.78);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sec-right {
+      font-family: var(--heading-font);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.45);
+      white-space: nowrap;
+    }
+
+    /* ===== FOUNDATION PAGES (NEW) ===== */
+    .doc-surface {
+      margin-top: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(520px 220px at 20% 0%, rgba(124,92,252,0.18), transparent 60%),
+        linear-gradient(145deg, rgba(18,16,24,0.78), rgba(10,9,13,0.84));
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .doc-inner {
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .doc-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(12,11,16,0.62);
+      box-shadow: var(--ring);
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    .doc-card-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .doc-card-title h4 {
+      font-family: var(--display-font);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: rgba(237,233,242,0.92);
+    }
+
+    .doc-card-title span {
+      font-family: var(--heading-font);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.58);
+    }
+
+    /* Color system: grouped palettes + token cards */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 12px;
+    }
+
+    .palette-group {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .pg-title {
+      font-family: var(--heading-font);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.62);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .pg-swatches {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .pg-swatch {
+      display: grid;
+      gap: 6px;
+      justify-items: center;
+    }
+
+    .pg-box {
+      width: 100%;
+      height: 30px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.6);
+      box-shadow: var(--ring);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pg-box::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0));
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .pg-label {
+      font-family: var(--heading-font);
+      font-size: 0.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.55);
+      white-space: nowrap;
+      transform: rotate(-38deg);
+      transform-origin: 0 0;
+      height: 18px;
+      line-height: 1;
+    }
+
+    .mini-groups {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .mini-group {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .mini-group .pg-swatches {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .token-cards {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .token-card {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .token-swatch {
+      width: 44px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.6);
+      box-shadow: var(--ring);
+    }
+
+    .token-meta {
+      display: grid;
+      gap: 4px;
+    }
+
+    .token-name {
+      font-family: var(--heading-font);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.82);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .token-desc {
+      font-size: 0.76rem;
+      color: rgba(237,233,242,0.58);
+      line-height: 1.5;
+    }
+
+    /* Typography page: font name + scale + variable panel */
+    .type-board {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 12px;
+    }
+
+    .font-name {
+      font-family: var(--heading-font);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .type-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+    }
+
+    .type-table th, .type-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .type-table th {
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.55);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .type-table td.sample {
+      color: rgba(237,233,242,0.92);
+      letter-spacing: -0.02em;
+    }
+
+    .var-panel {
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+      overflow: hidden;
+    }
+
+    .var-head {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.55);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .var-rows {
+      padding: 10px 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .var-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: baseline;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .var-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .var-key {
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.62);
+    }
+
+    .var-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.74rem;
+      color: rgba(237,233,242,0.85);
+    }
+
+    /* Spacing system: token bars + UI example */
+    .spacing-board {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .space-token-row {
+      display: grid;
+      grid-template-columns: 140px minmax(0, 1fr) 72px;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+    }
+
+    .space-token-name {
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.62);
+      white-space: nowrap;
+    }
+
+    .space-token-bar {
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      overflow: hidden;
+    }
+
+    .space-token-bar > span {
+      display: block;
+      height: 100%;
+      width: var(--w);
+      background: linear-gradient(90deg, rgba(124,92,252,0.9), rgba(184,169,232,0.5));
+    }
+
+    .space-token-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.74rem;
+      color: rgba(237,233,242,0.75);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .spacing-example {
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .member-row {
+      display: grid;
+      grid-template-columns: 36px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(124,92,252,0.35), rgba(184,169,232,0.18));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .member-name {
+      font-family: var(--heading-font);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .member-sub {
+      font-size: 0.74rem;
+      color: rgba(237,233,242,0.62);
+      margin-top: 2px;
+    }
+
+    /* Grid & breakpoints */
+    .breakpoints {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bp {
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .bp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.55);
+    }
+
+    .cols {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+    }
+
+    .col {
+      height: 54px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(124,92,252,0.12), rgba(124,92,252,0.03));
+    }
+
+    /* Corner radius */
+    .radius-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .radius-box {
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .radius-demo {
+      height: 64px;
+      background: linear-gradient(135deg, rgba(124,92,252,0.20), rgba(184,169,232,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r);
+    }
+
+    .radius-label {
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.58);
+    }
+
+    /* Elevation */
+    .elevation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .elev {
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+      box-shadow: var(--ring);
+    }
+
+    .elev .card {
+      height: 84px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      box-shadow: var(--sh);
+    }
+
+    .elev-label {
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.58);
+    }
+
+    /* Icon set */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .icon-cell {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: rgba(237,233,242,0.80);
+    }
+
+    .icon-cell svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.92;
+    }
+
+    .method-tag {
+      font-family: var(--heading-font);
+      font-size: 0.56rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(124,92,252,0.12);
+      color: rgba(221,207,253,0.95);
+      box-shadow: var(--ring);
+      white-space: nowrap;
     }
 
     .case-kicker {
@@ -243,13 +852,34 @@
 
     .case-title {
       font-family: var(--heading-font);
-      font-size: clamp(2.6rem, 4vw, 3.4rem);
+      font-size: clamp(2.2rem, 3.4vw, 3.2rem);
       font-weight: 800;
       letter-spacing: -0.04em;
       text-transform: uppercase;
-      line-height: 0.95;
+      line-height: 1.02;
       text-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
       margin-bottom: 8px;
+    }
+
+    .case-eyebrow {
+      font-family: var(--heading-font);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.62);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .case-eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(124,92,252,0), rgba(124,92,252,0.7));
+      opacity: 0.9;
     }
 
     .case-tagline {
@@ -537,31 +1167,6 @@
     .mini-badge.neutral {
       background: rgba(255,255,255,0.04);
       border-color: rgba(255,255,255,0.08);
-    }
-
-    .poster-caption {
-      margin-top: 14px;
-      font-family: var(--heading-font);
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(237,233,242,0.62);
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: flex-end;
-      position: relative;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .poster-caption::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--p-300), var(--p-600));
-      box-shadow: 0 0 0 6px rgba(124, 92, 252, 0.12);
     }
 
     /* ===== OVERVIEW ===== */
@@ -990,6 +1595,8 @@
         linear-gradient(145deg, rgba(18,16,24,0.78), rgba(10,9,13,0.84));
       box-shadow: var(--shadow-md);
       overflow: hidden;
+      min-width: 0;
+      max-width: 100%;
     }
 
     .token-tabs {
@@ -1016,6 +1623,8 @@
       padding: 14px;
       display: grid;
       gap: 12px;
+      min-width: 0;
+      max-width: 100%;
     }
 
     .token-section {
@@ -1080,10 +1689,11 @@
       margin-top: 6px;
       font-family: var(--heading-font);
       font-size: 0.6rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: rgba(237,233,242,0.6);
       text-align: center;
+      white-space: nowrap;
     }
 
     .swatch-wrap {
@@ -1393,6 +2003,121 @@
       box-shadow: var(--ring);
     }
 
+    /* Component docs: matrix + properties panel */
+    .comp-split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .prop-panel {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,9,13,0.55);
+      box-shadow: var(--ring);
+      overflow: hidden;
+    }
+
+    .prop-head {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.62);
+    }
+
+    .prop-rows {
+      padding: 10px 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .prop-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: baseline;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .prop-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .prop-key {
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.62);
+    }
+
+    .prop-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.74rem;
+      color: rgba(237,233,242,0.85);
+      white-space: nowrap;
+    }
+
+    .map {
+      margin-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 10px 12px 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .map-title {
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.55);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .map-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .map-item {
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.03);
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .map-item .lhs {
+      font-family: var(--heading-font);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.62);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .map-item .rhs {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.74rem;
+      color: rgba(221,207,253,0.95);
+      white-space: nowrap;
+    }
+
     .field-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1547,9 +2272,8 @@
     .handoff-layout {
       margin-top: 22px;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-      gap: 22px;
-      align-items: stretch;
+      grid-template-columns: 1fr;
+      gap: 18px;
     }
 
     .handoff-canvas {
@@ -1579,150 +2303,93 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       position: relative;
-      margin: 34px auto 44px;
+      margin: 0;
       box-shadow:
         0 22px 44px rgba(124,92,252,0.22),
         0 0 0 1px rgba(0, 0, 0, 0.7);
     }
 
-    .spec-line {
-      position: absolute;
-      border-top: 1px dashed rgba(255, 107, 107, 0.92);
+    .spec-card {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+      gap: 16px;
+      align-items: center;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10, 9, 13, 0.52);
+      box-shadow: var(--ring);
+    }
+
+    .spec-left {
+      display: grid;
+      place-items: center;
+      padding: 18px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(15, 14, 19, 0.62);
+      box-shadow: var(--ring);
+    }
+
+    .spec-right {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(15, 14, 19, 0.62);
+      box-shadow: var(--ring);
+      overflow: hidden;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .spec-right .table-scroll {
+      border-radius: 12px;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      vertical-align: top;
+    }
+
+    .spec-table thead th {
+      font-family: var(--heading-font);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(237,233,242,0.62);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .spec-table tbody tr:last-child td {
       border-bottom: none;
     }
 
-    .spec-line::before {
-      content: "";
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 107, 107, 0.95);
-      top: -4px;
-      right: -4px;
-    }
-
-    .spec-label {
-      position: absolute;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(10, 9, 13, 0.88);
-      border: 1px solid rgba(255, 107, 107, 0.35);
-      font-size: 0.62rem;
+    .spec-prop {
       font-family: var(--heading-font);
+      font-size: 0.62rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255, 215, 215, 0.95);
-      white-space: nowrap;
+      color: rgba(237,233,242,0.58);
+      width: 44%;
     }
 
-    .spec-line--py {
-      left: 50%;
-      transform: translateX(-50%);
-      top: 34px;
-      width: 160px;
+    .spec-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.82rem;
+      color: rgba(237,233,242,0.92);
     }
 
-    .spec-label--py {
-      top: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .spec-line--px {
-      left: 18px;
-      top: 58%;
-      width: 160px;
-      transform: rotate(-6deg);
-      transform-origin: left center;
-    }
-
-    .spec-label--px {
-      left: 18px;
-      top: 64%;
-    }
-
-    .spec-line--radius {
-      right: 26%;
-      bottom: 52px;
-      width: 120px;
-      transform: rotate(10deg);
-      transform-origin: left center;
-    }
-
-    .spec-label--radius {
-      right: 12px;
-      bottom: 10px;
-    }
-
-    .spec-line--font {
-      right: 18px;
-      top: 34%;
-      width: 160px;
-    }
-
-    .spec-label--font {
-      right: 18px;
-      top: 40%;
-    }
-
-    .spec-line--bg {
-      left: 24%;
-      bottom: 10px;
-      width: 230px;
-    }
-
-    .spec-label--bg {
-      left: 28%;
-      bottom: -2px;
-    }
-
-    .spec-line--text {
-      left: 64%;
-      top: 64%;
-      width: 160px;
-      transform: rotate(7deg);
-      transform-origin: left center;
-    }
-
-    .spec-label--text {
-      left: 62%;
-      top: 66%;
-    }
-
-    .inspect-panel {
-      border-radius: 16px;
-      background: rgba(10, 9, 13, 0.82);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--ring), var(--shadow-sm);
-      padding: 14px 14px 14px;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      display: grid;
-      row-gap: 8px;
-    }
-
-    .inspect-row {
-      display: grid;
-      grid-template-columns: 120px minmax(0, 1fr);
-      gap: 8px;
-    }
-
-    .inspect-label {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-family: var(--heading-font);
-      font-size: 0.65rem;
-    }
-
-    .inspect-value {
-      color: var(--text);
-    }
-
-    .inspect-token {
-      font-family: var(--heading-font);
-      color: var(--accent);
-      font-size: 0.74rem;
+    @media (max-width: 900px) {
+      .spec-card {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ===== RESULTS ===== */
@@ -1811,6 +2478,178 @@
     }
 
     /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      body {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .case-inner {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-poster {
+        min-height: 0;
+        padding: 14px;
+        max-width: 100%;
+      }
+
+      .poster-stage {
+        position: relative;
+        inset: auto;
+        transform: none;
+        margin: 0 auto 8px;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .poster-grid {
+        width: 100%;
+        max-width: 100%;
+        gap: 10px;
+        transform: none;
+      }
+
+      .challenge-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .challenge-panel + .challenge-panel {
+        border-left: none;
+        border-top: 1px solid rgba(61,57,68,0.95);
+      }
+
+      .split-line {
+        display: none;
+      }
+
+      .metric-strip {
+        grid-template-columns: 1fr;
+      }
+
+      /* Token showcase: two compact rows, labels can wrap */
+      .swatch-row {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .swatch-label {
+        white-space: normal;
+        word-break: break-word;
+        font-size: 0.52rem;
+        letter-spacing: 0.1em;
+        line-height: 1.2;
+      }
+
+      .semantic-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .type-scale-rows .type-sample {
+        display: none !important;
+      }
+
+      .type-line {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 8px;
+        align-items: center;
+      }
+
+      .type-table th:nth-child(3),
+      .type-table td:nth-child(3) {
+        display: none;
+      }
+
+      .type-board .var-panel {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .space-row {
+        grid-template-columns: 50px minmax(0, 1fr);
+      }
+
+      /* Component catalog: stack groups cleanly */
+      .btn-matrix {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-matrix > .matrix-col-title {
+        display: none;
+      }
+
+      .btn-matrix > .matrix-label {
+        margin-top: 10px;
+      }
+
+      .field-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      /* New editorial foundation layouts */
+      .palette-grid,
+      .type-board,
+      .spacing-board {
+        grid-template-columns: 1fr;
+      }
+
+      .token-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .pg-swatches {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      /* Color palette: hide per-swatch token names; keep group titles (Primary, Grey, Danger, …) */
+      #color-system .palette-grid .pg-swatch .pg-label,
+      #color-system .mini-groups .pg-swatch .pg-label {
+        display: none !important;
+      }
+
+      #color-system .pg-title > span:nth-child(2) {
+        display: none;
+      }
+
+      .pg-label {
+        transform: none;
+        height: auto;
+        text-align: center;
+        letter-spacing: 0.16em;
+      }
+
+      .mini-groups {
+        grid-template-columns: 1fr;
+      }
+
+      .radius-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .elevation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .icon-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .comp-split {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 900px) {
       .case-inner {
         padding: 28px 20px 36px;
@@ -1831,16 +2670,23 @@
       }
 
       .hero-poster {
-        min-height: 400px;
+        min-height: 0;
+        max-width: 100%;
+        padding: 16px;
       }
 
       .poster-stage {
-        inset: 14px 14px 62px;
-        transform: perspective(900px) rotateX(9deg) rotateY(-14deg) rotateZ(2deg);
+        position: relative;
+        inset: auto;
+        transform: none;
+        margin: 0 auto 8px;
+        width: 100%;
+        max-width: 100%;
       }
 
       .poster-grid {
-        width: min(560px, 100%);
+        width: 100%;
+        max-width: 100%;
       }
     }
 
@@ -1866,6 +2712,10 @@
         padding: 24px 16px 26px;
       }
 
+      .case-inner {
+        padding: 22px 16px 32px;
+      }
+
       .metric-strip {
         grid-template-columns: 1fr;
       }
@@ -1875,18 +2725,24 @@
       }
 
       .hero-poster {
-        padding: 16px;
-        min-height: 420px;
+        padding: 14px;
+        min-height: 0;
+        max-width: 100%;
       }
 
       .poster-stage {
-        inset: 12px 12px 72px;
-        transform: perspective(900px) rotateX(6deg) rotateY(-10deg) rotateZ(1deg);
+        position: relative;
+        inset: auto;
+        transform: none;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
       }
 
       .poster-grid {
         width: 100%;
-        gap: 12px;
+        max-width: 100%;
+        gap: 10px;
       }
 
       .mini-label {
@@ -1904,6 +2760,45 @@
 
       .mini-sub {
         font-size: 0.7rem;
+      }
+
+      .swatch-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pg-label {
+        font-size: 0.48rem;
+        letter-spacing: 0.14em;
+      }
+
+      .swatch-label {
+        font-size: 0.56rem;
+        letter-spacing: 0.14em;
+      }
+
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .radius-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .icon-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .space-token-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .space-token-val {
+        text-align: left;
       }
     }
   </style>
@@ -1927,7 +2822,8 @@
               <span class="case-tag-pill">Design System · B2B SaaS · Enterprise</span>
             </div>
             <div>
-              <h1 class="case-title">Cross-Platform Enterprise Design System</h1>
+              <div class="case-eyebrow">Cross-Platform Enterprise</div>
+              <h1 class="case-title">Design System</h1>
               <p class="case-tagline">
                 Unifying the design language across web, mobile, and desktop for a B2B SaaS product suite
               </p>
@@ -1960,9 +2856,6 @@
                     <div class="ds-btn secondary">Secondary</div>
                     <div class="ds-btn ghost">Ghost</div>
                   </div>
-                  <div class="poster-btn-row">
-                    <div class="ds-btn secondary" style="flex:1;">Token-driven states</div>
-                  </div>
                 </div>
 
                 <div class="glass-card poster-inputs">
@@ -1984,7 +2877,6 @@
               <span class="mini-badge neutral">Scalable</span>
               <span class="mini-badge accent">Cross-platform</span>
             </div>
-            <div class="poster-caption">Systematic · Premium · Cohesive</div>
           </div>
         </div>
       </section>
@@ -1992,6 +2884,10 @@
       <!-- OVERVIEW -->
       <section class="case-section" id="overview">
         <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">01</span><span class="sec-name">Design System</span></div>
+            <div class="sec-right">// Overview</div>
+          </div>
           <div class="case-kicker">Overview</div>
           <div class="overview-grid">
             <div class="overview-meta">
@@ -2025,6 +2921,10 @@
       <!-- THE CHALLENGE -->
       <section class="case-section" id="challenge">
         <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">02</span><span class="sec-name">Design System</span></div>
+            <div class="sec-right">// Before / After</div>
+          </div>
           <div class="case-kicker">The Challenge</div>
           <h2 class="case-h2">No single source of truth</h2>
           <p class="case-body">
@@ -2093,6 +2993,10 @@
       <!-- PROCESS: AUDIT & DISCOVERY -->
       <section class="case-section" id="process-audit">
         <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">03</span><span class="sec-name">Design System</span></div>
+            <div class="sec-right">// Audit & Discovery</div>
+          </div>
           <div class="case-kicker">Process · Step 1</div>
           <h2 class="case-h2">Audit &amp; discovery</h2>
           <p class="case-body">
@@ -2123,6 +3027,10 @@
       <!-- PROCESS: TOKEN ARCHITECTURE -->
       <section class="case-section" id="process-tokens">
         <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">04</span><span class="sec-name">Design Tokens</span></div>
+            <div class="sec-right">// Color · Type · Spacing</div>
+          </div>
           <div class="case-kicker">Process · Step 2</div>
           <h2 class="case-h2">Token architecture</h2>
           <p class="case-body">
@@ -2286,9 +3194,385 @@
         </div>
       </section>
 
+      <!-- GRID & BREAKPOINTS (NEW) -->
+      <section class="case-section" id="grid-breakpoints">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">05</span><span class="sec-name">Grid &amp; Breakpoints</span></div>
+            <div class="sec-right">// Layout system</div>
+          </div>
+          <div class="case-kicker">Foundations</div>
+          <h2 class="case-h2">Grid &amp; breakpoints</h2>
+          <p class="case-body">A responsive grid with predictable columns and gutters kept layouts consistent across web and desktop, while scaling down cleanly for tablet and mobile.</p>
+
+          <div class="doc-surface" aria-label="Grid and breakpoints documentation">
+            <div class="doc-inner breakpoints">
+              <div class="bp">
+                <div class="bp-head"><span>Desktop</span><span>12 columns</span></div>
+                <div class="cols" style="--cols: 12;">
+                  <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+                  <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+                </div>
+              </div>
+              <div class="bp">
+                <div class="bp-head"><span>Tablet</span><span>8 columns</span></div>
+                <div class="cols" style="--cols: 8;">
+                  <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+                  <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+                </div>
+              </div>
+              <div class="bp">
+                <div class="bp-head"><span>Mobile</span><span>4 columns</span></div>
+                <div class="cols" style="--cols: 4;">
+                  <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLOR SYSTEM (NEW) -->
+      <section class="case-section" id="color-system">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">06</span><span class="sec-name">Color System</span></div>
+            <div class="sec-right">// Base + semantic</div>
+          </div>
+          <div class="case-kicker">Foundations</div>
+          <h2 class="case-h2">Color system</h2>
+          <p class="case-body">Colors are presented as primitives (scales) and semantic tokens (usage). Semantic names kept design and engineering aligned as themes evolved.</p>
+
+          <div class="doc-surface">
+            <div class="doc-inner">
+              <div class="doc-card">
+                <div class="doc-card-title"><h4>Color palette</h4><span>Primitives</span></div>
+                <div class="palette-grid">
+                  <div class="palette-group">
+                    <div class="pg-title"><span>Primary</span><span>Lavender scale</span></div>
+                    <div class="pg-swatches" aria-hidden="true">
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--p-100)"></div><div class="pg-label">primary-100</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--p-200)"></div><div class="pg-label">primary-200</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--p-300)"></div><div class="pg-label">primary-300</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--p-400)"></div><div class="pg-label">primary-400</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--p-500)"></div><div class="pg-label">primary-500</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--p-600)"></div><div class="pg-label">primary-600</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--p-700)"></div><div class="pg-label">primary-700</div></div>
+                    </div>
+                  </div>
+
+                  <div class="palette-group">
+                    <div class="pg-title"><span>Grey</span><span>Neutral scale</span></div>
+                    <div class="pg-swatches" aria-hidden="true">
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--n-50)"></div><div class="pg-label">neutral-50</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--n-200)"></div><div class="pg-label">neutral-200</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(237,233,242,0.55)"></div><div class="pg-label">neutral-300</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(237,233,242,0.35)"></div><div class="pg-label">neutral-400</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--n-500)"></div><div class="pg-label">neutral-500</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--n-700)"></div><div class="pg-label">neutral-700</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: var(--n-900)"></div><div class="pg-label">neutral-900</div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="doc-card-title" style="margin-top:14px;"><h4>Semantic colors</h4><span>Status groups</span></div>
+                <div class="mini-groups" aria-hidden="true">
+                  <div class="mini-group">
+                    <div class="pg-title"><span>Danger</span><span></span></div>
+                    <div class="pg-swatches">
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(255,107,107,0.18)"></div><div class="pg-label">danger-100</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(255,107,107,0.55)"></div><div class="pg-label">danger-300</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(255,107,107,0.92)"></div><div class="pg-label">danger-500</div></div>
+                    </div>
+                  </div>
+                  <div class="mini-group">
+                    <div class="pg-title"><span>Success</span><span></span></div>
+                    <div class="pg-swatches">
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(95,208,138,0.18)"></div><div class="pg-label">success-100</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(95,208,138,0.55)"></div><div class="pg-label">success-300</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(95,208,138,0.92)"></div><div class="pg-label">success-500</div></div>
+                    </div>
+                  </div>
+                  <div class="mini-group">
+                    <div class="pg-title"><span>Warning</span><span></span></div>
+                    <div class="pg-swatches">
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(240,197,107,0.18)"></div><div class="pg-label">warn-100</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(240,197,107,0.55)"></div><div class="pg-label">warn-300</div></div>
+                      <div class="pg-swatch"><div class="pg-box" style="background: rgba(240,197,107,0.92)"></div><div class="pg-label">warn-500</div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="doc-card-title" style="margin-top:14px;"><h4>Color tokens</h4><span>Usage cards</span></div>
+                <div class="token-cards">
+                  <div class="token-card">
+                    <div class="token-swatch" style="background: rgba(10,9,13,0.86)"></div>
+                    <div class="token-meta">
+                      <div class="token-name">--color-surface-primary</div>
+                      <div class="token-desc">Default app background. Use for page-level surfaces and modal backdrops.</div>
+                    </div>
+                  </div>
+                  <div class="token-card">
+                    <div class="token-swatch" style="background: linear-gradient(135deg, var(--p-500), var(--p-600))"></div>
+                    <div class="token-meta">
+                      <div class="token-name">--color-interactive-primary</div>
+                      <div class="token-desc">Primary actions and emphasis. Use sparingly to preserve hierarchy.</div>
+                    </div>
+                  </div>
+                  <div class="token-card">
+                    <div class="token-swatch" style="background: rgba(255,255,255,0.10)"></div>
+                    <div class="token-meta">
+                      <div class="token-name">--color-border-default</div>
+                      <div class="token-desc">Hairline borders on elevated surfaces. Avoid on dense tables (use subtle).</div>
+                    </div>
+                  </div>
+                  <div class="token-card">
+                    <div class="token-swatch" style="background: rgba(95,208,138,0.92)"></div>
+                    <div class="token-meta">
+                      <div class="token-name">--color-status-success</div>
+                      <div class="token-desc">Positive feedback, confirmations, and safe states. Pair with icon for clarity.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TYPOGRAPHY (NEW) -->
+      <section class="case-section" id="typography">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">07</span><span class="sec-name">Typography</span></div>
+            <div class="sec-right">// Type scale</div>
+          </div>
+          <div class="case-kicker">Foundations</div>
+          <h2 class="case-h2">Typography</h2>
+          <p class="case-body">A strict scale with clear roles (display → caption) kept enterprise interfaces readable at dense data densities.</p>
+
+          <div class="doc-surface">
+            <div class="doc-inner">
+              <div class="doc-card">
+                <div class="doc-card-title"><h4>Type scale</h4><span>Specs + sample</span></div>
+                <div class="type-board">
+                  <div>
+                    <div class="font-name">Instrument Sans.</div>
+                    <div class="table-scroll">
+                    <table class="type-table" aria-label="Typography scale table">
+                      <thead>
+                        <tr>
+                          <th>Style</th>
+                          <th>Specs</th>
+                          <th>Sample</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="type-style">H1</td>
+                          <td class="var-val">32/40 · 800 · -0.02em</td>
+                          <td class="sample" style="font-family: var(--heading-font); font-weight: 800; font-size: 1.35rem;">The quick brown fox</td>
+                        </tr>
+                        <tr>
+                          <td class="type-style">H2</td>
+                          <td class="var-val">24/32 · 700 · -0.01em</td>
+                          <td class="sample" style="font-family: var(--heading-font); font-weight: 700; font-size: 1.1rem;">The quick brown fox</td>
+                        </tr>
+                        <tr>
+                          <td class="type-style">H3</td>
+                          <td class="var-val">18/26 · 700 · -0.01em</td>
+                          <td class="sample" style="font-family: var(--heading-font); font-weight: 700; font-size: 0.98rem;">The quick brown fox</td>
+                        </tr>
+                        <tr>
+                          <td class="type-style">Body</td>
+                          <td class="var-val">14/22 · 500 · 0</td>
+                          <td class="sample" style="font-family: var(--body-font); font-weight: 500; font-size: 0.92rem; color: rgba(237,233,242,0.78);">The quick brown fox jumps over the lazy dog.</td>
+                        </tr>
+                        <tr>
+                          <td class="type-style">Caption</td>
+                          <td class="var-val">12/16 · 600 · 0.12em</td>
+                          <td class="sample" style="font-family: var(--heading-font); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(237,233,242,0.62);">The quick brown fox</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                  </div>
+                  <div class="var-panel" aria-label="Figma-like variables panel mock">
+                    <div class="var-head"><span>Variables</span><span>Typography</span></div>
+                    <div class="var-rows">
+                      <div class="var-row"><div class="var-key">type.h1.size</div><div class="var-val">32</div></div>
+                      <div class="var-row"><div class="var-key">type.h1.line</div><div class="var-val">40</div></div>
+                      <div class="var-row"><div class="var-key">type.body.size</div><div class="var-val">14</div></div>
+                      <div class="var-row"><div class="var-key">type.body.line</div><div class="var-val">22</div></div>
+                      <div class="var-row"><div class="var-key">type.caption.track</div><div class="var-val">0.12em</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPACING SYSTEM (NEW) -->
+      <section class="case-section" id="spacing-system">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">08</span><span class="sec-name">Spacing System</span></div>
+            <div class="sec-right">// Rhythm</div>
+          </div>
+          <div class="case-kicker">Foundations</div>
+          <h2 class="case-h2">Spacing system</h2>
+          <p class="case-body">Spacing tokens encode rhythm. Each token includes a readable name plus px value, with examples showing real UI application.</p>
+
+          <div class="doc-surface">
+            <div class="doc-inner">
+              <div class="doc-card">
+                <div class="doc-card-title"><h4>Spacing tokens</h4><span>Name + px</span></div>
+                <div class="spacing-board">
+                  <div style="display:grid; gap:10px;">
+                    <div class="space-token-row"><div class="space-token-name">spacing-4</div><div class="space-token-bar" style="--w: 6.25%;"><span></span></div><div class="space-token-val">4px</div></div>
+                    <div class="space-token-row"><div class="space-token-name">spacing-8</div><div class="space-token-bar" style="--w: 12.5%;"><span></span></div><div class="space-token-val">8px</div></div>
+                    <div class="space-token-row"><div class="space-token-name">spacing-12</div><div class="space-token-bar" style="--w: 18.75%;"><span></span></div><div class="space-token-val">12px</div></div>
+                    <div class="space-token-row"><div class="space-token-name">spacing-16</div><div class="space-token-bar" style="--w: 25%;"><span></span></div><div class="space-token-val">16px</div></div>
+                    <div class="space-token-row"><div class="space-token-name">spacing-24</div><div class="space-token-bar" style="--w: 37.5%;"><span></span></div><div class="space-token-val">24px</div></div>
+                    <div class="space-token-row"><div class="space-token-name">spacing-32</div><div class="space-token-bar" style="--w: 50%;"><span></span></div><div class="space-token-val">32px</div></div>
+                    <div class="space-token-row"><div class="space-token-name">spacing-48</div><div class="space-token-bar" style="--w: 75%;"><span></span></div><div class="space-token-val">48px</div></div>
+                    <div class="space-token-row"><div class="space-token-name">spacing-64</div><div class="space-token-bar" style="--w: 100%;"><span></span></div><div class="space-token-val">64px</div></div>
+                  </div>
+                  <div class="spacing-example" aria-label="Example UI using spacing tokens">
+                    <div class="doc-card-title" style="margin-bottom: 4px;"><h4 style="font-size:1rem;">Member list</h4><span>Applied spacing</span></div>
+                    <div class="member-row">
+                      <div class="avatar"></div>
+                      <div>
+                        <div class="member-name">A. Martinez</div>
+                        <div class="member-sub">Owner · Admin</div>
+                      </div>
+                      <span class="method-tag" style="margin:0;">Active</span>
+                    </div>
+                    <div class="member-row">
+                      <div class="avatar" style="background: linear-gradient(135deg, rgba(95,208,138,0.22), rgba(124,92,252,0.14));"></div>
+                      <div>
+                        <div class="member-name">K. Nordin</div>
+                        <div class="member-sub">Editor · Billing</div>
+                      </div>
+                      <span class="method-tag" style="margin:0;">Invited</span>
+                    </div>
+                    <div class="member-row">
+                      <div class="avatar" style="background: linear-gradient(135deg, rgba(110,168,255,0.22), rgba(124,92,252,0.14));"></div>
+                      <div>
+                        <div class="member-name">S. Chen</div>
+                        <div class="member-sub">Viewer · Reports</div>
+                      </div>
+                      <span class="method-tag" style="margin:0;">Viewer</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORNER RADIUS (NEW) -->
+      <section class="case-section" id="corner-radius">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">09</span><span class="sec-name">Corner Radius</span></div>
+            <div class="sec-right">// Radius tokens</div>
+          </div>
+          <div class="case-kicker">Foundations</div>
+          <h2 class="case-h2">Corner radius</h2>
+          <p class="case-body">A small set of radius tokens kept surfaces consistent and recognizable across the product.</p>
+
+          <div class="doc-surface">
+            <div class="doc-inner">
+              <div class="doc-card">
+                <div class="doc-card-title"><h4>Radius scale</h4><span>Tokens</span></div>
+                <div class="radius-grid">
+                  <div class="radius-box"><div class="radius-demo" style="--r: 6px;"></div><div class="radius-label">radius-sm · 6px</div></div>
+                  <div class="radius-box"><div class="radius-demo" style="--r: 10px;"></div><div class="radius-label">radius-md · 10px</div></div>
+                  <div class="radius-box"><div class="radius-demo" style="--r: 14px;"></div><div class="radius-label">radius-lg · 14px</div></div>
+                  <div class="radius-box"><div class="radius-demo" style="--r: 999px;"></div><div class="radius-label">radius-pill</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ELEVATION & EFFECTS (NEW) -->
+      <section class="case-section" id="elevation-effects">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">10</span><span class="sec-name">Elevation &amp; Effects</span></div>
+            <div class="sec-right">// Shadow levels</div>
+          </div>
+          <div class="case-kicker">Foundations</div>
+          <h2 class="case-h2">Elevation &amp; effects</h2>
+          <p class="case-body">Three elevation levels cover most UI needs—from flat surfaces to floating panels—without inventing new shadows per component.</p>
+
+          <div class="doc-surface">
+            <div class="doc-inner">
+              <div class="doc-card">
+                <div class="doc-card-title"><h4>Elevation</h4><span>1 · 2 · 3</span></div>
+                <div class="elevation-grid">
+                  <div class="elev"><div class="card" style="--sh: 0 10px 22px rgba(0,0,0,0.35);"></div><div class="elev-label">elevation-1</div></div>
+                  <div class="elev"><div class="card" style="--sh: 0 16px 40px rgba(0,0,0,0.45);"></div><div class="elev-label">elevation-2</div></div>
+                  <div class="elev"><div class="card" style="--sh: 0 24px 70px rgba(0,0,0,0.55);"></div><div class="elev-label">elevation-3</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ICON SET (NEW) -->
+      <section class="case-section" id="icon-set">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">11</span><span class="sec-name">Icon Set</span></div>
+            <div class="sec-right">// 24px grid</div>
+          </div>
+          <div class="case-kicker">Foundations</div>
+          <h2 class="case-h2">Icon set</h2>
+          <p class="case-body">A consistent 24px icon grid with unified stroke weights kept UI controls crisp across densities.</p>
+
+          <div class="doc-surface">
+            <div class="doc-inner">
+              <div class="doc-card">
+                <div class="doc-card-title"><h4>Icons</h4><span>SVG set</span></div>
+                <div class="icon-grid" aria-label="Icon grid">
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M12 4v16"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7z"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 8h16"/><path d="M4 16h16"/><path d="M8 4v16"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M21 21l-4.3-4.3"/><circle cx="10" cy="10" r="6"/></svg></div>
+
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M4 4h4v4H4z"/><path d="M16 16h4v4h-4z"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 18V6"/><path d="M4 18h16"/><path d="M8 14l3-3 3 2 4-5"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 8l5-5 5 5"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 21v-18"/><path d="M7 16l5 5 5-5"/></svg></div>
+                  <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M6 19h12"/><path d="M6 5h12"/><path d="M8 5v14"/></svg></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- PROCESS: COMPONENT LIBRARY -->
       <section class="case-section" id="process-components">
         <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">12</span><span class="sec-name">Component Set</span></div>
+            <div class="sec-right">// Variants × States</div>
+          </div>
           <div class="case-kicker">Process · Step 3</div>
           <h2 class="case-h2">Component library</h2>
           <p class="case-body">
@@ -2305,33 +3589,58 @@
                   <span>Primary · Secondary · Ghost</span>
                 </div>
 
-                <div class="btn-matrix">
-                  <div></div>
-                  <div class="matrix-col-title">Primary</div>
-                  <div class="matrix-col-title">Secondary</div>
-                  <div class="matrix-col-title">Ghost</div>
+                <div class="comp-split">
+                  <div>
+                    <div class="btn-matrix">
+                      <div></div>
+                      <div class="matrix-col-title">Primary</div>
+                      <div class="matrix-col-title">Secondary</div>
+                      <div class="matrix-col-title">Ghost</div>
 
-                  <div class="matrix-label">Default</div>
-                  <button class="btn primary">Primary</button>
-                  <button class="btn secondary">Secondary</button>
-                  <button class="btn ghost">Ghost</button>
+                      <div class="matrix-label">Default</div>
+                      <button class="btn primary">Primary</button>
+                      <button class="btn secondary">Secondary</button>
+                      <button class="btn ghost">Ghost</button>
 
-                  <div class="matrix-label">Hover</div>
-                  <button class="btn primary" style="filter: brightness(1.04); box-shadow: 0 22px 44px rgba(124,92,252,0.28), var(--ring); transform: translateY(-1px);">Primary</button>
-                  <button class="btn secondary" style="background: rgba(124,92,252,0.14); transform: translateY(-1px);">Secondary</button>
-                  <button class="btn ghost" style="background: rgba(255,255,255,0.05); color: rgba(237,233,242,0.92); transform: translateY(-1px);">Ghost</button>
+                      <div class="matrix-label">Hover</div>
+                      <button class="btn primary" style="filter: brightness(1.04); box-shadow: 0 22px 44px rgba(124,92,252,0.28), var(--ring); transform: translateY(-1px);">Primary</button>
+                      <button class="btn secondary" style="background: rgba(124,92,252,0.14); transform: translateY(-1px);">Secondary</button>
+                      <button class="btn ghost" style="background: rgba(255,255,255,0.05); color: rgba(237,233,242,0.92); transform: translateY(-1px);">Ghost</button>
 
-                  <div class="matrix-label">Disabled</div>
-                  <button class="btn primary" disabled>Primary</button>
-                  <button class="btn secondary" disabled>Secondary</button>
-                  <button class="btn ghost" disabled>Ghost</button>
-                </div>
+                      <div class="matrix-label">Disabled</div>
+                      <button class="btn primary" disabled>Primary</button>
+                      <button class="btn secondary" disabled>Secondary</button>
+                      <button class="btn ghost" disabled>Ghost</button>
+                    </div>
 
-                <div class="token-foot" aria-hidden="true">
-                  <span class="token-pill">bg: primary-500</span>
-                  <span class="token-pill">text: white</span>
-                  <span class="token-pill">radius: 8px</span>
-                  <span class="token-pill">padding: 12px 24px</span>
+                    <div class="token-foot" aria-hidden="true">
+                      <span class="token-pill">bg: primary-500</span>
+                      <span class="token-pill">text: white</span>
+                      <span class="token-pill">radius: radius-md</span>
+                      <span class="token-pill">padding: spacing-12 spacing-24</span>
+                    </div>
+                  </div>
+
+                  <aside class="prop-panel" aria-label="Button properties panel">
+                    <div class="prop-head"><span>Component</span><span>Button / Primary</span></div>
+                    <div class="prop-rows">
+                      <div class="prop-row"><div class="prop-key">Variant</div><div class="prop-val">primary</div></div>
+                      <div class="prop-row"><div class="prop-key">State</div><div class="prop-val">default</div></div>
+                      <div class="prop-row"><div class="prop-key">Radius</div><div class="prop-val">8px</div></div>
+                      <div class="prop-row"><div class="prop-key">Padding</div><div class="prop-val">12px 24px</div></div>
+                      <div class="prop-row"><div class="prop-key">Type</div><div class="prop-val">14/20 · 700</div></div>
+                    </div>
+                    <div class="map">
+                      <div class="map-title"><span>Token mapping</span><span>property → token</span></div>
+                      <div class="map-list" aria-label="Token mapping list">
+                        <div class="map-item"><div class="lhs">background</div><div class="rhs">primary-500</div></div>
+                        <div class="map-item"><div class="lhs">text</div><div class="rhs">neutral-0</div></div>
+                        <div class="map-item"><div class="lhs">radius</div><div class="rhs">radius-md</div></div>
+                        <div class="map-item"><div class="lhs">padding</div><div class="rhs">spacing-12 / 24</div></div>
+                        <div class="map-item"><div class="lhs">focus ring</div><div class="rhs">primary-500@18%</div></div>
+                      </div>
+                    </div>
+                  </aside>
                 </div>
               </section>
 
@@ -2425,6 +3734,10 @@
       <!-- PROCESS: DOCUMENTATION & HANDOFF -->
       <section class="case-section" id="process-handoff">
         <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">13</span><span class="sec-name">Documentation</span></div>
+            <div class="sec-right">// Inspect panels</div>
+          </div>
           <div class="case-kicker">Process · Step 4</div>
           <h2 class="case-h2">Documentation &amp; handoff</h2>
           <p class="case-body">
@@ -2433,59 +3746,51 @@
           </p>
 
           <div class="handoff-layout">
-            <!-- Redline style button spec -->
             <div class="handoff-canvas" aria-label="Redline annotations for a primary button">
-              <div style="font-size:0.75rem;color:var(--text-muted);font-family:var(--heading-font);letter-spacing:0.14em;text-transform:uppercase; line-height:1.4; padding-right: 6px;">
-                Primary button · spec
-              </div>
-              <button class="handoff-button">Continue</button>
-
-              <div class="spec-line spec-line--py"></div>
-              <div class="spec-label spec-label--py">padding-y: spacing-12 (12px)</div>
-
-              <div class="spec-line spec-line--px"></div>
-              <div class="spec-label spec-label--px">padding-x: spacing-24 (24px)</div>
-
-              <div class="spec-line spec-line--radius"></div>
-              <div class="spec-label spec-label--radius">radius: radius-md (8px)</div>
-
-              <div class="spec-line spec-line--font"></div>
-              <div class="spec-label spec-label--font">font: body-medium (14px/20px, Semi-Bold)</div>
-
-              <div class="spec-line spec-line--bg"></div>
-              <div class="spec-label spec-label--bg">bg: primary-500 (#7C5CFC)</div>
-
-              <div class="spec-line spec-line--text"></div>
-              <div class="spec-label spec-label--text">color: white (#FFFFFF)</div>
-            </div>
-
-            <!-- Inspect style panel -->
-            <aside class="inspect-panel" aria-label="Token and style inspect panel">
-              <div class="inspect-row">
-                <div class="inspect-label">Component</div>
-                <div class="inspect-value">Button / Primary</div>
-              </div>
-              <div class="inspect-row">
-                <div class="inspect-label">Tokens</div>
-                <div class="inspect-value">
-                  <span class="inspect-token">color.bg.button.primary</span><br />
-                  <span class="inspect-token">color.text.on-primary</span><br />
-                  <span class="inspect-token">radius.full</span>
+              <div class="spec-card" aria-label="Primary button design spec card">
+                <div class="spec-left">
+                  <button class="handoff-button">Continue</button>
+                </div>
+                <div class="spec-right" aria-label="Button inspect panel">
+                  <div class="table-scroll">
+                  <table class="spec-table" role="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Property</th>
+                        <th scope="col">Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="spec-prop">Background</td>
+                        <td class="spec-val">primary-500</td>
+                      </tr>
+                      <tr>
+                        <td class="spec-prop">Text color</td>
+                        <td class="spec-val">white</td>
+                      </tr>
+                      <tr>
+                        <td class="spec-prop">Font</td>
+                        <td class="spec-val">14px/20px, Semi-Bold</td>
+                      </tr>
+                      <tr>
+                        <td class="spec-prop">Padding</td>
+                        <td class="spec-val">12px 24px</td>
+                      </tr>
+                      <tr>
+                        <td class="spec-prop">Border radius</td>
+                        <td class="spec-val">8px</td>
+                      </tr>
+                      <tr>
+                        <td class="spec-prop">States</td>
+                        <td class="spec-val">default, hover, active, disabled</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
                 </div>
               </div>
-              <div class="inspect-row">
-                <div class="inspect-label">Padding</div>
-                <div class="inspect-value">spacing-sm · spacing-lg</div>
-              </div>
-              <div class="inspect-row">
-                <div class="inspect-label">States</div>
-                <div class="inspect-value">default · hover · active · disabled · focus-visible</div>
-              </div>
-              <div class="inspect-row">
-                <div class="inspect-label">Code</div>
-                <div class="inspect-value">`<button class="btn btn--primary">`</div>
-              </div>
-            </aside>
+            </div>
           </div>
         </div>
       </section>
@@ -2493,6 +3798,10 @@
       <!-- RESULTS -->
       <section class="case-section" id="results">
         <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">14</span><span class="sec-name">Outcome</span></div>
+            <div class="sec-right">// Results</div>
+          </div>
           <div class="case-kicker">Results</div>
           <h2 class="case-h2">Impact across teams &amp; platforms</h2>
           <div class="results-grid">
@@ -2523,6 +3832,10 @@
       <!-- KEY LEARNINGS -->
       <section class="case-section" id="learnings">
         <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">15</span><span class="sec-name">Reflection</span></div>
+            <div class="sec-right">// Learnings</div>
+          </div>
           <div class="case-kicker">Key Learnings</div>
           <h2 class="case-h2">What I took forward</h2>
           <div class="learnings-list">
