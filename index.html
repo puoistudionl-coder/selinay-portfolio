@@ -10,10 +10,10 @@ html {
   overflow-x: hidden !important;
 }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #1e1c20;
+  --bg: #08080f;
   --surface: #27252a;
   --surface-hover: #302e34;
   --text: #ede9f2;
@@ -25,6 +25,12 @@ html {
   --display-font: 'DM Serif Display', serif;
   --heading-font: 'Syne', sans-serif;
   --body-font: 'Instrument Sans', sans-serif;
+  /* Site chrome (nav) */
+  --nav-font: 'Agdasima', system-ui, -apple-system, sans-serif;
+}
+
+em, cite, dfn {
+  font-style: normal;
 }
 
 *, *::before, *::after {
@@ -61,18 +67,25 @@ video {
 /* ===== NAV ===== */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 22px 48px;
+  padding: 24px 52px;
   display: flex; justify-content: space-between; align-items: center;
-  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-  background: rgba(30,28,32,0.75);
+  background: var(--bg);
   border-bottom: none;
 }
-.nav-logo { font-family: var(--display-font); font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: 0.02em; }
+.nav-logo {
+  font-family: var(--nav-font);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
 .nav-logo span { color: var(--accent); }
 .nav-links { display: flex; gap: 36px; list-style: none; }
 .nav-links a {
+  font-family: var(--nav-font);
   color: var(--text-muted); text-decoration: none; font-size: 0.82rem;
-  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
   transition: color 0.3s; position: relative;
 }
 .nav-links a::after {
@@ -122,9 +135,7 @@ nav {
   inset: 0;
   z-index: 200;
   display: none;
-  background: rgba(30,28,32,0.96);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: var(--bg);
 }
 
 .nav-mobile.active { display: flex; }
@@ -150,13 +161,13 @@ nav {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 28px;
   align-items: center;
   justify-content: center;
 }
 
 .nav-mobile-links a {
-  font-family: var(--heading-font);
+  font-family: var(--nav-font);
   font-size: 1.1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -171,14 +182,14 @@ nav {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 30px 48px 10px;
+  padding: 48px 48px 32px;
   position: relative;
   overflow: hidden;
 }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 24px;
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
@@ -226,7 +237,7 @@ nav {
   height: 40px;
   border: 1.5px solid var(--text-muted);
   border-radius: 12px;
-  margin: 24px auto 0;
+  margin: 32px auto 0;
   position: relative;
   z-index: 2;
   opacity: 0.5;
@@ -261,7 +272,7 @@ nav {
   text-transform: uppercase;
   letter-spacing: -0.03em;
   line-height: 0.95;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   white-space: nowrap;
   position: relative;
   z-index: 2;
@@ -277,11 +288,10 @@ nav {
 
 .hero-role {
   font-family: var(--display-font);
-  font-style: italic;
   font-size: 1.2rem;
   color: var(--text-muted);
-  margin-top: 8px;
-  margin-bottom: 10px;
+  margin-top: 12px;
+  margin-bottom: 16px;
   position: relative;
   z-index: 2;
   opacity: 0;
@@ -289,9 +299,9 @@ nav {
 }
 .hero-cta-row {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 12px;
   position: relative;
   z-index: 2;
   opacity: 0;
@@ -321,14 +331,14 @@ nav {
 /* Removed hero visual floats for a text-only hero */
 
 /* ===== ABOUT ===== */
-.about { padding: 40px 48px 60px; max-width: 1400px; margin: 0 auto; }
+.about { padding: 56px 48px 88px; max-width: 1400px; margin: 0 auto; }
 .section-label {
   font-family: var(--heading-font); font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent);
-  margin-bottom: 48px; display: flex; align-items: center; gap: 16px;
+  margin-bottom: 56px; display: flex; align-items: center; gap: 16px;
 }
 .section-label::after { content: none; }
-.about-grid { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 44px; align-items: start; }
 .about-text {
   font-family: var(--body-font);
   font-size: clamp(1.1rem, 1.6vw, 1.3rem);
@@ -338,7 +348,7 @@ nav {
   margin: 0 auto;
   text-align: center;
 }
-.about-text em { color: var(--accent); font-style: italic; }
+.about-text em { color: var(--accent); }
 
 .words-reveal span {
   display: inline-block;
@@ -362,7 +372,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
   font-size: 0.9rem;
   transition: background 0.25s ease, opacity 0.5s ease, transform 0.5s ease;
@@ -519,21 +529,29 @@ nav {
 }
 
 /* ===== WORK ===== */
-.work { padding: 80px 48px; max-width: 1400px; width: 100%; margin: 0 auto; box-sizing: border-box; }
+.work { padding: 104px 48px 112px; max-width: 1400px; width: 100%; margin: 0 auto; box-sizing: border-box; }
 .project-grid,
 .project-card {
   min-width: 0;
   max-width: 100%;
 }
-.work-header { margin-bottom: 48px; text-align: center; }
-.work-title { font-family: var(--display-font); font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1.1; }
+.work-header { margin-bottom: 64px; text-align: center; }
+.work-title {
+  font-family: var(--nav-font);
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  letter-spacing: 0.02em;
+}
 .work-subtitle { margin-top: 10px; font-size: 0.8rem; color: var(--text-muted); }
-.section-divider { width: 40px; height: 2px; background: var(--accent); margin: 48px auto; }
+.section-divider { width: 40px; height: 2px; background: var(--accent); margin: 64px auto; }
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 40px;
-  row-gap: 56px;
+  column-gap: 52px;
+  row-gap: 72px;
 }
 .project-card--featured {
   grid-column: 1 / -1;
@@ -550,7 +568,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #0d9488 0%, #134e4a 100%);
+  background: #141420;
   border-radius: 16px;
 }
 .project-card--featured .project-image.project-image--ds2 .ds2-poster-inner {
@@ -895,6 +913,7 @@ nav {
   content: "";
   position: absolute;
   inset: -1px;
+  z-index: 0;
   background:
     radial-gradient(circle at 25% 10%, rgba(255,255,255,0.08), transparent 45%),
     radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 55%);
@@ -1021,7 +1040,7 @@ nav {
 .project-card {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 20px;
   background: transparent;
   border: none;
   transition: transform 0.4s ease;
@@ -1032,13 +1051,46 @@ nav {
 }
 .project-card:hover { transform: translateY(-2px); }
 .project-image {
+  position: relative;
+  isolation: isolate;
   aspect-ratio: 16/10;
   background: #000;
   overflow: hidden;
   border-radius: 16px;
-  border: 1px solid var(--border);
+  outline: 1px solid rgba(127, 119, 221, 0.5);
+  outline-offset: -1px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
 }
-.project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.project-card:hover .project-image {
+  filter: grayscale(0%);
+}
+.project-image::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(13, 13, 26, 0.15) 0%, rgba(13, 13, 26, 0.5) 100%);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.project-card:hover .project-image::after {
+  opacity: 0.6;
+}
+.project-image img {
+  display: block;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
 .project-card:hover .project-image img { transform: scale(1.03); }
 /* PUOI brand identity card: logo SVG on dark surface */
 .project-image.project-image--bi {
@@ -1046,17 +1098,27 @@ nav {
   align-items: center;
   justify-content: center;
   padding: 22px 18px;
-  background: linear-gradient(165deg, #1c1917 0%, #0f0e0d 50%, #161311 100%);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: #141420;
 }
 .project-image.project-image--bi img {
+  display: block;
+  position: relative;
+  z-index: 0;
   width: min(52%, 10.5rem);
   height: auto;
   max-height: 90%;
   object-fit: contain;
+  /* logo.svg uses dark ink; invert stack so mark reads white on #141420 */
+  filter: brightness(0) invert(1);
 }
-.project-info { display: flex; flex-direction: column; gap: 8px; }
-.project-name { font-family: var(--display-font); font-size: 1.2rem; margin: 0; line-height: 1.2; }
+.project-info { display: flex; flex-direction: column; gap: 12px; }
+.project-name {
+  font-family: var(--display-font);
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.95);
+}
 .project-category {
   font-family: var(--heading-font);
   font-size: 0.7rem;
@@ -1068,8 +1130,8 @@ nav {
 }
 
 /* ===== SMALL PROJECTS ===== */
-.small-projects { padding: 0 48px 80px; max-width: 1400px; margin: 0 auto; }
-.small-projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.small-projects { padding: 0 48px 96px; max-width: 1400px; margin: 0 auto; }
+.small-projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
 .small-card {
   background: transparent;
   border: none;
@@ -1079,18 +1141,52 @@ nav {
   border-radius: 16px;
 }
 .small-card:hover { transform: translateY(-2px); }
-.small-card-image { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #000; border-radius: 12px; border: 1px solid var(--border); }
-.small-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.small-card-image {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #000;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.small-card-image::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(13, 13, 26, 0.15) 0%, rgba(13, 13, 26, 0.5) 100%);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.small-card:hover .small-card-image::after {
+  opacity: 0.6;
+}
+.small-card-image img {
+  display: block;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
 .small-card:hover .small-card-image img { transform: scale(1.03); }
-.small-card-body { padding: 18px 4px 0; }
-.small-card-title { font-family: var(--display-font); font-size: 1.15rem; margin-bottom: 10px; }
+.small-card-body { padding: 22px 4px 0; }
+.small-card-title { font-family: var(--display-font); font-size: 1.15rem; margin-bottom: 12px; }
 .small-card-desc { display: none; }
 
 /* ===== CONTACT ===== */
-.contact { padding: 80px 48px; max-width: 1400px; margin: 0 auto; text-align: center; }
-.contact-title { font-family: var(--display-font); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 24px; }
-.contact-title em { font-style: italic; color: var(--accent); }
-.contact-sub { color: var(--text-muted); font-size: 1.05rem; max-width: 480px; margin: 0 auto 48px; line-height: 1.7; }
+.contact { padding: 104px 48px 112px; max-width: 1400px; margin: 0 auto; text-align: center; }
+.contact-title { font-family: var(--display-font); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 28px; }
+.contact-title em { color: var(--accent); }
+.contact-sub { color: var(--text-muted); font-size: 1.05rem; max-width: 480px; margin: 0 auto 56px; line-height: 1.7; }
 .contact-kicker {
   font-family: var(--heading-font);
   font-size: 0.8rem;
@@ -1098,7 +1194,7 @@ nav {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 .contact-email {
   font-family: var(--display-font); font-size: clamp(1.8rem, 3.5vw, 3rem);
@@ -1107,7 +1203,7 @@ nav {
   border-bottom: 1px solid var(--border-light); padding-bottom: 4px; transition: all 0.3s;
 }
 .contact-email:hover { color: var(--accent); border-color: var(--accent); }
-.social-links { display: flex; gap: 10px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+.social-links { display: flex; gap: 14px; justify-content: center; margin-top: 48px; flex-wrap: wrap; }
 .social-link {
   color: var(--text-muted);
   text-decoration: none;
@@ -1122,7 +1218,7 @@ nav {
 
 /* ===== FOOTER ===== */
 footer {
-  padding: 24px; border-top: 1px solid var(--border);
+  padding: 36px 24px; border-top: 1px solid var(--border);
   display: flex; justify-content: center; align-items: center;
   text-align: center;
 }
@@ -1162,27 +1258,27 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .project-grid { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+  .about-grid { grid-template-columns: 1fr; gap: 52px; }
+  .project-grid { grid-template-columns: 1fr; row-gap: 64px; }
 }
 @media (max-width: 768px) {
   nav { padding: 18px 24px; }
   .nav-links { display: none; }
   .nav-toggle { display: inline-flex; }
-  .hero { padding: 30px 24px 10px; }
+  .hero { padding: 40px 24px 24px; }
   .hero-photo { width: 90%; max-width: 90%; padding: 12px 12px 0 12px; margin-bottom: -60px; }
   .hero-photo img { height: 350px; }
   .hero-title { font-size: clamp(1.8rem, 7vw, 3rem); white-space: nowrap; }
   .hero-role { font-size: 1rem; }
   .hero-cta-row { width: 100%; justify-content: center; }
   .hero-cta-row .btn-primary { width: 100%; max-width: 280px; justify-content: center; }
-  .about, .work, .contact { padding: 48px 24px; }
-  .about-experience { margin-top: 44px; padding-top: 28px; }
+  .about, .work, .contact { padding: 64px 24px 72px; }
+  .about-experience { margin-top: 52px; padding-top: 36px; }
   .about-text { font-size: 0.95rem; }
   .exp-line { font-size: 0.85rem; flex-wrap: wrap; }
   .exp-date { font-size: 0.7rem; margin-left: 0; width: 100%; }
-  .project-grid { grid-template-columns: 1fr; row-gap: 44px; }
+  .project-grid { grid-template-columns: 1fr; row-gap: 56px; }
   .project-name { font-size: 1rem; }
   .contact-email { font-size: 1.2rem; word-break: break-all; }
   .social-link { font-size: 0.8rem; }
@@ -1235,17 +1331,15 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
     padding: 12px 10px 10px;
   }
 
-  /* SaaS DS2 teal card: taller strip so content fits; larger type + dark overlay */
+  /* SaaS DS2 featured strip: taller so content fits; larger type */
   .project-card--featured .project-image.project-image--ds2 {
     aspect-ratio: unset;
     height: auto;
-    min-height: 0;
+    min-height: 200px;
     padding: 22px 18px 24px;
     align-items: center;
     justify-content: center;
-    background:
-      linear-gradient(rgba(6, 24, 22, 0.58), rgba(4, 18, 18, 0.52)),
-      linear-gradient(145deg, #0d9488 0%, #134e4a 100%);
+    background: #141420;
   }
   .project-card--featured .project-image.project-image--ds2 .ds2-poster-inner {
     gap: 10px;
@@ -1706,25 +1800,25 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
   scroll-margin-top: 88px;
 }
 .work-category-title {
-  font-family: var(--heading-font);
-  font-weight: 800;
+  font-family: var(--nav-font);
+  font-weight: 400;
   font-size: clamp(1.05rem, 2.2vw, 1.5rem);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  margin: 0;
-  padding-bottom: 14px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 clamp(36px, 5vw, 56px);
+  padding-bottom: 18px;
   border-bottom: 1px solid var(--border-light);
   line-height: 1.25;
 }
 .work-category-block:not(:first-of-type) .work-category-title {
-  margin-top: 80px;
+  margin-top: 96px;
 }
 .project-image.project-image--bi.project-image--bi-featured {
   aspect-ratio: 35/9;
   min-height: 0;
-  background: #c4004b;
-  border-color: rgba(255, 255, 255, 0.14);
+  background: #141420;
   padding: 0;
   position: relative;
   display: flex;
@@ -1733,43 +1827,19 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
   overflow: hidden;
 }
 .project-image.project-image--bi.project-image--bi-featured > img {
+  display: block;
+  position: relative;
+  z-index: 0;
   width: min(34%, 200px);
   height: auto;
   max-height: 70%;
   object-fit: contain;
   object-position: center;
-  filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.22));
-}
-.project-image--bi-featured-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 14px 20px 18px;
-  text-align: center;
-  pointer-events: none;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, transparent 55%);
-}
-.project-image--bi-featured-overlay h3 {
-  font-family: var(--heading-font);
-  font-size: clamp(1rem, 2vw + 0.55rem, 1.35rem);
-  font-weight: 700;
-  color: #fff;
-  margin: 0 0 6px 0;
-  letter-spacing: 0.04em;
-}
-.project-image--bi-featured-overlay p {
-  font-family: var(--body-font);
-  font-size: clamp(0.75rem, 1.1vw + 0.45rem, 0.9rem);
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.92);
-  margin: 0;
-  letter-spacing: 0.06em;
+  filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.22)) brightness(0) invert(1);
 }
 
 </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -1836,10 +1906,13 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
 <div class="section-divider reveal"></div>
 
 <!-- WORK -->
-<section class="work" id="work">
+<section class="work" id="work" aria-labelledby="work-heading">
+  <header class="work-header reveal">
+    <h2 class="work-title" id="work-heading">Selected Work</h2>
+  </header>
 
   <section id="design-systems" class="work-category-block" aria-labelledby="work-cat-design-systems">
-    <h2 class="work-category-title reveal" id="work-cat-design-systems">Design Systems</h2>
+    <h3 class="work-category-title reveal" id="work-cat-design-systems">Design Systems</h3>
     <div class="project-grid">
 
     <a class="project-card project-card--featured reveal" href="design-system.html">
@@ -2007,7 +2080,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
         </div>
       </div>
       <div class="project-info">
-        <h3 class="project-name">Cross-Platform Enterprise Design System</h3>
+        <h4 class="project-name">Cross-Platform Enterprise Design System</h4>
         <div class="project-category">Design System · B2B SaaS · Enterprise</div>
       </div>
     </a>
@@ -2015,7 +2088,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
     <a class="project-card project-card--featured reveal" href="design-system-2.html">
       <div class="project-image project-image--ds2" aria-hidden="true">
         <div class="ds2-poster-inner">
-          <h3 class="ds2-poster-title">SaaS Platform Design System</h3>
+          <p class="ds2-poster-title">SaaS Platform Design System</p>
           <p class="ds2-poster-sub">Design tokens · Components · Dark mode · Data tables · Charts</p>
           <div class="ds2-poster-rule" role="presentation"></div>
           <div class="ds2-poster-stats">
@@ -2037,7 +2110,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
         </div>
       </div>
       <div class="project-info">
-        <h3 class="project-name">SaaS Platform Design System</h3>
+        <h4 class="project-name">SaaS Platform Design System</h4>
         <div class="project-category">Design System · Dashboard · Data Visualization</div>
       </div>
     </a>
@@ -2046,19 +2119,15 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
   </section>
 
   <section id="brand-identity" class="work-category-block" aria-labelledby="work-cat-brand-identity">
-    <h2 class="work-category-title reveal" id="work-cat-brand-identity">Brand Identity</h2>
+    <h3 class="work-category-title reveal" id="work-cat-brand-identity">Brand Identity</h3>
     <div class="project-grid">
 
     <a class="project-card project-card--featured reveal" href="brand-identity.html">
       <div class="project-image project-image--bi project-image--bi-featured" aria-hidden="true">
-        <img src="images/projects/brand-identity/Group_2.svg" alt="PUOI Studio logotype" width="770" height="811" loading="lazy">
-        <div class="project-image--bi-featured-overlay" aria-hidden="true">
-          <h3>PUOI Studio</h3>
-          <p>Brand Identity &amp; Guidelines</p>
-        </div>
+        <img src="images/projects/brand-identity/logo.svg" alt="PUOI logo" width="770" height="811" loading="lazy">
       </div>
       <div class="project-info">
-        <h3 class="project-name">PUOI Studio — Brand Identity</h3>
+        <h4 class="project-name">PUOI Studio — Brand Identity</h4>
         <div class="project-category">Brand Identity · Visual Design · Brand Guidelines</div>
       </div>
     </a>
@@ -2067,13 +2136,13 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
   </section>
 
   <section id="product-design" class="work-category-block" aria-labelledby="work-cat-product-design">
-    <h2 class="work-category-title reveal" id="work-cat-product-design">Product Design</h2>
+    <h3 class="work-category-title reveal" id="work-cat-product-design">Product Design</h3>
     <div class="project-grid">
 
     <div class="project-card reveal" onclick="openModal('prepress')">
       <div class="project-image"><img src="img-prepress.png" alt="Prepress AI" loading="lazy"></div>
       <div class="project-info">
-        <h3 class="project-name">Prepress AI</h3>
+        <h4 class="project-name">Prepress AI</h4>
         <div class="project-category">B2B SaaS · Workflow Automation</div>
       </div>
     </div>
@@ -2081,7 +2150,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
     <div class="project-card reveal" onclick="openModal('inq')">
       <div class="project-image"><img src="img-inq.png" alt="Inq Smart Pen App" loading="lazy"></div>
       <div class="project-info">
-        <h3 class="project-name">Inq Smart Pen App</h3>
+        <h4 class="project-name">Inq Smart Pen App</h4>
         <div class="project-category">Mobile App · AI-Assisted · Productivity</div>
       </div>
     </div>
@@ -2092,7 +2161,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
     <div class="project-card reveal" onclick="openModal('jobspot')">
       <div class="project-image"><img src="img-jobspot.png" alt="Jobspot App" loading="lazy"></div>
       <div class="project-info">
-        <h3 class="project-name">Jobspot App</h3>
+        <h4 class="project-name">Jobspot App</h4>
         <div class="project-category">Mobile App · HR Tech</div>
       </div>
     </div>
@@ -2100,7 +2169,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
     <div class="project-card reveal" onclick="openModal('auth')">
       <div class="project-image"><img src="img-auth.png" alt="Authenticator" loading="lazy"></div>
       <div class="project-info">
-        <h3 class="project-name">Authenticator</h3>
+        <h4 class="project-name">Authenticator</h4>
         <div class="project-category">Fintech · Security UX · Mobile</div>
       </div>
     </div>
@@ -2111,7 +2180,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
     <div class="project-card reveal" onclick="openModal('agency')">
       <div class="project-image"><img src="img-agency.png" alt="Agency Website" loading="lazy"></div>
       <div class="project-info">
-        <h3 class="project-name">Agency Website</h3>
+        <h4 class="project-name">Agency Website</h4>
         <div class="project-category">Website Redesign · B2B · Conversion</div>
       </div>
     </div>
@@ -2119,7 +2188,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
     <div class="project-card reveal" onclick="openModal('audiobooks')">
       <div class="project-image"><img src="img-audiobooks.png" alt="AudiBooks App" loading="lazy"></div>
       <div class="project-info">
-        <h3 class="project-name">AudiBooks App</h3>
+        <h4 class="project-name">AudiBooks App</h4>
         <div class="project-category">Mobile App · Content Discovery</div>
       </div>
     </div>
@@ -2130,7 +2199,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
     <div class="project-card reveal" onclick="openModal('loadopt')">
       <div class="project-image"><img src="img-loadopt.png" alt="Load Optimizer" loading="lazy"></div>
       <div class="project-info">
-        <h3 class="project-name">Load Optimizer</h3>
+        <h4 class="project-name">Load Optimizer</h4>
         <div class="project-category">Tablet App · AI-Powered · Logistics</div>
       </div>
     </div>
@@ -2138,7 +2207,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
     <div class="project-card reveal" onclick="openModal('every')">
       <div class="project-image"><img src="img-every.png" alt="Every App" loading="lazy"></div>
       <div class="project-info">
-        <h3 class="project-name">Every App</h3>
+        <h4 class="project-name">Every App</h4>
         <div class="project-category">Mobile App · Communication · Productivity</div>
       </div>
     </div>
