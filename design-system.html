@@ -9,7 +9,7 @@ html {
   overflow-x: hidden !important;
 }
 </style>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       /* Site palette */
@@ -22,9 +22,9 @@ html {
       --accent-dim: #9683d4;
       --border: #332f38;
       --border-light: #3d3944;
-      --display-font: "DM Serif Display", serif;
       --heading-font: "Syne", sans-serif;
       --body-font: "Instrument Sans", sans-serif;
+      --nav-font: "Agdasima", system-ui, -apple-system, sans-serif;
 
       /* Design system palette (lavender primary) */
       --p-100: #efeaff;
@@ -282,9 +282,9 @@ html {
     }
 
     .doc-card-title h4 {
-      font-family: var(--display-font);
+      font-family: var(--nav-font);
       font-size: 1.05rem;
-      font-weight: 400;
+      font-weight: 700;
       color: rgba(237,233,242,0.92);
     }
 
@@ -791,7 +791,8 @@ html {
     }
 
     .case-h2 {
-      font-family: var(--display-font);
+      font-family: var(--nav-font);
+      font-weight: 700;
       font-size: clamp(1.6rem, 2.4vw, 1.9rem);
       margin-bottom: 12px;
       letter-spacing: 0;
@@ -897,10 +898,12 @@ html {
     }
 
     .case-tagline {
-      font-family: var(--display-font);
+      font-family: var(--body-font);
+      font-weight: 500;
       font-size: clamp(1.1rem, 1.5vw, 1.3rem);
       color: var(--text-muted);
       max-width: 540px;
+      line-height: 1.55;
     }
 
     /* ===== HERO POSTER VISUAL ===== */
@@ -1582,7 +1585,8 @@ html {
     }
 
     .metric-card-number {
-      font-family: var(--display-font);
+      font-family: var(--heading-font);
+      font-weight: 800;
       font-size: 2.1rem;
       letter-spacing: 0.04em;
       margin-bottom: 6px;
@@ -1658,9 +1662,9 @@ html {
     }
 
     .token-section-title h4 {
-      font-family: var(--display-font);
+      font-family: var(--nav-font);
       font-size: 1.05rem;
-      font-weight: 400;
+      font-weight: 700;
       letter-spacing: 0;
       color: rgba(237,233,242,0.92);
     }
@@ -1893,9 +1897,9 @@ html {
     }
 
     .catalog-head h4 {
-      font-family: var(--display-font);
+      font-family: var(--nav-font);
       font-size: 1.05rem;
-      font-weight: 400;
+      font-weight: 700;
       color: rgba(237,233,242,0.92);
     }
 
@@ -2453,7 +2457,8 @@ html {
     }
 
     .result-value {
-      font-family: var(--display-font);
+      font-family: var(--heading-font);
+      font-weight: 800;
       font-size: 1.45rem;
       color: rgba(237,233,242,0.95);
       line-height: 1.1;
