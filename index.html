@@ -1212,15 +1212,25 @@ nav {
   color: var(--accent);
   margin-bottom: 24px;
 }
-.contact-email {
+.contact a[href^="mailto:"] {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
   font-family: var(--heading-font);
   font-weight: 700;
   font-size: clamp(1.8rem, 3.5vw, 3rem);
   letter-spacing: -0.02em;
-  color: var(--text); text-decoration: none;
-  border-bottom: 1px solid var(--border-light); padding-bottom: 4px; transition: all 0.3s;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 4px;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
-.contact-email:hover { color: var(--accent); border-color: var(--accent); }
+.contact a[href^="mailto:"]:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
 .social-links { display: flex; gap: 14px; justify-content: center; margin-top: 48px; flex-wrap: wrap; }
 .social-link {
   color: var(--text-muted);
@@ -1298,7 +1308,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
   .exp-date { font-size: 0.7rem; margin-left: 0; width: 100%; }
   .project-grid { grid-template-columns: 1fr; row-gap: 56px; }
   .project-name { font-size: 1rem; }
-  .contact-email { font-size: 1.2rem; word-break: break-all; }
+  .contact a[href^="mailto:"] { font-size: 1.2rem; word-break: break-all; }
   .social-link { font-size: 0.8rem; }
   footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
 
@@ -1911,7 +1921,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
 <section class="about reveal" id="about">
   <div class="about-grid">
     <div class="about-text words-reveal">
-      I specialise in <em>design systems</em> and <em>end-to-end product design</em> for complex B2B SaaS products. Based in Amsterdam, 6+ years of experience.
+      I specialise in <em>design systems</em> and <em>end-to-end product design</em> for complex B2B SaaS products. I help teams move faster by building scalable, token-driven component systems — from audit to Figma library to Storybook. Based in Amsterdam, 6+ years of experience.
     </div>
 
     <div class="about-experience reveal">
@@ -2241,7 +2251,7 @@ footer span { font-size: 0.78rem; color: var(--text-muted); }
 <section class="contact reveal" id="contact">
   <div>
     <div class="contact-kicker">Get in touch</div>
-    <a href="mailto:selinay.iblikci@outlook.com" class="contact-email">selinay.iblikci@outlook.com</a>
+    <a href="mailto:selinay@puoistudio.nl">selinay@puoistudio.nl</a>
     <div class="social-links">
       <a href="https://www.linkedin.com/in/selinayiblikci/" target="_blank" class="social-link">LinkedIn</a><span class="social-sep">/</span>
       <a href="https://www.behance.net/selinayiblikcii" target="_blank" class="social-link">Behance</a><span class="social-sep">/</span>
@@ -2306,11 +2316,13 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.querySelectorAll('.words-reveal').forEach(el => observer.observe(el));
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
+// Smooth scroll (in-page #anchors only — never mailto: or other schemes)
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  const raw = a.getAttribute('href');
+  if (!raw || raw === '#' || !raw.startsWith('#')) return;
+  a.addEventListener('click', (e) => {
     e.preventDefault();
-    const t = document.querySelector(a.getAttribute('href'));
+    const t = document.querySelector(raw);
     if (t) t.scrollIntoView({ behavior: 'smooth' });
     document.body.classList.remove('menu-open');
     const mm = document.getElementById('mobileMenu');

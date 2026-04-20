@@ -135,6 +135,12 @@ html {
       .board--dark {
         padding: 20px 16px 22px;
       }
+      .decision-cards {
+        grid-template-columns: 1fr;
+      }
+      .research-approach-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .found-tag {
@@ -184,6 +190,11 @@ html {
       color: #fbcfe8;
       background: rgba(236, 72, 153, 0.12);
       border-color: rgba(236, 72, 153, 0.28);
+    }
+    .found-tag.tag-process {
+      color: #99f6e4;
+      background: rgba(13, 148, 136, 0.1);
+      border-color: rgba(13, 148, 136, 0.32);
     }
     .ds-h2 {
       font-size: clamp(22px, 2.4vw, 30px);
@@ -676,6 +687,45 @@ html {
     .meta-val { color: rgba(236, 236, 240, 0.88); }
     .overview p { color: var(--page-muted); font-size: 15px; line-height: 1.65; }
 
+    /* Research approach (Context) — same pattern as design-system.html */
+    .research-approach {
+      margin-top: 28px;
+      padding: 20px 20px 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(20, 18, 26, 0.72);
+      min-width: 0;
+    }
+    .research-approach-h3 {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 0 0 18px;
+      color: var(--page-text);
+    }
+    .research-approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .research-item {
+      min-width: 0;
+    }
+    .research-item-title {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 0.92rem;
+      line-height: 1.3;
+      margin: 0 0 8px;
+      color: rgba(236, 236, 240, 0.94);
+    }
+    .research-item-text {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--page-muted);
+    }
+
     /* What's inside grid */
     .grid-2-3 {
       display: grid;
@@ -710,6 +760,45 @@ html {
     }
     .wi-title { font-size: 14px; font-weight: 600; color: var(--ink); }
     .wi-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.45; }
+
+    /* Design decisions (process) — matches design-system.html card pattern */
+    .decision-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .decision-card {
+      border-radius: 16px;
+      border: 1px solid var(--page-border);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 18px 18px 16px;
+      min-width: 0;
+      text-align: left;
+    }
+    .decision-card-question {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.35;
+      margin: 0 0 12px;
+      color: var(--page-text);
+    }
+    .decision-card-options {
+      margin: 0;
+      font-size: 0.94rem;
+      line-height: 1.55;
+      color: var(--page-muted);
+    }
+    .decision-card-decision {
+      margin: 14px 0 0;
+      padding: 12px 0 2px 14px;
+      border-left: 3px solid rgba(13, 148, 136, 0.65);
+      font-size: 0.94rem;
+      line-height: 1.55;
+      color: rgba(236, 236, 240, 0.9);
+    }
 
     /* Subsection titles inside boards */
     .sub-h {
@@ -752,10 +841,17 @@ html {
       border-radius: 10px;
       border: 1px solid var(--page-border);
       background: rgba(255, 255, 255, 0.04);
-      padding: 16px;
+      padding: 16px 16px 18px;
     }
     .metric .v { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
     .metric .l { margin-top: 6px; font-size: 12px; color: var(--page-muted); line-height: 1.4; }
+    /* Same treatment as design-system.html .result-context */
+    .metric-context {
+      margin: 8px 0 0;
+      font-size: 0.8125rem;
+      line-height: 1.45;
+      color: rgba(236, 236, 240, 0.44);
+    }
 
     .list { margin-top: 12px; display: grid; gap: 12px; }
     .li {
@@ -1893,10 +1989,34 @@ html {
             <div class="meta-row"><span class="meta-key">Tools</span><span class="meta-val">Figma, Storybook, Chart.js</span></div>
           </div>
           <p>
-            A healthcare analytics startup needed to unify their rapidly growing dashboard product. Multiple teams were building features independently,
-            resulting in inconsistent data visualizations, conflicting interaction patterns, and a fragmented user experience. I led the design system
+            A Series B healthcare analytics company with 200+ hospital clients needed to unify their rapidly growing dashboard product. Multiple teams were building features independently,
+            resulting in inconsistent data visualizations, conflicting interaction patterns, and a fragmented user experience that was showing up in customer churn feedback. I led the design system
             initiative to bring coherence to the platform while supporting fast-paced feature development.
           </p>
+        </div>
+
+        <div class="research-approach" aria-labelledby="research-approach-heading">
+          <h3 class="research-approach-h3" id="research-approach-heading">Research approach</h3>
+          <div class="research-approach-grid">
+            <article class="research-item">
+              <h4 class="research-item-title">Module audit</h4>
+              <p class="research-item-text">
+                Mapped every component across 5 dashboard modules — identified 32 chart variations, 3 different table patterns, and 4 conflicting filter styles.
+              </p>
+            </article>
+            <article class="research-item">
+              <h4 class="research-item-title">User observation</h4>
+              <p class="research-item-text">
+                Shadowed 4 clinical analysts using the dashboards. Noticed they opened multiple modules side by side — inconsistent layouts forced them to re-learn each view.
+              </p>
+            </article>
+            <article class="research-item">
+              <h4 class="research-item-title">Engineering interviews</h4>
+              <p class="research-item-text">
+                Talked with 3 frontend engineers about pain points. Maintaining duplicate component code was eating ~20% of their sprint capacity.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -1968,6 +2088,42 @@ html {
             </div>
             <div class="wi-title">Shadows and blurs</div>
             <p class="wi-desc">Depth and elevation styles that add clarity</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- DESIGN DECISIONS -->
+      <section class="ds-block" id="design-decisions">
+        <span class="found-tag tag-process">Process</span>
+        <h2 class="ds-h2">Design decisions</h2>
+        <p class="ds-lead">Key choices that shaped the system</p>
+        <div class="decision-cards" aria-label="Key design decisions">
+          <article class="decision-card">
+            <h3 class="decision-card-question">One design system or separate per module?</h3>
+            <p class="decision-card-options">
+              Each dashboard module keeps its own component set vs. one shared system across all 5 modules
+            </p>
+            <p class="decision-card-decision">
+              Shared system. Teams were already duplicating work — 32 chart variations existed because each module built its own. A single source of truth meant fixes and improvements reached all modules at once.
+            </p>
+          </article>
+          <article class="decision-card">
+            <h3 class="decision-card-question">Teal as primary or neutral brand color?</h3>
+            <p class="decision-card-options">
+              Using the existing brand blue as the primary UI color vs. introducing teal as a dedicated data/UI accent
+            </p>
+            <p class="decision-card-decision">
+              Teal. The brand blue was too saturated for dense dashboard interfaces — it competed with status colors (red/amber/green). Teal provided enough contrast for interactive elements while staying calm at high density.
+            </p>
+          </article>
+          <article class="decision-card">
+            <h3 class="decision-card-question">Light-only or light + dark from day one?</h3>
+            <p class="decision-card-options">
+              Ship light theme first and add dark later vs. build both themes into the token architecture from the start
+            </p>
+            <p class="decision-card-decision">
+              Both from day one. Setting up semantic tokens with day/night mapping added ~2 weeks upfront but saved months later. When a client requested dark mode for their NOC screens, we shipped it in 3 days.
+            </p>
           </article>
         </div>
       </section>
@@ -2841,10 +2997,26 @@ html {
         <h2 class="ds-h2">Results</h2>
         <p class="ds-lead">Measurable outcomes after the system reached production coverage.</p>
         <div class="results" aria-label="Result metrics">
-          <div class="metric"><div class="v">5</div><div class="l">Dashboard modules unified</div></div>
-          <div class="metric"><div class="v">~50%</div><div class="l">Reduction in UI-related bugs</div></div>
-          <div class="metric"><div class="v">60%</div><div class="l">Faster new feature development</div></div>
-          <div class="metric"><div class="v">100%</div><div class="l">Accessible color contrast</div></div>
+          <div class="metric">
+            <div class="v">5</div>
+            <div class="l">Dashboard modules unified</div>
+            <p class="metric-context">All 5 modules now pull from one shared Figma library and codebase</p>
+          </div>
+          <div class="metric">
+            <div class="v">~50%</div>
+            <div class="l">Reduction in UI-related bugs</div>
+            <p class="metric-context">Tracked via Jira — UI inconsistency tickets dropped from ~12/sprint to ~6/sprint</p>
+          </div>
+          <div class="metric">
+            <div class="v">60%</div>
+            <div class="l">Faster new feature development</div>
+            <p class="metric-context">New dashboard views built in 2 days average vs. 5 days before the system</p>
+          </div>
+          <div class="metric">
+            <div class="v">100%</div>
+            <div class="l">Accessible color contrast</div>
+            <p class="metric-context">All color pairings validated against WCAG 2.1 AA — automated checks in token docs</p>
+          </div>
         </div>
       </section>
 

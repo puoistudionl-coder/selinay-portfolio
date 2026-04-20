@@ -1602,6 +1602,106 @@ html {
       color: var(--text-muted);
     }
 
+    /* ===== PROCESS: AUDIT — RESEARCH APPROACH ===== */
+    .research-approach {
+      margin-top: 22px;
+      padding: 20px 20px 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(20, 18, 26, 0.72);
+      min-width: 0;
+    }
+
+    .research-approach-h3 {
+      font-family: var(--nav-font);
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 0 0 18px;
+      color: rgba(237, 233, 242, 0.96);
+    }
+
+    .research-approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .research-item {
+      min-width: 0;
+    }
+
+    .research-item-icon {
+      font-size: 1.45rem;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .research-item-title {
+      font-family: var(--nav-font);
+      font-weight: 700;
+      font-size: 0.92rem;
+      line-height: 1.3;
+      margin: 0 0 8px;
+      color: rgba(237, 233, 242, 0.94);
+    }
+
+    .research-item-text {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    /* ===== PROCESS: DESIGN DECISIONS ===== */
+    .case-subtitle {
+      font-family: var(--nav-font);
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(237, 233, 242, 0.72);
+      margin: -4px 0 22px;
+      max-width: 720px;
+    }
+
+    .decision-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 4px;
+    }
+
+    .decision-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(12, 11, 16, 0.55);
+      padding: 18px 18px 16px;
+      min-width: 0;
+    }
+
+    .decision-card-question {
+      font-family: var(--nav-font);
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.35;
+      margin: 0 0 12px;
+      color: rgba(237, 233, 242, 0.96);
+    }
+
+    .decision-card-options {
+      margin: 0;
+      font-size: 0.94rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    .decision-card-decision {
+      margin: 14px 0 0;
+      padding: 12px 0 2px 14px;
+      border-left: 3px solid rgba(124, 92, 252, 0.55);
+      font-size: 0.94rem;
+      line-height: 1.55;
+      color: rgba(237, 233, 242, 0.88);
+    }
+
     /* ===== TOKEN SYSTEM SHOWCASE (CENTERPIECE) ===== */
     .token-showcase {
       margin-top: 22px;
@@ -2425,7 +2525,7 @@ html {
         linear-gradient(145deg, rgba(18,16,24,0.78), rgba(10,9,13,0.84));
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: var(--ring), var(--shadow-sm);
-      padding: 14px 12px 12px;
+      padding: 14px 12px 14px;
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -2468,6 +2568,13 @@ html {
     .result-label {
       font-size: 0.78rem;
       color: var(--text-muted);
+    }
+
+    .result-context {
+      margin: 2px 0 0;
+      font-size: 0.8125rem;
+      line-height: 1.45;
+      color: rgba(237, 233, 242, 0.44);
     }
 
     /* ===== KEY LEARNINGS ===== */
@@ -2550,6 +2657,14 @@ html {
       }
 
       .metric-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .decision-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .research-approach-grid {
         grid-template-columns: 1fr;
       }
 
@@ -2928,7 +3043,7 @@ html {
               </div>
             </div>
             <p class="case-body">
-              A B2B SaaS company's product suite had grown organically across multiple platforms — mobile, desktop, and web — without a shared design language.
+              A B2B SaaS company in the productivity/hardware space had its product suite grow organically across multiple platforms — mobile, desktop, and web — without a shared design language. With 50+ enterprise clients depending on a consistent experience, the inconsistencies were becoming a business problem, not just a design one.
               Inconsistent UI patterns, duplicated components, and ad-hoc styling were slowing down development and fragmenting the user experience.
               I was brought in as the sole designer to audit the existing interfaces, define a unified token system, build a scalable component library,
               and establish documentation practices for cross-functional collaboration.
@@ -3023,6 +3138,33 @@ html {
             This revealed 47 unique button styles, 12 different greys, and no shared spacing scale.
           </p>
 
+          <div class="research-approach" aria-labelledby="research-approach-heading">
+            <h3 class="research-approach-h3" id="research-approach-heading">Research approach</h3>
+            <div class="research-approach-grid">
+              <article class="research-item">
+                <div class="research-item-icon" aria-hidden="true">👥</div>
+                <h4 class="research-item-title">Stakeholder interviews</h4>
+                <p class="research-item-text">
+                  Spoke with 3 engineers, 2 PMs, and the VP of Product to understand pain points — inconsistent handoff specs and duplicated work were the top themes.
+                </p>
+              </article>
+              <article class="research-item">
+                <div class="research-item-icon" aria-hidden="true">🔍</div>
+                <h4 class="research-item-title">UI audit</h4>
+                <p class="research-item-text">
+                  Screenshotted and cataloged every unique component across all 3 platforms. Built a spreadsheet mapping variants to frequency of use.
+                </p>
+              </article>
+              <article class="research-item">
+                <div class="research-item-icon" aria-hidden="true">📊</div>
+                <h4 class="research-item-title">Developer survey</h4>
+                <p class="research-item-text">
+                  Ran a short async survey with the engineering team to identify which inconsistencies caused the most rework — buttons, spacing, and color were the top 3.
+                </p>
+              </article>
+            </div>
+          </div>
+
           <div class="metric-strip" aria-label="Summary of audit findings">
             <div class="metric-card">
               <div class="metric-icon">B</div>
@@ -3043,11 +3185,54 @@ html {
         </div>
       </section>
 
+      <!-- PROCESS: DESIGN DECISIONS -->
+      <section class="case-section" id="process-decisions">
+        <div class="case-section-inner">
+          <div class="sec-bar">
+            <div class="sec-left"><span class="sec-num">04</span><span class="sec-name">Design System</span></div>
+            <div class="sec-right">// Design decisions</div>
+          </div>
+          <div class="case-kicker">Process · Step 1.5</div>
+          <h2 class="case-h2">Design decisions</h2>
+          <p class="case-subtitle">Why this approach</p>
+
+          <div class="decision-cards" aria-label="Key design decisions">
+            <article class="decision-card">
+              <h3 class="decision-card-question">Flat tokens or layered architecture?</h3>
+              <p class="decision-card-options">
+                A flat list of color/spacing variables (faster to set up) vs. a three-layer system: primitive → semantic → component tokens
+              </p>
+              <p class="decision-card-decision">
+                I chose the layered approach. It was more upfront work, but it meant we could support theming and platform-specific overrides without breaking consistency. When the team later needed a dark mode prototype, the semantic layer made it possible in days instead of weeks.
+              </p>
+            </article>
+            <article class="decision-card">
+              <h3 class="decision-card-question">Build everything at once or ship incrementally?</h3>
+              <p class="decision-card-options">
+                A big-bang redesign where all platforms switch at once vs. an incremental rollout starting with the highest-traffic components
+              </p>
+              <p class="decision-card-decision">
+                Incremental. Engineers were shipping features daily — a full freeze wasn't realistic. I started with buttons, inputs, and cards (80% of the UI surface), which gave immediate visual consistency without blocking any sprint.
+              </p>
+            </article>
+            <article class="decision-card">
+              <h3 class="decision-card-question">Figma-only documentation or code-connected?</h3>
+              <p class="decision-card-options">
+                Keeping all specs in Figma vs. mirroring components in Storybook with linked tokens
+              </p>
+              <p class="decision-card-decision">
+                Both. Figma was the design source of truth, but I worked with the frontend lead to set up Storybook with the same token names. This eliminated the 'Figma says one thing, code says another' problem that was causing rework.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <!-- PROCESS: TOKEN ARCHITECTURE -->
       <section class="case-section" id="process-tokens">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">04</span><span class="sec-name">Design Tokens</span></div>
+            <div class="sec-left"><span class="sec-num">05</span><span class="sec-name">Design Tokens</span></div>
             <div class="sec-right">// Color · Type · Spacing</div>
           </div>
           <div class="case-kicker">Process · Step 2</div>
@@ -3217,7 +3402,7 @@ html {
       <section class="case-section" id="grid-breakpoints">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">05</span><span class="sec-name">Grid &amp; Breakpoints</span></div>
+            <div class="sec-left"><span class="sec-num">06</span><span class="sec-name">Grid &amp; Breakpoints</span></div>
             <div class="sec-right">// Layout system</div>
           </div>
           <div class="case-kicker">Foundations</div>
@@ -3255,7 +3440,7 @@ html {
       <section class="case-section" id="color-system">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">06</span><span class="sec-name">Color System</span></div>
+            <div class="sec-left"><span class="sec-num">07</span><span class="sec-name">Color System</span></div>
             <div class="sec-right">// Base + semantic</div>
           </div>
           <div class="case-kicker">Foundations</div>
@@ -3363,7 +3548,7 @@ html {
       <section class="case-section" id="typography">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">07</span><span class="sec-name">Typography</span></div>
+            <div class="sec-left"><span class="sec-num">08</span><span class="sec-name">Typography</span></div>
             <div class="sec-right">// Type scale</div>
           </div>
           <div class="case-kicker">Foundations</div>
@@ -3437,7 +3622,7 @@ html {
       <section class="case-section" id="spacing-system">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">08</span><span class="sec-name">Spacing System</span></div>
+            <div class="sec-left"><span class="sec-num">09</span><span class="sec-name">Spacing System</span></div>
             <div class="sec-right">// Rhythm</div>
           </div>
           <div class="case-kicker">Foundations</div>
@@ -3497,7 +3682,7 @@ html {
       <section class="case-section" id="corner-radius">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">09</span><span class="sec-name">Corner Radius</span></div>
+            <div class="sec-left"><span class="sec-num">10</span><span class="sec-name">Corner Radius</span></div>
             <div class="sec-right">// Radius tokens</div>
           </div>
           <div class="case-kicker">Foundations</div>
@@ -3524,7 +3709,7 @@ html {
       <section class="case-section" id="elevation-effects">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">10</span><span class="sec-name">Elevation &amp; Effects</span></div>
+            <div class="sec-left"><span class="sec-num">11</span><span class="sec-name">Elevation &amp; Effects</span></div>
             <div class="sec-right">// Shadow levels</div>
           </div>
           <div class="case-kicker">Foundations</div>
@@ -3550,7 +3735,7 @@ html {
       <section class="case-section" id="icon-set">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">11</span><span class="sec-name">Icon Set</span></div>
+            <div class="sec-left"><span class="sec-num">12</span><span class="sec-name">Icon Set</span></div>
             <div class="sec-right">// 24px grid</div>
           </div>
           <div class="case-kicker">Foundations</div>
@@ -3589,7 +3774,7 @@ html {
       <section class="case-section" id="process-components">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">12</span><span class="sec-name">Component Set</span></div>
+            <div class="sec-left"><span class="sec-num">13</span><span class="sec-name">Component Set</span></div>
             <div class="sec-right">// Variants × States</div>
           </div>
           <div class="case-kicker">Process · Step 3</div>
@@ -3754,7 +3939,7 @@ html {
       <section class="case-section" id="process-handoff">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">13</span><span class="sec-name">Documentation</span></div>
+            <div class="sec-left"><span class="sec-num">14</span><span class="sec-name">Documentation</span></div>
             <div class="sec-right">// Inspect panels</div>
           </div>
           <div class="case-kicker">Process · Step 4</div>
@@ -3818,7 +4003,7 @@ html {
       <section class="case-section" id="results">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">14</span><span class="sec-name">Outcome</span></div>
+            <div class="sec-left"><span class="sec-num">15</span><span class="sec-name">Outcome</span></div>
             <div class="sec-right">// Results</div>
           </div>
           <div class="case-kicker">Results</div>
@@ -3828,21 +4013,33 @@ html {
               <div class="result-icon">↗</div>
               <div class="result-value">~40%</div>
               <div class="result-label">Faster design-to-dev handoff</div>
+              <p class="result-context">
+                Measured by comparing average ticket cycle time before and after design system adoption over 3 months
+              </p>
             </article>
             <article class="result-card">
               <div class="result-icon">⟲</div>
               <div class="result-value">~30%</div>
               <div class="result-label">Less design time through reuse</div>
+              <p class="result-context">
+                Tracked by comparing time spent on new feature screens using the component library vs. designing from scratch
+              </p>
             </article>
             <article class="result-card">
               <div class="result-icon">▦</div>
               <div class="result-value">3</div>
-              <div class="result-label">Platforms unified (web, mobile, desktop)</div>
+              <div class="result-label">Platforms unified</div>
+              <p class="result-context">
+                Web, mobile, and desktop apps now share one token set and component library in Figma
+              </p>
             </article>
             <article class="result-card">
               <div class="result-icon">●</div>
               <div class="result-value">1</div>
               <div class="result-label">Shared source of truth</div>
+              <p class="result-context">
+                Single Figma library with 120+ components, adopted by all 3 engineering teams
+              </p>
             </article>
           </div>
         </div>
@@ -3852,7 +4049,7 @@ html {
       <section class="case-section" id="learnings">
         <div class="case-section-inner">
           <div class="sec-bar">
-            <div class="sec-left"><span class="sec-num">15</span><span class="sec-name">Reflection</span></div>
+            <div class="sec-left"><span class="sec-num">16</span><span class="sec-name">Reflection</span></div>
             <div class="sec-right">// Learnings</div>
           </div>
           <div class="case-kicker">Key Learnings</div>
