@@ -407,68 +407,54 @@
       background: rgba(255, 255, 255, 0.06);
     }
 
-    #case-study-content .case-section--key-insight .case-main-num,
-    #case-study-content .case-section--key-insight .case-main-kicker,
-    #case-study-content .case-section--key-insight .case-main-chapter {
-      color: rgba(255, 255, 255, 0.65);
-    }
-
-    #case-study-content .case-section--key-insight .case-sec-num {
-      color: rgba(255, 255, 255, 0.55);
-    }
-
     #case-study-content .case-section-inner {
       position: relative;
       z-index: 1;
       min-width: 0;
+      width: 100%;
+      max-width: 100%;
     }
 
-    #case-study-content .case-split-layout {
-      display: grid;
-      grid-template-columns: minmax(120px, 200px) minmax(0, 1fr);
-      gap: clamp(28px, 5vw, 56px);
-      align-items: start;
+    #case-study-content .case-section-head {
+      margin-bottom: 0;
+      width: 100%;
+      max-width: 100%;
     }
 
-    @media (max-width: 720px) {
-      #case-study-content .case-split-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    #case-study-content .case-sec-num {
+    #case-study-content .case-section-kicker {
       font-family: var(--heading-font);
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #9ca3af;
+      display: block;
       margin-bottom: 10px;
-      display: block;
     }
 
-    #case-study-content .case-title-capped {
-      font-family: var(--heading-font);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #000000;
-      margin: 0 0 0 0;
-      padding-bottom: 12px;
-      border-bottom: 3px solid #ff6a14;
-      display: block;
-      max-width: 100%;
+    #case-study-content .case-section-head .case-h2 {
+      margin-top: 0;
+      margin-bottom: 14px;
     }
 
-    #case-study-content .case-section--key-insight .case-title-capped {
-      color: #ffffff;
-      border-bottom-color: #ff6a14;
+    #case-study-content .case-section-line {
+      height: 3px;
+      width: 100%;
+      max-width: 120px;
+      background: #ff6a14;
+      border-radius: 1px;
     }
 
-    #case-study-content .case-split-sidebar {
-      position: sticky;
-      top: 24px;
+    #case-study-content .case-section-head + * {
+      margin-top: clamp(16px, 2vw, 28px);
+    }
+
+    #case-study-content .case-section--key-insight .case-section-kicker {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    #case-study-content .case-section--key-insight .case-section-line {
+      background: #ff6a14;
     }
 
     #case-study-content .sec-bar {
@@ -2077,8 +2063,8 @@
     /* Final UI mockups: fluid layouts inside frame (no transform/scale) */
     #case-study-content .browser-frame.lf-ui-mock-frame {
       width: 100%;
-      max-width: 1200px;
-      margin: 0 auto 60px;
+      max-width: 1100px;
+      margin: 0 auto 48px;
       position: relative;
       overflow: hidden;
       border-radius: 12px;
@@ -6808,21 +6794,13 @@
             </div>
           </section>
 
-          <section class="case-section" id="overview" aria-label="Overview">
-            <div class="case-section-inner case-split-layout">
-              <div class="case-split-sidebar">
-                <span class="case-sec-num">01</span>
-                <h2 class="case-title-capped">Overview</h2>
-              </div>
-              <div class="case-split-main">
-              <div class="case-main-head">
-                <div class="case-main-head-left">
-                  <span class="case-main-num">01</span>
-                  <span class="case-main-kicker">Inq Learn platform</span>
-                  <span class="case-main-rule" aria-hidden="true"></span>
-                </div>
-                <span class="case-main-chapter">// Overview</span>
-              </div>
+          <section class="case-section" id="overview" aria-labelledby="overview-heading">
+            <div class="case-section-inner">
+              <header class="case-section-head">
+                <span class="case-section-kicker">01 · Overview</span>
+                <h2 class="case-h2" id="overview-heading">Overview</h2>
+                <div class="case-section-line" aria-hidden="true"></div>
+              </header>
               <div class="overview-grid">
                 <div class="overview-meta">
                   <div class="overview-meta-item">
@@ -6849,26 +6827,16 @@
                   <p class="overview-note">Project name and visual identity have been changed for confidentiality.</p>
                 </div>
               </div>
-              </div>
             </div>
           </section>
 
           <section class="case-section" id="challenge" aria-labelledby="challenge-heading">
-            <div class="case-section-inner case-split-layout">
-              <div class="case-split-sidebar">
-                <span class="case-sec-num">02</span>
-                <h2 class="case-title-capped">The Challenge</h2>
-              </div>
-              <div class="case-split-main">
-              <div class="case-main-head">
-                <div class="case-main-head-left">
-                  <span class="case-main-num">02</span>
-                  <span class="case-main-kicker">Inq Learn platform</span>
-                  <span class="case-main-rule" aria-hidden="true"></span>
-                </div>
-                <span class="case-main-chapter">// Challenge</span>
-              </div>
-              <h2 class="case-h2" id="challenge-heading">A growing product with a fragmented experience</h2>
+            <div class="case-section-inner">
+              <header class="case-section-head">
+                <span class="case-section-kicker">02 · The Challenge</span>
+                <h2 class="case-h2" id="challenge-heading">A growing product with a fragmented experience</h2>
+                <div class="case-section-line" aria-hidden="true"></div>
+              </header>
               <p class="case-body">
                 User research revealed three core problems: course discovery was buried behind too many filters, the learning progress view was confusing, and B2B admins had no dashboard to track team engagement. NPS had dropped from 42 to 31 over two quarters, and support tickets about &quot;finding courses&quot; had increased 60%.
               </p>
@@ -6886,26 +6854,16 @@
                   <p>B2B managers had no way to see team progress or ROI. Zero dashboard existed.</p>
                 </article>
               </div>
-              </div>
             </div>
           </section>
 
           <section class="case-section case-section--key-insight" id="research" aria-labelledby="research-heading">
-            <div class="case-section-inner case-split-layout">
-              <div class="case-split-sidebar">
-                <span class="case-sec-num">03</span>
-                <h2 class="case-title-capped">Key insight</h2>
-              </div>
-              <div class="case-split-main">
-              <div class="case-main-head">
-                <div class="case-main-head-left">
-                  <span class="case-main-num">03</span>
-                  <span class="case-main-kicker">Inq Learn platform</span>
-                  <span class="case-main-rule" aria-hidden="true"></span>
-                </div>
-                <span class="case-main-chapter">// Research</span>
-              </div>
-              <h2 class="case-h2" id="research-heading">Understanding the users</h2>
+            <div class="case-section-inner">
+              <header class="case-section-head">
+                <span class="case-section-kicker">03 · Research</span>
+                <h2 class="case-h2" id="research-heading">Understanding the users</h2>
+                <div class="case-section-line" aria-hidden="true"></div>
+              </header>
               <p class="case-body">
                 I ran a mixed-methods research sprint over 3 weeks to understand pain points from multiple angles.
               </p>
@@ -6972,26 +6930,16 @@
                   </div>
                 </div>
               </div>
-              </div>
             </div>
           </section>
 
           <section class="case-section" id="information-architecture" aria-labelledby="ia-heading">
-            <div class="case-section-inner case-split-layout">
-              <div class="case-split-sidebar">
-                <span class="case-sec-num">04</span>
-                <h2 class="case-title-capped">Information Architecture</h2>
-              </div>
-              <div class="case-split-main">
-              <div class="case-main-head">
-                <div class="case-main-head-left">
-                  <span class="case-main-num">04</span>
-                  <span class="case-main-kicker">Inq Learn platform</span>
-                  <span class="case-main-rule" aria-hidden="true"></span>
-                </div>
-                <span class="case-main-chapter">// Information architecture</span>
-              </div>
-              <h2 class="case-h2" id="ia-heading">Restructuring the navigation</h2>
+            <div class="case-section-inner">
+              <header class="case-section-head">
+                <span class="case-section-kicker">04 · Information Architecture</span>
+                <h2 class="case-h2" id="ia-heading">Restructuring the navigation</h2>
+                <div class="case-section-line" aria-hidden="true"></div>
+              </header>
               <p class="case-body">
                 The existing IA had 6 top-level sections with overlapping content. I simplified to 4 clear areas based on user mental models from card sorting sessions.
               </p>
@@ -7039,26 +6987,16 @@
                   </div>
                 </div>
               </div>
-              </div>
             </div>
           </section>
 
           <section class="case-section" id="wireframes" aria-labelledby="wireframes-heading">
-            <div class="case-section-inner case-split-layout">
-              <div class="case-split-sidebar">
-                <span class="case-sec-num">05</span>
-                <h2 class="case-title-capped">Wireframes</h2>
-              </div>
-              <div class="case-split-main">
-              <div class="case-main-head">
-                <div class="case-main-head-left">
-                  <span class="case-main-num">05</span>
-                  <span class="case-main-kicker">Inq Learn platform</span>
-                  <span class="case-main-rule" aria-hidden="true"></span>
-                </div>
-                <span class="case-main-chapter">// Wireframes</span>
-              </div>
-              <h2 class="case-h2" id="wireframes-heading">Low-fidelity exploration</h2>
+            <div class="case-section-inner">
+              <header class="case-section-head">
+                <span class="case-section-kicker">05 · Wireframes</span>
+                <h2 class="case-h2" id="wireframes-heading">Low-fidelity exploration</h2>
+                <div class="case-section-line" aria-hidden="true"></div>
+              </header>
               <p class="case-body">
                 I started with rough wireframes to test layout concepts before investing in high-fidelity UI. These were shared with the team in weekly design reviews for early feedback.
               </p>
@@ -7132,26 +7070,16 @@
                   </div>
                 </div>
               </div>
-              </div>
             </div>
           </section>
 
           <section class="case-section case-section--lf-hifi" id="final-ui" aria-labelledby="final-ui-heading">
-            <div class="case-section-inner case-split-layout">
-              <div class="case-split-sidebar">
-                <span class="case-sec-num">06</span>
-                <h2 class="case-title-capped">Final UI</h2>
-              </div>
-              <div class="case-split-main">
-              <div class="case-main-head">
-                <div class="case-main-head-left">
-                  <span class="case-main-num">06</span>
-                  <span class="case-main-kicker">Inq Learn platform</span>
-                  <span class="case-main-rule" aria-hidden="true"></span>
-                </div>
-                <span class="case-main-chapter">// Final UI</span>
-              </div>
-              <h2 class="case-h2" id="final-ui-heading">High-fidelity screens</h2>
+            <div class="case-section-inner">
+              <header class="case-section-head">
+                <span class="case-section-kicker">06 · Final UI</span>
+                <h2 class="case-h2" id="final-ui-heading">High-fidelity screens</h2>
+                <div class="case-section-line" aria-hidden="true"></div>
+              </header>
               <p class="case-body">
                 The final UI brings together the design system tokens, a clear information hierarchy, and the insights from user research into polished, production-ready screens.
               </p>
@@ -8044,26 +7972,16 @@
                 </div>
                 </div>
               </div>
-              </div>
             </div>
           </section>
 
           <section class="case-section" id="user-flow" aria-labelledby="user-flow-heading">
-            <div class="case-section-inner case-split-layout">
-              <div class="case-split-sidebar">
-                <span class="case-sec-num">07</span>
-                <h2 class="case-title-capped">User Flow</h2>
-              </div>
-              <div class="case-split-main">
-              <div class="case-main-head">
-                <div class="case-main-head-left">
-                  <span class="case-main-num">07</span>
-                  <span class="case-main-kicker">Inq Learn platform</span>
-                  <span class="case-main-rule" aria-hidden="true"></span>
-                </div>
-                <span class="case-main-chapter">// User flow</span>
-              </div>
-              <h2 class="case-h2" id="user-flow-heading">A scalable journey model</h2>
+            <div class="case-section-inner">
+              <header class="case-section-head">
+                <span class="case-section-kicker">07 · User Flow</span>
+                <h2 class="case-h2" id="user-flow-heading">A scalable journey model</h2>
+                <div class="case-section-line" aria-hidden="true"></div>
+              </header>
               <p class="case-body">
                 Instead of a single linear diagram, I framed the experience as three layers that scale: activation (getting people to value fast), a repeatable learning loop (where most time is spent), and outcomes that connect learners to B2B stakeholders.
               </p>
@@ -8220,26 +8138,16 @@
               <p class="lf-flow-legend">
                 <strong>Edge cases &amp; scale:</strong> SSO failures, seat limits, and &quot;returning after 90 days&quot; were tested against this model so we could reuse the same progress surfaces and admin signals instead of one-off screens. New verticals (e.g. more courses) extend Phase 02; new enterprise needs extend Phase 03 without rewriting Phase 01.
               </p>
-              </div>
             </div>
           </section>
 
           <section class="case-section" id="design-decisions" aria-labelledby="design-decisions-heading">
-            <div class="case-section-inner case-split-layout">
-              <div class="case-split-sidebar">
-                <span class="case-sec-num">08</span>
-                <h2 class="case-title-capped">Design Decisions</h2>
-              </div>
-              <div class="case-split-main">
-              <div class="case-main-head">
-                <div class="case-main-head-left">
-                  <span class="case-main-num">08</span>
-                  <span class="case-main-kicker">Inq Learn platform</span>
-                  <span class="case-main-rule" aria-hidden="true"></span>
-                </div>
-                <span class="case-main-chapter">// Design decisions</span>
-              </div>
-              <h2 class="case-h2" id="design-decisions-heading">Key choices that shaped the product</h2>
+            <div class="case-section-inner">
+              <header class="case-section-head">
+                <span class="case-section-kicker">08 · Design Decisions</span>
+                <h2 class="case-h2" id="design-decisions-heading">Key choices that shaped the product</h2>
+                <div class="case-section-line" aria-hidden="true"></div>
+              </header>
               <div class="decision-cards" aria-label="Key product design decisions">
                 <article class="decision-card">
                   <h3 class="decision-card-question">Sidebar navigation or top tabs?</h3>
@@ -8268,7 +8176,6 @@
                     Both. Percentage gives a quick emotional signal (I&apos;m more than halfway!), module count gives concrete orientation (what&apos;s next). We tested both in isolation and the combined version performed best in usability tests — users felt more in control.
                   </p>
                 </article>
-              </div>
               </div>
             </div>
           </section>
