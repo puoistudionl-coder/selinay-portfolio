@@ -743,6 +743,7 @@
     #case-study-content .hero-teaser-viewport {
       padding: 0;
       background: #f7f7f5;
+      overflow: hidden;
     }
 
     #case-study-content .hero-teaser-nav {
@@ -1448,6 +1449,207 @@
       color: #cbd5e1;
     }
 
+    /* User flow — rich diagram (E2E + phases) */
+    #case-study-content .lf-flow-e2e-block {
+      margin-top: 22px;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+
+    #case-study-content .lf-flow-e2e-head {
+      padding: 18px 20px 12px;
+      border-bottom: 1px solid #f1f5f9;
+      background: #fff;
+    }
+
+    #case-study-content .lf-flow-e2e-head .lf-flow-phase-kicker {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    #case-study-content .lf-flow-e2e-block .lf-flow-scroll {
+      margin-top: 0;
+      padding-bottom: 4px;
+    }
+
+    #case-study-content .lf-flow--e2e {
+      min-width: 920px;
+      padding: 18px 20px 8px;
+      align-items: flex-start;
+    }
+
+    #case-study-content .lf-flow--e2e .lf-flow-col {
+      width: 120px;
+    }
+
+    #case-study-content .lf-flow--e2e .lf-flow-arrow {
+      padding-top: 32px;
+      width: 18px;
+      color: #d1d5db;
+    }
+
+    #case-study-content .lf-flow-box {
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      font-family: var(--body-font);
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.3;
+      text-align: center;
+      color: #111827;
+      padding: 10px 8px;
+      position: relative;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      min-height: 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    #case-study-content .lf-flow-box--outline {
+      border-color: #e5e7eb;
+    }
+
+    #case-study-content .lf-flow-box--friction {
+      background: #ff6a14;
+      border-color: #ea580c;
+      color: #ffffff;
+      padding-top: 14px;
+      padding-bottom: 12px;
+      box-shadow: 0 4px 14px rgba(255, 106, 20, 0.35);
+    }
+
+    #case-study-content .lf-flow-box__tag {
+      font-size: 7px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.22);
+      padding: 2px 6px;
+      border-radius: 4px;
+      line-height: 1;
+    }
+
+    #case-study-content .lf-flow-box--friction .lf-flow-box__tag {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #case-study-content .lf-flow-box--loop {
+      min-height: 52px;
+    }
+
+    #case-study-content .lf-flow-box__loop-line {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    #case-study-content .lf-flow-box__repeat {
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #ff6a14;
+      margin-top: 2px;
+    }
+
+    #case-study-content .lf-flow-loop-ico {
+      display: inline-block;
+      font-size: 13px;
+      line-height: 1;
+      vertical-align: -0.1em;
+      margin: 0 2px;
+    }
+
+    #case-study-content .lf-flow--e2e .lf-flow-note {
+      min-height: 2.6em;
+      max-width: 120px;
+    }
+
+    #case-study-content .lf-flow-journey-bar {
+      height: 8px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      margin: 4px 20px 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #case-study-content .lf-flow-journey-bar__fill {
+      display: block;
+      height: 100%;
+      width: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #ff6a14 0%, #c2410c 38%, #7c3aed 100%);
+    }
+
+    #case-study-content .lf-flow-phase-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    #case-study-content .lf-flow-phase-rich {
+      border: 1px solid #e8e8e4;
+      border-radius: 14px;
+      background: #f7f7f5;
+      padding: 18px 18px 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    #case-study-content .lf-flow-phase-rich .lf-flow-phase-kicker {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    #case-study-content .lf-flow-phase-rich .lf-flow-phase-title {
+      margin: 0 0 8px;
+    }
+
+    #case-study-content .lf-flow-phase-rich .lf-flow-phase-desc {
+      font-size: 0.86rem;
+      color: #64748b;
+      line-height: 1.55;
+      margin: 0 0 14px;
+      max-width: 78ch;
+    }
+
+    #case-study-content .lf-flow--phase {
+      min-width: 560px;
+      padding: 4px 0 2px;
+    }
+
+    #case-study-content .lf-flow--phase .lf-flow-col {
+      width: 108px;
+    }
+
+    #case-study-content .lf-flow--phase .lf-flow-arrow {
+      padding-top: 28px;
+      color: #cbd5e1;
+    }
+
+    #case-study-content .lf-flow--phase .lf-flow-note {
+      font-size: 9px;
+      max-width: 108px;
+      min-height: 2.8em;
+    }
+
+    #case-study-content .lf-flow-framework--callout {
+      margin-top: 6px;
+    }
+
     /* —— Design decision cards (match design-system.html) —— */
     #case-study-content .decision-cards {
       display: grid;
@@ -1878,6 +2080,7 @@
       margin: 0 auto;
       position: relative;
       aspect-ratio: 1440 / 900;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-mock-frame .lf-ui-browser {
@@ -1891,33 +2094,76 @@
     #case-study-content .lf-ui-mock-frame .lf-ui-viewport {
       flex: 1;
       min-height: 0;
-      overflow: auto;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
     }
 
     #case-study-content .lf-ui-mock-frame--fluid {
       aspect-ratio: auto;
-      min-height: min(80vh, 900px);
+      min-height: 0;
     }
 
     #case-study-content .lf-ui-mock-frame--fluid .lf-ui-browser {
       position: relative;
       inset: auto;
-      min-height: min(78vh, 880px);
+      min-height: 0;
+      height: auto;
     }
 
     #case-study-content .lf-ui-mock-frame--phones {
       aspect-ratio: auto;
       max-width: 1200px;
-      min-height: 520px;
+      min-height: 0;
     }
 
     #case-study-content .lf-ui-mock-frame--phones .lf-ui-browser {
       position: relative;
       inset: auto;
       height: auto;
-      min-height: 500px;
+      min-height: 0;
+    }
+
+    #case-study-content .lf-ui-mock-frame--learn {
+      aspect-ratio: 1440 / 1080;
+      max-width: 1200px;
+      overflow: hidden;
+    }
+
+    #case-study-content .lf-ui-mock-frame--learn .lf-ui-viewport {
+      overflow: hidden;
+    }
+
+    #case-study-content .lf-ui-mock-frame--learn .lf-ui-body {
+      overflow: hidden;
+    }
+
+    #case-study-content .lf-ui-mock-frame--learn .lf-ui-takeaways {
+      overflow: hidden;
+    }
+
+    #case-study-content .lf-ui-mock-frame--learn .lf-ui-takeaways ul {
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    #case-study-content .lf-ui-mock-frame--learn .lf-ui-main-title {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    #case-study-content .lf-ui-mock-frame--learn .lf-ui-video {
+      margin-bottom: 10px;
+    }
+
+    #case-study-content .lf-ui-mock-frame * {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    #case-study-content .lf-ui-mock-frame *::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
     }
 
     #case-study-content .lf-ui-icon-wrap {
@@ -1947,6 +2193,7 @@
       flex: 1;
       min-height: 0;
       align-items: stretch;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-app-side {
@@ -1956,7 +2203,7 @@
       border-right: 1px solid #e5e7eb;
       padding: 16px 12px 20px;
       font-size: 12px;
-      overflow: auto;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-app-side-group {
@@ -1991,48 +2238,103 @@
     #case-study-content .lf-ui-app-main {
       flex: 1;
       min-width: 0;
-      padding: 16px 20px 20px;
-      overflow: auto;
+      padding: 12px 16px 14px;
+      overflow: hidden;
       background: #f7f7f5;
     }
 
     #case-study-content .lf-ui-dash-row1 {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.25fr);
-      gap: 12px;
-      margin-bottom: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.2fr);
+      gap: 8px;
+      margin-bottom: 10px;
       align-items: stretch;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-dash-row1 .lf-ui-stat-card {
+      padding: 8px 10px 10px;
+      min-height: 88px;
+      max-height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-dash-row1 .lf-ui-stat-val {
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-dash-row1 .lf-ui-stat-num {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      display: block;
+      line-height: 1;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-dash-row1 .lf-ui-stat-lbl {
+      font-size: 10px;
+      margin-top: 4px;
+      line-height: 1.2;
+      color: #64748b;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-dash-row1 .lf-ui-stat-val--line {
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     #case-study-content .lf-ui-dash-streak-wide {
       background: #fff;
       border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 12px 14px;
+      border-radius: 10px;
+      padding: 8px 10px 9px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      min-height: 88px;
+      max-height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    #case-study-content .lf-ui-dash-streak-wide strong {
-      display: block;
-      font-size: 13px;
+    #case-study-content .lf-ui-dash-streak-wide .lf-ui-dash-streak-line {
+      font-size: 10px;
+      font-weight: 600;
       color: #0f172a;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+
+    #case-study-content .lf-ui-dash-streak-wide .lf-ui-dash-streak-line strong {
+      color: #ff6a14;
+      font-weight: 800;
     }
 
     #case-study-content .lf-ui-dash-streak-dots {
       display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
+      gap: 4px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
     }
 
     #case-study-content .lf-ui-dash-streak-dots span {
-      width: 22px;
-      height: 22px;
+      width: 14px;
+      height: 14px;
+      flex: 0 0 14px;
       border-radius: 50%;
-      border: 1.5px solid #e5e7eb;
+      border: 1px solid #e5e7eb;
       display: grid;
       place-items: center;
-      font-size: 10px;
+      font-size: 7px;
       font-weight: 700;
       color: #cbd5e1;
       background: #fff;
@@ -2047,8 +2349,12 @@
     #case-study-content .lf-ui-dash-row2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 14px;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-dash-row2 .lf-ui-panel-card {
+      padding: 10px 10px 12px;
     }
 
     #case-study-content .lf-ui-panel-card {
@@ -2060,29 +2366,29 @@
     }
 
     #case-study-content .lf-ui-panel-card > h4 {
-      font-size: 11px;
+      font-size: 9px;
       font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #64748b;
-      margin: 0 0 10px;
+      margin: 0 0 6px;
     }
 
     #case-study-content .lf-ui-time-big {
-      font-size: 28px;
+      font-size: 22px;
       font-weight: 800;
       letter-spacing: -0.03em;
       color: #0f172a;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     #case-study-content .lf-ui-week-bars {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      gap: 6px;
-      height: 100px;
-      padding-top: 6px;
+      gap: 4px;
+      height: 56px;
+      padding-top: 4px;
       border-top: 1px solid #f1f5f9;
     }
 
@@ -2091,21 +2397,21 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 3px;
       min-width: 0;
     }
 
     #case-study-content .lf-ui-week-bar i {
       display: block;
       width: 100%;
-      max-width: 36px;
-      border-radius: 6px 6px 0 0;
+      max-width: 28px;
+      border-radius: 4px 4px 0 0;
       background: #ff6a14;
-      min-height: 12px;
+      min-height: 8px;
     }
 
     #case-study-content .lf-ui-week-bar span {
-      font-size: 10px;
+      font-size: 8px;
       font-weight: 700;
       color: #94a3b8;
       text-transform: uppercase;
@@ -2113,34 +2419,35 @@
 
     #case-study-content .lf-ui-timeline {
       position: relative;
-      padding: 8px 0 0;
-      min-height: 120px;
+      padding: 4px 0 0;
+      min-height: 0;
     }
 
     #case-study-content .lf-ui-timeline-axis {
       display: flex;
       justify-content: space-between;
-      font-size: 10px;
+      font-size: 8px;
       font-weight: 600;
       color: #cbd5e1;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     #case-study-content .lf-ui-timeline-track {
       position: relative;
-      border-radius: 10px;
+      border-radius: 8px;
       background: #f8fafc;
       border: 1px solid #f1f5f9;
-      padding: 10px 8px;
-      min-height: 88px;
+      padding: 6px 6px;
+      min-height: 0;
     }
 
     #case-study-content .lf-ui-tl-item {
       position: relative;
-      padding: 6px 8px 6px 12px;
-      border-left: 3px solid #e5e7eb;
-      margin-bottom: 8px;
-      font-size: 11px;
+      padding: 4px 6px 4px 10px;
+      border-left: 2px solid #e5e7eb;
+      margin-bottom: 5px;
+      font-size: 9px;
+      line-height: 1.3;
     }
 
     #case-study-content .lf-ui-tl-item.is-done {
@@ -2155,6 +2462,10 @@
 
     #case-study-content .lf-ui-tl-item.is-up {
       border-left-color: #94a3b8;
+    }
+
+    #case-study-content .lf-ui-tl-item:last-child {
+      margin-bottom: 0;
     }
 
     #case-study-content .lf-ui-tl-status {
@@ -2196,6 +2507,16 @@
       background: #fafafa;
     }
 
+    #case-study-content .lf-ui-app-main .lf-ui-dash-table-wrap th,
+    #case-study-content .lf-ui-app-main .lf-ui-dash-table-wrap td {
+      padding: 6px 8px;
+      font-size: 10px;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-dash-table-wrap th {
+      font-size: 8px;
+    }
+
     #case-study-content .lf-ui-dash-table-wrap td:last-child {
       text-align: right;
       font-variant-numeric: tabular-nums;
@@ -2221,6 +2542,7 @@
       display: flex;
       flex: 1;
       min-height: 0;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-cat-layout .lf-ui-app-side {
@@ -2261,6 +2583,8 @@
       grid-template-columns: minmax(0, 0.65fr) minmax(0, 0.35fr);
       gap: 28px;
       align-items: start;
+      min-width: 0;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-tag-pills {
@@ -2428,6 +2752,7 @@
       padding: 0;
       background: #fff;
       min-width: 0;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-nav {
@@ -2524,20 +2849,21 @@
       padding: 24px;
       min-width: 0;
       background: #f7f7f5;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-welcome h2 {
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 700;
       letter-spacing: -0.03em;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       color: #000000;
     }
 
     #case-study-content .lf-ui-welcome p {
-      font-size: 15px;
-      color: #4a5568;
-      margin-bottom: 24px;
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 12px;
     }
 
     #case-study-content .lf-ui-stat-row {
@@ -2589,6 +2915,22 @@
       text-transform: uppercase;
       color: #ff6a14;
       margin-bottom: 12px;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-section-title {
+      font-size: 11px;
+      margin-bottom: 8px;
+      margin-top: 4px;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-continue-row {
+      margin-bottom: 12px;
+      gap: 10px;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-rec-row {
+      margin-bottom: 10px;
+      gap: 10px;
     }
 
     #case-study-content .lf-ui-continue-row {
@@ -2919,6 +3261,8 @@
       grid-template-columns: minmax(0, 220px) minmax(0, 1fr) minmax(0, 200px);
       gap: 24px;
       align-items: start;
+      min-width: 0;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-side-title {
@@ -3324,10 +3668,7 @@
     #case-study-content .lf-ui-table-wrap {
       border: 1px solid #e5e7eb;
       border-radius: 14px;
-      /* overflow: hidden clips horizontal scroll — use auto for data tables */
-      overflow-x: auto;
-      overflow-y: visible;
-      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
       background: #fff;
       min-width: 0;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
@@ -3385,7 +3726,7 @@
       border-bottom: none;
     }
 
-    /* Top learners — enterprise spacing (auto layout + min-width prevents header overlap) */
+    /* Top learners — enterprise spacing (mockups: fit frame without horizontal scroll) */
     #case-study-content .lf-ui-table--learners {
       min-width: 720px;
       width: max(100%, 720px);
@@ -3458,6 +3799,30 @@
       text-align: right;
       white-space: nowrap;
       color: #475569;
+    }
+
+    #case-study-content .lf-ui-mock-frame .lf-ui-table--learners {
+      min-width: 0 !important;
+      width: 100% !important;
+      table-layout: fixed;
+    }
+
+    #case-study-content .lf-ui-mock-frame .lf-ui-table--learners th:nth-child(1),
+    #case-study-content .lf-ui-mock-frame .lf-ui-table--learners td:nth-child(1),
+    #case-study-content .lf-ui-mock-frame .lf-ui-table--learners th:nth-child(2),
+    #case-study-content .lf-ui-mock-frame .lf-ui-table--learners td:nth-child(2),
+    #case-study-content .lf-ui-mock-frame .lf-ui-table--learners th:nth-child(3),
+    #case-study-content .lf-ui-mock-frame .lf-ui-table--learners td:nth-child(3),
+    #case-study-content .lf-ui-mock-frame .lf-ui-table--learners th:nth-child(4),
+    #case-study-content .lf-ui-mock-frame .lf-ui-table--learners td:nth-child(4) {
+      min-width: 0;
+      padding: 6px 8px;
+      font-size: 10px;
+    }
+
+    #case-study-content .lf-ui-mock-frame .lf-ui-table--learners thead th {
+      padding: 8px 8px 6px;
+      font-size: 8px;
     }
 
     @media (max-width: 900px) {
@@ -4217,6 +4582,7 @@
       display: flex;
       flex-direction: column;
       min-height: 0;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-onb-progress {
@@ -4504,6 +4870,8 @@
       flex-direction: column;
       align-items: center;
       padding: 32px 24px 24px;
+      overflow: hidden;
+      min-width: 0;
     }
 
     #case-study-content .lf-ui-cert-card {
@@ -4806,11 +5174,11 @@
 
     #case-study-content .lf-ui-phone-chips {
       display: flex;
+      flex-wrap: wrap;
       gap: 6px;
-      overflow-x: auto;
+      overflow: hidden;
       padding-bottom: 8px;
       margin-bottom: 8px;
-      -webkit-overflow-scrolling: touch;
     }
 
     #case-study-content .lf-ui-phone-chips span {
@@ -4976,6 +5344,8 @@
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 16px;
       align-items: start;
+      min-width: 0;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-panel-card {
@@ -5022,8 +5392,8 @@
 
     #case-study-content .lf-ui-notif-list {
       padding: 8px 0;
-      max-height: 280px;
-      overflow-y: auto;
+      max-height: none;
+      overflow: hidden;
     }
 
     #case-study-content .lf-ui-notif-item {
@@ -5177,7 +5547,6 @@
       min-width: 0;
       display: flex;
       flex-direction: column;
-      max-height: min(560px, 78vh);
     }
 
     #case-study-content .il-dash-shell {
@@ -5393,7 +5762,7 @@
     #case-study-content .il-dash-scroll {
       flex: 1;
       min-height: 0;
-      overflow: auto;
+      overflow: hidden;
       padding: 12px 14px 14px;
       display: flex;
       flex-direction: column;
@@ -5844,13 +6213,12 @@
       display: flex;
       flex-direction: column;
       min-height: 420px;
-      max-height: min(520px, 62vh);
+      overflow: hidden;
     }
 
     #case-study-content .il-app-scroll {
       flex: 1;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
     }
 
     #case-study-content .il-app-top {
@@ -6348,6 +6716,12 @@
       -webkit-overflow-scrolling: touch;
       max-width: 100%;
       min-width: 0;
+    }
+
+    #case-study-content .lf-ui-stack .table-scroll {
+      overflow: hidden !important;
+      overflow-x: hidden !important;
+      overflow-y: hidden !important;
     }
 
     .visually-hidden {
@@ -6858,19 +7232,19 @@
                         </div>
                         <div class="lf-ui-dash-row1">
                           <div class="lf-ui-stat-card lf-ui-stat-card--green">
-                            <div class="lf-ui-stat-val">12 <span aria-hidden="true">✓</span></div>
+                            <div class="lf-ui-stat-val"><span class="lf-ui-stat-num">12</span></div>
                             <div class="lf-ui-stat-lbl">Completed</div>
                           </div>
                           <div class="lf-ui-stat-card lf-ui-stat-card--amber">
-                            <div class="lf-ui-stat-val">8 Day Streak 🔥</div>
+                            <div class="lf-ui-stat-val lf-ui-stat-val--line">8 Day Streak 🔥</div>
                             <div class="lf-ui-stat-lbl">Keep it going</div>
                           </div>
                           <div class="lf-ui-stat-card lf-ui-stat-card--accent">
-                            <div class="lf-ui-stat-val">3 Certificates</div>
-                            <div class="lf-ui-stat-lbl">Earned this year</div>
+                            <div class="lf-ui-stat-val"><span class="lf-ui-stat-num">3</span></div>
+                            <div class="lf-ui-stat-lbl">Certificates</div>
                           </div>
                           <div class="lf-ui-dash-streak-wide">
-                            <strong>You&apos;re on a 8-day streak!</strong>
+                            <div class="lf-ui-dash-streak-line">You&apos;re on a <strong>8-day</strong> streak!</div>
                             <div class="lf-ui-dash-streak-dots" aria-hidden="true">
                               <span class="is-on">✓</span><span class="is-on">✓</span><span class="is-on">✓</span><span class="is-on">✓</span><span class="is-on">✓</span><span class="is-on">✓</span><span class="is-on">✓</span>
                             </div>
@@ -6881,13 +7255,13 @@
                             <h4>Time spent learning</h4>
                             <div class="lf-ui-time-big">12h 45m</div>
                             <div class="lf-ui-week-bars" aria-hidden="true">
-                              <div class="lf-ui-week-bar"><i style="height: 32px"></i><span>Mon</span></div>
-                              <div class="lf-ui-week-bar"><i style="height: 48px"></i><span>Tue</span></div>
-                              <div class="lf-ui-week-bar"><i style="height: 28px"></i><span>Wed</span></div>
-                              <div class="lf-ui-week-bar"><i style="height: 56px"></i><span>Thu</span></div>
-                              <div class="lf-ui-week-bar"><i style="height: 40px"></i><span>Fri</span></div>
-                              <div class="lf-ui-week-bar"><i style="height: 22px"></i><span>Sat</span></div>
-                              <div class="lf-ui-week-bar"><i style="height: 18px"></i><span>Sun</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 18px"></i><span>Mon</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 28px"></i><span>Tue</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 16px"></i><span>Wed</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 32px"></i><span>Thu</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 22px"></i><span>Fri</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 12px"></i><span>Sat</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 10px"></i><span>Sun</span></div>
                             </div>
                           </div>
                           <div class="lf-ui-panel-card">
@@ -7089,7 +7463,7 @@
                 </div>
 
                 <!-- Screen 3: Learning view -->
-                <div class="lf-ui-mock-frame">
+                <div class="lf-ui-mock-frame lf-ui-mock-frame--learn">
                 <div class="lf-ui-browser" aria-label="Inq Learn learning view — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7241,7 +7615,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="lf-ui-table-wrap lf-ui-table-wrap--learners table-scroll">
+                        <div class="lf-ui-table-wrap lf-ui-table-wrap--learners">
                           <h3>Top learners</h3>
                           <table class="lf-ui-table lf-ui-table--learners">
                             <thead>
@@ -7606,7 +7980,7 @@
                     <span class="lf-ui-chrome-url">app.learn.inq.shop · mobile</span>
                   </div>
                   <div class="lf-ui-viewport">
-                    <div class="lf-ui-body table-scroll" style="padding: 20px; max-width: 100%">
+                    <div class="lf-ui-body" style="padding: 20px; max-width: 100%">
                       <div class="lf-ui-mobile-strip">
                         <div class="lf-ui-phone" aria-label="Mobile dashboard">
                           <div class="lf-ui-phone-notch" aria-hidden="true"></div>
@@ -7789,63 +8163,158 @@
                 Instead of a single linear diagram, I framed the experience as three layers that scale: activation (getting people to value fast), a repeatable learning loop (where most time is spent), and outcomes that connect learners to B2B stakeholders.
               </p>
 
-              <div class="lf-flow-strip">
-                <div class="lf-flow-strip-head">
-                  <span class="lf-flow-phase-kicker">End-to-end</span>
+              <div class="lf-flow-framework lf-flow-framework--callout">
+                <p>
+                  The flow below is the canonical path used for prioritization and edge-case reviews (resume, SSO, permissions, exports). &quot;Key moments&quot; are annotated where research showed the highest drop-off or the strongest opportunity to build trust.
+                </p>
+                <ul class="lf-flow-principles">
+                  <li><strong>One mental model:</strong> learners always land on a clear &quot;continue&quot; surface; admins never hunt in learner UI for team data.</li>
+                  <li><strong>Composable loop:</strong> new courses plug into the same module loop; new orgs inherit the same reporting layer.</li>
+                  <li><strong>Explicit handoffs:</strong> certificate and manager visibility are first-class steps, not an afterthought in a footnote.</li>
+                </ul>
+              </div>
+
+              <div class="lf-flow-e2e-block">
+                <div class="lf-flow-e2e-head">
+                  <span class="lf-flow-phase-kicker">END-TO-END</span>
                   <p class="lf-flow-strip-title">Single canonical path (learner → outcomes → enterprise)</p>
+                  <p class="lf-flow-strip-desc">
+                    One continuous model for roadmap and handoff discussions: every screen in the case study maps to a step here. Scroll horizontally to see the full product surface area — from identity to admin reporting — without breaking the narrative into disconnected mocks.
+                  </p>
                 </div>
                 <div class="lf-flow-scroll table-scroll" aria-label="End-to-end user journey">
-                  <div class="lf-flow lf-flow--full">
+                  <div class="lf-flow lf-flow--e2e">
                     <div class="lf-flow-col">
-                      <div class="lf-flow-step">Sign up / SSO</div>
+                      <div class="lf-flow-box lf-flow-box--outline">Sign up / SSO</div>
                       <div class="lf-flow-note">Identity</div>
                     </div>
                     <div class="lf-flow-arrow" aria-hidden="true">→</div>
                     <div class="lf-flow-col">
-                      <div class="lf-flow-step lf-flow-step--key">Onboarding</div>
+                      <div class="lf-flow-box lf-flow-box--friction">
+                        <span class="lf-flow-box__tag">Friction</span>
+                        Onboarding
+                      </div>
                       <div class="lf-flow-note">Role &amp; topics</div>
                     </div>
                     <div class="lf-flow-arrow" aria-hidden="true">→</div>
                     <div class="lf-flow-col">
-                      <div class="lf-flow-step">Dashboard</div>
+                      <div class="lf-flow-box lf-flow-box--outline">Dashboard</div>
                       <div class="lf-flow-note">Continue + recs</div>
                     </div>
                     <div class="lf-flow-arrow" aria-hidden="true">→</div>
                     <div class="lf-flow-col">
-                      <div class="lf-flow-step lf-flow-step--key">Catalog</div>
+                      <div class="lf-flow-box lf-flow-box--friction">
+                        <span class="lf-flow-box__tag">Friction</span>
+                        Catalog
+                      </div>
                       <div class="lf-flow-note">Search &amp; filters</div>
                     </div>
                     <div class="lf-flow-arrow" aria-hidden="true">→</div>
                     <div class="lf-flow-col">
-                      <div class="lf-flow-step">Enroll</div>
+                      <div class="lf-flow-box lf-flow-box--outline">Enroll</div>
                       <div class="lf-flow-note">Seats / policy</div>
                     </div>
                     <div class="lf-flow-arrow" aria-hidden="true">→</div>
                     <div class="lf-flow-col">
-                      <div class="lf-flow-step lf-flow-step--key">Learn</div>
+                      <div class="lf-flow-box lf-flow-box--friction">
+                        <span class="lf-flow-box__tag">Friction</span>
+                        Learn
+                      </div>
                       <div class="lf-flow-note">Video + module</div>
                     </div>
                   </div>
                 </div>
+                <div class="lf-flow-journey-bar" aria-hidden="true"><span class="lf-flow-journey-bar__fill"></span></div>
               </div>
 
-              <div class="lf-flow-phase-cards" aria-label="Three journey phases">
-                <article class="lf-flow-phase-card" aria-labelledby="flow-phase-1">
-                  <span class="lf-flow-phase-kicker">Phase 01</span>
+              <div class="lf-flow-phase-stack" aria-label="Three journey phases">
+                <article class="lf-flow-phase-rich" aria-labelledby="flow-phase-1">
+                  <span class="lf-flow-phase-kicker">PHASE 01</span>
                   <h3 class="lf-flow-phase-title" id="flow-phase-1">Acquire &amp; activate</h3>
-                  <p class="lf-flow-phase-line">Sign up/SSO → Onboarding → Home dashboard</p>
+                  <p class="lf-flow-phase-desc">Reduce friction to first value: identity, lightweight personalization, then a dashboard that answers &quot;what should I do next?&quot;</p>
+                  <div class="lf-flow-scroll table-scroll">
+                    <div class="lf-flow lf-flow--phase">
+                      <div class="lf-flow-col">
+                        <div class="lf-flow-box lf-flow-box--outline">Sign up / SSO</div>
+                        <div class="lf-flow-note">Org SSO when provisioned</div>
+                      </div>
+                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
+                      <div class="lf-flow-col">
+                        <div class="lf-flow-box lf-flow-box--friction">
+                          <span class="lf-flow-box__tag">Friction</span>
+                          Onboarding
+                        </div>
+                        <div class="lf-flow-note">Role &amp; topics shape the catalog</div>
+                      </div>
+                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
+                      <div class="lf-flow-col">
+                        <div class="lf-flow-box lf-flow-box--outline">Home dashboard</div>
+                        <div class="lf-flow-note">Continue + recommendations</div>
+                      </div>
+                    </div>
+                  </div>
                 </article>
-                <article class="lf-flow-phase-card" aria-labelledby="flow-phase-2">
-                  <span class="lf-flow-phase-kicker">Phase 02</span>
+
+                <article class="lf-flow-phase-rich" aria-labelledby="flow-phase-2">
+                  <span class="lf-flow-phase-kicker">PHASE 02</span>
                   <h3 class="lf-flow-phase-title" id="flow-phase-2">Discover &amp; learn (core loop)</h3>
-                  <p class="lf-flow-phase-line">Browse catalog → Enroll → Module loop (REPEAT) → Course complete</p>
+                  <p class="lf-flow-phase-desc">The scalable unit of the product: find a course, enroll, then repeat module-level work until completion. Progress and resume are part of the loop — not a separate &quot;feature path.&quot;</p>
+                  <div class="lf-flow-scroll table-scroll">
+                    <div class="lf-flow lf-flow--phase">
+                      <div class="lf-flow-col">
+                        <div class="lf-flow-box lf-flow-box--outline">Browse catalog</div>
+                        <div class="lf-flow-note">Filters + relevance</div>
+                      </div>
+                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
+                      <div class="lf-flow-col">
+                        <div class="lf-flow-box lf-flow-box--outline">Enroll</div>
+                        <div class="lf-flow-note">Org rules / seat checks</div>
+                      </div>
+                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
+                      <div class="lf-flow-col">
+                        <div class="lf-flow-box lf-flow-box--outline lf-flow-box--loop">
+                          <span class="lf-flow-box__loop-line">Module loop <span class="lf-flow-loop-ico" aria-hidden="true">↻</span></span>
+                          <span class="lf-flow-box__repeat">REPEAT</span>
+                        </div>
+                        <div class="lf-flow-note">Learn → save progress → next module</div>
+                      </div>
+                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
+                      <div class="lf-flow-col">
+                        <div class="lf-flow-box lf-flow-box--outline">Course complete</div>
+                        <div class="lf-flow-note">Unlocks certificate</div>
+                      </div>
+                    </div>
+                  </div>
                 </article>
-                <article class="lf-flow-phase-card" aria-labelledby="flow-phase-3">
-                  <span class="lf-flow-phase-kicker">Phase 03</span>
+
+                <article class="lf-flow-phase-rich" aria-labelledby="flow-phase-3">
+                  <span class="lf-flow-phase-kicker">PHASE 03</span>
                   <h3 class="lf-flow-phase-title" id="flow-phase-3">Outcomes &amp; enterprise visibility</h3>
-                  <p class="lf-flow-phase-line">Certificate → Share/profile → Manager &amp; admin reporting</p>
+                  <p class="lf-flow-phase-desc">Proof of skill for the learner; proof of ROI for the org. These steps informed certificate layout, sharing, and admin dashboards as parallel surfaces — not bolt-ons.</p>
+                  <div class="lf-flow-scroll table-scroll">
+                    <div class="lf-flow lf-flow--phase">
+                      <div class="lf-flow-col">
+                        <div class="lf-flow-box lf-flow-box--outline">Certificate</div>
+                        <div class="lf-flow-note">PDF + verified metadata</div>
+                      </div>
+                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
+                      <div class="lf-flow-col">
+                        <div class="lf-flow-box lf-flow-box--outline">Share / profile</div>
+                        <div class="lf-flow-note">LinkedIn, internal feed</div>
+                      </div>
+                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
+                      <div class="lf-flow-col lf-flow-col--wide">
+                        <div class="lf-flow-box lf-flow-box--outline">Manager &amp; admin reporting</div>
+                        <div class="lf-flow-note">Completion, cohorts, exports</div>
+                      </div>
+                    </div>
+                  </div>
                 </article>
               </div>
+
+              <p class="lf-flow-legend">
+                <strong>Edge cases &amp; scale:</strong> SSO failures, seat limits, and &quot;returning after 90 days&quot; were tested against this model so we could reuse the same progress surfaces and admin signals instead of one-off screens. New verticals (e.g. more courses) extend Phase 02; new enterprise needs extend Phase 03 without rewriting Phase 01.
+              </p>
               </div>
             </div>
           </section>
