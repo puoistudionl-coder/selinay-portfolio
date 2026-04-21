@@ -407,6 +407,16 @@
       background: rgba(255, 255, 255, 0.06);
     }
 
+    #case-study-content .case-section--key-insight .case-main-num,
+    #case-study-content .case-section--key-insight .case-main-kicker,
+    #case-study-content .case-section--key-insight .case-main-chapter {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    #case-study-content .case-section--key-insight .case-sec-num {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
     #case-study-content .case-section-inner {
       position: relative;
       z-index: 1;
@@ -662,15 +672,199 @@
       display: grid;
       grid-template-columns: minmax(0, 1.02fr) minmax(0, 1.08fr);
       gap: 26px;
-      align-items: start;
+      align-items: center;
     }
 
-    #case-study-content .hero-mockups {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(200px, 232px);
-      gap: 14px;
-      align-items: start;
+    /* Hero: single floating browser teaser */
+    #case-study-content .hero-teaser-wrap {
+      perspective: 1400px;
+      display: flex;
+      justify-content: flex-end;
       min-width: 0;
+    }
+
+    #case-study-content .hero-teaser-browser {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+      box-shadow:
+        0 28px 60px rgba(15, 23, 42, 0.14),
+        0 12px 24px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+      transform: rotateX(4deg) rotateY(-5deg) translateZ(0);
+      transform-style: preserve-3d;
+    }
+
+    #case-study-content .hero-teaser-chrome {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 34px;
+      padding: 0 12px;
+      background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    #case-study-content .hero-teaser-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    #case-study-content .hero-teaser-dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #e2e8f0;
+    }
+
+    #case-study-content .hero-teaser-dots span:nth-child(1) {
+      background: #ef4444;
+    }
+
+    #case-study-content .hero-teaser-dots span:nth-child(2) {
+      background: #f59e0b;
+    }
+
+    #case-study-content .hero-teaser-dots span:nth-child(3) {
+      background: #22c55e;
+    }
+
+    #case-study-content .hero-teaser-url {
+      flex: 1;
+      font-size: 10px;
+      color: #64748b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #case-study-content .hero-teaser-viewport {
+      padding: 0;
+      background: #f7f7f5;
+    }
+
+    #case-study-content .hero-teaser-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 12px;
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 11px;
+    }
+
+    #case-study-content .hero-teaser-nav .inq-brand {
+      font-size: 12px;
+    }
+
+    #case-study-content .hero-teaser-txt {
+      font-weight: 600;
+      color: #0f172a;
+      border-bottom: 2px solid #ff6a14;
+      padding-bottom: 2px;
+    }
+
+    #case-study-content .hero-teaser-body {
+      padding: 12px;
+    }
+
+    #case-study-content .hero-teaser-welcome {
+      font-size: 11px;
+      color: #475569;
+      margin: 0 0 10px;
+      line-height: 1.4;
+    }
+
+    #case-study-content .hero-teaser-welcome strong {
+      color: #0f172a;
+      display: block;
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+
+    #case-study-content .hero-teaser-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    #case-study-content .hero-teaser-stats > div {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 8px;
+      text-align: center;
+    }
+
+    #case-study-content .hero-teaser-stats span {
+      display: block;
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    #case-study-content .hero-teaser-stats small {
+      font-size: 9px;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    #case-study-content .hero-teaser-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    #case-study-content .hero-teaser-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    #case-study-content .htc-head {
+      height: 36px;
+      background: linear-gradient(90deg, #7c3aed, #6366f1);
+    }
+
+    #case-study-content .htc-head--b {
+      background: linear-gradient(90deg, #ff6a14, #ea580c);
+    }
+
+    #case-study-content .htc-body {
+      padding: 8px;
+    }
+
+    #case-study-content .htc-body > span {
+      font-size: 10px;
+      font-weight: 700;
+      color: #0f172a;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    #case-study-content .htc-bar {
+      height: 5px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+
+    #case-study-content .htc-bar::after {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 62%;
+      background: #ff6a14;
+      border-radius: inherit;
     }
 
     #case-study-content .hero-copy {
@@ -1058,6 +1252,37 @@
       gap: 18px;
     }
 
+    #case-study-content .lf-flow-phase-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    #case-study-content .lf-flow-phase-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      background: #ffffff;
+      padding: 18px 18px 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    #case-study-content .lf-flow-phase-card .lf-flow-phase-kicker {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    #case-study-content .lf-flow-phase-card .lf-flow-phase-title {
+      margin-bottom: 10px;
+    }
+
+    #case-study-content .lf-flow-phase-line {
+      font-size: 0.88rem;
+      color: #475569;
+      margin: 0;
+      line-height: 1.55;
+    }
+
     #case-study-content .lf-flow-phase {
       border: 1px solid #e5e7eb;
       border-radius: 14px;
@@ -1192,7 +1417,7 @@
     }
 
     #case-study-content .lf-flow--full {
-      min-width: 1280px;
+      min-width: 720px;
       padding: 20px 20px 22px;
       gap: 0;
     }
@@ -1645,6 +1870,513 @@
       min-width: 0;
       max-width: 100%;
       width: 100%;
+    }
+
+    #case-study-content .lf-ui-mock-frame {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      aspect-ratio: 1440 / 900;
+    }
+
+    #case-study-content .lf-ui-mock-frame .lf-ui-browser {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    #case-study-content .lf-ui-mock-frame .lf-ui-viewport {
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #case-study-content .lf-ui-mock-frame--fluid {
+      aspect-ratio: auto;
+      min-height: min(80vh, 900px);
+    }
+
+    #case-study-content .lf-ui-mock-frame--fluid .lf-ui-browser {
+      position: relative;
+      inset: auto;
+      min-height: min(78vh, 880px);
+    }
+
+    #case-study-content .lf-ui-mock-frame--phones {
+      aspect-ratio: auto;
+      max-width: 1200px;
+      min-height: 520px;
+    }
+
+    #case-study-content .lf-ui-mock-frame--phones .lf-ui-browser {
+      position: relative;
+      inset: auto;
+      height: auto;
+      min-height: 500px;
+    }
+
+    #case-study-content .lf-ui-icon-wrap {
+      position: relative;
+      display: inline-flex;
+    }
+
+    #case-study-content .lf-ui-icon-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: #ff6a14;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      border: 2px solid #fff;
+    }
+
+    #case-study-content .lf-ui-app {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      align-items: stretch;
+    }
+
+    #case-study-content .lf-ui-app-side {
+      width: 220px;
+      flex-shrink: 0;
+      background: #f7f7f5;
+      border-right: 1px solid #e5e7eb;
+      padding: 16px 12px 20px;
+      font-size: 12px;
+      overflow: auto;
+    }
+
+    #case-study-content .lf-ui-app-side-group {
+      margin-bottom: 18px;
+    }
+
+    #case-study-content .lf-ui-app-side-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 8px;
+      padding-left: 8px;
+    }
+
+    #case-study-content .lf-ui-app-side-item {
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: #475569;
+      font-weight: 500;
+      margin-bottom: 2px;
+      cursor: default;
+    }
+
+    #case-study-content .lf-ui-app-side-item.is-active {
+      background: rgba(255, 106, 20, 0.12);
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    #case-study-content .lf-ui-app-main {
+      flex: 1;
+      min-width: 0;
+      padding: 16px 20px 20px;
+      overflow: auto;
+      background: #f7f7f5;
+    }
+
+    #case-study-content .lf-ui-dash-row1 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.25fr);
+      gap: 12px;
+      margin-bottom: 14px;
+      align-items: stretch;
+    }
+
+    #case-study-content .lf-ui-dash-streak-wide {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 12px 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    #case-study-content .lf-ui-dash-streak-wide strong {
+      display: block;
+      font-size: 13px;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    #case-study-content .lf-ui-dash-streak-dots {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    #case-study-content .lf-ui-dash-streak-dots span {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid #e5e7eb;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: #cbd5e1;
+      background: #fff;
+    }
+
+    #case-study-content .lf-ui-dash-streak-dots span.is-on {
+      background: #ff6a14;
+      border-color: #ff6a14;
+      color: #fff;
+    }
+
+    #case-study-content .lf-ui-dash-row2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    #case-study-content .lf-ui-panel-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    #case-study-content .lf-ui-panel-card > h4 {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin: 0 0 10px;
+    }
+
+    #case-study-content .lf-ui-time-big {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    #case-study-content .lf-ui-week-bars {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 6px;
+      height: 100px;
+      padding-top: 6px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    #case-study-content .lf-ui-week-bar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    #case-study-content .lf-ui-week-bar i {
+      display: block;
+      width: 100%;
+      max-width: 36px;
+      border-radius: 6px 6px 0 0;
+      background: #ff6a14;
+      min-height: 12px;
+    }
+
+    #case-study-content .lf-ui-week-bar span {
+      font-size: 10px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+    }
+
+    #case-study-content .lf-ui-timeline {
+      position: relative;
+      padding: 8px 0 0;
+      min-height: 120px;
+    }
+
+    #case-study-content .lf-ui-timeline-axis {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+    }
+
+    #case-study-content .lf-ui-timeline-track {
+      position: relative;
+      border-radius: 10px;
+      background: #f8fafc;
+      border: 1px solid #f1f5f9;
+      padding: 10px 8px;
+      min-height: 88px;
+    }
+
+    #case-study-content .lf-ui-tl-item {
+      position: relative;
+      padding: 6px 8px 6px 12px;
+      border-left: 3px solid #e5e7eb;
+      margin-bottom: 8px;
+      font-size: 11px;
+    }
+
+    #case-study-content .lf-ui-tl-item.is-done {
+      border-left-color: #22c55e;
+    }
+
+    #case-study-content .lf-ui-tl-item.is-active {
+      border-left-color: #ff6a14;
+      background: rgba(255, 106, 20, 0.06);
+      border-radius: 0 8px 8px 0;
+    }
+
+    #case-study-content .lf-ui-tl-item.is-up {
+      border-left-color: #94a3b8;
+    }
+
+    #case-study-content .lf-ui-tl-status {
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #94a3b8;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    #case-study-content .lf-ui-dash-table-wrap {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    #case-study-content .lf-ui-dash-table-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    #case-study-content .lf-ui-dash-table-wrap th,
+    #case-study-content .lf-ui-dash-table-wrap td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    #case-study-content .lf-ui-dash-table-wrap th {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+      background: #fafafa;
+    }
+
+    #case-study-content .lf-ui-dash-table-wrap td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #64748b;
+    }
+
+    #case-study-content .lf-ui-cat-band--dark {
+      background: #1a1a1a !important;
+      color: #fff !important;
+    }
+
+    #case-study-content .lf-ui-cat-band--teal {
+      background: linear-gradient(135deg, #0d9488, #14b8a6) !important;
+      color: #fff !important;
+    }
+
+    #case-study-content .lf-ui-cat-band--grey {
+      background: linear-gradient(135deg, #78716c, #a8a29e) !important;
+      color: #fff !important;
+    }
+
+    #case-study-content .lf-ui-cat-layout {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+    }
+
+    #case-study-content .lf-ui-cat-layout .lf-ui-app-side {
+      padding-top: 12px;
+    }
+
+    #case-study-content .lf-ui-cat-layout .lf-ui-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    #case-study-content .lf-ui-detail-hero-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      color: #fff;
+      padding: 28px 24px 24px;
+      margin: 0 0 20px;
+      width: 100%;
+      border-radius: 0;
+    }
+
+    #case-study-content .lf-ui-detail-hero-banner h1 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px;
+      color: #fff;
+    }
+
+    #case-study-content .lf-ui-detail-hero-banner p {
+      margin: 0;
+      font-size: 13px;
+      opacity: 0.85;
+      color: #e2e8f0;
+    }
+
+    #case-study-content .lf-ui-detail-split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.65fr) minmax(0, 0.35fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    #case-study-content .lf-ui-tag-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    #case-study-content .lf-ui-tag-pills span {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+
+    #case-study-content .lf-ui-preview-tab.is-orange {
+      border-bottom: 2px solid #ff6a14;
+      color: #ff6a14;
+      background: transparent;
+      border-radius: 0;
+    }
+
+    #case-study-content .lf-ui-btn--enroll {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px;
+      font-size: 15px;
+      background: #ff6a14;
+      box-shadow: 0 8px 24px rgba(255, 106, 20, 0.35);
+    }
+
+    #case-study-content .lf-ui-preview-cta-row .lf-ui-btn--enroll {
+      flex: 1;
+      width: auto;
+      min-width: 0;
+      margin-top: 0;
+    }
+
+    #case-study-content .lf-ui-btn--muted {
+      background: #fdba74 !important;
+      color: #fff !important;
+      opacity: 0.85;
+      box-shadow: none !important;
+    }
+
+    #case-study-content .lf-ui-preview-enroll-meta {
+      font-size: 12px;
+      color: #64748b;
+      text-align: center;
+      margin: 12px 0 8px;
+    }
+
+    #case-study-content .lf-ui-preview-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748b;
+    }
+
+    #case-study-content .case-main-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    #case-study-content .case-main-head-left {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    #case-study-content .case-main-num {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #9ca3af;
+      letter-spacing: 0.06em;
+    }
+
+    #case-study-content .case-main-kicker {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      font-weight: 600;
+    }
+
+    #case-study-content .case-main-rule {
+      width: 28px;
+      height: 2px;
+      background: #ff6a14;
+      border-radius: 1px;
+    }
+
+    #case-study-content .case-main-chapter {
+      font-family: var(--heading-font);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    #case-study-content .lf-ui-pill.is-selected {
+      background: #000000 !important;
+      color: #fff !important;
+      border-color: #000000 !important;
     }
 
     #case-study-content .lf-ui-chrome {
@@ -2102,11 +2834,11 @@
     }
 
     #case-study-content .lf-ui-select.is-active {
-      background-color: #7c3aed;
-      border-color: #7c3aed;
+      background-color: #ff6a14;
+      border-color: #ff6a14;
       color: #ffffff;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-      box-shadow: 0 1px 3px rgba(124, 58, 237, 0.35);
+      box-shadow: 0 1px 3px rgba(255, 106, 20, 0.35);
     }
 
     #case-study-content .lf-ui-link {
@@ -3574,18 +4306,19 @@
       cursor: default;
     }
 
-    #case-study-content .lf-ui-pill.is-selected {
-      border-color: #000000;
-      background: #000000;
-      color: #ffffff;
-    }
-
     #case-study-content .lf-ui-onb-actions {
       display: flex;
       gap: 12px;
       justify-content: center;
       margin-top: auto;
       padding-top: 16px;
+    }
+
+    #case-study-content .lf-ui-onb-actions .lf-ui-btn:not(.lf-ui-btn--outline) {
+      background: #ff6a14;
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 24px rgba(255, 106, 20, 0.35);
     }
 
     #case-study-content .lf-ui-topic-grid {
@@ -3952,15 +4685,18 @@
     #case-study-content .lf-ui-phone {
       width: 100%;
       max-width: 375px;
+      aspect-ratio: 375 / 812;
       min-width: 0;
-      border-radius: 28px;
+      border-radius: 36px;
       border: 3px solid #1e293b;
       background: #000000;
       box-shadow:
         0 24px 48px rgba(0, 0, 0, 0.35),
         inset 0 0 0 1px rgba(255, 255, 255, 0.06);
       overflow: hidden;
-      flex: 1 1 280px;
+      flex: 0 1 375px;
+      display: flex;
+      flex-direction: column;
     }
 
     #case-study-content .lf-ui-phone-notch {
@@ -3984,7 +4720,8 @@
       background: #fff;
       font-size: 12px;
       color: #000000;
-      min-height: 420px;
+      min-height: 0;
+      flex: 1;
       display: flex;
       flex-direction: column;
     }
@@ -5346,19 +6083,6 @@
         grid-template-columns: 1fr;
       }
 
-      #case-study-content .hero-mockups {
-        grid-template-columns: 1fr;
-      }
-
-      #case-study-content .hero-poster--app {
-        padding-bottom: 18px;
-        justify-content: center;
-      }
-
-      #case-study-content .il-app-phone {
-        max-width: 260px;
-      }
-
       #case-study-content .overview-grid {
         grid-template-columns: 1fr;
       }
@@ -5694,309 +6418,37 @@
                 </div>
               </div>
 
-              <div class="hero-mockups">
-              <div class="hero-poster" aria-label="Inq Learn dashboard preview (HTML and CSS mockup)">
-                <div class="il-dash">
-                  <div class="il-dash-shell">
-                    <aside class="il-dash-sidebar" aria-label="Primary navigation">
-                      <div class="il-dash-brand">
-                        <span class="il-dash-logo" aria-hidden="true">i</span>
-                        <span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span>
+              <div class="hero-teaser-wrap">
+                <div class="hero-teaser-browser" aria-label="Inq Learn dashboard teaser">
+                  <div class="hero-teaser-chrome">
+                    <span class="hero-teaser-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                    <span class="hero-teaser-url">app.learn.inq.shop/dashboard</span>
+                  </div>
+                  <div class="hero-teaser-viewport">
+                    <div class="hero-teaser-nav">
+                      <span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span>
+                      <span class="hero-teaser-txt">Dashboard</span>
+                    </div>
+                    <div class="hero-teaser-body">
+                      <p class="hero-teaser-welcome"><strong>Welcome back, Selinay</strong><span>You have 2 courses in progress</span></p>
+                      <div class="hero-teaser-stats">
+                        <div><span>12</span><small>Completed</small></div>
+                        <div><span>8</span><small>Day streak</small></div>
+                        <div><span>3</span><small>Certificates</small></div>
                       </div>
-                      <nav class="il-dash-nav-group" aria-label="Main tools">
-                        <div class="il-dash-nav-label">Main tools</div>
-                        <span class="il-dash-nav-item is-active">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                          Dashboard
-                        </span>
-                        <span class="il-dash-nav-item">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                          Courses
-                        </span>
-                        <span class="il-dash-nav-item">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                          Progress
-                        </span>
-                      </nav>
-                      <nav class="il-dash-nav-group" aria-label="Community">
-                        <div class="il-dash-nav-label">Community</div>
-                        <span class="il-dash-nav-item">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                          Groups
-                        </span>
-                      </nav>
-                      <nav class="il-dash-nav-group" aria-label="Settings">
-                        <div class="il-dash-nav-label">Settings</div>
-                        <span class="il-dash-nav-item">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                          Settings
-                        </span>
-                      </nav>
-                    </aside>
-
-                    <div class="il-dash-workspace">
-                      <header class="il-dash-header">
-                        <div class="il-dash-header-copy">
-                          <h1>Dashboard</h1>
-                          <p class="il-dash-sub">Welcome back — pick up your smart-pen modules where you left off.</p>
+                      <div class="hero-teaser-cards">
+                        <div class="hero-teaser-card">
+                          <div class="htc-head" aria-hidden="true"></div>
+                          <div class="htc-body"><span>Leadership Fundamentals</span><div class="htc-bar"></div></div>
                         </div>
-                        <div class="il-dash-header-actions">
-                          <span class="il-dash-btn il-dash-btn--ghost">
-                            <span class="il-dash-btn-dot" aria-hidden="true"></span>
-                            Join live session
-                          </span>
-                          <span class="il-dash-btn il-dash-btn--solid">Ask learning coach</span>
-                          <div class="il-dash-userchip">
-                            <span class="il-avatar" aria-hidden="true">SK</span>
-                            <div class="il-dash-user-meta">
-                              <span class="il-dash-user-name">Selinay</span>
-                              <span class="il-dash-user-role">Learner</span>
-                            </div>
-                          </div>
-                        </div>
-                      </header>
-
-                      <div class="il-dash-scroll">
-                        <div class="il-dash-top">
-                          <div class="il-stat">
-                            <div class="il-stat-top">
-                              <div>
-                                <div class="il-stat-val">7</div>
-                                <div class="il-stat-lbl">Courses enrolled</div>
-                              </div>
-                              <div class="il-stat-ico il-stat-ico--warm" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2"/></svg>
-                              </div>
-                            </div>
-                            <p class="il-stat-hint">Closer to your classroom certification goal.</p>
-                          </div>
-                          <div class="il-stat">
-                            <div class="il-stat-top">
-                              <div>
-                                <div class="il-stat-val">12</div>
-                                <div class="il-stat-lbl">Lessons completed</div>
-                              </div>
-                              <div class="il-stat-ico" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2"/><polyline points="22 4 12 14.01 9 11.01" stroke="currentColor" stroke-width="2"/></svg>
-                              </div>
-                            </div>
-                            <p class="il-stat-hint">On track vs. last month (+18%).</p>
-                          </div>
-                          <div class="il-stat">
-                            <div class="il-stat-top">
-                              <div>
-                                <div class="il-stat-val">3</div>
-                                <div class="il-stat-lbl">Certificates</div>
-                              </div>
-                              <div class="il-stat-ico" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="6" stroke="currentColor" stroke-width="2"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" stroke="currentColor" stroke-width="2"/></svg>
-                              </div>
-                            </div>
-                            <p class="il-stat-hint">Share to profile to show proof of skills.</p>
-                          </div>
-                          <div class="il-streak">
-                            <p class="il-streak-h">Streak</p>
-                            <p class="il-streak-sub">You&apos;re on a 6-day streak</p>
-                            <div class="il-streak-days" aria-hidden="true">
-                              <span class="il-streak-day is-done">✓</span>
-                              <span class="il-streak-day is-done">✓</span>
-                              <span class="il-streak-day is-done">✓</span>
-                              <span class="il-streak-day is-done">✓</span>
-                              <span class="il-streak-day is-done">✓</span>
-                              <span class="il-streak-day is-done">✓</span>
-                              <span class="il-streak-day">·</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="il-dash-mid">
-                          <div class="il-panel">
-                            <p class="il-panel-h">Time on learning (hrs)</p>
-                            <div class="il-circ-chart" aria-hidden="true">
-                              <div class="il-circ-col">
-                                <div class="il-circ-stack">
-                                  <span class="il-circ is-dim"></span><span class="il-circ is-dim"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span>
-                                </div>
-                                <span class="il-circ-lbl">M</span>
-                              </div>
-                              <div class="il-circ-col">
-                                <div class="il-circ-stack">
-                                  <span class="il-circ is-dim"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span>
-                                </div>
-                                <span class="il-circ-lbl">T</span>
-                              </div>
-                              <div class="il-circ-col">
-                                <div class="il-circ-stack">
-                                  <span class="il-circ is-dim"></span><span class="il-circ is-dim"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span>
-                                </div>
-                                <span class="il-circ-lbl">W</span>
-                              </div>
-                              <div class="il-circ-col">
-                                <div class="il-circ-stack">
-                                  <span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span>
-                                </div>
-                                <span class="il-circ-lbl">T</span>
-                              </div>
-                              <div class="il-circ-col">
-                                <div class="il-circ-stack">
-                                  <span class="il-circ is-dim"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span>
-                                </div>
-                                <span class="il-circ-lbl">F</span>
-                              </div>
-                              <div class="il-circ-col">
-                                <div class="il-circ-stack">
-                                  <span class="il-circ is-dim"></span><span class="il-circ is-dim"></span><span class="il-circ"></span>
-                                </div>
-                                <span class="il-circ-lbl">S</span>
-                              </div>
-                              <div class="il-circ-col">
-                                <div class="il-circ-stack">
-                                  <span class="il-circ is-dim"></span><span class="il-circ"></span>
-                                </div>
-                                <span class="il-circ-lbl">S</span>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="il-panel">
-                            <p class="il-panel-h">Today&apos;s focus</p>
-                            <div class="il-schedule">
-                              <div class="il-schedule-axis">
-                                <span>8am</span><span>10am</span><span>12pm</span><span>2pm</span><span>4pm</span>
-                              </div>
-                              <span class="il-schedule-now-lbl">11:00</span>
-                              <div class="il-schedule-track">
-                                <span class="il-schedule-now" aria-hidden="true"></span>
-                                <span class="il-schedule-block il-schedule-block--a">Ink &amp; capture</span>
-                                <span class="il-schedule-block il-schedule-block--b">LMS sync lab</span>
-                                <span class="il-schedule-block il-schedule-block--c">Smart pen workflows</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="il-dash-bot">
-                          <div class="il-table-wrap">
-                            <p class="il-table-h">Recently studied</p>
-                            <table class="il-table">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Course</th>
-                                  <th scope="col">Start</th>
-                                  <th scope="col">End</th>
-                                  <th scope="col">Time</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>Classroom smart pen basics</td>
-                                  <td>9:00</td>
-                                  <td>9:45</td>
-                                  <td>45m</td>
-                                </tr>
-                                <tr>
-                                  <td>Syncing notes to the LMS</td>
-                                  <td>10:10</td>
-                                  <td>11:00</td>
-                                  <td>50m</td>
-                                </tr>
-                                <tr>
-                                  <td>Digital ink fundamentals</td>
-                                  <td>14:00</td>
-                                  <td>14:30</td>
-                                  <td>30m</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                          <div class="il-timer">
-                            <div class="il-timer-play" aria-hidden="true">
-                              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                            <div class="il-timer-digits">00:24:16</div>
-                            <div class="il-timer-goal">Daily goal · 02:00:00</div>
-                          </div>
+                        <div class="hero-teaser-card">
+                          <div class="htc-head htc-head--b" aria-hidden="true"></div>
+                          <div class="htc-body"><span>Data-Driven HR</span><div class="htc-bar"></div></div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="hero-poster hero-poster--app" aria-label="Inq Learn mobile app — profile (HTML and CSS mockup)">
-                <div class="il-app-phone">
-                  <div class="il-app-notch" aria-hidden="true"></div>
-                  <div class="il-app-screen">
-                    <div class="il-app-scroll">
-                      <div class="il-app-top">
-                        <div class="il-app-nav">
-                          <span class="il-app-nav-btn" aria-hidden="true">←</span>
-                          <h2 class="il-app-nav-title">Profile</h2>
-                          <span class="il-app-nav-btn" aria-hidden="true">⋯</span>
-                        </div>
-                        <div class="il-app-profile">
-                          <div class="il-app-avatar" aria-hidden="true">S</div>
-                          <p class="il-app-name">Selinay İblikci</p>
-                          <p class="il-app-role">Senior product designer · Smart pen &amp; LMS</p>
-                          <div class="il-app-metrics">
-                            <div class="il-app-metric">
-                              <strong>86%</strong>
-                              <span>Skill mastery</span>
-                            </div>
-                            <div class="il-app-metric">
-                              <strong>92%</strong>
-                              <span>Course focus</span>
-                            </div>
-                            <div class="il-app-metric">
-                              <strong>8</strong>
-                              <span>Certificates</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="il-app-sheet">
-                        <p class="il-app-sheet-h">Achievements</p>
-                        <ul class="il-app-list">
-                          <li class="il-app-row">
-                            <span class="il-app-badge-ico il-app-badge-ico--gold" aria-hidden="true">🏆</span>
-                            <div class="il-app-row-body">
-                              <div class="il-app-row-title">Learning champion</div>
-                              <div class="il-app-row-sub">Complete 5 courses in a quarter</div>
-                            </div>
-                            <span class="il-app-row-meta">4/5</span>
-                          </li>
-                          <li class="il-app-row">
-                            <span class="il-app-badge-ico il-app-badge-ico--slate" aria-hidden="true">✏️</span>
-                            <div class="il-app-row-body">
-                              <div class="il-app-row-title">Ink &amp; sync pro</div>
-                              <div class="il-app-row-sub">Master smart-pen LMS workflows</div>
-                            </div>
-                            <span class="il-app-row-meta">1/5</span>
-                          </li>
-                          <li class="il-app-row">
-                            <span class="il-app-badge-ico il-app-badge-ico--mint" aria-hidden="true">✓</span>
-                            <div class="il-app-row-body">
-                              <div class="il-app-row-title">Streak keeper</div>
-                              <div class="il-app-row-sub">30-day learning streak</div>
-                            </div>
-                            <span class="il-app-row-meta">3/5</span>
-                          </li>
-                          <li class="il-app-row">
-                            <span class="il-app-badge-ico il-app-badge-ico--violet" aria-hidden="true">★</span>
-                            <div class="il-app-row-body">
-                              <div class="il-app-row-title">Team mentor</div>
-                              <div class="il-app-row-sub">Share a certificate to your org</div>
-                            </div>
-                            <span class="il-app-row-meta">2/5</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="il-app-tabbar" aria-hidden="true">
-                      <span>Home</span><span>Courses</span><span>Learn</span><span class="is-on">Profile</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
               </div>
             </div>
           </section>
@@ -6008,6 +6460,14 @@
                 <h2 class="case-title-capped">Overview</h2>
               </div>
               <div class="case-split-main">
+              <div class="case-main-head">
+                <div class="case-main-head-left">
+                  <span class="case-main-num">01</span>
+                  <span class="case-main-kicker">Inq Learn platform</span>
+                  <span class="case-main-rule" aria-hidden="true"></span>
+                </div>
+                <span class="case-main-chapter">// Overview</span>
+              </div>
               <div class="overview-grid">
                 <div class="overview-meta">
                   <div class="overview-meta-item">
@@ -6045,6 +6505,14 @@
                 <h2 class="case-title-capped">The Challenge</h2>
               </div>
               <div class="case-split-main">
+              <div class="case-main-head">
+                <div class="case-main-head-left">
+                  <span class="case-main-num">02</span>
+                  <span class="case-main-kicker">Inq Learn platform</span>
+                  <span class="case-main-rule" aria-hidden="true"></span>
+                </div>
+                <span class="case-main-chapter">// Challenge</span>
+              </div>
               <h2 class="case-h2" id="challenge-heading">A growing product with a fragmented experience</h2>
               <p class="case-body">
                 User research revealed three core problems: course discovery was buried behind too many filters, the learning progress view was confusing, and B2B admins had no dashboard to track team engagement. NPS had dropped from 42 to 31 over two quarters, and support tickets about &quot;finding courses&quot; had increased 60%.
@@ -6074,6 +6542,14 @@
                 <h2 class="case-title-capped">Key insight</h2>
               </div>
               <div class="case-split-main">
+              <div class="case-main-head">
+                <div class="case-main-head-left">
+                  <span class="case-main-num">03</span>
+                  <span class="case-main-kicker">Inq Learn platform</span>
+                  <span class="case-main-rule" aria-hidden="true"></span>
+                </div>
+                <span class="case-main-chapter">// Research</span>
+              </div>
               <h2 class="case-h2" id="research-heading">Understanding the users</h2>
               <p class="case-body">
                 I ran a mixed-methods research sprint over 3 weeks to understand pain points from multiple angles.
@@ -6152,6 +6628,14 @@
                 <h2 class="case-title-capped">Information Architecture</h2>
               </div>
               <div class="case-split-main">
+              <div class="case-main-head">
+                <div class="case-main-head-left">
+                  <span class="case-main-num">04</span>
+                  <span class="case-main-kicker">Inq Learn platform</span>
+                  <span class="case-main-rule" aria-hidden="true"></span>
+                </div>
+                <span class="case-main-chapter">// Information architecture</span>
+              </div>
               <h2 class="case-h2" id="ia-heading">Restructuring the navigation</h2>
               <p class="case-body">
                 The existing IA had 6 top-level sections with overlapping content. I simplified to 4 clear areas based on user mental models from card sorting sessions.
@@ -6211,6 +6695,14 @@
                 <h2 class="case-title-capped">Wireframes</h2>
               </div>
               <div class="case-split-main">
+              <div class="case-main-head">
+                <div class="case-main-head-left">
+                  <span class="case-main-num">05</span>
+                  <span class="case-main-kicker">Inq Learn platform</span>
+                  <span class="case-main-rule" aria-hidden="true"></span>
+                </div>
+                <span class="case-main-chapter">// Wireframes</span>
+              </div>
               <h2 class="case-h2" id="wireframes-heading">Low-fidelity exploration</h2>
               <p class="case-body">
                 I started with rough wireframes to test layout concepts before investing in high-fidelity UI. These were shared with the team in weekly design reviews for early feedback.
@@ -6296,6 +6788,14 @@
                 <h2 class="case-title-capped">Final UI</h2>
               </div>
               <div class="case-split-main">
+              <div class="case-main-head">
+                <div class="case-main-head-left">
+                  <span class="case-main-num">06</span>
+                  <span class="case-main-kicker">Inq Learn platform</span>
+                  <span class="case-main-rule" aria-hidden="true"></span>
+                </div>
+                <span class="case-main-chapter">// Final UI</span>
+              </div>
               <h2 class="case-h2" id="final-ui-heading">High-fidelity screens</h2>
               <p class="case-body">
                 The final UI brings together the design system tokens, a clear information hierarchy, and the insights from user research into polished, production-ready screens.
@@ -6303,6 +6803,7 @@
 
               <div class="lf-ui-stack">
                 <!-- Screen 1: Dashboard -->
+                <div class="lf-ui-mock-frame">
                 <div class="lf-ui-browser" aria-label="Inq Learn dashboard — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -6321,91 +6822,157 @@
                         <span class="lf-ui-icon-btn" aria-hidden="true">
                           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                         </span>
-                        <span class="lf-ui-icon-btn" aria-hidden="true">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        <span class="lf-ui-icon-wrap" aria-hidden="true">
+                          <span class="lf-ui-icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                          </span>
+                          <span class="lf-ui-icon-badge">3</span>
                         </span>
                         <span class="lf-ui-avatar" aria-hidden="true">SI</span>
                       </div>
                     </nav>
-                    <div class="lf-ui-body">
-                      <div class="lf-ui-welcome">
-                        <h2>Welcome back, Selinay</h2>
-                        <p>You have 2 courses in progress</p>
-                      </div>
-                      <div class="lf-ui-stat-row">
-                        <div class="lf-ui-stat-card lf-ui-stat-card--green">
-                          <div class="lf-ui-stat-val">12 Completed</div>
-                          <div class="lf-ui-stat-lbl">All-time total</div>
+                    <div class="lf-ui-app">
+                      <aside class="lf-ui-app-side" aria-label="Sidebar">
+                        <div class="lf-ui-app-side-group">
+                          <div class="lf-ui-app-side-label">Main</div>
+                          <div class="lf-ui-app-side-item is-active">Dashboard</div>
+                          <div class="lf-ui-app-side-item">My Courses</div>
+                          <div class="lf-ui-app-side-item">Explore Courses</div>
+                          <div class="lf-ui-app-side-item">Assignments &amp; Quizzes</div>
+                          <div class="lf-ui-app-side-item">Certificates</div>
                         </div>
-                        <div class="lf-ui-stat-card lf-ui-stat-card--amber">
-                          <div class="lf-ui-stat-val">8 Day Streak 🔥</div>
-                          <div class="lf-ui-stat-lbl">Current momentum</div>
+                        <div class="lf-ui-app-side-group">
+                          <div class="lf-ui-app-side-label">Community</div>
+                          <div class="lf-ui-app-side-item">Discussion Forum</div>
+                          <div class="lf-ui-app-side-item">Live Sessions</div>
                         </div>
-                        <div class="lf-ui-stat-card lf-ui-stat-card--accent">
-                          <div class="lf-ui-stat-val">3 Certificates</div>
-                          <div class="lf-ui-stat-lbl">Earned this year</div>
+                        <div class="lf-ui-app-side-group">
+                          <div class="lf-ui-app-side-label">Settings</div>
+                          <div class="lf-ui-app-side-item">Settings</div>
                         </div>
-                      </div>
-                      <div class="lf-ui-section-title">Continue Learning</div>
-                      <div class="lf-ui-continue-row">
-                        <article class="lf-ui-pro-card">
-                          <div class="lf-ui-pro-head lf-ui-pro-head--a">
-                            <span class="lf-ui-pro-head__art" aria-hidden="true">👥</span>
-                            <span class="lf-ui-pro-head__title">Leadership Fundamentals</span>
+                      </aside>
+                      <div class="lf-ui-app-main">
+                        <div class="lf-ui-welcome">
+                          <h2>Welcome back, Selinay</h2>
+                          <p>You have 2 courses in progress</p>
+                        </div>
+                        <div class="lf-ui-dash-row1">
+                          <div class="lf-ui-stat-card lf-ui-stat-card--green">
+                            <div class="lf-ui-stat-val">12 <span aria-hidden="true">✓</span></div>
+                            <div class="lf-ui-stat-lbl">Completed</div>
                           </div>
-                          <div class="lf-ui-pro-body">
-                            <div class="lf-ui-bar" aria-hidden="true"><span style="width: 64%"></span></div>
-                            <div class="lf-ui-pro-meta">Module 5 of 8</div>
-                            <button type="button" class="lf-ui-btn">Continue</button>
+                          <div class="lf-ui-stat-card lf-ui-stat-card--amber">
+                            <div class="lf-ui-stat-val">8 Day Streak 🔥</div>
+                            <div class="lf-ui-stat-lbl">Keep it going</div>
                           </div>
-                        </article>
-                        <article class="lf-ui-pro-card">
-                          <div class="lf-ui-pro-head lf-ui-pro-head--b">
-                            <span class="lf-ui-pro-head__art" aria-hidden="true">📊</span>
-                            <span class="lf-ui-pro-head__title">Data-Driven HR</span>
+                          <div class="lf-ui-stat-card lf-ui-stat-card--accent">
+                            <div class="lf-ui-stat-val">3 Certificates</div>
+                            <div class="lf-ui-stat-lbl">Earned this year</div>
                           </div>
-                          <div class="lf-ui-pro-body">
-                            <div class="lf-ui-bar" aria-hidden="true"><span style="width: 28%"></span></div>
-                            <div class="lf-ui-pro-meta">Module 2 of 6</div>
-                            <button type="button" class="lf-ui-btn">Continue</button>
+                          <div class="lf-ui-dash-streak-wide">
+                            <strong>You&apos;re on a 8-day streak!</strong>
+                            <div class="lf-ui-dash-streak-dots" aria-hidden="true">
+                              <span class="is-on">✓</span><span class="is-on">✓</span><span class="is-on">✓</span><span class="is-on">✓</span><span class="is-on">✓</span><span class="is-on">✓</span><span class="is-on">✓</span>
+                            </div>
                           </div>
-                        </article>
-                      </div>
-                      <div class="lf-ui-section-title">Recommended for You</div>
-                      <div class="lf-ui-rec-row">
-                        <article class="lf-ui-rec-card">
-                          <div class="lf-ui-rec-thumb lf-ui-thumb lf-ui-thumb--blue" aria-hidden="true">
-                            <span class="lf-ui-thumb__ico">★</span>
+                        </div>
+                        <div class="lf-ui-dash-row2">
+                          <div class="lf-ui-panel-card">
+                            <h4>Time spent learning</h4>
+                            <div class="lf-ui-time-big">12h 45m</div>
+                            <div class="lf-ui-week-bars" aria-hidden="true">
+                              <div class="lf-ui-week-bar"><i style="height: 32px"></i><span>Mon</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 48px"></i><span>Tue</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 28px"></i><span>Wed</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 56px"></i><span>Thu</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 40px"></i><span>Fri</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 22px"></i><span>Sat</span></div>
+                              <div class="lf-ui-week-bar"><i style="height: 18px"></i><span>Sun</span></div>
+                            </div>
                           </div>
-                          <div class="lf-ui-rec-body">
-                            <div class="lf-ui-rec-title">Executive communication</div>
-                            <div class="lf-ui-rec-meta"><span>4h 20m</span><span class="lf-ui-stars">4.9 ★</span></div>
+                          <div class="lf-ui-panel-card">
+                            <h4>Today&apos;s schedule</h4>
+                            <div class="lf-ui-timeline">
+                              <div class="lf-ui-timeline-axis"><span>8am</span><span>10am</span><span>12pm</span><span>2pm</span><span>4pm</span></div>
+                              <div class="lf-ui-timeline-track">
+                                <div class="lf-ui-tl-item is-done"><span class="lf-ui-tl-status">Done</span>Coaching office hours · 9:00–9:45</div>
+                                <div class="lf-ui-tl-item is-active"><span class="lf-ui-tl-status">In progress</span>Leadership lab · 11:00–12:00</div>
+                                <div class="lf-ui-tl-item is-up"><span class="lf-ui-tl-status">Upcoming</span>Peer feedback clinic · 2:30–3:15</div>
+                                <div class="lf-ui-tl-item is-up"><span class="lf-ui-tl-status">Upcoming</span>Async readings · 4:00–4:30</div>
+                              </div>
+                            </div>
                           </div>
-                        </article>
-                        <article class="lf-ui-rec-card">
-                          <div class="lf-ui-rec-thumb lf-ui-thumb lf-ui-thumb--green" aria-hidden="true">
-                            <span class="lf-ui-thumb__ico">🎯</span>
-                          </div>
-                          <div class="lf-ui-rec-body">
-                            <div class="lf-ui-rec-title">Coaching fundamentals</div>
-                            <div class="lf-ui-rec-meta"><span>3h 10m</span><span class="lf-ui-stars">4.8 ★</span></div>
-                          </div>
-                        </article>
-                        <article class="lf-ui-rec-card">
-                          <div class="lf-ui-rec-thumb lf-ui-thumb lf-ui-thumb--purple" aria-hidden="true">
-                            <span class="lf-ui-thumb__ico">📅</span>
-                          </div>
-                          <div class="lf-ui-rec-body">
-                            <div class="lf-ui-rec-title">Productive meetings</div>
-                            <div class="lf-ui-rec-meta"><span>2h 05m</span><span class="lf-ui-stars">4.7 ★</span></div>
-                          </div>
-                        </article>
+                        </div>
+                        <div class="lf-ui-section-title">Continue Learning</div>
+                        <div class="lf-ui-continue-row">
+                          <article class="lf-ui-pro-card">
+                            <div class="lf-ui-pro-head lf-ui-pro-head--a">
+                              <span class="lf-ui-pro-head__art" aria-hidden="true">👥</span>
+                              <span class="lf-ui-pro-head__title">Leadership Fundamentals</span>
+                            </div>
+                            <div class="lf-ui-pro-body">
+                              <div class="lf-ui-bar" aria-hidden="true"><span style="width: 64%"></span></div>
+                              <div class="lf-ui-pro-meta">Module 5 of 8</div>
+                              <button type="button" class="lf-ui-btn">Continue</button>
+                            </div>
+                          </article>
+                          <article class="lf-ui-pro-card">
+                            <div class="lf-ui-pro-head lf-ui-pro-head--b">
+                              <span class="lf-ui-pro-head__art" aria-hidden="true">📊</span>
+                              <span class="lf-ui-pro-head__title">Data-Driven HR</span>
+                            </div>
+                            <div class="lf-ui-pro-body">
+                              <div class="lf-ui-bar" aria-hidden="true"><span style="width: 28%"></span></div>
+                              <div class="lf-ui-pro-meta">Module 2 of 6</div>
+                              <button type="button" class="lf-ui-btn">Continue</button>
+                            </div>
+                          </article>
+                        </div>
+                        <div class="lf-ui-section-title">Recommended for You</div>
+                        <div class="lf-ui-rec-row">
+                          <article class="lf-ui-rec-card">
+                            <div class="lf-ui-rec-thumb lf-ui-thumb lf-ui-thumb--blue" aria-hidden="true"><span class="lf-ui-thumb__ico">★</span></div>
+                            <div class="lf-ui-rec-body">
+                              <div class="lf-ui-rec-title">Executive communication</div>
+                              <div class="lf-ui-rec-meta"><span>4h 20m</span><span class="lf-ui-stars">4.9 ★</span></div>
+                            </div>
+                          </article>
+                          <article class="lf-ui-rec-card">
+                            <div class="lf-ui-rec-thumb lf-ui-thumb lf-ui-thumb--green" aria-hidden="true"><span class="lf-ui-thumb__ico">🎯</span></div>
+                            <div class="lf-ui-rec-body">
+                              <div class="lf-ui-rec-title">Coaching fundamentals</div>
+                              <div class="lf-ui-rec-meta"><span>3h 10m</span><span class="lf-ui-stars">4.8 ★</span></div>
+                            </div>
+                          </article>
+                          <article class="lf-ui-rec-card">
+                            <div class="lf-ui-rec-thumb lf-ui-thumb lf-ui-thumb--purple" aria-hidden="true"><span class="lf-ui-thumb__ico">📅</span></div>
+                            <div class="lf-ui-rec-body">
+                              <div class="lf-ui-rec-title">Productive meetings</div>
+                              <div class="lf-ui-rec-meta"><span>2h 05m</span><span class="lf-ui-stars">4.7 ★</span></div>
+                            </div>
+                          </article>
+                        </div>
+                        <div class="lf-ui-section-title">Recently studied</div>
+                        <div class="lf-ui-dash-table-wrap">
+                          <table>
+                            <thead>
+                              <tr><th>Course name</th><th>Start time</th><th>End time</th><th>Total time spent</th></tr>
+                            </thead>
+                            <tbody>
+                              <tr><td>Leadership Fundamentals</td><td>9:00</td><td>10:15</td><td>1h 15m</td></tr>
+                              <tr><td>Data-Driven HR</td><td>14:00</td><td>14:40</td><td>40m</td></tr>
+                              <tr><td>Executive communication</td><td>16:00</td><td>16:25</td><td>25m</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                </div>
 
                 <!-- Screen 2: Course catalog -->
+                <div class="lf-ui-mock-frame">
                 <div class="lf-ui-browser" aria-label="Inq Learn course catalog — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -6430,88 +6997,99 @@
                         <span class="lf-ui-avatar" aria-hidden="true">SI</span>
                       </div>
                     </nav>
-                    <div class="lf-ui-body">
-                      <input class="lf-ui-search-wide" type="search" readonly placeholder="Search 200+ courses..." aria-label="Search courses" />
-                      <div class="lf-ui-filters">
-                        <button type="button" class="lf-ui-select is-active">Category</button>
-                        <button type="button" class="lf-ui-select">Level</button>
-                        <button type="button" class="lf-ui-select">Duration</button>
-                        <span class="lf-ui-link">Clear filters</span>
-                      </div>
-                      <p class="lf-ui-results-hint">Showing 24 courses in Leadership</p>
-                      <div class="lf-ui-catalog-grid">
-                        <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb lf-ui-thumb lf-ui-thumb--blue" aria-hidden="true">
-                            <span class="lf-ui-thumb__ico">★</span>
-                          </div>
-                          <div class="lf-ui-cat-body">
-                            <div class="lf-ui-cat-title">Strategic Leadership</div>
-                            <div class="lf-ui-cat-meta">12 modules · 6 hours</div>
-                            <div class="lf-ui-cat-rating">4.8 <span>★</span></div>
-                            <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
-                          </div>
-                        </article>
-                        <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb lf-ui-thumb lf-ui-thumb--green" aria-hidden="true">
-                            <span class="lf-ui-thumb__ico">💬</span>
-                          </div>
-                          <div class="lf-ui-cat-body">
-                            <div class="lf-ui-cat-title">Communication Mastery</div>
-                            <div class="lf-ui-cat-meta">10 modules · 5 hours</div>
-                            <div class="lf-ui-cat-rating">4.8 <span>★</span></div>
-                            <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
-                          </div>
-                        </article>
-                        <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb lf-ui-thumb lf-ui-thumb--purple" aria-hidden="true">
-                            <span class="lf-ui-thumb__ico">🌐</span>
-                          </div>
-                          <div class="lf-ui-cat-body">
-                            <div class="lf-ui-cat-title">Leading Remote Teams</div>
-                            <div class="lf-ui-cat-meta">8 modules · 4 hours</div>
-                            <div class="lf-ui-cat-rating">4.9 <span>★</span></div>
-                            <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
-                          </div>
-                        </article>
-                        <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb lf-ui-thumb lf-ui-thumb--amber" aria-hidden="true">
-                            <span class="lf-ui-thumb__ico">✨</span>
-                          </div>
-                          <div class="lf-ui-cat-body">
-                            <div class="lf-ui-cat-title">Executive Presence</div>
-                            <div class="lf-ui-cat-meta">9 modules · 4.5 hours</div>
-                            <div class="lf-ui-cat-rating">4.7 <span>★</span></div>
-                            <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
-                          </div>
-                        </article>
-                        <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb lf-ui-thumb lf-ui-thumb--blue" aria-hidden="true">
-                            <span class="lf-ui-thumb__ico">🔄</span>
-                          </div>
-                          <div class="lf-ui-cat-body">
-                            <div class="lf-ui-cat-title">Change Management</div>
-                            <div class="lf-ui-cat-meta">11 modules · 5.5 hours</div>
-                            <div class="lf-ui-cat-rating">4.8 <span>★</span></div>
-                            <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
-                          </div>
-                        </article>
-                        <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb lf-ui-thumb lf-ui-thumb--amber" aria-hidden="true">
-                            <span class="lf-ui-thumb__ico">✏️</span>
-                          </div>
-                          <div class="lf-ui-cat-body">
-                            <div class="lf-ui-cat-title">Digital Note-Taking</div>
-                            <div class="lf-ui-cat-meta">7 modules · 3.5 hours</div>
-                            <div class="lf-ui-cat-rating">4.9 <span>★</span></div>
-                            <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
-                          </div>
-                        </article>
+                    <div class="lf-ui-app lf-ui-cat-layout">
+                      <aside class="lf-ui-app-side" aria-label="Catalog sidebar">
+                        <div class="lf-ui-app-side-group">
+                          <div class="lf-ui-app-side-label">Main</div>
+                          <div class="lf-ui-app-side-item">Dashboard</div>
+                          <div class="lf-ui-app-side-item">My Courses</div>
+                          <div class="lf-ui-app-side-item is-active">Explore Courses</div>
+                          <div class="lf-ui-app-side-item">Assignments &amp; Quizzes</div>
+                          <div class="lf-ui-app-side-item">Certificates</div>
+                        </div>
+                        <div class="lf-ui-app-side-group">
+                          <div class="lf-ui-app-side-label">Community</div>
+                          <div class="lf-ui-app-side-item">Discussion Forum</div>
+                          <div class="lf-ui-app-side-item">Live Sessions</div>
+                        </div>
+                        <div class="lf-ui-app-side-group">
+                          <div class="lf-ui-app-side-label">Settings</div>
+                          <div class="lf-ui-app-side-item">Settings</div>
+                        </div>
+                      </aside>
+                      <div class="lf-ui-app-main" style="padding: 16px 18px 20px">
+                        <input class="lf-ui-search-wide" type="search" readonly placeholder="Search 200+ courses..." aria-label="Search courses" />
+                        <div class="lf-ui-filters">
+                          <button type="button" class="lf-ui-select is-active">Category</button>
+                          <button type="button" class="lf-ui-select">Level</button>
+                          <button type="button" class="lf-ui-select">Duration</button>
+                          <span class="lf-ui-link">Clear filters</span>
+                        </div>
+                        <p class="lf-ui-results-hint">Showing 24 courses in Leadership</p>
+                        <div class="lf-ui-catalog-grid">
+                          <article class="lf-ui-cat-card">
+                            <div class="lf-ui-cat-thumb lf-ui-thumb" style="background: linear-gradient(135deg, #ff6a14, #ea580c)" aria-hidden="true"><span class="lf-ui-thumb__ico">★</span></div>
+                            <div class="lf-ui-cat-body">
+                              <div class="lf-ui-cat-title">Strategic Leadership</div>
+                              <div class="lf-ui-cat-meta">12 modules · 6 hours</div>
+                              <div class="lf-ui-cat-rating">4.8 <span>★</span></div>
+                              <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
+                            </div>
+                          </article>
+                          <article class="lf-ui-cat-card">
+                            <div class="lf-ui-cat-thumb lf-ui-thumb" style="background: linear-gradient(135deg, #7c3aed, #6d28d9)" aria-hidden="true"><span class="lf-ui-thumb__ico">🌐</span></div>
+                            <div class="lf-ui-cat-body">
+                              <div class="lf-ui-cat-title">Leading Remote Teams</div>
+                              <div class="lf-ui-cat-meta">8 modules · 4 hours</div>
+                              <div class="lf-ui-cat-rating">4.9 <span>★</span></div>
+                              <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
+                            </div>
+                          </article>
+                          <article class="lf-ui-cat-card">
+                            <div class="lf-ui-cat-thumb lf-ui-thumb lf-ui-thumb--green" aria-hidden="true"><span class="lf-ui-thumb__ico">💬</span></div>
+                            <div class="lf-ui-cat-body">
+                              <div class="lf-ui-cat-title">Communication Mastery</div>
+                              <div class="lf-ui-cat-meta">10 modules · 5 hours</div>
+                              <div class="lf-ui-cat-rating">4.8 <span>★</span></div>
+                              <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
+                            </div>
+                          </article>
+                          <article class="lf-ui-cat-card">
+                            <div class="lf-ui-cat-thumb lf-ui-thumb lf-ui-cat-band--dark" aria-hidden="true"><span class="lf-ui-thumb__ico">📊</span></div>
+                            <div class="lf-ui-cat-body">
+                              <div class="lf-ui-cat-title">People Analytics</div>
+                              <div class="lf-ui-cat-meta">9 modules · 4.5 hours</div>
+                              <div class="lf-ui-cat-rating">4.8 <span>★</span></div>
+                              <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
+                            </div>
+                          </article>
+                          <article class="lf-ui-cat-card">
+                            <div class="lf-ui-cat-thumb lf-ui-thumb lf-ui-cat-band--teal" aria-hidden="true"><span class="lf-ui-thumb__ico">✏️</span></div>
+                            <div class="lf-ui-cat-body">
+                              <div class="lf-ui-cat-title">Digital Note-Taking</div>
+                              <div class="lf-ui-cat-meta">7 modules · 3.5 hours</div>
+                              <div class="lf-ui-cat-rating">4.9 <span>★</span></div>
+                              <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
+                            </div>
+                          </article>
+                          <article class="lf-ui-cat-card">
+                            <div class="lf-ui-cat-thumb lf-ui-thumb lf-ui-cat-band--grey" aria-hidden="true"><span class="lf-ui-thumb__ico">🧠</span></div>
+                            <div class="lf-ui-cat-body">
+                              <div class="lf-ui-cat-title">Cognitive Skills for Leaders</div>
+                              <div class="lf-ui-cat-meta">8 modules · 4 hours</div>
+                              <div class="lf-ui-cat-rating">4.7 <span>★</span></div>
+                              <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
+                            </div>
+                          </article>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                </div>
 
                 <!-- Screen 3: Learning view -->
+                <div class="lf-ui-mock-frame">
                 <div class="lf-ui-browser" aria-label="Inq Learn learning view — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -6541,12 +7119,12 @@
                         <aside aria-label="Modules">
                           <div class="lf-ui-side-title">Course outline</div>
                           <div class="lf-ui-modules">
-                            <div class="lf-ui-mod lf-ui-mod--done">✓ Module 1</div>
-                            <div class="lf-ui-mod lf-ui-mod--done">✓ Module 2</div>
-                            <div class="lf-ui-mod lf-ui-mod--done">✓ Module 3</div>
-                            <div class="lf-ui-mod lf-ui-mod--active">→ Module 4</div>
-                            <div class="lf-ui-mod lf-ui-mod--lock">Module 5</div>
-                            <div class="lf-ui-mod lf-ui-mod--lock">Module 6</div>
+                            <div class="lf-ui-mod lf-ui-mod--done">✓ Module 1 — Orientation</div>
+                            <div class="lf-ui-mod lf-ui-mod--done">✓ Module 2 — Self-awareness</div>
+                            <div class="lf-ui-mod lf-ui-mod--done">✓ Module 3 — Communication</div>
+                            <div class="lf-ui-mod lf-ui-mod--active">Module 4 — Giving Feedback</div>
+                            <div class="lf-ui-mod lf-ui-mod--lock">🔒 Module 5 — Conflict</div>
+                            <div class="lf-ui-mod lf-ui-mod--lock">🔒 Module 6 — Coaching</div>
                           </div>
                         </aside>
                         <div>
@@ -6563,7 +7141,7 @@
                             </div>
                           </div>
                           <div class="lf-ui-takeaways">
-                            <h3>Key Takeaways</h3>
+                            <h3>KEY TAKEAWAYS</h3>
                             <ul>
                               <li>Use specific, observable behaviors when giving feedback.</li>
                               <li>Balance candor with empathy to keep trust intact.</li>
@@ -6577,14 +7155,16 @@
                             <span class="lf-ui-ring-label">64%</span>
                           </div>
                           <p class="lf-ui-aside-text">Estimated time remaining: 2.5 hours</p>
-                          <button type="button" class="lf-ui-btn" disabled>Download Certificate</button>
+                          <button type="button" class="lf-ui-btn lf-ui-btn--muted" disabled>Download Certificate</button>
                         </aside>
                       </div>
                     </div>
                   </div>
                 </div>
+                </div>
 
                 <!-- Screen 4: Admin -->
+                <div class="lf-ui-mock-frame">
                 <div class="lf-ui-browser" aria-label="Inq Learn admin dashboard — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -6728,7 +7308,9 @@
                     </div>
                   </div>
                 </div>
+                </div>
                 <!-- Screen 5: Course detail -->
+                <div class="lf-ui-mock-frame lf-ui-mock-frame--fluid">
                 <div class="lf-ui-browser" aria-label="Inq Learn course detail — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -6753,11 +7335,61 @@
                         <span class="lf-ui-avatar" aria-hidden="true">SI</span>
                       </div>
                     </nav>
-                    <div class="lf-ui-body lf-ui-body--preview">
-                      <nav class="lf-ui-breadcrumb" aria-label="Breadcrumb">Courses &gt; Leadership &gt; <span>Leadership Fundamentals</span></nav>
-                      <div class="lf-ui-preview-card">
-                        <div class="lf-ui-preview-grid">
-                          <aside class="lf-ui-preview-aside" aria-label="Purchase and instructor">
+                    <div class="lf-ui-body" style="padding: 0; background: #f7f7f5">
+                      <nav class="lf-ui-breadcrumb" style="padding: 16px 24px 0; margin-bottom: 0">Courses &gt; Leadership &gt; <span>Leadership Fundamentals</span></nav>
+                      <div class="lf-ui-detail-hero-banner">
+                        <h1>Leadership Fundamentals</h1>
+                        <p>8 modules · 12 hours · Certificate included · B2B cohort-ready</p>
+                      </div>
+                      <div style="padding: 0 24px 24px">
+                        <div class="lf-ui-detail-split">
+                          <div>
+                            <div class="lf-ui-preview-tabs" role="tablist" aria-label="Course sections" style="margin-bottom: 18px">
+                              <span class="lf-ui-preview-tab is-orange is-active">Course info</span>
+                              <span class="lf-ui-preview-tab">Outline</span>
+                              <span class="lf-ui-preview-tab">Resources</span>
+                              <span class="lf-ui-preview-tab">Reviews</span>
+                            </div>
+                            <h3 class="lf-ui-preview-learn-h" style="margin-top: 0">ABOUT THIS COURSE</h3>
+                            <p class="lf-ui-preview-desc" style="margin-bottom: 20px">
+                              Build the mindset and skills modern leaders need to inspire teams, drive clarity, and deliver results in complex organizations. Blends research-backed frameworks with scenarios you can use immediately at work.
+                            </p>
+                            <h3 class="lf-ui-preview-learn-h">WHAT YOU&apos;LL LEARN</h3>
+                            <ul class="lf-ui-check-list lf-ui-check-list--cols">
+                              <li>Build trust through authentic leadership</li>
+                              <li>Give constructive feedback</li>
+                              <li>Navigate difficult conversations</li>
+                              <li>Coach and develop reports</li>
+                              <li>Lead remote and hybrid teams</li>
+                              <li>Align goals to business outcomes</li>
+                            </ul>
+                            <div class="lf-ui-preview-cert" style="margin-top: 16px">
+                              <div>
+                                <h4>Earn your certificate</h4>
+                                <p>Complete all modules and the capstone to unlock a verified credential for your profile and internal HR records.</p>
+                              </div>
+                              <div class="lf-ui-preview-cert-mock" aria-hidden="true">
+                                <span class="lf-ui-preview-cert-lock">🏅</span>
+                                <span class="lf-ui-preview-cert-word">Inq Learn credential</span>
+                              </div>
+                            </div>
+                            <h3 class="lf-ui-preview-learn-h" style="margin-top: 20px">TOOLS REFERENCED</h3>
+                            <div class="lf-ui-tag-pills">
+                              <span>Miro</span><span>Notion</span><span>Slack</span><span>Calendar</span>
+                            </div>
+                            <div class="lf-ui-preview-instructor" style="margin-top: 20px">
+                              <div class="lf-ui-preview-instructor-av" aria-hidden="true">M</div>
+                              <div>
+                                <strong>Maya Chen</strong>
+                                <span>Leadership coach, Former L&amp;D director</span>
+                              </div>
+                              <span class="lf-ui-preview-badge">TOP INSTRUCTOR</span>
+                            </div>
+                            <p style="font-size: 13px; color: #64748b; margin-top: 16px; line-height: 1.6">
+                              <strong style="color: #eab308">4.8 ★</strong> (312 reviews) · 8 modules · 12 hours · 6 assignments · 4 quizzes · Updated Apr 2026
+                            </p>
+                          </div>
+                          <aside class="lf-ui-preview-aside" aria-label="Enroll" style="position: sticky; top: 12px">
                             <div class="lf-ui-preview-video" aria-hidden="true">
                               <div class="lf-ui-preview-play">
                                 <button type="button" class="lf-ui-preview-play-btn" aria-label="Play preview">
@@ -6769,73 +7401,26 @@
                             <div class="lf-ui-preview-price-row">
                               <div class="lf-ui-preview-price">
                                 <strong>Free</strong>
-                                <del>Seat fee $49</del>
+                                <del>Seat fee: $49</del>
                               </div>
                               <span class="lf-ui-preview-coupon">Org license applied</span>
                             </div>
-                            <div class="lf-ui-preview-cta-row">
-                              <button type="button" class="lf-ui-btn lf-ui-btn--gradient">Enrol now <span aria-hidden="true">↗</span></button>
+                            <div class="lf-ui-preview-cta-row" style="margin-top: 10px">
+                              <button type="button" class="lf-ui-btn lf-ui-btn--enroll">Enroll now →</button>
                               <span class="lf-ui-preview-heart" aria-hidden="true">♡</span>
                             </div>
-                            <div class="lf-ui-preview-instructor">
-                              <div class="lf-ui-preview-instructor-av" aria-hidden="true">M</div>
-                              <div>
-                                <strong>Maya Chen</strong>
-                                <span>Leadership coach · Former L&amp;D director</span>
-                              </div>
-                              <span class="lf-ui-preview-badge">Top instructor</span>
-                            </div>
-                            <ul class="lf-ui-preview-meta">
-                              <li><span class="lf-ui-preview-meta-ico" aria-hidden="true">★</span> 4.8 <span style="color:#94a3b8">(312 reviews)</span></li>
-                              <li><span class="lf-ui-preview-meta-ico" aria-hidden="true">▤</span> 8 modules · 12 hours</li>
-                              <li><span class="lf-ui-preview-meta-ico" aria-hidden="true">✓</span> 6 assignments · 4 quizzes</li>
-                              <li><span class="lf-ui-preview-meta-ico" aria-hidden="true">⏱</span> Updated Apr 2026</li>
-                            </ul>
-                            <div class="lf-ui-preview-tools">
-                              <strong>Tools referenced</strong>
-                              Miro · Notion · Slack · Calendar
-                            </div>
+                            <p class="lf-ui-preview-enroll-meta">4,200 professionals enrolled</p>
+                            <div class="lf-ui-preview-links"><span>Share</span><span>Save</span></div>
                           </aside>
-                          <div class="lf-ui-preview-main">
-                            <h1>Leadership Fundamentals</h1>
-                            <p class="lf-ui-preview-sub">8 modules · 12 hours · Certificate included · B2B cohort-ready</p>
-                            <p class="lf-ui-preview-desc">
-                              Build the mindset and skills modern leaders need to inspire teams, drive clarity, and deliver results in complex organizations. Blends research-backed frameworks with scenarios you can use immediately.
-                            </p>
-                            <span class="lf-ui-preview-more">See more</span>
-                            <div class="lf-ui-preview-tabs" role="tablist" aria-label="Course sections">
-                              <span class="lf-ui-preview-tab is-active">Course info</span>
-                              <span class="lf-ui-preview-tab">Outline</span>
-                              <span class="lf-ui-preview-tab">Resources</span>
-                              <span class="lf-ui-preview-tab">Reviews</span>
-                            </div>
-                            <h3 class="lf-ui-preview-learn-h">What you&apos;ll learn</h3>
-                            <ul class="lf-ui-check-list lf-ui-check-list--cols">
-                              <li>Build trust through authentic leadership</li>
-                              <li>Give constructive feedback</li>
-                              <li>Navigate difficult conversations</li>
-                              <li>Coach and develop reports</li>
-                              <li>Lead remote and hybrid teams</li>
-                              <li>Align goals to business outcomes</li>
-                            </ul>
-                            <div class="lf-ui-preview-cert">
-                              <div>
-                                <h4>Earn your certificate</h4>
-                                <p>Complete all modules and the capstone to unlock a verified credential for your profile and internal HR records.</p>
-                              </div>
-                              <div class="lf-ui-preview-cert-mock" aria-hidden="true">
-                                <span class="lf-ui-preview-cert-lock">🔒</span>
-                                <span class="lf-ui-preview-cert-word">Locked until complete</span>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                </div>
 
                 <!-- Screen 6: Onboarding step 1 -->
+                <div class="lf-ui-mock-frame lf-ui-mock-frame--fluid">
                 <div class="lf-ui-browser" aria-label="Inq Learn onboarding step 1">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -6863,8 +7448,10 @@
                     </div>
                   </div>
                 </div>
+                </div>
 
                 <!-- Screen 7: Onboarding step 2 -->
+                <div class="lf-ui-mock-frame">
                 <div class="lf-ui-browser" aria-label="Inq Learn onboarding step 2">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -6891,8 +7478,10 @@
                     </div>
                   </div>
                 </div>
+                </div>
 
                 <!-- Screen 8: Search results -->
+                <div class="lf-ui-mock-frame">
                 <div class="lf-ui-browser" aria-label="Inq Learn search results">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -6969,8 +7558,10 @@
                     </div>
                   </div>
                 </div>
+                </div>
 
                 <!-- Screen 9: Certificate -->
+                <div class="lf-ui-mock-frame">
                 <div class="lf-ui-browser" aria-label="Inq Learn certificate">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7005,8 +7596,10 @@
                     </div>
                   </div>
                 </div>
+                </div>
 
                 <!-- Screen 10: Mobile trio -->
+                <div class="lf-ui-mock-frame lf-ui-mock-frame--phones">
                 <div class="lf-ui-browser" aria-label="Inq Learn mobile views">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7079,8 +7672,10 @@
                     </div>
                   </div>
                 </div>
+                </div>
 
                 <!-- Screen 11: Empty & error states -->
+                <div class="lf-ui-mock-frame">
                 <div class="lf-ui-browser" aria-label="Inq Learn empty and error states">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7115,8 +7710,10 @@
                     </div>
                   </div>
                 </div>
+                </div>
 
                 <!-- Screen 12: Notifications & settings -->
+                <div class="lf-ui-mock-frame">
                 <div class="lf-ui-browser" aria-label="Inq Learn notifications and settings">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7166,6 +7763,7 @@
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
               </div>
             </div>
@@ -7178,31 +7776,25 @@
                 <h2 class="case-title-capped">User Flow</h2>
               </div>
               <div class="case-split-main">
+              <div class="case-main-head">
+                <div class="case-main-head-left">
+                  <span class="case-main-num">07</span>
+                  <span class="case-main-kicker">Inq Learn platform</span>
+                  <span class="case-main-rule" aria-hidden="true"></span>
+                </div>
+                <span class="case-main-chapter">// User flow</span>
+              </div>
               <h2 class="case-h2" id="user-flow-heading">A scalable journey model</h2>
               <p class="case-body">
-                Instead of a single linear diagram, I framed the experience as <strong>three layers</strong> that scale: activation (getting people to value fast), a <strong>repeatable learning loop</strong> (where most time is spent), and outcomes that connect learners to <strong>B2B stakeholders</strong>. This structure maps cleanly to navigation, empty states, and admin surfaces without redrawing the map for every new course or client.
+                Instead of a single linear diagram, I framed the experience as three layers that scale: activation (getting people to value fast), a repeatable learning loop (where most time is spent), and outcomes that connect learners to B2B stakeholders.
               </p>
-
-              <div class="lf-flow-framework">
-                <p>
-                  The flow below is the <strong>canonical path</strong> used for prioritization and edge-case reviews (resume, SSO, permissions, exports). “Key moments” are annotated where research showed the highest drop-off or the strongest opportunity to build trust.
-                </p>
-                <ul class="lf-flow-principles">
-                  <li><strong>One mental model:</strong> learners always land on a clear &quot;continue&quot; surface; admins never hunt in learner UI for team data.</li>
-                  <li><strong>Composable loop:</strong> new courses plug into the same module loop; new orgs inherit the same reporting layer.</li>
-                  <li><strong>Explicit handoffs:</strong> certificate and manager visibility are first-class steps, not an afterthought in a footnote.</li>
-                </ul>
-              </div>
 
               <div class="lf-flow-strip">
                 <div class="lf-flow-strip-head">
                   <span class="lf-flow-phase-kicker">End-to-end</span>
                   <p class="lf-flow-strip-title">Single canonical path (learner → outcomes → enterprise)</p>
-                  <p class="lf-flow-strip-desc">
-                    One continuous model for roadmap and handoff discussions: every screen in the case study maps to a step here. Scroll horizontally to see the full product surface area—from identity to admin reporting—without breaking the narrative into disconnected mocks.
-                  </p>
                 </div>
-                <div class="lf-flow-scroll table-scroll" aria-label="Full product journey, all steps">
+                <div class="lf-flow-scroll table-scroll" aria-label="End-to-end user journey">
                   <div class="lf-flow lf-flow--full">
                     <div class="lf-flow-col">
                       <div class="lf-flow-step">Sign up / SSO</div>
@@ -7231,133 +7823,29 @@
                     <div class="lf-flow-arrow" aria-hidden="true">→</div>
                     <div class="lf-flow-col">
                       <div class="lf-flow-step lf-flow-step--key">Learn</div>
-                      <div class="lf-flow-note">Video + modules</div>
-                    </div>
-                    <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                    <div class="lf-flow-col">
-                      <div class="lf-flow-step lf-flow-step--key">Progress</div>
-                      <div class="lf-flow-note">Resume state</div>
-                    </div>
-                    <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                    <div class="lf-flow-col">
-                      <div class="lf-flow-step">Complete</div>
-                      <div class="lf-flow-note">Course done</div>
-                    </div>
-                    <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                    <div class="lf-flow-col">
-                      <div class="lf-flow-step lf-flow-step--key">Certificate</div>
-                      <div class="lf-flow-note">PDF + proof</div>
-                    </div>
-                    <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                    <div class="lf-flow-col">
-                      <div class="lf-flow-step">Share</div>
-                      <div class="lf-flow-note">Profile / social</div>
-                    </div>
-                    <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                    <div class="lf-flow-col lf-flow-col--wide">
-                      <div class="lf-flow-step lf-flow-step--b2b">Team dashboard</div>
-                      <div class="lf-flow-note">Manager visibility</div>
-                    </div>
-                    <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                    <div class="lf-flow-col lf-flow-col--wide">
-                      <div class="lf-flow-step lf-flow-step--b2b">Org admin</div>
-                      <div class="lf-flow-note">Reporting &amp; exports</div>
+                      <div class="lf-flow-note">Video + module</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="lf-flow-phases" aria-label="Phased user journey">
-                <section class="lf-flow-phase" aria-labelledby="flow-phase-1">
-                  <div class="lf-flow-phase-head">
-                    <span class="lf-flow-phase-kicker">Phase 01</span>
-                    <h3 class="lf-flow-phase-title" id="flow-phase-1">Acquire &amp; activate</h3>
-                    <p class="lf-flow-phase-desc">Reduce friction to first value: identity, lightweight personalization, then a dashboard that answers &quot;what should I do next?&quot;</p>
-                  </div>
-                  <div class="lf-flow-scroll table-scroll">
-                    <div class="lf-flow">
-                      <div class="lf-flow-col">
-                        <div class="lf-flow-step">Sign up / SSO</div>
-                        <div class="lf-flow-note">Org SSO when provisioned</div>
-                      </div>
-                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                      <div class="lf-flow-col">
-                        <div class="lf-flow-step lf-flow-step--key">Onboarding</div>
-                        <div class="lf-flow-note">Role &amp; topics shape the catalog</div>
-                      </div>
-                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                      <div class="lf-flow-col">
-                        <div class="lf-flow-step">Home dashboard</div>
-                        <div class="lf-flow-note">Continue + recommendations</div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <section class="lf-flow-phase" aria-labelledby="flow-phase-2">
-                  <div class="lf-flow-phase-head">
-                    <span class="lf-flow-phase-kicker">Phase 02</span>
-                    <h3 class="lf-flow-phase-title" id="flow-phase-2">Discover &amp; learn (core loop)</h3>
-                    <p class="lf-flow-phase-desc">The scalable unit of the product: find a course, enroll, then repeat module-level work until completion. Progress and resume are part of the loop—not a separate &quot;feature path.&quot;</p>
-                  </div>
-                  <div class="lf-flow-scroll table-scroll">
-                    <div class="lf-flow">
-                      <div class="lf-flow-col">
-                        <div class="lf-flow-step lf-flow-step--key">Browse catalog</div>
-                        <div class="lf-flow-note">Filters + relevance</div>
-                      </div>
-                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                      <div class="lf-flow-col">
-                        <div class="lf-flow-step">Enroll</div>
-                        <div class="lf-flow-note">Org rules / seat checks</div>
-                      </div>
-                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                      <div class="lf-flow-col">
-                        <div class="lf-flow-step lf-flow-step--key lf-flow-step--loop">
-                          Module loop
-                          <span class="lf-flow-step-badge">Repeat</span>
-                        </div>
-                        <div class="lf-flow-note">Learn → save progress → next module</div>
-                      </div>
-                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                      <div class="lf-flow-col">
-                        <div class="lf-flow-step lf-flow-step--key">Course complete</div>
-                        <div class="lf-flow-note">Unlocks certificate</div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <section class="lf-flow-phase" aria-labelledby="flow-phase-3">
-                  <div class="lf-flow-phase-head">
-                    <span class="lf-flow-phase-kicker">Phase 03</span>
-                    <h3 class="lf-flow-phase-title" id="flow-phase-3">Outcomes &amp; enterprise visibility</h3>
-                    <p class="lf-flow-phase-desc">Proof of skill for the learner; proof of ROI for the org. These steps informed certificate layout, sharing, and admin dashboards as parallel surfaces—not bolt-ons.</p>
-                  </div>
-                  <div class="lf-flow-scroll table-scroll">
-                    <div class="lf-flow">
-                      <div class="lf-flow-col">
-                        <div class="lf-flow-step lf-flow-step--key">Certificate</div>
-                        <div class="lf-flow-note">PDF + verified metadata</div>
-                      </div>
-                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                      <div class="lf-flow-col">
-                        <div class="lf-flow-step">Share / profile</div>
-                        <div class="lf-flow-note">LinkedIn, internal feed</div>
-                      </div>
-                      <div class="lf-flow-arrow" aria-hidden="true">→</div>
-                      <div class="lf-flow-col lf-flow-col--wide">
-                        <div class="lf-flow-step lf-flow-step--key lf-flow-step--b2b">Manager &amp; admin reporting</div>
-                        <div class="lf-flow-note">Completion, cohorts, exports</div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+              <div class="lf-flow-phase-cards" aria-label="Three journey phases">
+                <article class="lf-flow-phase-card" aria-labelledby="flow-phase-1">
+                  <span class="lf-flow-phase-kicker">Phase 01</span>
+                  <h3 class="lf-flow-phase-title" id="flow-phase-1">Acquire &amp; activate</h3>
+                  <p class="lf-flow-phase-line">Sign up/SSO → Onboarding → Home dashboard</p>
+                </article>
+                <article class="lf-flow-phase-card" aria-labelledby="flow-phase-2">
+                  <span class="lf-flow-phase-kicker">Phase 02</span>
+                  <h3 class="lf-flow-phase-title" id="flow-phase-2">Discover &amp; learn (core loop)</h3>
+                  <p class="lf-flow-phase-line">Browse catalog → Enroll → Module loop (REPEAT) → Course complete</p>
+                </article>
+                <article class="lf-flow-phase-card" aria-labelledby="flow-phase-3">
+                  <span class="lf-flow-phase-kicker">Phase 03</span>
+                  <h3 class="lf-flow-phase-title" id="flow-phase-3">Outcomes &amp; enterprise visibility</h3>
+                  <p class="lf-flow-phase-line">Certificate → Share/profile → Manager &amp; admin reporting</p>
+                </article>
               </div>
-
-              <p class="lf-flow-legend">
-                <strong>Edge cases &amp; scale:</strong> SSO failures, seat limits, and &quot;returning after 30 days&quot; were traced against this model so we could reuse the same progress surfaces and admin signals instead of one-off screens. New verticals (e.g. more courses) extend Phase 02; new enterprise needs extend Phase 03 without rewriting Phase 01.
-              </p>
               </div>
             </div>
           </section>
@@ -7369,6 +7857,14 @@
                 <h2 class="case-title-capped">Design Decisions</h2>
               </div>
               <div class="case-split-main">
+              <div class="case-main-head">
+                <div class="case-main-head-left">
+                  <span class="case-main-num">08</span>
+                  <span class="case-main-kicker">Inq Learn platform</span>
+                  <span class="case-main-rule" aria-hidden="true"></span>
+                </div>
+                <span class="case-main-chapter">// Design decisions</span>
+              </div>
               <h2 class="case-h2" id="design-decisions-heading">Key choices that shaped the product</h2>
               <div class="decision-cards" aria-label="Key product design decisions">
                 <article class="decision-card">
