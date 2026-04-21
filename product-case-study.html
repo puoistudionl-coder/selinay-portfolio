@@ -2050,7 +2050,7 @@
     #case-study-content .lf-ui-stack {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 0;
       margin-top: 24px;
       padding: 28px 22px;
       border-radius: 24px;
@@ -2074,21 +2074,47 @@
       width: 100%;
     }
 
-    #case-study-content .lf-ui-mock-frame {
+    /* Final UI mockups: design at 1440px, scale to fit up to 1200px wide */
+    #case-study-content .browser-frame.lf-ui-mock-frame {
+      container-type: inline-size;
       width: 100%;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 0 auto 60px;
       position: relative;
-      aspect-ratio: 1440 / 900;
       overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    #case-study-content .browser-frame.lf-ui-mock-frame:last-child {
+      margin-bottom: 0;
+    }
+
+    #case-study-content .browser-content {
+      width: 1440px;
+      max-width: none;
+      transform-origin: top left;
+      transform: scale(calc(100cqw / 1440));
+    }
+
+    @supports (zoom: 1) {
+      #case-study-content .browser-content {
+        transform: none;
+        zoom: calc(100cqw / 1440);
+      }
     }
 
     #case-study-content .lf-ui-mock-frame .lf-ui-browser {
-      position: absolute;
-      inset: 0;
+      position: relative;
+      inset: auto;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      height: auto;
+      min-height: 0;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
     }
 
     #case-study-content .lf-ui-mock-frame .lf-ui-viewport {
@@ -2100,32 +2126,15 @@
     }
 
     #case-study-content .lf-ui-mock-frame--fluid {
-      aspect-ratio: auto;
       min-height: 0;
     }
 
     #case-study-content .lf-ui-mock-frame--fluid .lf-ui-browser {
-      position: relative;
-      inset: auto;
       min-height: 0;
       height: auto;
-    }
-
-    #case-study-content .lf-ui-mock-frame--phones {
-      aspect-ratio: auto;
-      max-width: 1200px;
-      min-height: 0;
-    }
-
-    #case-study-content .lf-ui-mock-frame--phones .lf-ui-browser {
-      position: relative;
-      inset: auto;
-      height: auto;
-      min-height: 0;
     }
 
     #case-study-content .lf-ui-mock-frame--learn {
-      aspect-ratio: 1440 / 1080;
       max-width: 1200px;
       overflow: hidden;
     }
@@ -2245,8 +2254,8 @@
 
     #case-study-content .lf-ui-dash-row1 {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.2fr);
-      gap: 8px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
       margin-bottom: 10px;
       align-items: stretch;
     }
@@ -2266,6 +2275,9 @@
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.02em;
+    }
+
+    #case-study-content .lf-ui-app-main .lf-ui-dash-row1 .lf-ui-stat-val:not(.lf-ui-stat-val--line) {
       white-space: nowrap;
     }
 
@@ -2285,11 +2297,12 @@
     }
 
     #case-study-content .lf-ui-app-main .lf-ui-dash-row1 .lf-ui-stat-val--line {
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 800;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      overflow: visible;
+      text-overflow: clip;
+      letter-spacing: -0.02em;
     }
 
     #case-study-content .lf-ui-dash-streak-wide {
@@ -2509,12 +2522,12 @@
 
     #case-study-content .lf-ui-app-main .lf-ui-dash-table-wrap th,
     #case-study-content .lf-ui-app-main .lf-ui-dash-table-wrap td {
-      padding: 6px 8px;
-      font-size: 10px;
+      padding: 10px 12px;
+      font-size: 11px;
     }
 
     #case-study-content .lf-ui-app-main .lf-ui-dash-table-wrap th {
-      font-size: 8px;
+      font-size: 10px;
     }
 
     #case-study-content .lf-ui-dash-table-wrap td:last-child {
@@ -6587,6 +6600,82 @@
       #case-study-content .lf-ui-nav--search {
         flex-wrap: wrap;
       }
+
+      /* Keep hi-fi mocks at desktop layout (designed at 1440px inside .browser-content) */
+      #case-study-content .browser-content .lf-ui-stat-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-continue-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-rec-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-catalog-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-learn-layout {
+        grid-template-columns: minmax(0, 220px) minmax(0, 1fr) minmax(0, 200px);
+      }
+
+      #case-study-content .browser-content .lf-ui-admin-stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-admin-split {
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 1.12fr);
+      }
+
+      #case-study-content .browser-content .lf-ui-dept-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-detail-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.38fr);
+      }
+
+      #case-study-content .browser-content .lf-ui-preview-grid {
+        grid-template-columns: minmax(0, 0.36fr) minmax(0, 1fr);
+      }
+
+      #case-study-content .browser-content .lf-ui-check-list--cols {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-preview-cert {
+        grid-template-columns: minmax(0, 1fr) minmax(120px, 0.42fr);
+      }
+
+      #case-study-content .browser-content .lf-ui-topic-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-search-layout {
+        grid-template-columns: minmax(0, 1fr) 200px;
+      }
+
+      #case-study-content .browser-content .lf-ui-result-row {
+        display: grid;
+        grid-template-columns: 100px minmax(0, 1fr) auto;
+        align-items: center;
+      }
+
+      #case-study-content .browser-content .lf-ui-result-row .lf-ui-btn {
+        grid-column: auto;
+        justify-self: end;
+      }
+
+      #case-study-content .browser-content .lf-ui-states-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-split-panels {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
     }
 
     @media (max-width: 640px) {
@@ -6708,6 +6797,25 @@
 
       #case-study-content .lf-ui-cert-more {
         grid-template-columns: 1fr;
+      }
+
+      #case-study-content .browser-content .lf-ui-catalog-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-admin-stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      #case-study-content .browser-content .lf-ui-result-row {
+        display: grid;
+        grid-template-columns: 100px minmax(0, 1fr) auto;
+        flex-direction: initial;
+        align-items: center;
+      }
+
+      #case-study-content .browser-content .lf-ui-result-row .lf-ui-btn {
+        width: auto;
       }
     }
 
@@ -7177,7 +7285,8 @@
 
               <div class="lf-ui-stack">
                 <!-- Screen 1: Dashboard -->
-                <div class="lf-ui-mock-frame">
+                <div class="browser-frame lf-ui-mock-frame">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn dashboard — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7344,9 +7453,11 @@
                   </div>
                 </div>
                 </div>
+                </div>
 
                 <!-- Screen 2: Course catalog -->
-                <div class="lf-ui-mock-frame">
+                <div class="browser-frame lf-ui-mock-frame">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn course catalog — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7461,9 +7572,11 @@
                   </div>
                 </div>
                 </div>
+                </div>
 
                 <!-- Screen 3: Learning view -->
-                <div class="lf-ui-mock-frame lf-ui-mock-frame--learn">
+                <div class="browser-frame lf-ui-mock-frame lf-ui-mock-frame--learn">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn learning view — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7536,9 +7649,11 @@
                   </div>
                 </div>
                 </div>
+                </div>
 
                 <!-- Screen 4: Admin -->
-                <div class="lf-ui-mock-frame">
+                <div class="browser-frame lf-ui-mock-frame">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn admin dashboard — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7684,7 +7799,8 @@
                 </div>
                 </div>
                 <!-- Screen 5: Course detail -->
-                <div class="lf-ui-mock-frame lf-ui-mock-frame--fluid">
+                <div class="browser-frame lf-ui-mock-frame lf-ui-mock-frame--fluid">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn course detail — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7792,9 +7908,11 @@
                   </div>
                 </div>
                 </div>
+                </div>
 
                 <!-- Screen 6: Onboarding step 1 -->
-                <div class="lf-ui-mock-frame lf-ui-mock-frame--fluid">
+                <div class="browser-frame lf-ui-mock-frame lf-ui-mock-frame--fluid">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn onboarding step 1">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7823,9 +7941,11 @@
                   </div>
                 </div>
                 </div>
+                </div>
 
                 <!-- Screen 7: Onboarding step 2 -->
-                <div class="lf-ui-mock-frame">
+                <div class="browser-frame lf-ui-mock-frame">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn onboarding step 2">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7853,9 +7973,11 @@
                   </div>
                 </div>
                 </div>
+                </div>
 
                 <!-- Screen 8: Search results -->
-                <div class="lf-ui-mock-frame">
+                <div class="browser-frame lf-ui-mock-frame">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn search results">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7933,9 +8055,11 @@
                   </div>
                 </div>
                 </div>
+                </div>
 
                 <!-- Screen 9: Certificate -->
-                <div class="lf-ui-mock-frame">
+                <div class="browser-frame lf-ui-mock-frame">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn certificate">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -7971,85 +8095,11 @@
                   </div>
                 </div>
                 </div>
-
-                <!-- Screen 10: Mobile trio -->
-                <div class="lf-ui-mock-frame lf-ui-mock-frame--phones">
-                <div class="lf-ui-browser" aria-label="Inq Learn mobile views">
-                  <div class="lf-ui-chrome">
-                    <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop · mobile</span>
-                  </div>
-                  <div class="lf-ui-viewport">
-                    <div class="lf-ui-body" style="padding: 20px; max-width: 100%">
-                      <div class="lf-ui-mobile-strip">
-                        <div class="lf-ui-phone" aria-label="Mobile dashboard">
-                          <div class="lf-ui-phone-notch" aria-hidden="true"></div>
-                          <div class="lf-ui-phone-body">
-                            <div class="lf-ui-phone-scroll">
-                              <div style="font-weight: 700; font-size: 14px; margin-bottom: 10px">Dashboard</div>
-                              <div class="lf-ui-phone-stats">
-                                <div class="lf-ui-phone-stat"><strong>12</strong> completed</div>
-                                <div class="lf-ui-phone-stat"><strong>8 day</strong> streak</div>
-                                <div class="lf-ui-phone-stat"><strong>3</strong> certificates</div>
-                              </div>
-                              <div class="lf-ui-phone-course"><div class="ph ph--blue" aria-hidden="true"><span class="lf-ui-thumb__ico">★</span></div><div class="pb">Leadership Fundamentals</div></div>
-                              <div class="lf-ui-phone-course"><div class="ph ph--green" aria-hidden="true"><span class="lf-ui-thumb__ico">📊</span></div><div class="pb">Data-Driven HR</div></div>
-                            </div>
-                            <div class="lf-ui-tabbar">
-                              <span class="is-on">Home</span><span>Courses</span><span>Progress</span><span>Profile</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="lf-ui-phone" aria-label="Mobile catalog">
-                          <div class="lf-ui-phone-notch" aria-hidden="true"></div>
-                          <div class="lf-ui-phone-body">
-                            <div class="lf-ui-phone-scroll">
-                              <input class="lf-ui-search-wide" type="search" readonly placeholder="Search courses..." style="margin-bottom: 10px; font-size: 12px; padding: 10px 12px 10px 36px" />
-                              <div class="lf-ui-phone-chips">
-                                <span>All</span><span>Leadership</span><span>HR</span><span>Data</span>
-                              </div>
-                              <div class="lf-ui-phone-course"><div class="ph ph--blue" aria-hidden="true"><span class="lf-ui-thumb__ico">★</span></div><div class="pb">Strategic Leadership</div></div>
-                              <div class="lf-ui-phone-course"><div class="ph ph--purple" aria-hidden="true"><span class="lf-ui-thumb__ico">📊</span></div><div class="pb">People Analytics</div></div>
-                            </div>
-                            <div class="lf-ui-tabbar">
-                              <span>Home</span><span class="is-on">Courses</span><span>Progress</span><span>Profile</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="lf-ui-phone" aria-label="Mobile learning">
-                          <div class="lf-ui-phone-notch" aria-hidden="true"></div>
-                          <div class="lf-ui-phone-body">
-                            <div class="lf-ui-phone-scroll">
-                              <div class="lf-ui-phone-video" aria-hidden="true">
-                                <div class="lf-ui-phone-video__play">
-                                  <button type="button" aria-label="Play">
-                                    <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
-                                  </button>
-                                </div>
-                                <div class="lf-ui-phone-video__bar">
-                                  <div class="lf-ui-phone-video__track"><span></span></div>
-                                  <div class="lf-ui-phone-video__time">12:45 / 32:10</div>
-                                </div>
-                              </div>
-                              <div class="lf-ui-phone-mod is-on">Module 4 — Giving feedback</div>
-                              <div class="lf-ui-phone-mod">Module 5 — Conflict</div>
-                              <div class="lf-ui-phone-mod">Module 6 — Coaching</div>
-                              <div style="margin-top: 12px; font-size: 11px; color: #4a5568">Progress 64%</div>
-                              <div class="lf-ui-bar" style="margin-top: 6px"><span style="width: 64%"></span></div>
-                            </div>
-                            <div class="lf-ui-tabbar">
-                              <span>Home</span><span>Courses</span><span class="is-on">Progress</span><span>Profile</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 </div>
 
-                <!-- Screen 11: Empty & error states -->
-                <div class="lf-ui-mock-frame">
+                <!-- Screen 10: Empty & error states -->
+                <div class="browser-frame lf-ui-mock-frame">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn empty and error states">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -8085,9 +8135,11 @@
                   </div>
                 </div>
                 </div>
+                </div>
 
-                <!-- Screen 12: Notifications & settings -->
-                <div class="lf-ui-mock-frame">
+                <!-- Screen 11: Notifications & settings -->
+                <div class="browser-frame lf-ui-mock-frame">
+                <div class="browser-content">
                 <div class="lf-ui-browser" aria-label="Inq Learn notifications and settings">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -8136,6 +8188,7 @@
                       </div>
                     </div>
                   </div>
+                </div>
                 </div>
                 </div>
               </div>
