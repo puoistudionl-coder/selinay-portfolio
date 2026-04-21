@@ -660,9 +660,17 @@
 
     #case-study-content .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 1.08fr);
       gap: 26px;
-      align-items: center;
+      align-items: start;
+    }
+
+    #case-study-content .hero-mockups {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(200px, 232px);
+      gap: 14px;
+      align-items: start;
+      min-width: 0;
     }
 
     #case-study-content .hero-copy {
@@ -681,6 +689,15 @@
       padding: 16px;
       min-height: 0;
       isolation: isolate;
+    }
+
+    #case-study-content .hero-poster--app {
+      padding: 12px 10px 14px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: linear-gradient(165deg, #f0f9ff 0%, #eef2ff 38%, #fafafa 100%);
+      border-color: #e2e8f0;
     }
 
     #case-study-content .overview-grid {
@@ -1606,8 +1623,13 @@
     #case-study-content .lf-ui-stack {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 32px;
       margin-top: 24px;
+      padding: 28px 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #eef2f7 0%, #e6eaf2 100%);
+      border: 1px solid #e2e8f0;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
     }
 
     #case-study-content .lf-ui-browser {
@@ -1616,12 +1638,13 @@
       line-height: 1.45;
       color: #000000;
       background: #fff;
-      border-radius: 14px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.1);
       overflow: hidden;
       min-width: 0;
       max-width: 100%;
+      width: 100%;
     }
 
     #case-study-content .lf-ui-chrome {
@@ -3078,6 +3101,386 @@
       color: #4a5568;
     }
 
+    /* Course preview — wide rectangular card (reference: preview modal) */
+    #case-study-content .lf-ui-body--preview {
+      background: #e8ecf2;
+      padding: 20px 20px 24px;
+    }
+
+    #case-study-content .lf-ui-preview-card {
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.07);
+      padding: 22px 22px 26px;
+      max-width: 100%;
+    }
+
+    #case-study-content .lf-ui-preview-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.36fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    #case-study-content .lf-ui-preview-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    #case-study-content .lf-ui-preview-video {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(145deg, #1e1b4b 0%, #312e81 40%, #4c1d95 100%);
+      border: 1px solid #e2e8f0;
+    }
+
+    #case-study-content .lf-ui-preview-video::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(124, 58, 237, 0.35), transparent 60%);
+      pointer-events: none;
+    }
+
+    #case-study-content .lf-ui-preview-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      z-index: 1;
+    }
+
+    #case-study-content .lf-ui-preview-play-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      color: #4c1d95;
+      border: none;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      cursor: default;
+    }
+
+    #case-study-content .lf-ui-preview-play-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    #case-study-content .lf-ui-preview-price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      justify-content: space-between;
+    }
+
+    #case-study-content .lf-ui-preview-price {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    #case-study-content .lf-ui-preview-price strong {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+    }
+
+    #case-study-content .lf-ui-preview-price del {
+      font-size: 15px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    #case-study-content .lf-ui-preview-coupon {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #d1fae5 0%, #a7f3d0 100%);
+      color: #047857;
+      border: 1px solid #6ee7b7;
+      white-space: nowrap;
+    }
+
+    #case-study-content .lf-ui-preview-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #case-study-content .lf-ui-btn--gradient {
+      flex: 1;
+      min-width: 0;
+      margin-top: 0;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(92deg, #7c3aed 0%, #6366f1 45%, #2563eb 100%);
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.45);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      cursor: default;
+    }
+
+    #case-study-content .lf-ui-preview-heart {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      cursor: default;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+    }
+
+    #case-study-content .lf-ui-preview-instructor {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid #f1f5f9;
+      background: #fafafa;
+    }
+
+    #case-study-content .lf-ui-preview-instructor-av {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: #3730a3;
+      flex-shrink: 0;
+    }
+
+    #case-study-content .lf-ui-preview-instructor strong {
+      display: block;
+      font-size: 13px;
+      color: #0f172a;
+    }
+
+    #case-study-content .lf-ui-preview-instructor span {
+      font-size: 11px;
+      color: #64748b;
+      display: block;
+      margin-top: 2px;
+    }
+
+    #case-study-content .lf-ui-preview-badge {
+      margin-left: auto;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    #case-study-content .lf-ui-preview-meta {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      color: #475569;
+    }
+
+    #case-study-content .lf-ui-preview-meta li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #case-study-content .lf-ui-preview-meta-ico {
+      width: 22px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    #case-study-content .lf-ui-preview-tools {
+      border: 1px dashed #e2e8f0;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    #case-study-content .lf-ui-preview-tools strong {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 6px;
+    }
+
+    #case-study-content .lf-ui-preview-main {
+      min-width: 0;
+    }
+
+    #case-study-content .lf-ui-preview-main > h1 {
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      margin: 0 0 6px;
+    }
+
+    #case-study-content .lf-ui-preview-sub {
+      font-size: 13px;
+      color: #64748b;
+      margin: 0 0 12px;
+      font-weight: 500;
+    }
+
+    #case-study-content .lf-ui-preview-desc {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.65;
+      margin: 0 0 8px;
+    }
+
+    #case-study-content .lf-ui-preview-more {
+      font-size: 12px;
+      font-weight: 700;
+      color: #6366f1;
+      margin-bottom: 16px;
+      display: inline-block;
+      cursor: default;
+    }
+
+    #case-study-content .lf-ui-preview-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    #case-study-content .lf-ui-preview-tab {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      background: #f1f5f9;
+      border: 1px solid transparent;
+      cursor: default;
+    }
+
+    #case-study-content .lf-ui-preview-tab.is-active {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    #case-study-content .lf-ui-check-list--cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 20px;
+    }
+
+    #case-study-content .lf-ui-check-list--cols li {
+      font-size: 12px;
+    }
+
+    #case-study-content .lf-ui-preview-cert {
+      margin-top: 20px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(120px, 0.42fr);
+      gap: 16px;
+      align-items: center;
+      background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+    }
+
+    #case-study-content .lf-ui-preview-cert h4 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    #case-study-content .lf-ui-preview-cert p {
+      margin: 0;
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    #case-study-content .lf-ui-preview-cert-mock {
+      border-radius: 10px;
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(145deg, #312e81 0%, #1e40af 100%);
+      border: 1px solid #c7d2fe;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 8px 20px rgba(30, 64, 175, 0.25);
+      padding: 8px;
+    }
+
+    #case-study-content .lf-ui-preview-cert-lock {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    #case-study-content .lf-ui-preview-cert-word {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.88);
+      text-align: center;
+    }
+
+    #case-study-content .lf-ui-preview-learn-h {
+      margin: 0 0 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+
+    #case-study-content .lf-ui-btn.lf-ui-btn--gradient {
+      margin-top: 0;
+    }
+
     #case-study-content .lf-ui-viewport--plain {
       display: flex;
       flex-direction: column;
@@ -4014,137 +4417,632 @@
       font-size: 12px;
     }
 
-    /* —— Inq Learn hero dashboard (light nav + warm paper body) —— */
+    /* —— Inq Learn hero dashboard (bento / enterprise reference style) —— */
     #case-study-content .il-dash {
+      --il-bg: #f5f5f7;
+      --il-sidebar: #ebebed;
+      --il-card: #ffffff;
+      --il-line: rgba(0, 0, 0, 0.06);
+      --il-accent: #ff6a14;
+      --il-accent-soft: rgba(255, 106, 20, 0.14);
+      --il-purple: #7c3aed;
+      --il-shadow: 0 10px 40px rgba(15, 23, 42, 0.06), 0 2px 10px rgba(15, 23, 42, 0.04);
+      --il-radius: 18px;
       font-family: "Inter", system-ui, -apple-system, sans-serif;
-      font-size: clamp(10px, 2.1vw, 12px);
+      font-size: clamp(9px, 1.55vw, 11px);
       line-height: 1.45;
-      color: #000000;
-      background: #f7f7f5;
-      border-radius: 14px;
+      color: #0f172a;
+      background: var(--il-bg);
+      border-radius: 20px;
       border: 1px solid #e5e7eb;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      box-shadow: var(--il-shadow);
+      overflow: hidden;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      max-height: min(560px, 78vh);
+    }
+
+    #case-study-content .il-dash-shell {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+    }
+
+    #case-study-content .il-dash-sidebar {
+      width: 132px;
+      flex-shrink: 0;
+      background: var(--il-sidebar);
+      border-right: 1px solid var(--il-line);
+      padding: 14px 10px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    #case-study-content .il-dash-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.95em;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+    }
+
+    #case-study-content .il-dash-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(145deg, #ff6a14 0%, #ea580c 100%);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 0.85em;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    #case-study-content .il-dash-nav-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    #case-study-content .il-dash-nav-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 6px;
+      padding-left: 2px;
+    }
+
+    #case-study-content .il-dash-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 0 10px 10px 0;
+      margin-left: -12px;
+      padding-left: 12px;
+      border-left: 3px solid transparent;
+      font-size: 0.82em;
+      font-weight: 500;
+      color: #64748b;
+      cursor: default;
+    }
+
+    #case-study-content .il-dash-nav-item svg {
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+
+    #case-study-content .il-dash-nav-item.is-active {
+      background: var(--il-accent-soft);
+      border-left-color: var(--il-accent);
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    #case-study-content .il-dash-nav-item.is-active svg {
+      opacity: 1;
+      color: var(--il-accent);
+    }
+
+    #case-study-content .il-dash-workspace {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--il-bg);
+    }
+
+    #case-study-content .il-dash-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 16px 12px;
+      background: var(--il-bg);
+      border-bottom: 1px solid var(--il-line);
+    }
+
+    #case-study-content .il-dash-header-copy h1 {
+      font-size: 1.25em;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 4px;
+      color: #0f172a;
+    }
+
+    #case-study-content .il-dash-sub {
+      margin: 0;
+      font-size: 0.82em;
+      color: #64748b;
+      font-weight: 500;
+      max-width: 42ch;
+      line-height: 1.45;
+    }
+
+    #case-study-content .il-dash-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    #case-study-content .il-dash-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.78em;
+      font-weight: 600;
+      font-family: inherit;
+      border: 1px solid transparent;
+      cursor: default;
+      white-space: nowrap;
+    }
+
+    #case-study-content .il-dash-btn--ghost {
+      background: #fff;
+      border-color: #e2e8f0;
+      color: #334155;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    #case-study-content .il-dash-btn--solid {
+      background: linear-gradient(180deg, #c2410c 0%, #9a3412 100%);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(154, 52, 18, 0.35);
+    }
+
+    #case-study-content .il-dash-btn-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+    }
+
+    #case-study-content .il-dash-userchip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 4px 4px 4px;
+      padding-right: 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    #case-study-content .il-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+      color: #3730a3;
+      font-weight: 700;
+      font-size: 0.68em;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    #case-study-content .il-dash-user-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      line-height: 1.2;
+    }
+
+    #case-study-content .il-dash-user-name {
+      font-size: 0.82em;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    #case-study-content .il-dash-user-role {
+      font-size: 0.68em;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    #case-study-content .il-dash-scroll {
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
+      padding: 12px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #case-study-content .il-dash-top {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.15fr);
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    #case-study-content .il-stat {
+      background: var(--il-card);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: var(--il-radius);
+      padding: 12px 12px 11px;
+      box-shadow: var(--il-shadow);
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #case-study-content .il-stat-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    #case-study-content .il-stat-ico {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    #case-study-content .il-stat-ico--warm {
+      background: var(--il-accent-soft);
+      color: var(--il-accent);
+    }
+
+    #case-study-content .il-stat-val {
+      font-size: 1.45em;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #case-study-content .il-stat-lbl {
+      font-size: 0.78em;
+      color: #64748b;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    #case-study-content .il-stat-hint {
+      font-size: 0.68em;
+      color: #94a3b8;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    #case-study-content .il-streak {
+      border-radius: var(--il-radius);
+      padding: 12px 14px;
+      background: var(--il-card);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: var(--il-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    #case-study-content .il-streak-h {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin: 0;
+    }
+
+    #case-study-content .il-streak-sub {
+      margin: 0;
+      font-size: 0.85em;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    #case-study-content .il-streak-days {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+    }
+
+    #case-study-content .il-streak-day {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 9px;
+      font-weight: 700;
+      border: 1.5px solid #e2e8f0;
+      color: #cbd5e1;
+      background: #fff;
+    }
+
+    #case-study-content .il-streak-day.is-done {
+      background: linear-gradient(180deg, #9a3412 0%, #7c2d12 100%);
+      border-color: transparent;
+      color: #fff;
+    }
+
+    #case-study-content .il-dash-mid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    #case-study-content .il-panel {
+      background: var(--il-card);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: var(--il-radius);
+      padding: 12px 14px 14px;
+      box-shadow: var(--il-shadow);
+      min-width: 0;
+    }
+
+    #case-study-content .il-panel-h {
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin: 0 0 10px;
+    }
+
+    #case-study-content .il-circ-chart {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 6px;
+      height: 96px;
+      padding-top: 4px;
+    }
+
+    #case-study-content .il-circ-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    #case-study-content .il-circ-stack {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 3px;
+    }
+
+    #case-study-content .il-circ {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--il-accent);
+      opacity: 0.9;
+      box-shadow: 0 1px 2px rgba(255, 106, 20, 0.35);
+    }
+
+    #case-study-content .il-circ.is-dim {
+      opacity: 0.22;
+      box-shadow: none;
+    }
+
+    #case-study-content .il-circ-lbl {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    #case-study-content .il-schedule {
+      position: relative;
+      padding: 8px 0 4px;
+      min-height: 104px;
+    }
+
+    #case-study-content .il-schedule-axis {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+      padding: 0 2px;
+    }
+
+    #case-study-content .il-schedule-track {
+      position: relative;
+      height: 56px;
+      border-radius: 10px;
+      background: #f8fafc;
+      border: 1px solid #f1f5f9;
+    }
+
+    #case-study-content .il-schedule-now {
+      position: absolute;
+      left: 46%;
+      top: -4px;
+      bottom: -4px;
+      width: 2px;
+      background: var(--il-accent);
+      border-radius: 2px;
+      box-shadow: 0 0 0 3px rgba(255, 106, 20, 0.2);
+    }
+
+    #case-study-content .il-schedule-now-lbl {
+      position: absolute;
+      left: 46%;
+      top: -18px;
+      transform: translateX(-50%);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--il-accent);
+      white-space: nowrap;
+    }
+
+    #case-study-content .il-schedule-block {
+      position: absolute;
+      top: 8px;
+      height: 18px;
+      border-radius: 8px;
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #case-study-content .il-schedule-block--a {
+      left: 4%;
+      width: 32%;
+      background: #64748b;
+    }
+
+    #case-study-content .il-schedule-block--b {
+      left: 38%;
+      width: 28%;
+      background: #475569;
+    }
+
+    #case-study-content .il-schedule-block--c {
+      left: 52%;
+      width: 44%;
+      background: linear-gradient(90deg, var(--il-accent), #ea580c);
+      box-shadow: 0 2px 8px rgba(255, 106, 20, 0.35);
+    }
+
+    #case-study-content .il-dash-bot {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr);
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    #case-study-content .il-table-wrap {
+      background: var(--il-card);
+      border-radius: var(--il-radius);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: var(--il-shadow);
       overflow: hidden;
       min-width: 0;
     }
 
-    #case-study-content .il-dash-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      padding: 10px 12px;
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    #case-study-content .il-dash-brand {
+    #case-study-content .il-table-h {
+      padding: 12px 14px 0;
+      font-size: 0.72rem;
       font-weight: 700;
-      font-size: 1.05em;
-      letter-spacing: -0.03em;
-      color: #000000;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin: 0;
     }
 
-    #case-study-content .il-dash-tabs {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      flex-wrap: wrap;
-      justify-content: center;
-      flex: 1;
-      min-width: 0;
+    #case-study-content .il-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78em;
     }
 
-    #case-study-content .il-tab {
-      padding: 6px 8px 8px;
-      border-radius: 0;
+    #case-study-content .il-table th,
+    #case-study-content .il-table td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    #case-study-content .il-table th {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      background: #fafafa;
+    }
+
+    #case-study-content .il-table td {
+      color: #334155;
       font-weight: 500;
-      color: #6b7280;
-      border: none;
-      border-bottom: 2px solid transparent;
-      background: transparent;
-      white-space: nowrap;
     }
 
-    #case-study-content .il-tab.is-active {
-      color: #000000;
-      font-weight: 600;
-      border-bottom-color: #ff6a14;
+    #case-study-content .il-table td:last-child,
+    #case-study-content .il-table th:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #64748b;
     }
 
-    #case-study-content .il-dash-user {
-      display: inline-flex;
+    #case-study-content .il-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    #case-study-content .il-timer {
+      border-radius: var(--il-radius);
+      padding: 16px 16px 14px;
+      background: linear-gradient(145deg, #ff6a14 0%, #dc2626 48%, #9f1239 100%);
+      color: #fff;
+      box-shadow: var(--il-shadow);
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+      min-height: 0;
     }
 
-    #case-study-content .il-avatar {
-      width: 28px;
-      height: 28px;
+    #case-study-content .il-timer-play {
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background: #f7f7f5;
-      color: #000000;
-      font-weight: 600;
-      font-size: 0.72em;
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       display: grid;
       place-items: center;
-      border: 1px solid #e5e7eb;
-      box-shadow: none;
+      backdrop-filter: blur(6px);
     }
 
-    #case-study-content .il-dash-main {
-      padding: 12px 14px 14px;
-      background: linear-gradient(180deg, #ffffff 0%, #f7f7f5 100%);
+    #case-study-content .il-timer-play svg {
+      margin-left: 2px;
     }
 
-    #case-study-content .il-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    #case-study-content .il-stat {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 10px 10px 9px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-      min-width: 0;
-    }
-
-    #case-study-content .il-stat-val {
-      font-size: 1.35em;
+    #case-study-content .il-timer-digits {
+      font-size: 1.5em;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #000000;
-      line-height: 1.1;
+      letter-spacing: 0.12em;
+      font-variant-numeric: tabular-nums;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
     }
 
-    #case-study-content .il-stat-lbl {
-      margin-top: 4px;
-      font-size: 0.85em;
-      color: #4a5568;
+    #case-study-content .il-timer-goal {
+      font-size: 0.75em;
+      opacity: 0.88;
       font-weight: 500;
     }
 
-    #case-study-content .il-panel {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 10px 12px 11px;
-      margin-bottom: 10px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    }
-
-    #case-study-content .il-panel-h {
-      font-weight: 600;
-      font-size: 0.95em;
-      color: #000000;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
-
+    /* Legacy hooks (older hero) — unused but kept for safety */
     #case-study-content .il-bar-track {
       height: 7px;
       border-radius: 999px;
@@ -4159,83 +5057,7 @@
       width: var(--w, 50%);
     }
 
-    #case-study-content .il-bar-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 6px;
-      font-size: 0.85em;
-      color: #4a5568;
-    }
-
-    #case-study-content .il-courses {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    #case-study-content .il-course {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-    }
-
-    #case-study-content .il-course-thumb {
-      aspect-ratio: 16 / 9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      background: #fff8e1;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    #case-study-content .il-course-thumb--b {
-      background: #e8eeff;
-    }
-
-    #case-study-content .il-course-thumb__ico {
-      font-size: 28px;
-      line-height: 1;
-    }
-
-    #case-study-content .il-course-thumb__hint {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #64748b;
-    }
-
-    #case-study-content .il-course-body {
-      padding: 8px 10px 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      flex: 1;
-    }
-
-    #case-study-content .il-course-title {
-      font-weight: 600;
-      font-size: 0.92em;
-      color: #000000;
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-    }
-
-    #case-study-content .il-course .il-bar-track {
-      margin-top: 2px;
-    }
-
     #case-study-content .il-btn {
-      align-self: flex-start;
-      margin-top: 4px;
       padding: 6px 12px;
       border-radius: 8px;
       border: none;
@@ -4245,7 +5067,270 @@
       color: #fff;
       background: #ff6a14;
       cursor: default;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    /* —— Mobile app profile (hero) — Growly-style reference, Inq Learn brand —— */
+    #case-study-content .il-app-phone {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 36px;
+      border: 3px solid #0f172a;
+      background: #0f172a;
+      box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.35),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-size: 10px;
+      line-height: 1.4;
+      color: #0f172a;
+    }
+
+    #case-study-content .il-app-notch {
+      height: 26px;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #case-study-content .il-app-notch::after {
+      content: "";
+      width: 88px;
+      height: 20px;
+      background: #020617;
+      border-radius: 0 0 12px 12px;
+    }
+
+    #case-study-content .il-app-screen {
+      background: #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 420px;
+      max-height: min(520px, 62vh);
+    }
+
+    #case-study-content .il-app-scroll {
+      flex: 1;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #case-study-content .il-app-top {
+      background: linear-gradient(155deg, #1d4ed8 0%, #5b21b6 42%, #7c3aed 78%, #ea580c 130%);
+      padding: 10px 12px 44px;
+      color: #fff;
+    }
+
+    #case-study-content .il-app-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    #case-study-content .il-app-nav-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      line-height: 1;
+      cursor: default;
+    }
+
+    #case-study-content .il-app-nav-title {
+      margin: 0;
+      font-size: 1.05em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    #case-study-content .il-app-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+    }
+
+    #case-study-content .il-app-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #fff 0%, #e0e7ff 100%);
+      border: 3px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      display: grid;
+      place-items: center;
+      font-size: 1.35em;
+      font-weight: 800;
+      color: #4338ca;
+    }
+
+    #case-study-content .il-app-name {
+      margin: 4px 0 0;
+      font-size: 1.15em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    #case-study-content .il-app-role {
+      margin: 0;
+      font-size: 0.85em;
+      opacity: 0.88;
+      font-weight: 500;
+      max-width: 26ch;
+      line-height: 1.35;
+    }
+
+    #case-study-content .il-app-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+      width: 100%;
+    }
+
+    #case-study-content .il-app-metric {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 8px 6px;
+      backdrop-filter: blur(8px);
+    }
+
+    #case-study-content .il-app-metric strong {
+      display: block;
+      font-size: 1.1em;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+
+    #case-study-content .il-app-metric span {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      opacity: 0.82;
+      margin-top: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    #case-study-content .il-app-sheet {
+      margin: -32px 8px 10px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 12px 16px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+      position: relative;
+      z-index: 1;
+    }
+
+    #case-study-content .il-app-sheet-h {
+      margin: 0 0 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    #case-study-content .il-app-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #case-study-content .il-app-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 8px;
+      border-radius: 12px;
+      border: 1px solid #f1f5f9;
+      background: #fafafa;
+    }
+
+    #case-study-content .il-app-badge-ico {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    #case-study-content .il-app-badge-ico--gold {
+      background: linear-gradient(145deg, #fde68a, #f59e0b);
+    }
+
+    #case-study-content .il-app-badge-ico--slate {
+      background: linear-gradient(145deg, #e2e8f0, #94a3b8);
+    }
+
+    #case-study-content .il-app-badge-ico--mint {
+      background: linear-gradient(145deg, #a7f3d0, #10b981);
+    }
+
+    #case-study-content .il-app-badge-ico--violet {
+      background: linear-gradient(145deg, #ddd6fe, #7c3aed);
+    }
+
+    #case-study-content .il-app-row-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    #case-study-content .il-app-row-title {
+      font-weight: 700;
+      font-size: 0.95em;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    #case-study-content .il-app-row-sub {
+      font-size: 0.78em;
+      color: #94a3b8;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    #case-study-content .il-app-row-meta {
+      font-size: 0.85em;
+      font-weight: 700;
+      color: #64748b;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #case-study-content .il-app-tabbar {
+      display: flex;
+      border-top: 1px solid #e2e8f0;
+      background: #fff;
+      padding: 8px 6px 10px;
+      justify-content: space-around;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #94a3b8;
+    }
+
+    #case-study-content .il-app-tabbar span {
+      padding: 6px 4px;
+      border-radius: 8px;
+      cursor: default;
+    }
+
+    #case-study-content .il-app-tabbar span.is-on {
+      color: #ff6a14;
     }
 
     @media (max-width: 900px) {
@@ -4261,15 +5346,36 @@
         grid-template-columns: 1fr;
       }
 
+      #case-study-content .hero-mockups {
+        grid-template-columns: 1fr;
+      }
+
+      #case-study-content .hero-poster--app {
+        padding-bottom: 18px;
+        justify-content: center;
+      }
+
+      #case-study-content .il-app-phone {
+        max-width: 260px;
+      }
+
       #case-study-content .overview-grid {
         grid-template-columns: 1fr;
       }
 
-      #case-study-content .il-stats {
+      #case-study-content .il-dash-top {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #case-study-content .il-streak {
+        grid-column: 1 / -1;
+      }
+
+      #case-study-content .il-dash-mid {
         grid-template-columns: 1fr;
       }
 
-      #case-study-content .il-courses {
+      #case-study-content .il-dash-bot {
         grid-template-columns: 1fr;
       }
 
@@ -4331,6 +5437,18 @@
       }
 
       #case-study-content .lf-ui-detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #case-study-content .lf-ui-preview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #case-study-content .lf-ui-check-list--cols {
+        grid-template-columns: 1fr;
+      }
+
+      #case-study-content .lf-ui-preview-cert {
         grid-template-columns: 1fr;
       }
 
@@ -4405,13 +5523,44 @@
         padding: 22px 16px 32px;
       }
 
-      #case-study-content .il-dash-nav {
+      #case-study-content .il-dash-shell {
         flex-direction: column;
-        align-items: stretch;
       }
 
-      #case-study-content .il-dash-tabs {
-        justify-content: flex-start;
+      #case-study-content .il-dash-sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      #case-study-content .il-dash-nav-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      #case-study-content .il-dash-nav-label {
+        display: none;
+      }
+
+      #case-study-content .il-dash-nav-item {
+        margin-left: 0;
+        border-radius: 999px;
+        border-left: none;
+        padding: 6px 10px;
+      }
+
+      #case-study-content .il-dash-nav-item.is-active {
+        border-left: none;
+      }
+
+      #case-study-content .il-dash-top {
+        grid-template-columns: 1fr;
       }
 
       #case-study-content .lf-research-grid {
@@ -4545,80 +5694,309 @@
                 </div>
               </div>
 
+              <div class="hero-mockups">
               <div class="hero-poster" aria-label="Inq Learn dashboard preview (HTML and CSS mockup)">
                 <div class="il-dash">
-                  <div class="il-dash-nav">
-                    <div class="il-dash-brand">
-                      <span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span>
-                    </div>
-                    <div class="il-dash-tabs" role="tablist">
-                      <span class="il-tab is-active">Dashboard</span>
-                      <span class="il-tab">Courses</span>
-                      <span class="il-tab">Progress</span>
-                      <span class="il-tab">Settings</span>
-                    </div>
-                    <div class="il-dash-user">
-                      <span class="il-avatar" aria-hidden="true">SK</span>
-                    </div>
-                  </div>
+                  <div class="il-dash-shell">
+                    <aside class="il-dash-sidebar" aria-label="Primary navigation">
+                      <div class="il-dash-brand">
+                        <span class="il-dash-logo" aria-hidden="true">i</span>
+                        <span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span>
+                      </div>
+                      <nav class="il-dash-nav-group" aria-label="Main tools">
+                        <div class="il-dash-nav-label">Main tools</div>
+                        <span class="il-dash-nav-item is-active">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          Dashboard
+                        </span>
+                        <span class="il-dash-nav-item">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          Courses
+                        </span>
+                        <span class="il-dash-nav-item">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                          Progress
+                        </span>
+                      </nav>
+                      <nav class="il-dash-nav-group" aria-label="Community">
+                        <div class="il-dash-nav-label">Community</div>
+                        <span class="il-dash-nav-item">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                          Groups
+                        </span>
+                      </nav>
+                      <nav class="il-dash-nav-group" aria-label="Settings">
+                        <div class="il-dash-nav-label">Settings</div>
+                        <span class="il-dash-nav-item">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                          Settings
+                        </span>
+                      </nav>
+                    </aside>
 
-                  <div class="il-dash-main">
-                    <div class="il-stats">
-                      <div class="il-stat">
-                        <div class="il-stat-val">12</div>
-                        <div class="il-stat-lbl">Courses completed</div>
-                      </div>
-                      <div class="il-stat">
-                        <div class="il-stat-val">8</div>
-                        <div class="il-stat-lbl">Day streak</div>
-                      </div>
-                      <div class="il-stat">
-                        <div class="il-stat-val">3</div>
-                        <div class="il-stat-lbl">Certificates</div>
-                      </div>
-                    </div>
-
-                    <div class="il-panel">
-                      <div class="il-panel-h">Digital Note-Taking Fundamentals — 64% complete</div>
-                      <div class="il-bar-track" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100">
-                        <div class="il-bar-fill" style="--w: 64%"></div>
-                      </div>
-                      <div class="il-bar-meta">
-                        <span>Progress</span>
-                        <span>64%</span>
-                      </div>
-                    </div>
-
-                    <div class="il-courses">
-                      <article class="il-course">
-                        <div class="il-course-thumb" aria-hidden="true">
-                          <span class="il-course-thumb__ico">✏️</span>
-                          <span class="il-course-thumb__hint">Notes</span>
+                    <div class="il-dash-workspace">
+                      <header class="il-dash-header">
+                        <div class="il-dash-header-copy">
+                          <h1>Dashboard</h1>
+                          <p class="il-dash-sub">Welcome back — pick up your smart-pen modules where you left off.</p>
                         </div>
-                        <div class="il-course-body">
-                          <div class="il-course-title">Smart pen workflows in the classroom</div>
-                          <div class="il-bar-track" aria-hidden="true">
-                            <div class="il-bar-fill" style="--w: 38%"></div>
+                        <div class="il-dash-header-actions">
+                          <span class="il-dash-btn il-dash-btn--ghost">
+                            <span class="il-dash-btn-dot" aria-hidden="true"></span>
+                            Join live session
+                          </span>
+                          <span class="il-dash-btn il-dash-btn--solid">Ask learning coach</span>
+                          <div class="il-dash-userchip">
+                            <span class="il-avatar" aria-hidden="true">SK</span>
+                            <div class="il-dash-user-meta">
+                              <span class="il-dash-user-name">Selinay</span>
+                              <span class="il-dash-user-role">Learner</span>
+                            </div>
                           </div>
-                          <button type="button" class="il-btn">Continue</button>
                         </div>
-                      </article>
-                      <article class="il-course">
-                        <div class="il-course-thumb il-course-thumb--b" aria-hidden="true">
-                          <span class="il-course-thumb__ico">🔄</span>
-                          <span class="il-course-thumb__hint">Sync</span>
-                        </div>
-                        <div class="il-course-body">
-                          <div class="il-course-title">Syncing handwritten notes to the LMS</div>
-                          <div class="il-bar-track" aria-hidden="true">
-                            <div class="il-bar-fill" style="--w: 72%"></div>
+                      </header>
+
+                      <div class="il-dash-scroll">
+                        <div class="il-dash-top">
+                          <div class="il-stat">
+                            <div class="il-stat-top">
+                              <div>
+                                <div class="il-stat-val">7</div>
+                                <div class="il-stat-lbl">Courses enrolled</div>
+                              </div>
+                              <div class="il-stat-ico il-stat-ico--warm" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2"/></svg>
+                              </div>
+                            </div>
+                            <p class="il-stat-hint">Closer to your classroom certification goal.</p>
                           </div>
-                          <button type="button" class="il-btn">Continue</button>
+                          <div class="il-stat">
+                            <div class="il-stat-top">
+                              <div>
+                                <div class="il-stat-val">12</div>
+                                <div class="il-stat-lbl">Lessons completed</div>
+                              </div>
+                              <div class="il-stat-ico" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2"/><polyline points="22 4 12 14.01 9 11.01" stroke="currentColor" stroke-width="2"/></svg>
+                              </div>
+                            </div>
+                            <p class="il-stat-hint">On track vs. last month (+18%).</p>
+                          </div>
+                          <div class="il-stat">
+                            <div class="il-stat-top">
+                              <div>
+                                <div class="il-stat-val">3</div>
+                                <div class="il-stat-lbl">Certificates</div>
+                              </div>
+                              <div class="il-stat-ico" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="6" stroke="currentColor" stroke-width="2"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" stroke="currentColor" stroke-width="2"/></svg>
+                              </div>
+                            </div>
+                            <p class="il-stat-hint">Share to profile to show proof of skills.</p>
+                          </div>
+                          <div class="il-streak">
+                            <p class="il-streak-h">Streak</p>
+                            <p class="il-streak-sub">You&apos;re on a 6-day streak</p>
+                            <div class="il-streak-days" aria-hidden="true">
+                              <span class="il-streak-day is-done">✓</span>
+                              <span class="il-streak-day is-done">✓</span>
+                              <span class="il-streak-day is-done">✓</span>
+                              <span class="il-streak-day is-done">✓</span>
+                              <span class="il-streak-day is-done">✓</span>
+                              <span class="il-streak-day is-done">✓</span>
+                              <span class="il-streak-day">·</span>
+                            </div>
+                          </div>
                         </div>
-                      </article>
+
+                        <div class="il-dash-mid">
+                          <div class="il-panel">
+                            <p class="il-panel-h">Time on learning (hrs)</p>
+                            <div class="il-circ-chart" aria-hidden="true">
+                              <div class="il-circ-col">
+                                <div class="il-circ-stack">
+                                  <span class="il-circ is-dim"></span><span class="il-circ is-dim"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span>
+                                </div>
+                                <span class="il-circ-lbl">M</span>
+                              </div>
+                              <div class="il-circ-col">
+                                <div class="il-circ-stack">
+                                  <span class="il-circ is-dim"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span>
+                                </div>
+                                <span class="il-circ-lbl">T</span>
+                              </div>
+                              <div class="il-circ-col">
+                                <div class="il-circ-stack">
+                                  <span class="il-circ is-dim"></span><span class="il-circ is-dim"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span>
+                                </div>
+                                <span class="il-circ-lbl">W</span>
+                              </div>
+                              <div class="il-circ-col">
+                                <div class="il-circ-stack">
+                                  <span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span>
+                                </div>
+                                <span class="il-circ-lbl">T</span>
+                              </div>
+                              <div class="il-circ-col">
+                                <div class="il-circ-stack">
+                                  <span class="il-circ is-dim"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span><span class="il-circ"></span>
+                                </div>
+                                <span class="il-circ-lbl">F</span>
+                              </div>
+                              <div class="il-circ-col">
+                                <div class="il-circ-stack">
+                                  <span class="il-circ is-dim"></span><span class="il-circ is-dim"></span><span class="il-circ"></span>
+                                </div>
+                                <span class="il-circ-lbl">S</span>
+                              </div>
+                              <div class="il-circ-col">
+                                <div class="il-circ-stack">
+                                  <span class="il-circ is-dim"></span><span class="il-circ"></span>
+                                </div>
+                                <span class="il-circ-lbl">S</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="il-panel">
+                            <p class="il-panel-h">Today&apos;s focus</p>
+                            <div class="il-schedule">
+                              <div class="il-schedule-axis">
+                                <span>8am</span><span>10am</span><span>12pm</span><span>2pm</span><span>4pm</span>
+                              </div>
+                              <span class="il-schedule-now-lbl">11:00</span>
+                              <div class="il-schedule-track">
+                                <span class="il-schedule-now" aria-hidden="true"></span>
+                                <span class="il-schedule-block il-schedule-block--a">Ink &amp; capture</span>
+                                <span class="il-schedule-block il-schedule-block--b">LMS sync lab</span>
+                                <span class="il-schedule-block il-schedule-block--c">Smart pen workflows</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="il-dash-bot">
+                          <div class="il-table-wrap">
+                            <p class="il-table-h">Recently studied</p>
+                            <table class="il-table">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Course</th>
+                                  <th scope="col">Start</th>
+                                  <th scope="col">End</th>
+                                  <th scope="col">Time</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Classroom smart pen basics</td>
+                                  <td>9:00</td>
+                                  <td>9:45</td>
+                                  <td>45m</td>
+                                </tr>
+                                <tr>
+                                  <td>Syncing notes to the LMS</td>
+                                  <td>10:10</td>
+                                  <td>11:00</td>
+                                  <td>50m</td>
+                                </tr>
+                                <tr>
+                                  <td>Digital ink fundamentals</td>
+                                  <td>14:00</td>
+                                  <td>14:30</td>
+                                  <td>30m</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="il-timer">
+                            <div class="il-timer-play" aria-hidden="true">
+                              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <div class="il-timer-digits">00:24:16</div>
+                            <div class="il-timer-goal">Daily goal · 02:00:00</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div class="hero-poster hero-poster--app" aria-label="Inq Learn mobile app — profile (HTML and CSS mockup)">
+                <div class="il-app-phone">
+                  <div class="il-app-notch" aria-hidden="true"></div>
+                  <div class="il-app-screen">
+                    <div class="il-app-scroll">
+                      <div class="il-app-top">
+                        <div class="il-app-nav">
+                          <span class="il-app-nav-btn" aria-hidden="true">←</span>
+                          <h2 class="il-app-nav-title">Profile</h2>
+                          <span class="il-app-nav-btn" aria-hidden="true">⋯</span>
+                        </div>
+                        <div class="il-app-profile">
+                          <div class="il-app-avatar" aria-hidden="true">S</div>
+                          <p class="il-app-name">Selinay İblikci</p>
+                          <p class="il-app-role">Senior product designer · Smart pen &amp; LMS</p>
+                          <div class="il-app-metrics">
+                            <div class="il-app-metric">
+                              <strong>86%</strong>
+                              <span>Skill mastery</span>
+                            </div>
+                            <div class="il-app-metric">
+                              <strong>92%</strong>
+                              <span>Course focus</span>
+                            </div>
+                            <div class="il-app-metric">
+                              <strong>8</strong>
+                              <span>Certificates</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="il-app-sheet">
+                        <p class="il-app-sheet-h">Achievements</p>
+                        <ul class="il-app-list">
+                          <li class="il-app-row">
+                            <span class="il-app-badge-ico il-app-badge-ico--gold" aria-hidden="true">🏆</span>
+                            <div class="il-app-row-body">
+                              <div class="il-app-row-title">Learning champion</div>
+                              <div class="il-app-row-sub">Complete 5 courses in a quarter</div>
+                            </div>
+                            <span class="il-app-row-meta">4/5</span>
+                          </li>
+                          <li class="il-app-row">
+                            <span class="il-app-badge-ico il-app-badge-ico--slate" aria-hidden="true">✏️</span>
+                            <div class="il-app-row-body">
+                              <div class="il-app-row-title">Ink &amp; sync pro</div>
+                              <div class="il-app-row-sub">Master smart-pen LMS workflows</div>
+                            </div>
+                            <span class="il-app-row-meta">1/5</span>
+                          </li>
+                          <li class="il-app-row">
+                            <span class="il-app-badge-ico il-app-badge-ico--mint" aria-hidden="true">✓</span>
+                            <div class="il-app-row-body">
+                              <div class="il-app-row-title">Streak keeper</div>
+                              <div class="il-app-row-sub">30-day learning streak</div>
+                            </div>
+                            <span class="il-app-row-meta">3/5</span>
+                          </li>
+                          <li class="il-app-row">
+                            <span class="il-app-badge-ico il-app-badge-ico--violet" aria-hidden="true">★</span>
+                            <div class="il-app-row-body">
+                              <div class="il-app-row-title">Team mentor</div>
+                              <div class="il-app-row-sub">Share a certificate to your org</div>
+                            </div>
+                            <span class="il-app-row-meta">2/5</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="il-app-tabbar" aria-hidden="true">
+                      <span>Home</span><span>Courses</span><span>Learn</span><span class="is-on">Profile</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>
           </section>
@@ -5375,82 +6753,83 @@
                         <span class="lf-ui-avatar" aria-hidden="true">SI</span>
                       </div>
                     </nav>
-                    <div class="lf-ui-body">
+                    <div class="lf-ui-body lf-ui-body--preview">
                       <nav class="lf-ui-breadcrumb" aria-label="Breadcrumb">Courses &gt; Leadership &gt; <span>Leadership Fundamentals</span></nav>
-                      <div class="lf-ui-detail-hero">
-                        <div class="lf-ui-detail-hero-top">
-                          <div class="lf-ui-detail-hero-ico" aria-hidden="true">★</div>
-                          <div>
+                      <div class="lf-ui-preview-card">
+                        <div class="lf-ui-preview-grid">
+                          <aside class="lf-ui-preview-aside" aria-label="Purchase and instructor">
+                            <div class="lf-ui-preview-video" aria-hidden="true">
+                              <div class="lf-ui-preview-play">
+                                <button type="button" class="lf-ui-preview-play-btn" aria-label="Play preview">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <span class="lf-ui-preview-play-lbl">Preview course</span>
+                              </div>
+                            </div>
+                            <div class="lf-ui-preview-price-row">
+                              <div class="lf-ui-preview-price">
+                                <strong>Free</strong>
+                                <del>Seat fee $49</del>
+                              </div>
+                              <span class="lf-ui-preview-coupon">Org license applied</span>
+                            </div>
+                            <div class="lf-ui-preview-cta-row">
+                              <button type="button" class="lf-ui-btn lf-ui-btn--gradient">Enrol now <span aria-hidden="true">↗</span></button>
+                              <span class="lf-ui-preview-heart" aria-hidden="true">♡</span>
+                            </div>
+                            <div class="lf-ui-preview-instructor">
+                              <div class="lf-ui-preview-instructor-av" aria-hidden="true">M</div>
+                              <div>
+                                <strong>Maya Chen</strong>
+                                <span>Leadership coach · Former L&amp;D director</span>
+                              </div>
+                              <span class="lf-ui-preview-badge">Top instructor</span>
+                            </div>
+                            <ul class="lf-ui-preview-meta">
+                              <li><span class="lf-ui-preview-meta-ico" aria-hidden="true">★</span> 4.8 <span style="color:#94a3b8">(312 reviews)</span></li>
+                              <li><span class="lf-ui-preview-meta-ico" aria-hidden="true">▤</span> 8 modules · 12 hours</li>
+                              <li><span class="lf-ui-preview-meta-ico" aria-hidden="true">✓</span> 6 assignments · 4 quizzes</li>
+                              <li><span class="lf-ui-preview-meta-ico" aria-hidden="true">⏱</span> Updated Apr 2026</li>
+                            </ul>
+                            <div class="lf-ui-preview-tools">
+                              <strong>Tools referenced</strong>
+                              Miro · Notion · Slack · Calendar
+                            </div>
+                          </aside>
+                          <div class="lf-ui-preview-main">
                             <h1>Leadership Fundamentals</h1>
-                            <p>8 modules · 12 hours · Certificate included</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="lf-ui-detail-grid">
-                        <div class="lf-ui-detail-main">
-                          <h3>About this course</h3>
-                          <p>Build the mindset and skills modern leaders need to inspire teams, drive clarity, and deliver results in complex organizations.</p>
-                          <p>This course blends research-backed frameworks with practical scenarios you can apply immediately at work.</p>
-                          <p>Perfect for people managers, team leads, and HR partners supporting leadership development at scale.</p>
-                          <h3>What you&apos;ll learn</h3>
-                          <ul class="lf-ui-check-list">
-                            <li>Build trust through authentic leadership</li>
-                            <li>Give constructive feedback</li>
-                            <li>Navigate difficult conversations</li>
-                            <li>Lead remote teams effectively</li>
-                          </ul>
-                          <h3>Modules</h3>
-                          <div class="lf-ui-accordion" aria-label="Course modules">
-                            <div class="lf-ui-acc-row"><span>Module 1 — Orientation</span><span class="lf-ui-acc-meta">25 min</span><span class="lf-ui-acc-ico" aria-hidden="true">🔓</span></div>
-                            <div class="lf-ui-acc-row"><span>Module 2 — Self-awareness</span><span class="lf-ui-acc-meta">40 min</span><span class="lf-ui-acc-ico" aria-hidden="true">🔓</span></div>
-                            <div class="lf-ui-acc-row"><span>Module 3 — Communication</span><span class="lf-ui-acc-meta">45 min</span><span class="lf-ui-acc-ico" aria-hidden="true">🔓</span></div>
-                            <div class="lf-ui-acc-row"><span>Module 4 — Giving feedback</span><span class="lf-ui-acc-meta">50 min</span><span class="lf-ui-acc-ico" aria-hidden="true">🔓</span></div>
-                            <div class="lf-ui-acc-row"><span>Module 5 — Conflict resolution</span><span class="lf-ui-acc-meta">55 min</span><span class="lf-ui-acc-ico" aria-hidden="true">🔒</span></div>
-                            <div class="lf-ui-acc-row"><span>Module 6 — Coaching</span><span class="lf-ui-acc-meta">45 min</span><span class="lf-ui-acc-ico" aria-hidden="true">🔒</span></div>
-                            <div class="lf-ui-acc-row"><span>Module 7 — Remote leadership</span><span class="lf-ui-acc-meta">50 min</span><span class="lf-ui-acc-ico" aria-hidden="true">🔒</span></div>
-                            <div class="lf-ui-acc-row"><span>Module 8 — Capstone</span><span class="lf-ui-acc-meta">60 min</span><span class="lf-ui-acc-ico" aria-hidden="true">🔒</span></div>
-                          </div>
-                          <h3>Reviews</h3>
-                          <div class="lf-ui-reviews">
-                            <div class="lf-ui-review">
-                              <div class="lf-ui-review-top">
-                                <div class="lf-ui-review-av" aria-hidden="true">JM</div>
-                                <div>
-                                  <div class="lf-ui-review-name">Jordan M.</div>
-                                  <div class="lf-ui-review-stars">★★★★★</div>
-                                </div>
-                              </div>
-                              <p>Clear structure and actionable exercises — I applied the feedback model the same week.</p>
+                            <p class="lf-ui-preview-sub">8 modules · 12 hours · Certificate included · B2B cohort-ready</p>
+                            <p class="lf-ui-preview-desc">
+                              Build the mindset and skills modern leaders need to inspire teams, drive clarity, and deliver results in complex organizations. Blends research-backed frameworks with scenarios you can use immediately.
+                            </p>
+                            <span class="lf-ui-preview-more">See more</span>
+                            <div class="lf-ui-preview-tabs" role="tablist" aria-label="Course sections">
+                              <span class="lf-ui-preview-tab is-active">Course info</span>
+                              <span class="lf-ui-preview-tab">Outline</span>
+                              <span class="lf-ui-preview-tab">Resources</span>
+                              <span class="lf-ui-preview-tab">Reviews</span>
                             </div>
-                            <div class="lf-ui-review">
-                              <div class="lf-ui-review-top">
-                                <div class="lf-ui-review-av" aria-hidden="true">PK</div>
-                                <div>
-                                  <div class="lf-ui-review-name">Priya K.</div>
-                                  <div class="lf-ui-review-stars">★★★★☆</div>
-                                </div>
+                            <h3 class="lf-ui-preview-learn-h">What you&apos;ll learn</h3>
+                            <ul class="lf-ui-check-list lf-ui-check-list--cols">
+                              <li>Build trust through authentic leadership</li>
+                              <li>Give constructive feedback</li>
+                              <li>Navigate difficult conversations</li>
+                              <li>Coach and develop reports</li>
+                              <li>Lead remote and hybrid teams</li>
+                              <li>Align goals to business outcomes</li>
+                            </ul>
+                            <div class="lf-ui-preview-cert">
+                              <div>
+                                <h4>Earn your certificate</h4>
+                                <p>Complete all modules and the capstone to unlock a verified credential for your profile and internal HR records.</p>
                               </div>
-                              <p>Great for new managers. Would love even more remote-team examples.</p>
-                            </div>
-                            <div class="lf-ui-review">
-                              <div class="lf-ui-review-top">
-                                <div class="lf-ui-review-av" aria-hidden="true">AR</div>
-                                <div>
-                                  <div class="lf-ui-review-name">Alex R.</div>
-                                  <div class="lf-ui-review-stars">★★★★★</div>
-                                </div>
+                              <div class="lf-ui-preview-cert-mock" aria-hidden="true">
+                                <span class="lf-ui-preview-cert-lock">🔒</span>
+                                <span class="lf-ui-preview-cert-word">Locked until complete</span>
                               </div>
-                              <p>Best leadership course I&apos;ve taken on the platform. Worth the time.</p>
                             </div>
                           </div>
                         </div>
-                        <aside class="lf-ui-enroll-card" aria-label="Enroll">
-                          <div class="lf-ui-enroll-thumb lf-ui-thumb lf-ui-thumb--blue" aria-hidden="true"><span class="lf-ui-thumb__ico">★</span></div>
-                          <p class="lf-ui-enroll-note">Free for your organization</p>
-                          <button type="button" class="lf-ui-btn" style="width: 100%">Enroll Now</button>
-                          <p class="lf-ui-enroll-stats">4,200 professionals enrolled<br />4.8 ★ (312 reviews)</p>
-                          <div class="lf-ui-enroll-links"><span>Share</span><span>Save</span></div>
-                        </aside>
                       </div>
                     </div>
                   </div>
