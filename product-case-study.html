@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <title>InkLearn Platform — Case Study — Selinay İblikci</title>
+  <title>Inq Learn — Case Study — Selinay İblikci</title>
   <style>
     html {
       overflow-x: hidden !important;
@@ -25,19 +25,19 @@
       --heading-font: "Syne", sans-serif;
       --body-font: "Instrument Sans", sans-serif;
       --nav-font: "Agdasima", system-ui, -apple-system, sans-serif;
-      /* InkLearn — Inq/Anoto-inspired: premium minimal B&W + warm grey surfaces */
+      /* Inq Learn product UI — orange primary, purple secondary */
+      --inq-orange: #ff6a14;
+      --inq-purple: #7c3aed;
       --il-ink: #000000;
       --il-paper: #ffffff;
-      --il-warm: #f5f5f0;
-      --il-secondary: #4a5568;
-      --il-border: #e2e8f0;
-      --il-success: #48bb78;
-      --il-warning: #ecc94b;
-      --il-error: #f56565;
+      --il-warm: #f7f7f5;
+      --il-border: #e5e7eb;
+      --il-muted: #6b7280;
+      --il-error: #ef4444;
       --il-surface: #ffffff;
-      --il-surface-muted: #f5f5f0;
+      --il-surface-muted: #f7f7f5;
       --il-text-on-light: #000000;
-      --lf-teal: var(--il-ink);
+      --lf-teal: var(--inq-orange);
       --lf-teal-d: var(--il-ink);
       --p-500: #7c5cfc;
       --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.7);
@@ -74,11 +74,8 @@
     }
 
     body.unlocked {
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(184, 169, 232, 0.16), transparent 55%),
-        radial-gradient(900px 600px at 90% 0%, rgba(124, 92, 252, 0.18), transparent 55%),
-        radial-gradient(circle at top, #27252a 0, #1e1c20 45%, #151319 100%);
-      color: var(--text);
+      background: #f7f7f5;
+      color: #000000;
       padding: 32px 24px 64px;
     }
 
@@ -301,11 +298,15 @@
       min-width: 0;
     }
 
+    #case-study-content {
+      color: #000000;
+    }
+
     #case-study-content .case-nav {
       max-width: 1100px;
       width: 100%;
       min-width: 0;
-      margin: 0 auto 32px;
+      margin: 0 auto 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -313,7 +314,7 @@
       font-size: 0.8rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: #6b7280;
     }
 
     #case-study-content .case-back {
@@ -322,20 +323,22 @@
       gap: 8px;
       padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid var(--border-light);
-      background: rgba(21, 19, 25, 0.72);
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      color: #000000;
       cursor: pointer;
       transition: all 0.25s ease;
     }
 
     #case-study-content .case-back:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: #ff6a14;
+      color: #ff6a14;
       transform: translateY(-1px);
     }
 
     #case-study-content .case-nav-label {
-      opacity: 0.7;
+      opacity: 0.85;
+      color: #6b7280;
     }
 
     #case-study-content .case-shell {
@@ -343,38 +346,65 @@
       width: 100%;
       min-width: 0;
       margin: 0 auto;
-      background: radial-gradient(circle at top left, rgba(184, 169, 232, 0.05), transparent 55%);
-      border-radius: 28px;
-      border: 1px solid rgba(61, 57, 68, 0.9);
-      box-shadow:
-        0 24px 60px rgba(0, 0, 0, 0.65),
-        0 0 0 1px rgba(0, 0, 0, 0.6);
-      overflow: hidden;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      overflow: visible;
     }
 
     #case-study-content .case-inner {
-      padding: 40px 40px 48px;
+      padding: 0 0 64px;
       min-width: 0;
       overflow-x: clip;
     }
 
     #case-study-content .case-section {
-      padding: 32px 24px 36px;
-      border-radius: 22px;
-      background: linear-gradient(145deg, rgba(39, 37, 42, 0.96), rgba(23, 21, 28, 0.96));
-      border: 1px solid rgba(51, 47, 56, 0.95);
-      margin-bottom: 20px;
+      padding: 48px 40px 52px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      margin-bottom: 40px;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
     }
 
     #case-study-content .case-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(184, 169, 232, 0.08), transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
+      display: none;
+    }
+
+    #case-study-content .case-section--key-insight {
+      background: #000000;
+      border-color: #262626;
+      color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    }
+
+    #case-study-content .case-section--key-insight .case-body,
+    #case-study-content .case-section--key-insight .case-h2,
+    #case-study-content .case-section--key-insight .case-kicker,
+    #case-study-content .case-section--key-insight .sec-name,
+    #case-study-content .case-section--key-insight .sec-num,
+    #case-study-content .case-section--key-insight .sec-right,
+    #case-study-content .case-section--key-insight .meta-value,
+    #case-study-content .case-section--key-insight .lf-research-card,
+    #case-study-content .case-section--key-insight .lf-research-card strong,
+    #case-study-content .case-section--key-insight .lf-research-card p {
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    #case-study-content .case-section--key-insight .sec-bar {
+      border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+
+    #case-study-content .case-section--key-insight .meta-label {
+      color: #ff6a14;
+    }
+
+    #case-study-content .case-section--key-insight .lf-research-card {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
     }
 
     #case-study-content .case-section-inner {
@@ -383,14 +413,56 @@
       min-width: 0;
     }
 
+    #case-study-content .case-split-layout {
+      display: grid;
+      grid-template-columns: minmax(120px, 200px) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 56px);
+      align-items: start;
+    }
+
+    @media (max-width: 720px) {
+      #case-study-content .case-split-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    #case-study-content .case-sec-num {
+      font-family: var(--heading-font);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    #case-study-content .case-title-capped {
+      font-family: var(--heading-font);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #000000;
+      margin: 0 0 0 0;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #ff6a14;
+      display: block;
+      max-width: 100%;
+    }
+
+    #case-study-content .case-section--key-insight .case-title-capped {
+      color: #ffffff;
+      border-bottom-color: #ff6a14;
+    }
+
+    #case-study-content .case-split-sidebar {
+      position: sticky;
+      top: 24px;
+    }
+
     #case-study-content .sec-bar {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 18px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: none;
     }
 
     #case-study-content .sec-left {
@@ -406,7 +478,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: rgba(124, 92, 252, 0.95);
+      color: #ff6a14;
     }
 
     #case-study-content .sec-name {
@@ -414,7 +486,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(237, 233, 242, 0.78);
+      color: #374151;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -425,43 +497,77 @@
       font-size: 0.62rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(237, 233, 242, 0.45);
+      color: #9ca3af;
       white-space: nowrap;
     }
 
     #case-study-content .case-kicker {
-      font-family: var(--heading-font);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
+      display: none;
     }
 
     #case-study-content .case-h2 {
       font-family: var(--nav-font);
       font-weight: 700;
-      font-size: clamp(1.55rem, 2.3vw, 1.9rem);
-      margin-bottom: 14px;
-      letter-spacing: 0;
-      color: var(--text);
-      line-height: 1.2;
+      font-size: clamp(1.35rem, 2vw, 1.65rem);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      color: #000000;
+      line-height: 1.25;
+    }
+
+    #case-study-content .case-section--key-insight .case-h2 {
+      color: #ffffff;
     }
 
     #case-study-content .case-body {
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      max-width: 720px;
+      font-size: 0.98rem;
+      color: #374151;
+      max-width: none;
+      line-height: 1.65;
+    }
+
+    #case-study-content .case-section--key-insight .case-body {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    /* Wordmark: inq bold + learn regular */
+    #case-study-content .inq-brand,
+    .inq-brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      color: #000000;
+      letter-spacing: -0.03em;
+    }
+
+    #case-study-content .inq-brand__q,
+    .inq-brand__q {
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+
+    #case-study-content .inq-brand__learn,
+    .inq-brand__learn {
+      font-weight: 400;
+      text-transform: lowercase;
+    }
+
+    #case-study-content .inq-brand--on-dark,
+    .inq-brand--on-dark {
+      color: #ffffff;
+    }
+
+    #case-study-content .il-dash .inq-brand {
+      color: #000000;
     }
 
     #case-study-content .case-hero {
-      padding: 36px 28px 40px;
-      border-radius: 24px;
-      background:
-        radial-gradient(circle at top left, rgba(184, 169, 232, 0.18), transparent 55%),
-        linear-gradient(145deg, #27252a 0%, #18161e 60%, #15131a 100%);
-      border: 1px solid rgba(90, 81, 114, 0.85);
+      padding: 48px 36px 52px;
+      border-radius: 12px;
+      background: #000000;
+      border: 1px solid #262626;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
       position: relative;
       overflow: hidden;
     }
@@ -469,12 +575,8 @@
     #case-study-content .case-hero::after {
       content: "";
       position: absolute;
-      inset: -80px;
-      background-image:
-        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.08), transparent 55%),
-        radial-gradient(circle at 100% 0, rgba(184, 169, 232, 0.16), transparent 55%);
-      mix-blend-mode: soft-light;
-      opacity: 0.5;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 60% at 20% 0%, rgba(255, 106, 20, 0.12), transparent 55%);
       pointer-events: none;
     }
 
@@ -494,14 +596,14 @@
       font-size: 0.68rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: rgba(255, 255, 255, 0.65);
     }
 
     #case-study-content .case-tag-pill {
       padding: 6px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(114, 108, 132, 0.8);
-      background: rgba(21, 19, 25, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.06);
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -512,7 +614,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--accent);
+      background: #ff6a14;
     }
 
     #case-study-content .case-title {
@@ -520,9 +622,9 @@
       font-size: clamp(2.2rem, 3.4vw, 3.2rem);
       font-weight: 800;
       letter-spacing: -0.04em;
-      text-transform: uppercase;
-      line-height: 1.02;
-      text-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+      text-transform: none;
+      line-height: 1.05;
+      color: #ffffff;
       margin-bottom: 8px;
     }
 
@@ -551,7 +653,7 @@
       font-family: var(--body-font);
       font-weight: 500;
       font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-      color: var(--text-muted);
+      color: rgba(255, 255, 255, 0.72);
       max-width: 540px;
       line-height: 1.55;
     }
@@ -571,14 +673,12 @@
 
     #case-study-content .hero-poster {
       position: relative;
-      border-radius: 22px;
-      border: 1px solid rgba(114, 108, 132, 0.55);
-      background:
-        radial-gradient(800px 520px at 30% 10%, rgba(124, 92, 252, 0.12), transparent 55%),
-        linear-gradient(145deg, rgba(18, 16, 24, 0.92), rgba(33, 30, 40, 0.94));
-      box-shadow: var(--shadow-lg);
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       overflow: hidden;
-      padding: 18px;
+      padding: 16px;
       min-height: 0;
       isolation: isolate;
     }
@@ -610,11 +710,11 @@
       font-size: 0.68rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: #ff6a14;
     }
 
     #case-study-content .meta-value {
-      color: var(--text);
+      color: #111827;
       font-size: 0.86rem;
     }
 
@@ -639,9 +739,9 @@
 
     #case-study-content .lf-problem-card {
       border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(12, 11, 16, 0.58);
-      box-shadow: var(--ring);
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       padding: 18px 16px 17px;
       min-width: 0;
       position: relative;
@@ -655,8 +755,8 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, rgba(245, 101, 101, 0.9), rgba(236, 201, 75, 0.88));
-      opacity: 0.95;
+      background: linear-gradient(90deg, #ff6a14, #7c3aed);
+      opacity: 1;
     }
 
     #case-study-content .lf-problem-card h3 {
@@ -665,14 +765,14 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(237, 233, 242, 0.92);
+      color: #000000;
       margin-bottom: 10px;
       padding-top: 4px;
     }
 
     #case-study-content .lf-problem-card p {
       font-size: 0.9rem;
-      color: var(--text-muted);
+      color: #6b7280;
       line-height: 1.58;
     }
 
@@ -751,13 +851,13 @@
       font-size: 0.72rem;
       font-weight: 600;
       line-height: 1.3;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
     }
 
     #case-study-content .lf-journey-node--ok {
-      background: rgba(72, 187, 120, 0.12);
-      border-color: rgba(72, 187, 120, 0.4);
-      color: #c6f0d8;
+      background: rgba(255, 106, 20, 0.14);
+      border-color: rgba(255, 106, 20, 0.45);
+      color: #ffd4c2;
     }
 
     #case-study-content .lf-journey-node--friction-warn {
@@ -847,31 +947,31 @@
       width: 100%;
       padding: 10px 8px;
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(30, 28, 36, 0.92);
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
       font-family: var(--body-font);
       font-size: 11px;
       font-weight: 600;
       line-height: 1.3;
       text-align: center;
-      color: rgba(237, 233, 242, 0.9);
-      box-shadow: var(--ring);
+      color: #111827;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     #case-study-content .lf-flow-step--key {
-      background: rgba(0, 0, 0, 0.35);
-      border-color: rgba(255, 255, 255, 0.2);
-      color: #f5f5f0;
+      background: #fff7f2;
+      border-color: #ffb080;
+      color: #0f172a;
       box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-        0 4px 12px rgba(0, 0, 0, 0.15);
+        0 0 0 1px rgba(255, 106, 20, 0.2) inset,
+        0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     #case-study-content .lf-flow-note {
       font-family: var(--body-font);
       font-size: 10px;
       line-height: 1.4;
-      color: var(--text-muted);
+      color: #6b7280;
       text-align: center;
       max-width: 118px;
       min-height: 3.2em;
@@ -885,7 +985,7 @@
       flex: 0 0 auto;
       width: 20px;
       text-align: center;
-      color: rgba(237, 233, 242, 0.32);
+      color: #d1d5db;
       font-size: 0.85rem;
       padding-top: 22px;
       user-select: none;
@@ -901,8 +1001,9 @@
 
     #case-study-content .decision-card {
       border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(12, 11, 16, 0.55);
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       padding: 18px 18px 16px;
       min-width: 0;
     }
@@ -913,23 +1014,23 @@
       font-size: 1rem;
       line-height: 1.35;
       margin: 0 0 12px;
-      color: rgba(237, 233, 242, 0.96);
+      color: #000000;
     }
 
     #case-study-content .decision-card-options {
       margin: 0;
       font-size: 0.94rem;
       line-height: 1.55;
-      color: var(--text-muted);
+      color: #6b7280;
     }
 
     #case-study-content .decision-card-decision {
       margin: 14px 0 0;
       padding: 12px 0 2px 14px;
-      border-left: 3px solid rgba(124, 92, 252, 0.55);
+      border-left: 3px solid #7c3aed;
       font-size: 0.94rem;
       line-height: 1.55;
-      color: rgba(237, 233, 242, 0.88);
+      color: #111827;
     }
 
     /* —— Information architecture: before/after trees —— */
@@ -943,20 +1044,21 @@
 
     #case-study-content .lf-ia-panel {
       border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(12, 11, 16, 0.45);
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       padding: 16px 14px 18px;
       min-width: 0;
     }
 
     #case-study-content .lf-ia-panel--before {
-      border-color: rgba(245, 101, 101, 0.28);
-      background: rgba(40, 22, 22, 0.38);
+      border-color: #fecaca;
+      background: #fef2f2;
     }
 
     #case-study-content .lf-ia-panel--after {
-      border-color: rgba(72, 187, 120, 0.32);
-      background: rgba(18, 32, 24, 0.38);
+      border-color: #fdba74;
+      background: #fff7ed;
     }
 
     #case-study-content .lf-ia-badge {
@@ -969,26 +1071,26 @@
       display: inline-block;
       padding: 5px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid #e5e7eb;
     }
 
     #case-study-content .lf-ia-panel--before .lf-ia-badge {
-      color: #fde2e2;
-      background: rgba(245, 101, 101, 0.12);
-      border-color: rgba(245, 101, 101, 0.35);
+      color: #991b1b;
+      background: #fee2e2;
+      border-color: #fecaca;
     }
 
     #case-study-content .lf-ia-panel--after .lf-ia-badge {
-      color: #d4f0e0;
-      background: rgba(72, 187, 120, 0.12);
-      border-color: rgba(72, 187, 120, 0.35);
+      color: #c2410c;
+      background: #ffedd5;
+      border-color: #fdba74;
     }
 
     #case-study-content .lf-ia-tree {
       font-family: var(--body-font);
       font-size: 0.78rem;
       line-height: 1.45;
-      color: rgba(237, 233, 242, 0.88);
+      color: #374151;
     }
 
     #case-study-content .lf-ia-root {
@@ -997,10 +1099,10 @@
       font-size: 0.72rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(237, 233, 242, 0.75);
+      color: #6b7280;
       padding: 8px 10px;
       border-radius: 10px;
-      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border: 1px dashed #d1d5db;
       margin-bottom: 10px;
       text-align: center;
     }
@@ -1017,10 +1119,10 @@
     #case-study-content .lf-ia-list--flat li {
       padding: 5px 8px;
       border-radius: 8px;
-      border: 1px solid rgba(248, 180, 180, 0.35);
-      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid #fecaca;
+      background: #ffffff;
       font-size: 0.68rem;
-      color: rgba(254, 226, 226, 0.88);
+      color: #7f1d1d;
     }
 
     #case-study-content .lf-ia-nested {
@@ -1033,7 +1135,7 @@
     }
 
     #case-study-content .lf-ia-branch {
-      border-left: 2px solid rgba(72, 187, 120, 0.45);
+      border-left: 2px solid rgba(255, 106, 20, 0.55);
       padding-left: 12px;
       margin-left: 4px;
     }
@@ -1041,13 +1143,13 @@
     #case-study-content .lf-ia-branch-top {
       font-weight: 600;
       font-size: 0.8rem;
-      color: #d4f0e0;
+      color: #9a3412;
       margin-bottom: 4px;
     }
 
     #case-study-content .lf-ia-branch-sub {
       font-size: 0.72rem;
-      color: var(--text-muted);
+      color: #6b7280;
       line-height: 1.45;
     }
 
@@ -1300,8 +1402,8 @@
       color: #000000;
       background: #fff;
       border-radius: 14px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       overflow: hidden;
       min-width: 0;
       max-width: 100%;
@@ -1313,8 +1415,8 @@
       gap: 8px;
       height: 36px;
       padding: 0 14px;
-      background: linear-gradient(180deg, #ffffff 0%, #f5f5f0 100%);
-      border-bottom: 1px solid #e2e8f0;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f7f5 100%);
+      border-bottom: 1px solid #e5e7eb;
     }
 
     #case-study-content .lf-ui-dots {
@@ -1337,7 +1439,7 @@
     }
 
     #case-study-content .lf-ui-dots span:nth-child(3) {
-      background: #e2e8f0;
+      background: #e5e7eb;
     }
 
     #case-study-content .lf-ui-chrome-url {
@@ -1365,8 +1467,8 @@
       gap: 16px;
       flex-wrap: wrap;
       padding: 16px 24px;
-      border-bottom: 1px solid #e2e8f0;
-      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      background: #ffffff;
     }
 
     #case-study-content .lf-ui-brand {
@@ -1394,20 +1496,21 @@
     }
 
     #case-study-content .lf-ui-tab {
-      padding: 8px 14px;
-      border-radius: 999px;
+      padding: 8px 12px 10px;
+      border-radius: 0;
       font-size: 13px;
       font-weight: 500;
       color: #4a5568;
-      border: 1px solid transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: transparent;
       white-space: nowrap;
     }
 
     #case-study-content .lf-ui-tab.is-active {
       color: #000000;
-      background: #f5f5f0;
-      border-color: #e2e8f0;
       font-weight: 600;
+      border-bottom-color: #ff6a14;
     }
 
     #case-study-content .lf-ui-nav-actions {
@@ -1420,7 +1523,7 @@
       width: 40px;
       height: 40px;
       border-radius: 10px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       background: #fff;
       display: grid;
       place-items: center;
@@ -1437,19 +1540,20 @@
       width: 40px;
       height: 40px;
       border-radius: 10px;
-      background: #000000;
-      color: #fff;
+      background: #f7f7f5;
+      color: #000000;
       font-weight: 700;
       font-size: 12px;
       display: grid;
       place-items: center;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e5e7eb;
+      box-shadow: none;
     }
 
     #case-study-content .lf-ui-body {
       padding: 24px;
       min-width: 0;
-      background: #f5f5f0;
+      background: #f7f7f5;
     }
 
     #case-study-content .lf-ui-welcome h2 {
@@ -1475,23 +1579,23 @@
 
     #case-study-content .lf-ui-stat-card {
       border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       padding: 16px;
       background: #fff;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       min-width: 0;
     }
 
     #case-study-content .lf-ui-stat-card--green {
-      border-left: 4px solid #48bb78;
+      border-left: 4px solid #ff6a14;
     }
 
     #case-study-content .lf-ui-stat-card--amber {
-      border-left: 4px solid #ecc94b;
+      border-left: 4px solid #ff6a14;
     }
 
     #case-study-content .lf-ui-stat-card--accent {
-      border-left: 4px solid #000000;
+      border-left: 4px solid #ff6a14;
     }
 
     #case-study-content .lf-ui-stat-val {
@@ -1513,7 +1617,7 @@
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #4a5568;
+      color: #ff6a14;
       margin-bottom: 12px;
     }
 
@@ -1526,11 +1630,15 @@
 
     #case-study-content .lf-ui-pro-card {
       border-radius: 14px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       overflow: hidden;
       background: #fff;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       min-width: 0;
+    }
+
+    #case-study-content .lf-ui-pro-head--c {
+      background: linear-gradient(135deg, #9ca3af 0%, #374151 100%);
     }
 
     #case-study-content .lf-ui-pro-head {
@@ -1542,11 +1650,11 @@
     }
 
     #case-study-content .lf-ui-pro-head--a {
-      background: #000000;
+      background: linear-gradient(135deg, #ff8a4a 0%, #ff6a14 100%);
     }
 
     #case-study-content .lf-ui-pro-head--b {
-      background: #1a1a1a;
+      background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
     }
 
     #case-study-content .lf-ui-pro-body {
@@ -1562,7 +1670,7 @@
     #case-study-content .lf-ui-bar {
       height: 8px;
       border-radius: 999px;
-      background: #e2e8f0;
+      background: #e5e7eb;
       overflow: hidden;
       margin-top: 12px;
     }
@@ -1571,7 +1679,7 @@
       display: block;
       height: 100%;
       border-radius: inherit;
-      background: #000000;
+      background: #ff6a14;
     }
 
     #case-study-content .lf-ui-btn {
@@ -1586,16 +1694,22 @@
       font-size: 13px;
       font-weight: 600;
       color: #fff;
-      background: #000000;
+      background: #ff6a14;
       cursor: default;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     #case-study-content .lf-ui-btn--ghost {
       background: #fff;
       color: #000000;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #000000;
       box-shadow: none;
+    }
+
+    #case-study-content .lf-ui-btn--ghost:hover {
+      background: #ff6a14;
+      color: #fff;
+      border-color: #ff6a14;
     }
 
     #case-study-content .lf-ui-btn:disabled {
@@ -1612,7 +1726,7 @@
 
     #case-study-content .lf-ui-rec-card {
       border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       overflow: hidden;
       background: #fff;
       min-width: 0;
@@ -1620,7 +1734,7 @@
 
     #case-study-content .lf-ui-rec-thumb {
       height: 88px;
-      background: var(--lf-rec-bg, linear-gradient(135deg, #f5f5f0, #000000));
+      background: var(--lf-rec-bg, linear-gradient(135deg, #ffd8c2, #ff6a14));
     }
 
     #case-study-content .lf-ui-rec-body {
@@ -1655,7 +1769,7 @@
       width: 100%;
       padding: 14px 16px 14px 44px;
       border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       font-family: inherit;
       font-size: 15px;
       background: #f5f5f0 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='%234a5568' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E") 14px center no-repeat;
@@ -1677,8 +1791,8 @@
 
     #case-study-content .lf-ui-select {
       padding: 8px 32px 8px 12px;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
       font-family: inherit;
       font-size: 13px;
       color: #334155;
@@ -1688,10 +1802,18 @@
       text-align: left;
     }
 
+    #case-study-content .lf-ui-select.is-active {
+      background-color: #7c3aed;
+      border-color: #7c3aed;
+      color: #ffffff;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      box-shadow: 0 1px 3px rgba(124, 58, 237, 0.35);
+    }
+
     #case-study-content .lf-ui-link {
       font-size: 13px;
       font-weight: 600;
-      color: #4a5568;
+      color: #ff6a14;
       margin-left: auto;
       cursor: default;
     }
@@ -1710,13 +1832,13 @@
 
     #case-study-content .lf-ui-cat-card {
       border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       overflow: hidden;
       background: #fff;
       display: flex;
       flex-direction: column;
       min-width: 0;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     #case-study-content .lf-ui-cat-thumb {
@@ -1777,7 +1899,7 @@
     }
 
     #case-study-content .lf-ui-modules {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       overflow: hidden;
       background: #f5f5f0;
@@ -1786,7 +1908,7 @@
     #case-study-content .lf-ui-mod {
       padding: 12px 14px;
       font-size: 13px;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e5e7eb;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -1805,7 +1927,7 @@
       background: #fff;
       color: #4a5568;
       font-weight: 600;
-      box-shadow: inset 3px 0 0 #000000;
+      box-shadow: inset 3px 0 0 #ff6a14;
     }
 
     #case-study-content .lf-ui-mod--lock {
@@ -1818,7 +1940,7 @@
       aspect-ratio: 16 / 9;
       display: grid;
       place-items: center;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       margin-bottom: 16px;
       position: relative;
       overflow: hidden;
@@ -1846,7 +1968,7 @@
     }
 
     #case-study-content .lf-ui-takeaways {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       padding: 16px;
       margin-bottom: 16px;
@@ -1876,18 +1998,19 @@
       width: 100%;
       padding: 12px 16px;
       border-radius: 10px;
-      border: 1px solid rgba(0, 0, 0, 0.35);
-      background: #fff;
+      border: 1px solid #ff6a14;
+      background: #ff6a14;
       font-family: inherit;
       font-size: 14px;
       font-weight: 600;
-      color: #000000;
+      color: #ffffff;
       cursor: default;
       text-align: left;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     #case-study-content .lf-ui-aside-panel {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       padding: 16px;
       background: #fff;
@@ -1900,7 +2023,7 @@
       height: 96px;
       margin: 0 auto 12px;
       border-radius: 50%;
-      background: conic-gradient(#000000 calc(var(--lf-p) * 3.6deg), #e2e8f0 0);
+      background: conic-gradient(#ff6a14 calc(var(--lf-p) * 3.6deg), #e5e7eb 0);
       position: relative;
       flex-shrink: 0;
     }
@@ -1950,7 +2073,7 @@
     #case-study-content .lf-ui-date {
       padding: 8px 14px;
       border-radius: 8px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       font-size: 13px;
       color: #475569;
       background: #f5f5f0;
@@ -1965,7 +2088,7 @@
 
     #case-study-content .lf-ui-admin-stat {
       border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       padding: 14px;
       background: #fff;
       min-width: 0;
@@ -1995,7 +2118,7 @@
     }
 
     #case-study-content .lf-ui-chart {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       padding: 16px;
       background: #fff;
@@ -2047,7 +2170,7 @@
     }
 
     #case-study-content .lf-ui-table-wrap {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       overflow: hidden;
       background: #fff;
@@ -2098,7 +2221,7 @@
 
     #case-study-content .lf-ui-dept {
       border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       padding: 16px;
       background: linear-gradient(180deg, #fff 0%, #f5f5f0 100%);
       min-width: 0;
@@ -2211,7 +2334,7 @@
     }
 
     #case-study-content .lf-ui-accordion {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       overflow: hidden;
       background: #fff;
@@ -2249,7 +2372,7 @@
     }
 
     #case-study-content .lf-ui-review {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       padding: 14px;
       background: #f5f5f0;
@@ -2291,7 +2414,7 @@
     #case-study-content .lf-ui-enroll-card {
       position: sticky;
       top: 8px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 14px;
       padding: 16px;
       background: #fff;
@@ -2336,13 +2459,13 @@
 
     #case-study-content .lf-ui-onb-progress {
       height: 4px;
-      background: #e2e8f0;
+      background: #e5e7eb;
     }
 
     #case-study-content .lf-ui-onb-progress span {
       display: block;
       height: 100%;
-      background: linear-gradient(90deg, #e8e8e3, #000000);
+      background: #ff6a14;
       border-radius: 0 2px 2px 0;
     }
 
@@ -2382,11 +2505,11 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #e2e8f0;
+      background: #e5e7eb;
     }
 
     #case-study-content .lf-ui-step-dots span.is-on {
-      background: #000000;
+      background: #ff6a14;
       width: 22px;
       border-radius: 999px;
     }
@@ -2413,7 +2536,7 @@
     #case-study-content .lf-ui-pill {
       padding: 10px 16px;
       border-radius: 999px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       background: #fff;
       font-size: 13px;
       font-weight: 500;
@@ -2422,9 +2545,9 @@
     }
 
     #case-study-content .lf-ui-pill.is-selected {
-      border-color: #4a5568;
-      background: rgba(0, 0, 0, 0.1);
-      color: #000000;
+      border-color: #000000;
+      background: #000000;
+      color: #ffffff;
     }
 
     #case-study-content .lf-ui-onb-actions {
@@ -2444,7 +2567,7 @@
     }
 
     #case-study-content .lf-ui-topic-card {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       padding: 14px 12px;
       text-align: left;
@@ -2492,8 +2615,14 @@
     #case-study-content .lf-ui-btn--outline {
       background: #fff;
       color: #000000;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       box-shadow: none;
+    }
+
+    #case-study-content .lf-ui-btn--outline:hover {
+      background: #fff7f2;
+      border-color: #ff6a14;
+      color: #000000;
     }
 
     #case-study-content .lf-ui-nav--search .lf-ui-search-inline {
@@ -2522,15 +2651,15 @@
       border-radius: 999px;
       font-size: 12px;
       font-weight: 500;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       background: #fff;
       color: #4a5568;
     }
 
     #case-study-content .lf-ui-chip.is-active {
-      background: rgba(0, 0, 0, 0.12);
-      border-color: #4a5568;
-      color: #000000;
+      background: #7c3aed;
+      border-color: #7c3aed;
+      color: #ffffff;
     }
 
     #case-study-content .lf-ui-search-layout {
@@ -2546,7 +2675,7 @@
       gap: 16px;
       align-items: center;
       padding: 16px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       margin-bottom: 10px;
       background: #fff;
@@ -2578,7 +2707,7 @@
     }
 
     #case-study-content .lf-ui-side-tags {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       padding: 14px;
       background: #f5f5f0;
@@ -2711,7 +2840,7 @@
     #case-study-content .lf-ui-cert-sig {
       font-size: 11px;
       color: #4a5568;
-      border-top: 1px solid #e2e8f0;
+      border-top: 1px solid #e5e7eb;
       padding-top: 6px;
       min-width: 120px;
       text-align: right;
@@ -2735,7 +2864,7 @@
     }
 
     #case-study-content .lf-ui-cert-mini-card {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 10px;
       padding: 12px;
       background: #fff;
@@ -2807,7 +2936,7 @@
     }
 
     #case-study-content .lf-ui-phone-stat {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 10px;
       padding: 10px;
       background: #f5f5f0;
@@ -2819,7 +2948,7 @@
     }
 
     #case-study-content .lf-ui-phone-course {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 10px;
       overflow: hidden;
       margin-bottom: 8px;
@@ -2838,7 +2967,7 @@
 
     #case-study-content .lf-ui-tabbar {
       display: flex;
-      border-top: 1px solid #e2e8f0;
+      border-top: 1px solid #e5e7eb;
       background: #fff;
       padding: 8px 0 10px;
       justify-content: space-around;
@@ -2864,7 +2993,7 @@
       flex-shrink: 0;
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       font-size: 11px;
       background: #fff;
     }
@@ -2897,7 +3026,7 @@
     }
 
     #case-study-content .lf-ui-state-card {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 14px;
       padding: 24px 18px;
       background: #fff;
@@ -2921,7 +3050,7 @@
       inset: 0;
       background:
         radial-gradient(circle at 30% 40%, rgba(0, 0, 0, 0.25) 0, transparent 45%),
-        linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+        linear-gradient(135deg, #e5e7eb 0%, #cbd5e1 100%);
       border-radius: 12px;
     }
 
@@ -2979,7 +3108,7 @@
     }
 
     #case-study-content .lf-ui-panel-card {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 14px;
       background: #fff;
       overflow: hidden;
@@ -3086,7 +3215,7 @@
       width: 40px;
       height: 22px;
       border-radius: 999px;
-      background: #000000;
+      background: #ff6a14;
       position: relative;
     }
 
@@ -3113,7 +3242,7 @@
     #case-study-content .lf-ui-settings-select {
       padding: 6px 10px;
       border-radius: 8px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       font-size: 12px;
       background: #fff;
     }
@@ -3143,21 +3272,21 @@
     }
 
     #case-study-content .lf-ui-conn-ok {
-      color: #48bb78;
+      color: #ff6a14;
       font-weight: 600;
       font-size: 12px;
     }
 
-    /* —— InkLearn hero dashboard (Inq-style: black chrome + warm paper) —— */
+    /* —— Inq Learn hero dashboard (light nav + warm paper body) —— */
     #case-study-content .il-dash {
       font-family: "Inter", system-ui, -apple-system, sans-serif;
       font-size: clamp(10px, 2.1vw, 12px);
       line-height: 1.45;
       color: #000000;
-      background: #f5f5f0;
+      background: #f7f7f5;
       border-radius: 14px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       overflow: hidden;
       min-width: 0;
     }
@@ -3169,15 +3298,15 @@
       gap: 10px;
       flex-wrap: wrap;
       padding: 10px 12px;
-      background: #000000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
     }
 
     #case-study-content .il-dash-brand {
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1.05em;
       letter-spacing: -0.03em;
-      color: #ffffff;
+      color: #000000;
     }
 
     #case-study-content .il-dash-tabs {
@@ -3191,19 +3320,20 @@
     }
 
     #case-study-content .il-tab {
-      padding: 6px 10px;
-      border-radius: 999px;
+      padding: 6px 8px 8px;
+      border-radius: 0;
       font-weight: 500;
-      color: rgba(255, 255, 255, 0.55);
-      border: 1px solid transparent;
+      color: #6b7280;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: transparent;
       white-space: nowrap;
     }
 
     #case-study-content .il-tab.is-active {
       color: #000000;
-      background: #ffffff;
-      border-color: transparent;
       font-weight: 600;
+      border-bottom-color: #ff6a14;
     }
 
     #case-study-content .il-dash-user {
@@ -3215,18 +3345,19 @@
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: #000000;
-      color: #fff;
+      background: #f7f7f5;
+      color: #000000;
       font-weight: 600;
       font-size: 0.72em;
       display: grid;
       place-items: center;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+      box-shadow: none;
     }
 
     #case-study-content .il-dash-main {
       padding: 12px 14px 14px;
-      background: linear-gradient(180deg, #ffffff 0%, #f5f5f0 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #f7f7f5 100%);
     }
 
     #case-study-content .il-stats {
@@ -3238,10 +3369,10 @@
 
     #case-study-content .il-stat {
       background: #fff;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 10px;
       padding: 10px 10px 9px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       min-width: 0;
     }
 
@@ -3262,11 +3393,11 @@
 
     #case-study-content .il-panel {
       background: #fff;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 10px;
       padding: 10px 12px 11px;
       margin-bottom: 10px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     #case-study-content .il-panel-h {
@@ -3280,14 +3411,14 @@
     #case-study-content .il-bar-track {
       height: 7px;
       border-radius: 999px;
-      background: #e2e8f0;
+      background: #e5e7eb;
       overflow: hidden;
     }
 
     #case-study-content .il-bar-fill {
       height: 100%;
       border-radius: inherit;
-      background: #000000;
+      background: #ff6a14;
       width: var(--w, 50%);
     }
 
@@ -3308,10 +3439,10 @@
 
     #case-study-content .il-course {
       background: #fff;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
       min-width: 0;
@@ -3319,11 +3450,11 @@
 
     #case-study-content .il-course-thumb {
       aspect-ratio: 16 / 9;
-      background: linear-gradient(180deg, #f5f5f0 0%, #e8e8e3 100%);
+      background: linear-gradient(135deg, #ffb088 0%, #ff6a14 100%);
     }
 
     #case-study-content .il-course-thumb--b {
-      background: linear-gradient(180deg, #ecece8 0%, #d9d9d4 100%);
+      background: linear-gradient(135deg, #c4b5fd 0%, #7c3aed 100%);
     }
 
     #case-study-content .il-course-body {
@@ -3356,9 +3487,9 @@
       font-size: 0.85em;
       font-weight: 600;
       color: #fff;
-      background: #000000;
+      background: #ff6a14;
       cursor: default;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     @media (max-width: 900px) {
@@ -3651,17 +3782,21 @@
                   <span class="case-tag-pill">Product design · EdTech · B2B</span>
                 </div>
                 <div>
-                  <h1 class="case-title">InkLearn Platform</h1>
+                  <h1 class="case-title">
+                    <span class="inq-brand inq-brand--on-dark"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span>
+                  </h1>
                   <p class="case-tagline">
                     Designing a learning management experience for a smart pen ecosystem&apos;s education vertical
                   </p>
                 </div>
               </div>
 
-              <div class="hero-poster" aria-label="InkLearn dashboard preview (HTML and CSS mockup)">
+              <div class="hero-poster" aria-label="Inq Learn dashboard preview (HTML and CSS mockup)">
                 <div class="il-dash">
                   <div class="il-dash-nav">
-                    <div class="il-dash-brand">InkLearn</div>
+                    <div class="il-dash-brand">
+                      <span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span>
+                    </div>
                     <div class="il-dash-tabs" role="tablist">
                       <span class="il-tab is-active">Dashboard</span>
                       <span class="il-tab">Courses</span>
@@ -3729,15 +3864,12 @@
           </section>
 
           <section class="case-section" id="overview" aria-label="Overview">
-            <div class="case-section-inner">
-              <div class="sec-bar">
-                <div class="sec-left">
-                  <span class="sec-num">01</span>
-                  <span class="sec-name">InkLearn Platform</span>
-                </div>
-                <div class="sec-right">// Overview</div>
+            <div class="case-section-inner case-split-layout">
+              <div class="case-split-sidebar">
+                <span class="case-sec-num">01</span>
+                <h2 class="case-title-capped">Overview</h2>
               </div>
-              <div class="case-kicker">Overview</div>
+              <div class="case-split-main">
               <div class="overview-grid">
                 <div class="overview-meta">
                   <div class="overview-meta-item">
@@ -3764,19 +3896,17 @@
                   <p class="overview-note">Project name and visual identity have been changed for confidentiality.</p>
                 </div>
               </div>
+              </div>
             </div>
           </section>
 
           <section class="case-section" id="challenge" aria-labelledby="challenge-heading">
-            <div class="case-section-inner">
-              <div class="sec-bar">
-                <div class="sec-left">
-                  <span class="sec-num">02</span>
-                  <span class="sec-name">InkLearn Platform</span>
-                </div>
-                <div class="sec-right">// Challenge</div>
+            <div class="case-section-inner case-split-layout">
+              <div class="case-split-sidebar">
+                <span class="case-sec-num">02</span>
+                <h2 class="case-title-capped">The Challenge</h2>
               </div>
-              <div class="case-kicker">The Challenge</div>
+              <div class="case-split-main">
               <h2 class="case-h2" id="challenge-heading">A growing product with a fragmented experience</h2>
               <p class="case-body">
                 User research revealed three core problems: course discovery was buried behind too many filters, the learning progress view was confusing, and B2B admins had no dashboard to track team engagement. NPS had dropped from 42 to 31 over two quarters, and support tickets about &quot;finding courses&quot; had increased 60%.
@@ -3795,19 +3925,17 @@
                   <p>B2B managers had no way to see team progress or ROI. Zero dashboard existed.</p>
                 </article>
               </div>
+              </div>
             </div>
           </section>
 
-          <section class="case-section" id="research" aria-labelledby="research-heading">
-            <div class="case-section-inner">
-              <div class="sec-bar">
-                <div class="sec-left">
-                  <span class="sec-num">03</span>
-                  <span class="sec-name">InkLearn Platform</span>
-                </div>
-                <div class="sec-right">// Research</div>
+          <section class="case-section case-section--key-insight" id="research" aria-labelledby="research-heading">
+            <div class="case-section-inner case-split-layout">
+              <div class="case-split-sidebar">
+                <span class="case-sec-num">03</span>
+                <h2 class="case-title-capped">Key insight</h2>
               </div>
-              <div class="case-kicker">User Research</div>
+              <div class="case-split-main">
               <h2 class="case-h2" id="research-heading">Understanding the users</h2>
               <p class="case-body">
                 I ran a mixed-methods research sprint over 3 weeks to understand pain points from multiple angles.
@@ -3875,19 +4003,17 @@
                   </div>
                 </div>
               </div>
+              </div>
             </div>
           </section>
 
           <section class="case-section" id="information-architecture" aria-labelledby="ia-heading">
-            <div class="case-section-inner">
-              <div class="sec-bar">
-                <div class="sec-left">
-                  <span class="sec-num">04</span>
-                  <span class="sec-name">InkLearn Platform</span>
-                </div>
-                <div class="sec-right">// IA</div>
+            <div class="case-section-inner case-split-layout">
+              <div class="case-split-sidebar">
+                <span class="case-sec-num">04</span>
+                <h2 class="case-title-capped">Information Architecture</h2>
               </div>
-              <div class="case-kicker">Information Architecture</div>
+              <div class="case-split-main">
               <h2 class="case-h2" id="ia-heading">Restructuring the navigation</h2>
               <p class="case-body">
                 The existing IA had 6 top-level sections with overlapping content. I simplified to 4 clear areas based on user mental models from card sorting sessions.
@@ -3897,7 +4023,7 @@
                 <div class="lf-ia-panel lf-ia-panel--before">
                   <div class="lf-ia-badge">Before</div>
                   <div class="lf-ia-tree">
-                    <div class="lf-ia-root">InkLearn — top nav</div>
+                    <div class="lf-ia-root">Inq Learn — top nav</div>
                     <ul class="lf-ia-list lf-ia-list--flat">
                       <li>Home</li>
                       <li>All Courses</li>
@@ -3914,7 +4040,7 @@
                 <div class="lf-ia-panel lf-ia-panel--after">
                   <div class="lf-ia-badge">After</div>
                   <div class="lf-ia-tree">
-                    <div class="lf-ia-root">InkLearn — 4 areas</div>
+                    <div class="lf-ia-root">Inq Learn — 4 areas</div>
                     <ul class="lf-ia-nested">
                       <li class="lf-ia-branch">
                         <div class="lf-ia-branch-top">Dashboard</div>
@@ -3936,19 +4062,17 @@
                   </div>
                 </div>
               </div>
+              </div>
             </div>
           </section>
 
           <section class="case-section" id="wireframes" aria-labelledby="wireframes-heading">
-            <div class="case-section-inner">
-              <div class="sec-bar">
-                <div class="sec-left">
-                  <span class="sec-num">05</span>
-                  <span class="sec-name">InkLearn Platform</span>
-                </div>
-                <div class="sec-right">// Wireframes</div>
+            <div class="case-section-inner case-split-layout">
+              <div class="case-split-sidebar">
+                <span class="case-sec-num">05</span>
+                <h2 class="case-title-capped">Wireframes</h2>
               </div>
-              <div class="case-kicker">Wireframes</div>
+              <div class="case-split-main">
               <h2 class="case-h2" id="wireframes-heading">Low-fidelity exploration</h2>
               <p class="case-body">
                 I started with rough wireframes to test layout concepts before investing in high-fidelity UI. These were shared with the team in weekly design reviews for early feedback.
@@ -4023,19 +4147,17 @@
                   </div>
                 </div>
               </div>
+              </div>
             </div>
           </section>
 
           <section class="case-section case-section--lf-hifi" id="final-ui" aria-labelledby="final-ui-heading">
-            <div class="case-section-inner">
-              <div class="sec-bar">
-                <div class="sec-left">
-                  <span class="sec-num">06</span>
-                  <span class="sec-name">InkLearn Platform</span>
-                </div>
-                <div class="sec-right">// Final UI</div>
+            <div class="case-section-inner case-split-layout">
+              <div class="case-split-sidebar">
+                <span class="case-sec-num">06</span>
+                <h2 class="case-title-capped">Final UI</h2>
               </div>
-              <div class="case-kicker">Final UI</div>
+              <div class="case-split-main">
               <h2 class="case-h2" id="final-ui-heading">High-fidelity screens</h2>
               <p class="case-body">
                 The final UI brings together the design system tokens, a clear information hierarchy, and the insights from user research into polished, production-ready screens.
@@ -4043,16 +4165,14 @@
 
               <div class="lf-ui-stack">
                 <!-- Screen 1: Dashboard -->
-                <div class="lf-ui-browser" aria-label="InkLearn dashboard — final UI">
+                <div class="lf-ui-browser" aria-label="Inq Learn dashboard — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/dashboard</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/dashboard</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav" aria-label="Primary">
-                      <div class="lf-ui-brand">
-                        InkLearn
-                      </div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
                       <div class="lf-ui-tabs">
                         <span class="lf-ui-tab is-active">Dashboard</span>
                         <span class="lf-ui-tab">Courses</span>
@@ -4110,21 +4230,21 @@
                       <div class="lf-ui-section-title">Recommended for You</div>
                       <div class="lf-ui-rec-row">
                         <article class="lf-ui-rec-card">
-                          <div class="lf-ui-rec-thumb" style="--lf-rec-bg: linear-gradient(135deg, #f0f0ec, #000000)"></div>
+                          <div class="lf-ui-rec-thumb" style="--lf-rec-bg: linear-gradient(135deg, #ffd8c2, #ff6a14)"></div>
                           <div class="lf-ui-rec-body">
                             <div class="lf-ui-rec-title">Executive communication</div>
                             <div class="lf-ui-rec-meta"><span>4h 20m</span><span class="lf-ui-stars">4.9 ★</span></div>
                           </div>
                         </article>
                         <article class="lf-ui-rec-card">
-                          <div class="lf-ui-rec-thumb" style="--lf-rec-bg: linear-gradient(135deg, #e2e8e0, #000000)"></div>
+                          <div class="lf-ui-rec-thumb" style="--lf-rec-bg: linear-gradient(135deg, #c4b5fd, #7c3aed)"></div>
                           <div class="lf-ui-rec-body">
                             <div class="lf-ui-rec-title">Coaching fundamentals</div>
                             <div class="lf-ui-rec-meta"><span>3h 10m</span><span class="lf-ui-stars">4.8 ★</span></div>
                           </div>
                         </article>
                         <article class="lf-ui-rec-card">
-                          <div class="lf-ui-rec-thumb" style="--lf-rec-bg: linear-gradient(135deg, #7dccaa, #48bb78)"></div>
+                          <div class="lf-ui-rec-thumb" style="--lf-rec-bg: linear-gradient(135deg, #ddd6fe, #7c3aed)"></div>
                           <div class="lf-ui-rec-body">
                             <div class="lf-ui-rec-title">Productive meetings</div>
                             <div class="lf-ui-rec-meta"><span>2h 05m</span><span class="lf-ui-stars">4.7 ★</span></div>
@@ -4136,16 +4256,14 @@
                 </div>
 
                 <!-- Screen 2: Course catalog -->
-                <div class="lf-ui-browser" aria-label="InkLearn course catalog — final UI">
+                <div class="lf-ui-browser" aria-label="Inq Learn course catalog — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/courses</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/courses</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav" aria-label="Primary">
-                      <div class="lf-ui-brand">
-                        InkLearn
-                      </div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
                       <div class="lf-ui-tabs">
                         <span class="lf-ui-tab">Dashboard</span>
                         <span class="lf-ui-tab is-active">Courses</span>
@@ -4165,7 +4283,7 @@
                     <div class="lf-ui-body">
                       <input class="lf-ui-search-wide" type="search" readonly placeholder="Search 200+ courses..." aria-label="Search courses" />
                       <div class="lf-ui-filters">
-                        <button type="button" class="lf-ui-select">Category</button>
+                        <button type="button" class="lf-ui-select is-active">Category</button>
                         <button type="button" class="lf-ui-select">Level</button>
                         <button type="button" class="lf-ui-select">Duration</button>
                         <span class="lf-ui-link">Clear filters</span>
@@ -4173,7 +4291,7 @@
                       <p class="lf-ui-results-hint">Showing 24 courses in Leadership</p>
                       <div class="lf-ui-catalog-grid">
                         <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #e8e8e3, #000000)"></div>
+                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #ffb088, #ff6a14)"></div>
                           <div class="lf-ui-cat-body">
                             <div class="lf-ui-cat-title">Strategic Leadership</div>
                             <div class="lf-ui-cat-meta">12 modules · 6 hours</div>
@@ -4182,7 +4300,7 @@
                           </div>
                         </article>
                         <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #5ecf9a, #48bb78)"></div>
+                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #d4d4d4, #404040)"></div>
                           <div class="lf-ui-cat-body">
                             <div class="lf-ui-cat-title">Communication Mastery</div>
                             <div class="lf-ui-cat-meta">10 modules · 5 hours</div>
@@ -4191,7 +4309,7 @@
                           </div>
                         </article>
                         <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #e2e8e0, #000000)"></div>
+                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #c4b5fd, #7c3aed)"></div>
                           <div class="lf-ui-cat-body">
                             <div class="lf-ui-cat-title">Leading Remote Teams</div>
                             <div class="lf-ui-cat-meta">8 modules · 4 hours</div>
@@ -4200,7 +4318,7 @@
                           </div>
                         </article>
                         <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #e8e8e3, #000000)"></div>
+                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #b8a5f7, #5b21b6)"></div>
                           <div class="lf-ui-cat-body">
                             <div class="lf-ui-cat-title">Executive Presence</div>
                             <div class="lf-ui-cat-meta">9 modules · 4.5 hours</div>
@@ -4209,7 +4327,7 @@
                           </div>
                         </article>
                         <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #f0f0ec, #000000)"></div>
+                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #ffd8c2, #ea580c)"></div>
                           <div class="lf-ui-cat-body">
                             <div class="lf-ui-cat-title">Change Management</div>
                             <div class="lf-ui-cat-meta">11 modules · 5.5 hours</div>
@@ -4218,7 +4336,7 @@
                           </div>
                         </article>
                         <article class="lf-ui-cat-card">
-                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #7dccaa, #48bb78)"></div>
+                          <div class="lf-ui-cat-thumb" style="--lf-cat-bg: linear-gradient(135deg, #ddd6fe, #7c3aed)"></div>
                           <div class="lf-ui-cat-body">
                             <div class="lf-ui-cat-title">DEI in Practice</div>
                             <div class="lf-ui-cat-meta">7 modules · 3.5 hours</div>
@@ -4232,16 +4350,14 @@
                 </div>
 
                 <!-- Screen 3: Learning view -->
-                <div class="lf-ui-browser" aria-label="InkLearn learning view — final UI">
+                <div class="lf-ui-browser" aria-label="Inq Learn learning view — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/learn/leadership/module-4</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/learn/leadership/module-4</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav" aria-label="Primary">
-                      <div class="lf-ui-brand">
-                        InkLearn
-                      </div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
                       <div class="lf-ui-tabs">
                         <span class="lf-ui-tab">Dashboard</span>
                         <span class="lf-ui-tab">Courses</span>
@@ -4299,16 +4415,14 @@
                 </div>
 
                 <!-- Screen 4: Admin -->
-                <div class="lf-ui-browser" aria-label="InkLearn admin dashboard — final UI">
+                <div class="lf-ui-browser" aria-label="Inq Learn admin dashboard — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/admin/team</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/admin/team</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav" aria-label="Primary">
-                      <div class="lf-ui-brand">
-                        InkLearn
-                      </div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
                       <div class="lf-ui-tabs">
                         <span class="lf-ui-tab">Dashboard</span>
                         <span class="lf-ui-tab">Courses</span>
@@ -4388,16 +4502,14 @@
                   </div>
                 </div>
                 <!-- Screen 5: Course detail -->
-                <div class="lf-ui-browser" aria-label="InkLearn course detail — final UI">
+                <div class="lf-ui-browser" aria-label="Inq Learn course detail — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/courses/leadership-fundamentals</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/courses/leadership-fundamentals</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav" aria-label="Primary">
-                      <div class="lf-ui-brand">
-                        InkLearn
-                      </div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
                       <div class="lf-ui-tabs">
                         <span class="lf-ui-tab">Dashboard</span>
                         <span class="lf-ui-tab is-active">Courses</span>
@@ -4491,15 +4603,15 @@
                 </div>
 
                 <!-- Screen 6: Onboarding step 1 -->
-                <div class="lf-ui-browser" aria-label="InkLearn onboarding step 1">
+                <div class="lf-ui-browser" aria-label="Inq Learn onboarding step 1">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/onboarding</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/onboarding</span>
                   </div>
                   <div class="lf-ui-viewport lf-ui-viewport--plain">
                     <div class="lf-ui-onb-progress" aria-hidden="true"><span style="width: 33%"></span></div>
                     <div class="lf-ui-onb-inner">
-                      <h1>Welcome to InkLearn, Selinay! 👋</h1>
+                      <h1>Welcome to <span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span>, Selinay! 👋</h1>
                       <p>Let&apos;s personalize your experience</p>
                       <p style="font-size: 12px; color: #4a5568; margin-bottom: 8px">Step 1 of 3</p>
                       <div class="lf-ui-step-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
@@ -4520,10 +4632,10 @@
                 </div>
 
                 <!-- Screen 7: Onboarding step 2 -->
-                <div class="lf-ui-browser" aria-label="InkLearn onboarding step 2">
+                <div class="lf-ui-browser" aria-label="Inq Learn onboarding step 2">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/onboarding/topics</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/onboarding/topics</span>
                   </div>
                   <div class="lf-ui-viewport lf-ui-viewport--plain">
                     <div class="lf-ui-onb-progress" aria-hidden="true"><span style="width: 66%"></span></div>
@@ -4548,16 +4660,14 @@
                 </div>
 
                 <!-- Screen 8: Search results -->
-                <div class="lf-ui-browser" aria-label="InkLearn search results">
+                <div class="lf-ui-browser" aria-label="Inq Learn search results">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/search?q=data+analytics</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/search?q=data+analytics</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav lf-ui-nav--search" aria-label="Primary">
-                      <div class="lf-ui-brand">
-                        InkLearn
-                      </div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
                       <input class="lf-ui-search-inline" type="search" readonly value="data analytics" aria-label="Search" />
                       <div class="lf-ui-nav-actions">
                         <span class="lf-ui-icon-btn" aria-hidden="true">
@@ -4586,7 +4696,7 @@
                             <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
                           </article>
                           <article class="lf-ui-result-row">
-                            <div class="lf-ui-result-thumb" style="--lf-r-bg: linear-gradient(135deg, #e2e8e0, #000000)"></div>
+                            <div class="lf-ui-result-thumb" style="--lf-r-bg: linear-gradient(135deg, #c4b5fd, #7c3aed)"></div>
                             <div class="lf-ui-result-body">
                               <h4>HR Metrics That Matter</h4>
                               <p>Define, track, and communicate KPIs that leadership actually cares about.</p>
@@ -4604,7 +4714,7 @@
                             <button type="button" class="lf-ui-btn lf-ui-btn--ghost">Enroll</button>
                           </article>
                           <article class="lf-ui-result-row">
-                            <div class="lf-ui-result-thumb" style="--lf-r-bg: linear-gradient(135deg, #7dccaa, #48bb78)"></div>
+                            <div class="lf-ui-result-thumb" style="--lf-r-bg: linear-gradient(135deg, #ddd6fe, #7c3aed)"></div>
                             <div class="lf-ui-result-body">
                               <h4>Data Literacy for HR Leaders</h4>
                               <p>Ask better questions of your data and avoid common analytical pitfalls.</p>
@@ -4628,10 +4738,10 @@
                 </div>
 
                 <!-- Screen 9: Certificate -->
-                <div class="lf-ui-browser" aria-label="InkLearn certificate">
+                <div class="lf-ui-browser" aria-label="Inq Learn certificate">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/certificates/leadership-fundamentals</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/certificates/leadership-fundamentals</span>
                   </div>
                   <div class="lf-ui-viewport lf-ui-viewport--plain">
                     <div class="lf-ui-cert-wrap">
@@ -4645,7 +4755,7 @@
                             <p class="lf-ui-cert-date">April 2026</p>
                           </div>
                           <div class="lf-ui-cert-footer">
-                            <div class="lf-ui-cert-logo">InkLearn</div>
+                            <div class="lf-ui-cert-logo"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
                             <div class="lf-ui-cert-sig">Authorized signature</div>
                           </div>
                         </div>
@@ -4664,10 +4774,10 @@
                 </div>
 
                 <!-- Screen 10: Mobile trio -->
-                <div class="lf-ui-browser" aria-label="InkLearn mobile views">
+                <div class="lf-ui-browser" aria-label="Inq Learn mobile views">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy · mobile</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop · mobile</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <div class="lf-ui-body table-scroll" style="padding: 20px; max-width: 100%">
@@ -4728,10 +4838,10 @@
                 </div>
 
                 <!-- Screen 11: Empty & error states -->
-                <div class="lf-ui-browser" aria-label="InkLearn empty and error states">
+                <div class="lf-ui-browser" aria-label="Inq Learn empty and error states">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/states</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/states</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <div class="lf-ui-body">
@@ -4764,10 +4874,10 @@
                 </div>
 
                 <!-- Screen 12: Notifications & settings -->
-                <div class="lf-ui-browser" aria-label="InkLearn notifications and settings">
+                <div class="lf-ui-browser" aria-label="Inq Learn notifications and settings">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learnflow.academy/settings</span>
+                    <span class="lf-ui-chrome-url">app.learn.inq.shop/settings</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <div class="lf-ui-body">
@@ -4814,19 +4924,17 @@
                   </div>
                 </div>
               </div>
+              </div>
             </div>
           </section>
 
           <section class="case-section" id="user-flow" aria-labelledby="user-flow-heading">
-            <div class="case-section-inner">
-              <div class="sec-bar">
-                <div class="sec-left">
-                  <span class="sec-num">07</span>
-                  <span class="sec-name">InkLearn Platform</span>
-                </div>
-                <div class="sec-right">// User flow</div>
+            <div class="case-section-inner case-split-layout">
+              <div class="case-split-sidebar">
+                <span class="case-sec-num">07</span>
+                <h2 class="case-title-capped">User Flow</h2>
               </div>
-              <div class="case-kicker">User Flow</div>
+              <div class="case-split-main">
               <h2 class="case-h2" id="user-flow-heading">Onboarding to completion</h2>
               <p class="case-body">
                 I mapped the ideal user journey from first login to course completion, identifying key moments where the UI needed to guide, motivate, or reassure the learner.
@@ -4879,19 +4987,17 @@
                   </div>
                 </div>
               </div>
+              </div>
             </div>
           </section>
 
           <section class="case-section" id="design-decisions" aria-labelledby="design-decisions-heading">
-            <div class="case-section-inner">
-              <div class="sec-bar">
-                <div class="sec-left">
-                  <span class="sec-num">08</span>
-                  <span class="sec-name">InkLearn Platform</span>
-                </div>
-                <div class="sec-right">// Decisions</div>
+            <div class="case-section-inner case-split-layout">
+              <div class="case-split-sidebar">
+                <span class="case-sec-num">08</span>
+                <h2 class="case-title-capped">Design Decisions</h2>
               </div>
-              <div class="case-kicker">Design Decisions</div>
+              <div class="case-split-main">
               <h2 class="case-h2" id="design-decisions-heading">Key choices that shaped the product</h2>
               <div class="decision-cards" aria-label="Key product design decisions">
                 <article class="decision-card">
@@ -4921,6 +5027,7 @@
                     Both. Percentage gives a quick emotional signal (I&apos;m more than halfway!), module count gives concrete orientation (what&apos;s next). We tested both in isolation and the combined version performed best in usability tests — users felt more in control.
                   </p>
                 </article>
+              </div>
               </div>
             </div>
           </section>
