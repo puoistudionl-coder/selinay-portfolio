@@ -1,0 +1,188 @@
+<!--
+  ============================================================
+  INDEX.HTML — GROVE PROJECT ADDITIONS
+  Two things to add:
+
+  1. CSS → paste inside the <style> block in index.html
+     (anywhere after the existing rules, before the closing </style>)
+
+  2. HTML → paste inside #brand-identity .project-grid,
+     after the existing PUOI card
+  ============================================================
+-->
+
+
+<!-- ── 1. CSS TO ADD ─────────────────────────────────────── -->
+<style>
+/* GROVE — featured card visual */
+.project-image--grove {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background:
+    radial-gradient(700px 400px at 50% -10%, rgba(26,48,32,0.95), transparent 60%),
+    radial-gradient(400px 300px at 10% 90%, rgba(13,28,18,0.7), transparent 55%),
+    #0a0f0b;
+  padding: 36px 28px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.project-image--grove::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -18deg, transparent, transparent 56px,
+    rgba(74,122,88,0.035) 56px, rgba(74,122,88,0.035) 57px
+  );
+  pointer-events: none;
+}
+.grove-card-wordmark {
+  font-family: var(--heading-font);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #f2ede4;
+  line-height: 1;
+  position: relative; z-index: 1;
+  text-shadow: 0 0 80px rgba(74,122,88,0.4);
+}
+.grove-card-sub {
+  font-family: var(--heading-font);
+  font-size: 0.6rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(122,170,136,0.75);
+  position: relative; z-index: 1;
+  margin-top: -10px;
+}
+.grove-card-palette {
+  display: flex;
+  gap: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  width: min(240px, 60%);
+  position: relative; z-index: 1;
+}
+.grove-card-palette span {
+  height: 6px;
+  flex: 1;
+}
+
+/* css bottles row for card */
+.grove-card-bottles {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 14px;
+  position: relative; z-index: 1;
+}
+.grove-card-bottle {
+  border-radius: 4px;
+  border: 1px solid rgba(242,237,228,0.15);
+  background: linear-gradient(
+    145deg,
+    rgba(154,114,48,0.15),
+    rgba(74,122,88,0.06) 40%,
+    rgba(13,28,18,0.55)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 8px 24px rgba(0,0,0,0.45);
+  position: relative;
+  overflow: hidden;
+}
+.grove-card-bottle::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 22%; width: 15%; bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+}
+.grove-card-bottle__label {
+  position: absolute;
+  left: 10%; right: 10%;
+  top: 28%; bottom: 28%;
+  background: rgba(242,237,228,0.9);
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+}
+.grove-card-bottle__label span {
+  font-family: var(--heading-font);
+  font-size: 0.4rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2c1f14;
+}
+.grove-card-bottle--serum  { width: 22px; height: 72px; }
+.grove-card-bottle--mist   { width: 26px; height: 60px; }
+.grove-card-bottle--toner  { width: 30px; height: 54px; }
+.grove-card-bottle--jar    { width: 38px; height: 28px; border-radius: 5px; }
+.grove-card-cap {
+  width: 80%; margin: 0 auto;
+  height: 7px; border-radius: 2px 2px 0 0;
+  background: rgba(74,122,88,0.4);
+  border: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+.grove-bottle-wrap {
+  display: flex; flex-direction: column; align-items: center;
+}
+</style>
+
+
+<!-- ── 2. HTML TO ADD ─────────────────────────────────────── -->
+<!--
+  Paste this AFTER the closing </a> of the PUOI card,
+  still inside <div class="project-grid"> in #brand-identity
+-->
+
+<a class="project-card project-card--featured reveal" href="grove-case-study.html">
+  <div class="project-image project-image--grove" aria-hidden="true">
+    <div class="grove-card-wordmark">GROVE</div>
+    <div class="grove-card-sub">Botanical Skincare</div>
+    <!-- Mini bottles row -->
+    <div class="grove-card-bottles">
+      <div class="grove-bottle-wrap">
+        <div class="grove-card-cap"></div>
+        <div class="grove-card-bottle grove-card-bottle--serum">
+          <div class="grove-card-bottle__label"><span>G</span></div>
+        </div>
+      </div>
+      <div class="grove-bottle-wrap">
+        <div class="grove-card-cap"></div>
+        <div class="grove-card-bottle grove-card-bottle--mist">
+          <div class="grove-card-bottle__label"><span>G</span></div>
+        </div>
+      </div>
+      <div class="grove-bottle-wrap">
+        <div class="grove-card-cap"></div>
+        <div class="grove-card-bottle grove-card-bottle--toner">
+          <div class="grove-card-bottle__label"><span>G</span></div>
+        </div>
+      </div>
+      <div class="grove-bottle-wrap">
+        <div class="grove-card-cap" style="width:100%;border-radius:3px 3px 0 0;height:5px;"></div>
+        <div class="grove-card-bottle grove-card-bottle--jar">
+          <div class="grove-card-bottle__label"><span>G</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Colour palette strip -->
+    <div class="grove-card-palette">
+      <span style="background:#0d1c12;"></span>
+      <span style="background:#1a3020;"></span>
+      <span style="background:#4a7a58;"></span>
+      <span style="background:#7aaa88;"></span>
+      <span style="background:#9a7230;"></span>
+      <span style="background:#f2ede4;"></span>
+    </div>
+  </div>
+  <div class="project-info">
+    <h4 class="project-name">GROVE — Brand Identity & Packaging</h4>
+    <div class="project-category">Brand Identity · Packaging Design · Art Direction · Campaign</div>
+  </div>
+</a>

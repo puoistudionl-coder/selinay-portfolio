@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <title>CV — Selinay İblikci</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #6B3AF5;
+      --dark: #0B0A10;
+      --text: #1a1825;
+      --muted: #6e6a85;
+      --border: #e8e5f0;
+      --bg: #fafaf8;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Instrument Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    .cv-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      height: 60px;
+    }
+    .cv-nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: "Syne", sans-serif;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .cv-nav-back:hover { color: var(--accent); }
+    .cv-nav-actions { display: flex; align-items: center; gap: 12px; }
+    .btn-download {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--dark); color: #fff;
+      font-family: "Syne", sans-serif;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 10px 20px; border-radius: 8px; text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-download:hover { opacity: 0.8; }
+    .btn-download svg { width: 13px; height: 13px; }
+
+    /* ── LAYOUT ── */
+    .cv-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 40px 120px;
+    }
+
+    /* ── HEADER ── */
+    .cv-header {
+      padding-bottom: 40px;
+      border-bottom: 2px solid var(--dark);
+      margin-bottom: 52px;
+    }
+    .cv-name {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .cv-name span { color: var(--accent); }
+    .cv-title {
+      font-family: "Syne", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .cv-contact {
+      display: flex; flex-wrap: wrap; gap: 6px 20px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .cv-contact a {
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .cv-contact a:hover { color: var(--accent); }
+    .cv-contact-item {
+      display: flex; align-items: center; gap: 6px;
+    }
+    .cv-contact-item svg { width: 12px; height: 12px; flex-shrink: 0; color: var(--accent); }
+
+    /* ── SECTION ── */
+    .cv-section {
+      margin-bottom: 48px;
+    }
+    .cv-section-label {
+      font-family: "Syne", sans-serif;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── PROFILE ── */
+    .cv-profile {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #2a2635;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      margin-bottom: 36px;
+    }
+    .exp-item:last-child { margin-bottom: 0; }
+    .exp-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 4px;
+      margin-bottom: 6px;
+    }
+    .exp-role {
+      font-family: "Syne", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+    }
+    .exp-date {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .exp-company {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .exp-bullets {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 7px;
+    }
+    .exp-bullets li {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: #3a3550;
+      padding-left: 18px;
+      position: relative;
+    }
+    .exp-bullets li::before {
+      content: "–";
+      position: absolute; left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── SKILLS GRID ── */
+    .skills-grid {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .skill-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 12px;
+      align-items: baseline;
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+    .skill-cat {
+      font-weight: 700;
+      color: var(--dark);
+      font-family: "Syne", sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.01em;
+    }
+    .skill-list {
+      color: #3a3550;
+    }
+
+    /* ── EDUCATION / CERTS ── */
+    .edu-item {
+      margin-bottom: 12px;
+      font-size: 0.875rem;
+    }
+    .edu-degree {
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+    .edu-school {
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+    .cert-list {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .cert-item {
+      font-size: 0.875rem;
+      color: #3a3550;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .cert-item::before {
+      content: "";
+      display: block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── LANGUAGES ── */
+    .lang-row {
+      display: flex; gap: 32px; flex-wrap: wrap;
+    }
+    .lang-item {
+      font-size: 0.875rem;
+    }
+    .lang-name {
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+    .lang-level {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      .cv-nav { display: none; }
+      .cv-wrap { padding: 40px 0; }
+      body { background: #fff; }
+      @page { margin: 20mm; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .cv-nav { padding: 0 20px; }
+      .cv-wrap { padding: 40px 20px 80px; }
+      .skill-row { grid-template-columns: 1fr; gap: 3px; }
+      .exp-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="cv-nav">
+  <a href="index.html" class="cv-nav-back">
+    ← Back to portfolio
+  </a>
+  <div class="cv-nav-actions">
+    <a class="btn-download" href="selinay-iblikci-cv.pdf" download>
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1v8M4 6l3 3 3-3M2 11h10"/></svg>
+      Download PDF
+    </a>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="cv-wrap">
+
+  <!-- HEADER -->
+  <header class="cv-header">
+    <h1 class="cv-name">SELINAY<br><span>İBLİKCİ</span></h1>
+    <div class="cv-title">Senior Product Designer · Design Systems & Ops · B2B SaaS</div>
+    <div class="cv-contact">
+      <span class="cv-contact-item">
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="2.5" width="10" height="7" rx="1.5"/><path d="M1 4l5 3.5L11 4"/></svg>
+        <a href="mailto:selinay.iblikci@outlook.com">selinay.iblikci@outlook.com</a>
+      </span>
+      <span class="cv-contact-item">
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="5" r="2"/><path d="M6 1C3.79 1 2 2.79 2 5c0 3 4 7 4 7s4-4 4-7c0-2.21-1.79-4-4-4z"/></svg>
+        Amsterdam, Netherlands
+      </span>
+      <span class="cv-contact-item">
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 2h8v8H2z"/><path d="M2 5h8M5 2v8"/></svg>
+        <a href="https://selinayiblikci.com" target="_blank">selinayiblikci.com</a>
+      </span>
+      <span class="cv-contact-item">
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="1" width="10" height="10" rx="2"/><path d="M4 5.5v3M4 3.5v.5M6 5.5v3M8 5.5v3"/><path d="M6 4.5C6 3.9 6.9 3.5 8 3.5v5"/></svg>
+        <a href="https://linkedin.com/in/selinayyildirim" target="_blank">linkedin.com/in/selinayyildirim</a>
+      </span>
+      <span class="cv-contact-item">
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 10l2-6 4 4M6 8l2-4 2 4"/></svg>
+        +31 6 43001171
+      </span>
+    </div>
+  </header>
+
+  <!-- PROFILE -->
+  <section class="cv-section">
+    <div class="cv-section-label">Profile</div>
+    <p class="cv-profile">Product Designer with 6+ years of experience in B2B SaaS, enterprise dashboards, and design systems. I work end-to-end — from user research and problem framing through to high-fidelity Figma prototypes and developer handoff. My work is grounded in behavioural data and stakeholder alignment, not assumptions. Based in Amsterdam, open to Senior Product Designer roles hybrid or remote across the Netherlands.</p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="cv-section">
+    <div class="cv-section-label">Experience</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Senior UX Designer</div>
+        <div class="exp-date">Nov 2024 – Dec 2025</div>
+      </div>
+      <div class="exp-company">Anoto · Remote (Sweden & USA)</div>
+      <ul class="exp-bullets">
+        <li>Led end-to-end product discovery for new AI-assisted features; defined problem statements, ran user interviews, and synthesised findings into structured design briefs adopted by the full product team</li>
+        <li>Mapped user journeys and identified critical drop-off points across 3 onboarding flows; proposed and validated redesigns tracked against completion and retention benchmarks</li>
+        <li>Facilitated stakeholder workshops to align on feature priorities; translated ambiguous business requirements into product logic and task flows, adopted in full by the development team</li>
+        <li>Designed task-oriented interfaces using advanced Figma variables and logic; maintained a scalable design system ensuring consistency across multiple product surfaces</li>
+        <li>Delivered comprehensive design documentation and handoff specs, reducing design-dev back-and-forth by ~30% and accelerating sprint velocity</li>
+        <li>Used AI tools for research synthesis and rapid prototyping, reducing discovery time by ~40% without compromising design quality</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Freelance Product Designer</div>
+        <div class="exp-date">May 2024 – Nov 2024</div>
+      </div>
+      <div class="exp-company">Independent</div>
+      <ul class="exp-bullets">
+        <li>Delivered UX consulting and design work for clients across SaaS and digital products</li>
+        <li>Relocated to Amsterdam; integrated into the Dutch design and product community</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">UX Designer</div>
+        <div class="exp-date">Nov 2022 – May 2024</div>
+      </div>
+      <div class="exp-company">Areal AI · San Francisco, Remote</div>
+      <ul class="exp-bullets">
+        <li>Redesigned operational dashboards for enterprise clients using Hotjar and Google Analytics behavioural data; identified and prioritised the top 5 usability failures driving user drop-off</li>
+        <li>Conducted UX audits and moderated usability tests across 4 products; research findings led directly to 2 major feature revisions accepted by senior stakeholders</li>
+        <li>Built and maintained a shared Figma component library with design tokens and variables; established consistent UI patterns that accelerated design delivery and developer handoff</li>
+        <li>Streamlined design-to-dev handoff within agile sprints by involving engineers earlier in the design process, reducing revision cycles and improving implementation accuracy</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">UI/UX Designer</div>
+        <div class="exp-date">May 2019 – Nov 2022</div>
+      </div>
+      <div class="exp-company">Treomind · Istanbul, Turkey</div>
+      <ul class="exp-bullets">
+        <li>Delivered end-to-end design for 5+ internal tools and enterprise dashboards — from discovery and wireframes through to production-ready Figma specs</li>
+        <li>Restructured information architecture across multiple data-heavy interfaces, reducing cognitive load for power users and improving task completion in high-frequency workflows</li>
+        <li>Introduced WCAG 2.1 accessibility standards into the design process, applied across 3 major product redesigns</li>
+        <li>Improved decision visibility for operational users through clearer data hierarchy and interaction patterns, reducing user errors in critical workflows</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="cv-section">
+    <div class="cv-section-label">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <div class="skill-cat">Discovery & Research</div>
+        <div class="skill-list">User interviews, usability testing, UX audits, heuristic evaluation, journey mapping, workshop facilitation, problem framing, design briefs</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Interaction & UI</div>
+        <div class="skill-list">High-fidelity prototyping, wireframing, user flows, task flows, information architecture, dashboard design, accessibility (WCAG 2.1)</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Design Systems</div>
+        <div class="skill-list">Component library ownership, Figma Variables & Design Tokens, scalable UI frameworks, system governance, cross-team consistency, documentation</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Data & Analytics</div>
+        <div class="skill-list">Google Analytics, Hotjar, Power BI, behavioural analysis, KPI definition, A/B test evaluation, onboarding optimisation</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">AI in Workflow</div>
+        <div class="skill-list">AI-assisted research synthesis, prompt-driven iteration, rapid prototyping with AI tools, behavioural pattern analysis</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Collaboration</div>
+        <div class="skill-list">Stakeholder workshops, agile/scrum, developer handoff, product management partnership, requirement translation, sprint planning</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Tools</div>
+        <div class="skill-list">Figma (Variables, Auto Layout, Dev Mode), Tokens Studio, Framer, FigJam, Miro, Adobe Photoshop, Adobe Illustrator, Google Analytics, Klaviyo, Hotjar, Power BI, HTML, CSS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="cv-section">
+    <div class="cv-section-label">Education</div>
+    <div class="edu-item">
+      <div class="edu-degree">Industrial Design</div>
+      <div class="edu-school">Atılım University · Ankara, Turkey</div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="cv-section">
+    <div class="cv-section-label">Certifications</div>
+    <div class="cert-list">
+      <div class="cert-item">IxDF – AI for Designers</div>
+      <div class="cert-item">Google – Foundations of User Experience (UX)</div>
+      <div class="cert-item">LinkedIn Learning – Using AI in the UX Design Process</div>
+      <div class="cert-item">Skillup.co – Digital Marketing Strategy</div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="cv-section">
+    <div class="cv-section-label">Languages</div>
+    <div class="lang-row">
+      <div class="lang-item">
+        <div class="lang-name">English</div>
+        <div class="lang-level">C1 Advanced</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Turkish</div>
+        <div class="lang-level">Native</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Dutch</div>
+        <div class="lang-level">Actively improving</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

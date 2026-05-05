@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <title>Fintech Security Authenticator — Selinay İblikci</title>
+  <style>
+    html { overflow-x: hidden !important; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface-elevated: #181822;
+      --text: #f0ecf8;
+      --text-muted: #a8a2be;
+      --accent: #4a90d9;
+      --accent-dim: #3a7abf;
+      --border: #2a2a36;
+      --border-light: #363646;
+      --heading-font: "Syne", sans-serif;
+      --body-font: "Instrument Sans", sans-serif;
+      --nav-font: "Agdasima", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body-font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-width: 0;
+    }
+
+    img, svg, video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .auth-back {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      z-index: 200;
+      font-family: var(--heading-font);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background: rgba(18, 18, 26, 0.92);
+      backdrop-filter: blur(12px);
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .auth-back:hover {
+      color: var(--accent);
+      border-color: rgba(74, 144, 217, 0.45);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 96px 24px 80px;
+      min-width: 0;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero */
+    .auth-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 56px);
+      align-items: center;
+      margin-bottom: clamp(64px, 10vw, 100px);
+      min-width: 0;
+    }
+
+    .auth-hero-num {
+      font-family: var(--heading-font);
+      font-size: clamp(3.5rem, 12vw, 6rem);
+      font-weight: 800;
+      color: rgba(74, 144, 217, 0.12);
+      line-height: 1;
+      margin-bottom: -12px;
+      letter-spacing: -0.03em;
+    }
+
+    .auth-hero-title {
+      font-family: var(--heading-font);
+      font-size: clamp(1.35rem, 2.6vw + 0.45rem, 2.65rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      margin-bottom: 16px;
+      max-width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .auth-hero-tags {
+      font-family: var(--heading-font);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .auth-hero-desc {
+      font-size: 1.02rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 36em;
+    }
+
+    .auth-phone {
+      justify-self: center;
+      width: 100%;
+      max-width: 280px;
+      background: linear-gradient(160deg, #1e1e2a 0%, #12121a 100%);
+      border-radius: 36px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .auth-phone-screen {
+      border-radius: 28px;
+      background: linear-gradient(180deg, #16161f 0%, #0d0d12 100%);
+      aspect-ratio: 9 / 18;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 24px;
+      border: 1px solid rgba(74, 144, 217, 0.15);
+    }
+
+    .auth-phone-icon {
+      width: 64px;
+      height: 64px;
+      color: var(--accent);
+    }
+
+    .auth-phone-label {
+      font-family: var(--nav-font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text);
+    }
+
+    /* Sections */
+    .auth-section {
+      margin-bottom: clamp(56px, 8vw, 88px);
+    }
+
+    .auth-kicker {
+      font-family: var(--heading-font);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .auth-section-title {
+      font-family: var(--nav-font);
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+
+    .auth-subtitle {
+      font-family: var(--nav-font);
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: -12px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .auth-band-dark {
+      margin-left: -24px;
+      margin-right: -24px;
+      padding: clamp(48px, 8vw, 72px) 24px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .auth-band-dark .auth-kicker {
+      text-align: center;
+    }
+
+    .auth-band-dark .auth-section-title {
+      text-align: center;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 40px;
+    }
+
+    .auth-overview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(28px, 4vw, 48px);
+      align-items: start;
+    }
+
+    .auth-meta {
+      display: grid;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .auth-meta-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 16px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    .auth-meta-row:last-child {
+      border-bottom: none;
+    }
+
+    .auth-meta-label {
+      font-family: var(--heading-font);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .auth-meta-value {
+      color: var(--text-muted);
+    }
+
+    .auth-prose {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    .auth-stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .auth-stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .auth-stat-num {
+      font-family: var(--heading-font);
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .auth-stat-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .auth-cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .auth-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 18px;
+    }
+
+    .auth-card h4 {
+      font-family: var(--nav-font);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .auth-card p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .auth-research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .auth-research-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .auth-research-card strong {
+      display: block;
+      font-family: var(--nav-font);
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .auth-research-card span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .auth-persona {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+    }
+
+    .auth-persona-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .auth-persona-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--surface-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+    }
+
+    .auth-persona-name {
+      font-family: var(--nav-font);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .auth-persona-role {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .auth-persona-quote {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 20px;
+      padding-left: 16px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .auth-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .auth-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(74, 144, 217, 0.12);
+      border: 1px solid rgba(74, 144, 217, 0.28);
+      color: var(--accent);
+    }
+
+    .auth-flow {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 8px 0 16px;
+    }
+
+    .auth-flow-track {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      min-width: min-content;
+      padding: 4px;
+    }
+
+    .auth-flow-step {
+      flex-shrink: 0;
+      font-family: var(--heading-font);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 140px;
+    }
+
+    .auth-flow-step--hi {
+      border-color: rgba(74, 144, 217, 0.5);
+      background: rgba(74, 144, 217, 0.1);
+      color: var(--accent);
+    }
+
+    .auth-flow-arrow {
+      flex-shrink: 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding: 0 6px;
+      opacity: 0.5;
+    }
+
+    .auth-flow-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 16px;
+      max-width: 520px;
+    }
+
+    .auth-ds {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(28px, 4vw, 48px);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .auth-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .auth-swatch {
+      width: 72px;
+      text-align: center;
+    }
+
+    .auth-swatch-color {
+      height: 48px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 6px;
+    }
+
+    .auth-swatch code {
+      font-size: 0.62rem;
+      color: var(--text-muted);
+    }
+
+    .auth-type-scale {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .auth-type-row {
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .auth-type-row:last-child {
+      border-bottom: none;
+    }
+
+    .auth-type-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .auth-type-sample.display {
+      font-family: var(--heading-font);
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+
+    .auth-type-sample.body {
+      font-family: var(--body-font);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .auth-type-sample.caption {
+      font-family: var(--body-font);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .auth-final-desc {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 42em;
+      margin-bottom: 0;
+    }
+
+    .auth-impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .auth-impact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 16px;
+      text-align: center;
+    }
+
+    .auth-impact-val {
+      font-family: var(--heading-font);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .auth-impact-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .auth-closing {
+      text-align: center;
+      padding: 80px 24px 100px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .auth-closing h2 {
+      font-family: var(--heading-font);
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .auth-closing-line {
+      width: 64px;
+      height: 3px;
+      background: var(--accent);
+      margin: 0 auto 24px;
+      border-radius: 2px;
+    }
+
+    .auth-closing-sub {
+      font-family: var(--heading-font);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .auth-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .auth-phone {
+        max-width: 240px;
+      }
+
+      .auth-overview,
+      .auth-stat-row,
+      .auth-ds {
+        grid-template-columns: 1fr;
+      }
+
+      .auth-cards-3,
+      .auth-research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .auth-impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .auth-meta-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .auth-back {
+        top: 16px;
+        left: 16px;
+      }
+
+      main {
+        padding-top: 88px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="auth-back" href="index.html">← BACK TO PROJECTS</a>
+
+  <main>
+    <header class="auth-hero reveal">
+      <div>
+        <div class="auth-hero-num">02</div>
+        <h1 class="auth-hero-title">Fintech Security Authenticator</h1>
+        <p class="auth-hero-tags">FINTECH · SECURITY UX · MOBILE</p>
+        <p class="auth-hero-desc">The cryptography was fine. The words on screen were not — 73% of people told us they didn't understand what we wanted from them, and 68% left angry feedback. That's not an edge case; that's the product.</p>
+      </div>
+      <div class="auth-phone" aria-hidden="true">
+        <div class="auth-phone-screen">
+          <svg class="auth-phone-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M32 8L12 18v16c0 11 8 21 20 24 12-3 20-13 20-24V18L32 8z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M28 32l4 4 8-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="auth-phone-label">Authenticator</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="auth-section reveal">
+      <p class="auth-kicker">Case study</p>
+      <h2 class="auth-section-title">Overview</h2>
+      <div class="auth-overview">
+        <div class="auth-meta">
+          <div class="auth-meta-row">
+            <span class="auth-meta-label">Role</span>
+            <span class="auth-meta-value">UI/UX Designer — end-to-end</span>
+          </div>
+          <div class="auth-meta-row">
+            <span class="auth-meta-label">Platform</span>
+            <span class="auth-meta-value">Mobile (iOS &amp; Android)</span>
+          </div>
+          <div class="auth-meta-row">
+            <span class="auth-meta-label">Scope</span>
+            <span class="auth-meta-value">User Research · IA · Visual Design</span>
+          </div>
+          <div class="auth-meta-row">
+            <span class="auth-meta-label">Tools</span>
+            <span class="auth-meta-value">Figma, Maze, Hotjar</span>
+          </div>
+        </div>
+        <p class="auth-prose">Financial institutions depend on authenticator apps to bridge high-assurance security with everyday tasks. This project focused on the human layer: turning opaque permission and verification flows into language people could act on under stress — without diluting compliance requirements or engineering constraints.</p>
+      </div>
+    </section>
+
+    <section class="auth-section reveal">
+      <p class="auth-kicker">The problem</p>
+      <h2 class="auth-section-title">Security that confused everyone</h2>
+      <div class="auth-stat-row">
+        <div class="auth-stat-card">
+          <div class="auth-stat-num">73%</div>
+          <p class="auth-stat-label">of users couldn't understand the verification prompts</p>
+        </div>
+        <div class="auth-stat-card">
+          <div class="auth-stat-num">68%</div>
+          <p class="auth-stat-label">left angry or confused feedback after authentication</p>
+        </div>
+      </div>
+      <div class="auth-cards-3">
+        <div class="auth-card">
+          <h4>Confusing language</h4>
+          <p>Technical jargon in prompts obscured what action was required.</p>
+        </div>
+        <div class="auth-card">
+          <h4>Time pressure failures</h4>
+          <p>Countdown timers increased panic and errors instead of clarity.</p>
+        </div>
+        <div class="auth-card">
+          <h4>Recovery dead ends</h4>
+          <p>No clear retry path after failures left users stuck and distrustful.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-band-dark reveal">
+      <p class="auth-kicker">Research</p>
+      <h2 class="auth-section-title">Understanding the users</h2>
+      <div class="auth-research-grid">
+        <div class="auth-research-card">
+          <strong>8 User Interviews</strong>
+          <span>Qualitative sessions on mental models, fear points, and vocabulary.</span>
+        </div>
+        <div class="auth-research-card">
+          <strong>Hotjar heatmaps</strong>
+          <span>70% never scrolled past the first row — critical actions were invisible.</span>
+        </div>
+        <div class="auth-research-card">
+          <strong>Support ticket analysis</strong>
+          <span>Categorized 200+ tickets to find recurring failure patterns.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-section reveal">
+      <p class="auth-kicker">Users</p>
+      <h2 class="auth-section-title">Persona</h2>
+      <div class="auth-persona">
+        <div class="auth-persona-header">
+          <div class="auth-persona-avatar" aria-hidden="true">👤</div>
+          <div>
+            <div class="auth-persona-name">Sarah Mitchell</div>
+            <div class="auth-persona-role">Product Manager, 34</div>
+          </div>
+        </div>
+        <blockquote class="auth-persona-quote">“I just want to approve the payment and move on. I shouldn't need to decode a message to verify my own transaction.”</blockquote>
+        <div class="auth-pills">
+          <span class="auth-pill">Tech-comfortable</span>
+          <span class="auth-pill">Time-pressured</span>
+          <span class="auth-pill">Low patience for friction</span>
+          <span class="auth-pill">Security-aware but not technical</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-section reveal">
+      <p class="auth-kicker">User flow</p>
+      <h2 class="auth-section-title">Streamlined authentication path</h2>
+      <div class="auth-flow">
+        <div class="auth-flow-track">
+          <span class="auth-flow-step">Open app</span>
+          <span class="auth-flow-arrow" aria-hidden="true">→</span>
+          <span class="auth-flow-step">Notification</span>
+          <span class="auth-flow-arrow" aria-hidden="true">→</span>
+          <span class="auth-flow-step auth-flow-step--hi">Read prompt</span>
+          <span class="auth-flow-arrow" aria-hidden="true">→</span>
+          <span class="auth-flow-step auth-flow-step--hi">Verify identity</span>
+          <span class="auth-flow-arrow" aria-hidden="true">→</span>
+          <span class="auth-flow-step auth-flow-step--hi">Confirm action</span>
+          <span class="auth-flow-arrow" aria-hidden="true">→</span>
+          <span class="auth-flow-step">Success</span>
+        </div>
+      </div>
+      <p class="auth-flow-note">Highlighted steps had the highest drop-off before the redesign.</p>
+    </section>
+
+    <section class="auth-band-dark reveal">
+      <h2 class="auth-section-title">Design system</h2>
+      <div class="auth-ds">
+        <div>
+          <p class="auth-type-label" style="margin-bottom: 14px;">Color palette</p>
+          <div class="auth-swatches">
+            <div class="auth-swatch">
+              <div class="auth-swatch-color" style="background: #4a90d9;"></div>
+              <code>#4A90D9</code>
+            </div>
+            <div class="auth-swatch">
+              <div class="auth-swatch-color" style="background: #1a1a2e;"></div>
+              <code>#1A1A2E</code>
+            </div>
+            <div class="auth-swatch">
+              <div class="auth-swatch-color" style="background: #2ecc71;"></div>
+              <code>#2ECC71</code>
+            </div>
+            <div class="auth-swatch">
+              <div class="auth-swatch-color" style="background: #e74c3c;"></div>
+              <code>#E74C3C</code>
+            </div>
+            <div class="auth-swatch">
+              <div class="auth-swatch-color" style="background: #f5f5f7; border-color: #ccc;"></div>
+              <code>#F5F5F7</code>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="auth-type-label" style="margin-bottom: 14px;">Typography scale</p>
+          <div class="auth-type-scale">
+            <div class="auth-type-row">
+              <div class="auth-type-label">Heading</div>
+              <div class="auth-type-sample display">Approve this payment?</div>
+            </div>
+            <div class="auth-type-row">
+              <div class="auth-type-label">Body</div>
+              <div class="auth-type-sample body">We’ll only use this to confirm it’s you. You can change this later in Settings.</div>
+            </div>
+            <div class="auth-type-row">
+              <div class="auth-type-label">Caption</div>
+              <div class="auth-type-sample caption">Secured with end-to-end encryption</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-section">
+      <div class="reveal">
+        <p class="auth-kicker">Delivery</p>
+        <h2 class="auth-section-title">Final screens</h2>
+        <p class="auth-subtitle">The redesigned experience</p>
+        <p class="auth-final-desc">Every screen was rewritten in plain language. Prompts tell users exactly what's happening and what to do — no jargon, no ambiguity.</p>
+      </div>
+
+      <div style="margin-top: 48px;">
+        <img src="authenticator/Authenticator.png" alt="Authenticator case study screens and process"
+             style="width: 100%; max-width: 1100px; margin: 0 auto; display: block; border-radius: 16px;
+                    box-shadow: 0 12px 48px rgba(0,0,0,0.2); image-rendering: -webkit-optimize-contrast;" />
+      </div>
+    </section>
+
+    <section class="auth-section reveal">
+      <p class="auth-kicker">Outcomes</p>
+      <h2 class="auth-section-title">Impact</h2>
+      <p class="auth-subtitle">Measurable improvement</p>
+      <div class="auth-impact-grid">
+        <div class="auth-impact-card">
+          <div class="auth-impact-val">73% → 12%</div>
+          <div class="auth-impact-label">Confusion rate</div>
+        </div>
+        <div class="auth-impact-card">
+          <div class="auth-impact-val">68% → 8%</div>
+          <div class="auth-impact-label">Negative feedback</div>
+        </div>
+        <div class="auth-impact-card">
+          <div class="auth-impact-val">3.2s</div>
+          <div class="auth-impact-label">Avg. verification time</div>
+        </div>
+        <div class="auth-impact-card">
+          <div class="auth-impact-val">94%</div>
+          <div class="auth-impact-label">First-attempt success rate</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="auth-closing reveal">
+    <h2>Thank you</h2>
+    <div class="auth-closing-line" aria-hidden="true"></div>
+    <p class="auth-closing-sub">Selinay İblikci · UI/UX Designer</p>
+  </footer>
+
+  <script>
+    (function () {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) e.target.classList.add('visible');
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>

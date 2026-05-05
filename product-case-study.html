@@ -4,7 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <title>Inq Learn — Case Study — Selinay İblikci</title>
+  <title>Quill Learn — Case Study — Selinay İblikci</title>
+<meta name="description" content="Case study by Selinay İblikci — Senior Product Designer based in Amsterdam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://selinayiblikci.com/product-case-study.html">
+<meta property="og:title" content="Selinay İblikci — Case Study">
+<meta property="og:description" content="Case study by Selinay İblikci — Senior Product Designer based in Amsterdam.">
+<meta property="og:image" content="https://selinayiblikci.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
   <style>
     html {
       overflow-x: hidden !important;
@@ -13,19 +20,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #08080f;
-      --surface: #27252a;
-      --surface-hover: #302e34;
-      --text: #ede9f2;
-      --text-muted: #8f8a96;
-      --accent: #b8a9e8;
+      --bg: #0d0c14;
+      --surface: #141220;
+      --surface-hover: #1c1a2c;
+      --text: #f0ecf8;
+      --text-muted: #a8a2be;
+      --accent: #c4b5f0;
       --accent-dim: #9683d4;
-      --border: #332f38;
-      --border-light: #3d3944;
+      --border: #28253a;
+      --border-light: #363254;
       --heading-font: "Syne", sans-serif;
       --body-font: "Instrument Sans", sans-serif;
       --nav-font: "Agdasima", system-ui, -apple-system, sans-serif;
-      /* Inq Learn product UI — orange primary, purple secondary */
+      /* Quill Learn product UI — orange primary, purple secondary */
       --inq-orange: #ff6a14;
       --inq-purple: #7c3aed;
       --il-ink: #000000;
@@ -64,18 +71,13 @@
     }
 
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: #f7f7f5;
+      color: #000000;
       font-family: var(--body-font);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       min-height: 100dvh;
       min-width: 0;
-    }
-
-    body.unlocked {
-      background: #f7f7f5;
-      color: #000000;
       padding: 32px 24px 64px;
     }
 
@@ -268,15 +270,8 @@
       min-height: 100dvh;
       max-width: 100%;
       min-width: 0;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.65s ease 0.12s, visibility 0s linear 0.12s;
-    }
-
-    body.unlocked .case-page {
       opacity: 1;
       visibility: visible;
-      transition: opacity 0.65s ease 0.15s, visibility 0s linear 0.15s;
     }
 
     #case-study-content {
@@ -5491,7 +5486,7 @@
       font-size: 12px;
     }
 
-    /* —— Inq Learn hero dashboard (bento / enterprise reference style) —— */
+    /* —— Quill Learn hero dashboard (bento / enterprise reference style) —— */
     #case-study-content .il-dash {
       --il-bg: #f5f5f7;
       --il-sidebar: #ebebed;
@@ -6142,7 +6137,7 @@
       cursor: default;
     }
 
-    /* —— Mobile app profile (hero) — Growly-style reference, Inq Learn brand —— */
+    /* —— Mobile app profile (hero) — Growly-style reference, Quill Learn brand —— */
     #case-study-content .il-app-phone {
       width: 100%;
       max-width: 220px;
@@ -6406,7 +6401,7 @@
     }
 
     @media (max-width: 900px) {
-      body.unlocked {
+      body {
         padding: 28px 20px 48px;
       }
 
@@ -6557,7 +6552,7 @@
     }
 
     @media (max-width: 640px) {
-      body.unlocked {
+      body {
         padding: 18px 16px 40px;
       }
 
@@ -6705,33 +6700,7 @@
   </style>
 </head>
 <body>
-  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-desc">
-    <div class="gate-card">
-      <p class="gate-eyebrow">Selinay Iblikci</p>
-      <h1 class="gate-title" id="gate-title">Protected Case Study</h1>
-      <p class="gate-sub" id="gate-desc">This project is shared privately. Enter the password to view.</p>
-      <form class="gate-form" id="gate-form" novalidate>
-        <label for="gate-password" class="visually-hidden">Password</label>
-        <input
-          class="gate-input"
-          type="password"
-          id="gate-password"
-          name="password"
-          autocomplete="current-password"
-          placeholder="Password"
-          required
-        />
-        <button type="submit" class="gate-submit">View Project</button>
-        <p class="gate-error" id="gate-error" role="status" aria-live="polite"></p>
-      </form>
-      <p class="gate-foot">
-        Request access:
-        <a href="mailto:selinay@puoistudio.nl">selinay@puoistudio.nl</a>
-      </p>
-    </div>
-  </div>
-
-  <main class="case-page" id="case-page" aria-hidden="true">
+  <main class="case-page" id="case-page">
     <div id="case-study-content">
       <header class="case-nav">
         <a href="index.html" class="case-back">
@@ -6751,7 +6720,7 @@
                 </div>
                 <div>
                   <h1 class="case-title">
-                    <span class="inq-brand inq-brand--on-dark"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span>
+                    <span class="inq-brand inq-brand--on-dark"><span class="inq-brand__q">quill</span><span class="inq-brand__learn">learn</span></span>
                   </h1>
                   <p class="case-tagline">
                     Designing a learning management experience for a smart pen ecosystem&apos;s education vertical
@@ -6760,14 +6729,14 @@
               </div>
 
               <div class="hero-teaser-wrap">
-                <div class="hero-teaser-browser" aria-label="Inq Learn dashboard teaser">
+                <div class="hero-teaser-browser" aria-label="Quill Learn dashboard teaser">
                   <div class="hero-teaser-chrome">
                     <span class="hero-teaser-dots" aria-hidden="true"><span></span><span></span><span></span></span>
-                    <span class="hero-teaser-url">app.learn.inq.shop/dashboard</span>
+                    <span class="hero-teaser-url">app.quilllearn.io/dashboard</span>
                   </div>
                   <div class="hero-teaser-viewport">
                     <div class="hero-teaser-nav">
-                      <span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span>
+                      <span class="inq-brand"><span class="inq-brand__q">quill</span><span class="inq-brand__learn">learn</span></span>
                       <span class="hero-teaser-txt">Dashboard</span>
                     </div>
                     <div class="hero-teaser-body">
@@ -6948,7 +6917,7 @@
                 <div class="lf-ia-panel lf-ia-panel--before">
                   <div class="lf-ia-badge">Before</div>
                   <div class="lf-ia-tree">
-                    <div class="lf-ia-root">Inq Learn — top nav</div>
+                    <div class="lf-ia-root">Quill Learn — top nav</div>
                     <ul class="lf-ia-list lf-ia-list--flat">
                       <li>Home</li>
                       <li>All Courses</li>
@@ -6965,7 +6934,7 @@
                 <div class="lf-ia-panel lf-ia-panel--after">
                   <div class="lf-ia-badge">After</div>
                   <div class="lf-ia-tree">
-                    <div class="lf-ia-root">Inq Learn — 4 areas</div>
+                    <div class="lf-ia-root">Quill Learn — 4 areas</div>
                     <ul class="lf-ia-nested">
                       <li class="lf-ia-branch">
                         <div class="lf-ia-branch-top">Dashboard</div>
@@ -7087,14 +7056,14 @@
               <div class="lf-ui-stack">
                 <!-- Screen 1: Dashboard -->
                 <div class="browser-frame lf-ui-mock-frame">
-                <div class="lf-ui-browser" aria-label="Inq Learn dashboard — final UI">
+                <div class="lf-ui-browser" aria-label="Quill Learn dashboard — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/dashboard</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/dashboard</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav" aria-label="Primary">
-                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">quill</span><span class="inq-brand__learn">learn</span></span></div>
                       <div class="lf-ui-tabs">
                         <span class="lf-ui-tab is-active">Dashboard</span>
                         <span class="lf-ui-tab">Courses</span>
@@ -7256,14 +7225,14 @@
 
                 <!-- Screen 2: Course catalog -->
                 <div class="browser-frame lf-ui-mock-frame">
-                <div class="lf-ui-browser" aria-label="Inq Learn course catalog — final UI">
+                <div class="lf-ui-browser" aria-label="Quill Learn course catalog — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/courses</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/courses</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav" aria-label="Primary">
-                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">quill</span><span class="inq-brand__learn">learn</span></span></div>
                       <div class="lf-ui-tabs">
                         <span class="lf-ui-tab">Dashboard</span>
                         <span class="lf-ui-tab is-active">Courses</span>
@@ -7373,14 +7342,14 @@
 
                 <!-- Screen 3: Learning view -->
                 <div class="browser-frame lf-ui-mock-frame lf-ui-mock-frame--learn">
-                <div class="lf-ui-browser" aria-label="Inq Learn learning view — final UI">
+                <div class="lf-ui-browser" aria-label="Quill Learn learning view — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/learn/digital-note-taking/module-4</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/learn/digital-note-taking/module-4</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav" aria-label="Primary">
-                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">quill</span><span class="inq-brand__learn">learn</span></span></div>
                       <div class="lf-ui-tabs">
                         <span class="lf-ui-tab">Dashboard</span>
                         <span class="lf-ui-tab">Courses</span>
@@ -7450,14 +7419,14 @@
 
                 <!-- Screen 4: Admin -->
                 <div class="browser-frame lf-ui-mock-frame">
-                <div class="lf-ui-browser" aria-label="Inq Learn admin dashboard — final UI">
+                <div class="lf-ui-browser" aria-label="Quill Learn admin dashboard — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/admin/team</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/admin/team</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav" aria-label="Primary">
-                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">quill</span><span class="inq-brand__learn">learn</span></span></div>
                       <div class="lf-ui-tabs">
                         <span class="lf-ui-tab">Dashboard</span>
                         <span class="lf-ui-tab">Courses</span>
@@ -7596,14 +7565,14 @@
                 </div>
                 <!-- Screen 5: Course detail -->
                 <div class="browser-frame lf-ui-mock-frame lf-ui-mock-frame--fluid">
-                <div class="lf-ui-browser" aria-label="Inq Learn course detail — final UI">
+                <div class="lf-ui-browser" aria-label="Quill Learn course detail — final UI">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/courses/digital-note-taking-fundamentals</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/courses/digital-note-taking-fundamentals</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav" aria-label="Primary">
-                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">quill</span><span class="inq-brand__learn">learn</span></span></div>
                       <div class="lf-ui-tabs">
                         <span class="lf-ui-tab">Dashboard</span>
                         <span class="lf-ui-tab is-active">Courses</span>
@@ -7637,7 +7606,7 @@
                             </div>
                             <h3 class="lf-ui-preview-learn-h" style="margin-top: 0">ABOUT THIS COURSE</h3>
                             <p class="lf-ui-preview-desc" style="margin-bottom: 20px">
-                              Learn to capture, organize, and sync handwritten notes with your Inq smart pen — from first setup through cloud backup and sharing. Designed for students and educators in live classes and study sessions.
+                              Learn to capture, organize, and sync handwritten notes with your Quill smart pen — from first setup through cloud backup and sharing. Designed for students and educators in live classes and study sessions.
                             </p>
                             <h3 class="lf-ui-preview-learn-h">WHAT YOU&apos;LL LEARN</h3>
                             <ul class="lf-ui-check-list lf-ui-check-list--cols">
@@ -7655,12 +7624,12 @@
                               </div>
                               <div class="lf-ui-preview-cert-mock" aria-hidden="true">
                                 <span class="lf-ui-preview-cert-lock">🏅</span>
-                                <span class="lf-ui-preview-cert-word">Inq Learn credential</span>
+                                <span class="lf-ui-preview-cert-word">Quill Learn credential</span>
                               </div>
                             </div>
                             <h3 class="lf-ui-preview-learn-h" style="margin-top: 20px">TOOLS REFERENCED</h3>
                             <div class="lf-ui-tag-pills">
-                              <span>Inq App</span><span>Evernote</span><span>Google Drive</span><span>Notion</span>
+                              <span>Quill App</span><span>Evernote</span><span>Google Drive</span><span>Notion</span>
                             </div>
                             <div class="lf-ui-preview-instructor" style="margin-top: 20px">
                               <div class="lf-ui-preview-instructor-av" aria-hidden="true">S</div>
@@ -7706,15 +7675,15 @@
 
                 <!-- Screen 6: Onboarding step 1 -->
                 <div class="browser-frame lf-ui-mock-frame lf-ui-mock-frame--fluid">
-                <div class="lf-ui-browser" aria-label="Inq Learn onboarding step 1">
+                <div class="lf-ui-browser" aria-label="Quill Learn onboarding step 1">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/onboarding</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/onboarding</span>
                   </div>
                   <div class="lf-ui-viewport lf-ui-viewport--plain">
                     <div class="lf-ui-onb-progress" aria-hidden="true"><span style="width: 33%"></span></div>
                     <div class="lf-ui-onb-inner">
-                      <h1>Welcome to <span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span>, Selinay! 👋</h1>
+                      <h1>Welcome to <span class="inq-brand"><span class="inq-brand__q">quill</span><span class="inq-brand__learn">learn</span></span>, Selinay! 👋</h1>
                       <p>Let&apos;s personalize your experience</p>
                       <p style="font-size: 12px; color: #4a5568; margin-bottom: 8px">Step 1 of 3</p>
                       <div class="lf-ui-step-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
@@ -7737,10 +7706,10 @@
 
                 <!-- Screen 7: Onboarding step 2 -->
                 <div class="browser-frame lf-ui-mock-frame">
-                <div class="lf-ui-browser" aria-label="Inq Learn onboarding step 2">
+                <div class="lf-ui-browser" aria-label="Quill Learn onboarding step 2">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/onboarding/topics</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/onboarding/topics</span>
                   </div>
                   <div class="lf-ui-viewport lf-ui-viewport--plain">
                     <div class="lf-ui-onb-progress" aria-hidden="true"><span style="width: 66%"></span></div>
@@ -7767,14 +7736,14 @@
 
                 <!-- Screen 8: Search results -->
                 <div class="browser-frame lf-ui-mock-frame">
-                <div class="lf-ui-browser" aria-label="Inq Learn search results">
+                <div class="lf-ui-browser" aria-label="Quill Learn search results">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/search?q=smart+pen+notes</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/search?q=smart+pen+notes</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <nav class="lf-ui-nav lf-ui-nav--search" aria-label="Primary">
-                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
+                      <div class="lf-ui-brand"><span class="inq-brand"><span class="inq-brand__q">quill</span><span class="inq-brand__learn">learn</span></span></div>
                       <input class="lf-ui-search-inline" type="search" readonly value="smart pen notes" aria-label="Search" />
                       <div class="lf-ui-nav-actions">
                         <span class="lf-ui-icon-btn" aria-hidden="true">
@@ -7847,10 +7816,10 @@
 
                 <!-- Screen 9: Certificate -->
                 <div class="browser-frame lf-ui-mock-frame">
-                <div class="lf-ui-browser" aria-label="Inq Learn certificate">
+                <div class="lf-ui-browser" aria-label="Quill Learn certificate">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/certificates/digital-note-taking-fundamentals</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/certificates/digital-note-taking-fundamentals</span>
                   </div>
                   <div class="lf-ui-viewport lf-ui-viewport--plain">
                     <div class="lf-ui-cert-wrap">
@@ -7864,7 +7833,7 @@
                             <p class="lf-ui-cert-date">April 2026</p>
                           </div>
                           <div class="lf-ui-cert-footer">
-                            <div class="lf-ui-cert-logo"><span class="inq-brand"><span class="inq-brand__q">inq</span><span class="inq-brand__learn">learn</span></span></div>
+                            <div class="lf-ui-cert-logo"><span class="inq-brand"><span class="inq-brand__q">quill</span><span class="inq-brand__learn">learn</span></span></div>
                             <div class="lf-ui-cert-sig">Authorized signature</div>
                           </div>
                         </div>
@@ -7885,10 +7854,10 @@
 
                 <!-- Screen 10: Empty & error states -->
                 <div class="browser-frame lf-ui-mock-frame">
-                <div class="lf-ui-browser" aria-label="Inq Learn empty and error states">
+                <div class="lf-ui-browser" aria-label="Quill Learn empty and error states">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/states</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/states</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <div class="lf-ui-body">
@@ -7923,10 +7892,10 @@
 
                 <!-- Screen 11: Notifications & settings -->
                 <div class="browser-frame lf-ui-mock-frame">
-                <div class="lf-ui-browser" aria-label="Inq Learn notifications and settings">
+                <div class="lf-ui-browser" aria-label="Quill Learn notifications and settings">
                   <div class="lf-ui-chrome">
                     <div class="lf-ui-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <span class="lf-ui-chrome-url">app.learn.inq.shop/settings</span>
+                    <span class="lf-ui-chrome-url">app.quilllearn.io/settings</span>
                   </div>
                   <div class="lf-ui-viewport">
                     <div class="lf-ui-body">
@@ -8186,43 +8155,5 @@
     </div>
   </main>
 
-  <script>
-    (function () {
-      var PASSWORD = "aihr2026";
-      var gate = document.getElementById("gate");
-      var form = document.getElementById("gate-form");
-      var input = document.getElementById("gate-password");
-      var err = document.getElementById("gate-error");
-      var casePage = document.getElementById("case-page");
-
-      function showError(msg) {
-        err.textContent = msg || "";
-        err.classList.toggle("is-visible", Boolean(msg));
-      }
-
-      function unlock() {
-        showError("");
-        document.body.classList.add("unlocked");
-        gate.classList.add("is-hidden");
-        casePage.setAttribute("aria-hidden", "false");
-        gate.setAttribute("aria-hidden", "true");
-      }
-
-      input.addEventListener("input", function () {
-        if (err.textContent) showError("");
-      });
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var value = (input.value || "").trim();
-        if (value === PASSWORD) {
-          unlock();
-        } else {
-          showError("Incorrect password. Try again.");
-          input.focus();
-        }
-      });
-    })();
-  </script>
 </body>
 </html>

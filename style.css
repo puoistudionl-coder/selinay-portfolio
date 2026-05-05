@@ -1,7 +1,6 @@
 /*
  * Optional extract: homepage project card image overlay.
- * Linked after the main inline <style> in index.html; keep the .project-image::after
- * block in sync with the matching rules there.
+ * Light theme — overlay removed.
  */
 
 .project-image {
@@ -20,13 +19,13 @@
   z-index: 4;
   pointer-events: none;
   border-radius: inherit;
-  background: linear-gradient(180deg, rgba(13, 13, 26, 0.15) 0%, rgba(13, 13, 26, 0.5) 100%);
-  opacity: 1;
+  background: transparent;
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .project-card:hover .project-image::after {
-  opacity: 0.6;
+  opacity: 0;
 }
 
 /* Thumbnail sits under the overlay */

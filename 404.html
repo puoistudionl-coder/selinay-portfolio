@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <title>404 — Selinay İblikci</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: #fafaf8;
+      color: #0d0c14;
+      font-family: "Instrument Sans", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100svh;
+      text-align: center;
+      padding: 40px 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .number {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: clamp(7rem, 20vw, 14rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: #ebe8f8;
+      user-select: none;
+    }
+    h1 {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      letter-spacing: -0.03em;
+      margin-top: -16px;
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: 1rem;
+      color: #6e6a85;
+      max-width: 380px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+    a.home-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0d0c14; color: #fff;
+      font-family: "Syne", sans-serif;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 14px 28px; border-radius: 10px; text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    a.home-btn:hover { opacity: 0.8; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #5c3de8;
+      display: inline-block; margin-right: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="number">404</div>
+  <h1>Page not found.</h1>
+  <p>Looks like this page took a different path. Let's get you back to the portfolio.</p>
+  <a class="home-btn" href="index.html">
+    ← Back to portfolio
+  </a>
+</body>
+</html>
