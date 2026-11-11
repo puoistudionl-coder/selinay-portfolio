@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<title>HIRKA: from a viral Reel to #1 in Weather | Selinay Iblikci Yildirim</title>
+<meta name="description" content="Product Owner case study by Selinay Iblikci Yildirim. HIRKA is a weather app that tells you what to wear. Co-founded and product-owned from idea validation to #1 in Weather on the App Store in Türkiye.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://selinayiblikci.com/hirka-case-study.html">
+<meta property="og:title" content="HIRKA: from a viral Reel to #1 in Weather">
+<meta property="og:description" content="Co-founder and Product Owner case study: validation, prioritisation, data-led decisions and a 12-day path to the App Store.">
+<meta property="og:image" content="https://selinayiblikci.com/images/projects/hirka/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://selinayiblikci.com/images/projects/hirka/og.jpg">
+<meta name="author" content="Selinay Iblikci Yildirim">
+<link rel="canonical" href="https://selinayiblikci.com/hirka-case-study.html">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Instrument+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f1ea;
+  --surface: #fffaf5;
+  --text: #2a1a1d;
+  --text-muted: #6f5c5f;
+  --brand: #5e1426;
+  --coral: #d9644f;
+  --border: #e6d8cb;
+  --heading-font: 'Syne', sans-serif;
+  --body-font: 'Instrument Sans', sans-serif;
+  --brand-font: 'Baloo 2', 'Syne', sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body-font);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg, video { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+::selection { background: var(--brand); color: #fff; }
+
+.back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 50;
+  font-family: var(--heading-font);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  background: rgba(255, 250, 245, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.back:hover { border-color: var(--brand); color: var(--brand); }
+
+.wrap {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.narrow { max-width: 760px; }
+
+/* HERO */
+.hero { padding: 120px 0 56px; }
+.hero-text { max-width: 820px; }
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--heading-font);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 18px;
+}
+.hero-kicker img {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+.hero-wordmark {
+  font-family: var(--brand-font);
+  font-weight: 800;
+  font-size: clamp(3.4rem, 9vw, 6.5rem);
+  line-height: 0.9;
+  color: var(--brand);
+}
+.hero-title {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 22px 0 18px;
+  max-width: 22em;
+}
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 38em;
+}
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.pill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--heading-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 11px 18px;
+  border-radius: 10px;
+  border: 1.5px solid var(--brand);
+  color: var(--brand);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.pill-link:hover { background: var(--brand); color: #fff; }
+.hero-cover {
+  margin-top: 56px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.hero-cover img { width: 100%; height: auto; }
+
+/* IMAGES */
+.phone {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 6px solid #fff;
+  box-shadow: 0 20px 50px rgba(94, 20, 38, 0.16);
+  background: #fff;
+}
+.phone img { width: 100%; height: auto; }
+.shot {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.shot img { width: 100%; height: auto; }
+.caption {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 14px;
+}
+figure { min-width: 0; }
+.screens {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin: 40px 0 8px;
+}
+.screens--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.screens--4 .phone { border-width: 5px; border-radius: 24px; }
+.wide-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 40px 0 8px;
+}
+
+/* META */
+.meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.meta-item {
+  padding: 26px 24px 26px 0;
+  min-width: 0;
+}
+.meta-item + .meta-item { padding-left: 24px; border-left: 1px solid var(--border); }
+.meta-label {
+  font-family: var(--heading-font);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 8px;
+}
+.meta-value { font-size: 0.92rem; line-height: 1.5; }
+
+/* SECTIONS */
+section.block { padding: 88px 0 0; }
+.label {
+  font-family: var(--heading-font);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 14px;
+}
+h2 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+h3 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+p + p { margin-top: 14px; }
+.lead { font-size: 1.08rem; }
+.muted { color: var(--text-muted); }
+blockquote {
+  margin: 26px 0 0;
+  padding: 18px 22px;
+  border-left: 3px solid var(--coral);
+  background: var(--surface);
+  border-radius: 0 12px 12px 0;
+  font-family: var(--brand-font);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--brand);
+}
+
+/* RESULTS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px 22px;
+  min-width: 0;
+}
+.stat-num {
+  font-family: var(--brand-font);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1;
+  color: var(--brand);
+  margin-bottom: 10px;
+}
+.stat-label { font-size: 0.86rem; color: var(--text-muted); line-height: 1.45; }
+.fineprint { font-size: 0.8rem; color: var(--text-muted); margin-top: 16px; }
+.receipts {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 20px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+/* OWNERSHIP */
+.own {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.own-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 26px 24px;
+  background: var(--surface);
+  min-width: 0;
+}
+.own-card ul { list-style: none; margin-top: 6px; }
+.own-card li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.own-card li + li { margin-top: 8px; }
+.own-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--coral);
+}
+
+/* TIMELINE */
+.timeline { list-style: none; border-left: 2px dashed var(--border); margin-left: 6px; }
+.timeline li { position: relative; padding: 0 0 26px 26px; }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand);
+  border: 3px solid var(--bg);
+}
+.tl-date {
+  font-family: var(--heading-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.tl-text { font-size: 0.95rem; color: var(--text-muted); }
+
+/* DECISIONS */
+.decision {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 18px;
+  padding: 34px 0;
+  border-top: 1px dashed var(--border);
+}
+.decision-num {
+  font-family: var(--brand-font);
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--coral);
+}
+.decision p { color: var(--text-muted); font-size: 0.97rem; }
+.decision strong { color: var(--text); font-weight: 600; }
+.decision-visual { padding-bottom: 40px; }
+
+/* DATA STORY */
+.data {
+  background: var(--brand);
+  color: #fbeee6;
+  border-radius: 28px;
+  padding: 56px 52px;
+}
+.data .label { color: #f2a493; }
+.data h2 { color: #fff; }
+.data p { color: rgba(251, 238, 230, 0.86); }
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 30px 0;
+}
+.data-card {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  padding: 20px;
+  min-width: 0;
+}
+.data-card h3 { color: #fff; font-size: 1rem; }
+.data-card p { font-size: 0.88rem; }
+
+/* BRAND */
+.brand-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
+  gap: 48px;
+  align-items: center;
+}
+
+/* LEARNED */
+.learned { list-style: none; counter-reset: l; }
+.learned li {
+  counter-increment: l;
+  position: relative;
+  padding: 0 0 22px 48px;
+  color: var(--text-muted);
+}
+.learned li::before {
+  content: counter(l, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--coral);
+}
+.learned strong { color: var(--text); font-weight: 600; }
+
+/* CLOSING */
+.closing {
+  margin-top: 104px;
+  padding: 64px 0 72px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.closing p { color: var(--text-muted); }
+.closing .pill-link { margin-top: 22px; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .meta-item:nth-child(3) { padding-left: 0; border-left: none; }
+  .meta-item:nth-child(n+3) { border-top: 1px solid var(--border); }
+  .data-grid { grid-template-columns: 1fr; }
+  .screens--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+}
+@media (max-width: 768px) {
+  .wrap { padding: 0 22px; }
+  .hero { padding: 96px 0 48px; }
+  .hero-cover { margin-top: 40px; border-radius: 16px; }
+  .meta { grid-template-columns: 1fr; }
+  .meta-item, .meta-item + .meta-item { padding: 18px 0; border-left: none; }
+  .meta-item + .meta-item { border-top: 1px solid var(--border); }
+  section.block { padding-top: 64px; }
+  .own { grid-template-columns: 1fr; }
+  .screens { grid-template-columns: 1fr; gap: 36px; }
+  .screens--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .wide-2, .receipts { grid-template-columns: 1fr; }
+  .decision { grid-template-columns: 1fr; gap: 8px; }
+  .data { padding: 40px 24px; border-radius: 20px; }
+  .brand-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 420px) {
+  .stats { grid-template-columns: 1fr; }
+  .back { top: 12px; left: 12px; }
+}
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">&larr; Back to projects</a>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-text reveal">
+        <p class="hero-kicker"><img src="images/projects/hirka/app-icon.png" alt="HIRKA app icon" width="180" height="180"><span>A PUOI Studio product &middot; Product ownership &middot; 0&rarr;1 &middot; 2026</span></p>
+        <div class="hero-wordmark">HIRKA</div>
+        <h1 class="hero-title">From a viral Reel to #1 in Weather on the App Store in Türkiye</h1>
+        <p class="hero-desc">A weather app that tells you what to wear instead of the temperature. I co-founded HIRKA and own the product: I validated the idea in my own audience, set the scope and priorities, made the product calls with data, and designed the experience, brand and growth system. My co-founder built it.</p>
+        <div class="hero-links">
+          <a class="pill-link" href="https://hirka.app/indir" target="_blank" rel="noopener noreferrer">Get the app</a>
+          <a class="pill-link" href="#decisions">Product decisions</a>
+        </div>
+      </div>
+      <figure class="hero-cover reveal">
+        <img src="images/projects/hirka/cover.jpg" alt="Three HIRKA screens on a burgundy background: My wardrobe, Coat weather and Share your card, with the coral knitted rope signature" width="2000" height="1250">
+      </figure>
+    </div>
+  </header>
+
+  <!-- META -->
+  <div class="wrap reveal">
+    <div class="meta">
+      <div class="meta-item">
+        <div class="meta-label">Role</div>
+        <div class="meta-value">Co-founder &amp; Product Owner</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Team</div>
+        <div class="meta-value">Two co-founders, built under PUOI Studio. I own product, design and growth; Ege Yıldızlı owns engineering.</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Timeline</div>
+        <div class="meta-value">October 2026, ongoing</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Platforms</div>
+        <div class="meta-value">iOS, Android, widgets, Apple Watch. 11 languages.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <section class="block">
+    <div class="wrap">
+      <p class="label reveal">Results</p>
+      <h2 class="reveal">What happened in the first two weeks</h2>
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="stat-num">#1</div>
+          <div class="stat-label">in Weather on the App Store in Türkiye and Azerbaijan</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num">19,700+</div>
+          <div class="stat-label">installs in 75 countries, with no ad budget</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num">40%</div>
+          <div class="stat-label">of new users came back the next day</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num">12 days</div>
+          <div class="stat-label">from first commit to live on the App Store</div>
+        </div>
+      </div>
+      <p class="fineprint reveal">Also top 10 in Weather on the App Store in Cyprus (#3), Austria (#4), Bulgaria (#4), Belgium (#7) and Germany (#10) on 9 November 2026, and #1 in Weather on Google Play in Iran (AppBrain). Live in 11 languages within three weeks of launch, and 96% of new users finish onboarding.</p>
+      <div class="receipts reveal">
+        <figure>
+          <div class="shot"><img src="images/projects/hirka/results.jpg" alt="Results summary: No. 1 in Weather on the App Store in Türkiye, No. 1 in Azerbaijan, 19,766 installs in 15 days across 75 countries, 40% next-day return" width="2000" height="1250" loading="lazy"></div>
+          <figcaption class="caption">Results summary, first two weeks on both stores</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="images/projects/hirka/chart-tr-no1.png" alt="App Store Türkiye top free Weather chart with HIRKA at number 1, ahead of Windy and WeatherX" width="1950" height="660" loading="lazy"></div>
+          <figcaption class="caption">App Store Türkiye, top free Weather apps, 3 November 2026</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="block">
+    <div class="wrap narrow">
+      <p class="label reveal">The problem</p>
+      <h2 class="reveal">Weather apps give you numbers. People need a decision.</h2>
+      <div class="reveal">
+        <p class="lead">"14°C, feels like 11" does not answer the question you have at the door: cardigan or coat? Turkish mothers have answered that question in one sentence for generations.</p>
+        <blockquote>"Take your cardigan."</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALIDATION -->
+  <section class="block">
+    <div class="wrap narrow">
+      <p class="label reveal">Discovery</p>
+      <h2 class="reveal">Validated before a single screen existed</h2>
+      <div class="reveal">
+        <p>I posted a Reel on my Instagram about a weather app run by a Turkish mother. It went viral, and the comments filled up with the same two requests: "If only this were an app" and "Tell me when it's out."</p>
+        <p>That gave me three things a product team usually has to work for: proof of demand, the exact words users would use to describe the product, and a waiting audience for launch day. HIRKA (Turkish for cardigan) became that one sentence, as an app.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I OWNED -->
+  <section class="block">
+    <div class="wrap">
+      <p class="label reveal">My role</p>
+      <h2 class="reveal">What I owned as Product Owner</h2>
+      <div class="own">
+        <div class="own-card reveal">
+          <h3>Product and backlog</h3>
+          <ul>
+            <li>Roadmap, backlog and feature specs</li>
+            <li>Priorities set from user feedback and analytics</li>
+            <li>Build reviews and numbered fix lists for engineering</li>
+            <li>Screen sign-off before every release</li>
+          </ul>
+        </div>
+        <div class="own-card reveal">
+          <h3>Strategy and monetisation</h3>
+          <ul>
+            <li>Positioning: a decision, not a degree</li>
+            <li>Free versus premium split and paywall moments</li>
+            <li>Pricing test plan and retention loops</li>
+            <li>Store listing and screenshots</li>
+          </ul>
+        </div>
+        <div class="own-card reveal">
+          <h3>Design</h3>
+          <ul>
+            <li>UX/UI for 56 screens and the design system</li>
+            <li>Onboarding and the wardrobe scanning flow</li>
+            <li>Turkish UX writing</li>
+            <li>Written developer handoff</li>
+          </ul>
+        </div>
+        <div class="own-card reveal">
+          <h3>Brand and growth</h3>
+          <ul>
+            <li>Mascot character, voice and tone rules</li>
+            <li>Launch from my own audience, then a dedicated @hirka.app account</li>
+            <li>Faceless Reels series and multilingual content strategy</li>
+            <li>Influencer evaluation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="block">
+    <div class="wrap narrow">
+      <p class="label reveal">Delivery</p>
+      <h2 class="reveal">Scoped to ship fast</h2>
+      <p class="reveal muted" style="margin-bottom:30px;">No ad budget, no marketing team, two people. The first version had to do one thing well: answer "what do I wear today?" for morning, noon and evening. Everything else went to the backlog.</p>
+      <ol class="timeline reveal">
+        <li><div class="tl-date">13 Oct</div><div class="tl-text">First commit</div></li>
+        <li><div class="tl-date">25 Oct</div><div class="tl-text">Live on the App Store, after making sign-in optional to pass Apple review</div></li>
+        <li><div class="tl-date">31 Oct</div><div class="tl-text">Live on Google Play</div></li>
+        <li><div class="tl-date">3 Nov</div><div class="tl-text">#1 in Weather in Türkiye and a record day of 8,000+ installs, with both stores live</div></li>
+        <li><div class="tl-date">By week 3</div><div class="tl-text">Live in 11 languages</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- DECISIONS -->
+  <section class="block" id="decisions">
+    <div class="wrap">
+      <p class="label reveal">Key decisions</p>
+      <h2 class="reveal">The product calls behind the numbers</h2>
+
+      <div class="narrow">
+        <div class="decision reveal">
+          <div class="decision-num">01</div>
+          <div>
+            <h3>Show the decision, not the data</h3>
+            <p>The home screen leads with one verdict: <strong>T-shirt weather, Cardigan weather, Coat weather</strong> or <strong>Stay in</strong>. Morning, noon and evening each get their own outfit, because the walk home is often colder than the walk out. Thresholds adapt to location, and "Why a coat?" shows the reasoning: wind, rain, the evening drop and your own setting.</p>
+          </div>
+        </div>
+      </div>
+      <div class="screens decision-visual reveal">
+        <figure>
+          <div class="phone"><img src="images/projects/hirka/screen-today.webp" alt="Today screen: Coat weather in Middenmeer, 10 degrees, with an outfit for morning, noon and evening" width="786" height="1704" loading="lazy"></div>
+          <figcaption class="caption">Today: one answer, three time slots</figcaption>
+        </figure>
+        <figure>
+          <div class="phone"><img src="images/projects/hirka/screen-why.webp" alt="Why a coat screen listing wind, rain, evening commute and personal setting" width="786" height="1704" loading="lazy"></div>
+          <figcaption class="caption">Why a coat? The reasoning, in plain words</figcaption>
+        </figure>
+        <figure>
+          <div class="phone"><img src="images/projects/hirka/screen-weather-scale.webp" alt="Weather scale screen with T-shirt, Cardigan, Coat weather and Stay in levels and a My normal slider" width="786" height="1704" loading="lazy"></div>
+          <figcaption class="caption">Four outfit levels, tuned to your normal</figcaption>
+        </figure>
+      </div>
+
+      <div class="narrow">
+        <div class="decision reveal">
+          <div class="decision-num">02</div>
+          <div>
+            <h3>Learn from the user instead of guessing</h3>
+            <p>A short evening check-in asks two questions: "Did you wear what I said?" and "How did it feel?" The answers tune a personal cold-sensitivity setting, so the same 15°C can mean a T-shirt for one person and a coat for another. I deliberately left out wear counters and automatic outfit guessing: logging is optional, one tap, and never nags. <strong>4,500+ people</strong> answered the evening question in the first two weeks, and a weekly report card closes the loop.</p>
+          </div>
+        </div>
+      </div>
+      <div class="screens decision-visual reveal">
+        <figure>
+          <div class="phone"><img src="images/projects/hirka/screen-mother-reaction.webp" alt="HIRKA's mom reacting after the evening check-in: Well done. Mom knows best. 5 day streak" width="786" height="1704" loading="lazy"></div>
+          <figcaption class="caption">The evening reaction</figcaption>
+        </figure>
+        <figure>
+          <div class="phone"><img src="images/projects/hirka/screen-report-card.webp" alt="Mom's report card: 5 of 7 days you listened to me, with badges" width="786" height="1704" loading="lazy"></div>
+          <figcaption class="caption">Mom's weekly report card</figcaption>
+        </figure>
+        <figure>
+          <div class="phone"><img src="images/projects/hirka/screen-week.webp" alt="This week screen with an outfit and temperature for each day" width="786" height="1704" loading="lazy"></div>
+          <figcaption class="caption">This week: plan ahead at a glance</figcaption>
+        </figure>
+      </div>
+
+      <div class="narrow">
+        <div class="decision reveal">
+          <div class="decision-num">03</div>
+          <div>
+            <h3>Value before permission</h3>
+            <p>In the redesign I reordered onboarding into seven steps so people see a real outfit decision for their own location on <strong>step 3</strong>, before the app asks for notification permission. They grant permission after they have seen why it is worth it.</p>
+          </div>
+        </div>
+        <div class="decision reveal">
+          <div class="decision-num">04</div>
+          <div>
+            <h3>A free core, an honest premium</h3>
+            <p>Early on, the evening forecast sat behind HIRKA+. A user's DM showed it read as withholding basic weather, so I reversed it and the evening forecast stays free. Premium moved to proactive and personal value instead: your own wardrobe, outfits built from it, layer plans and packing lists. When a user publicly called the paid tier a cash grab, I answered openly and explained the real costs behind it.</p>
+          </div>
+        </div>
+      </div>
+      <div class="screens screens--4 decision-visual reveal">
+        <figure>
+          <div class="phone"><img src="images/projects/hirka/screen-today-for-you.webp" alt="Today, for you: piece of the day from your own wardrobe" width="786" height="1704" loading="lazy"></div>
+          <figcaption class="caption">Today, for you</figcaption>
+        </figure>
+        <figure>
+          <div class="phone"><img src="images/projects/hirka/screen-wardrobe.webp" alt="My wardrobe: scanned clothes shown like a shop window" width="786" height="1704" loading="lazy"></div>
+          <figcaption class="caption">Scanned wardrobe</figcaption>
+        </figure>
+        <figure>
+          <div class="phone"><img src="images/projects/hirka/screen-outfit-builder.webp" alt="Build outfit: swipe each layer and lock favourites" width="786" height="1704" loading="lazy"></div>
+          <figcaption class="caption">Outfit builder</figcaption>
+        </figure>
+        <figure>
+          <div class="phone"><img src="images/projects/hirka/screen-suitcase-sudoku.webp" alt="Suitcase sudoku: six trip outfits from nine pieces" width="786" height="1704" loading="lazy"></div>
+          <figcaption class="caption">Suitcase sudoku</figcaption>
+        </figure>
+      </div>
+
+      <div class="narrow">
+        <div class="decision reveal">
+          <div class="decision-num">05</div>
+          <div>
+            <h3>Distribution designed in</h3>
+            <p>Growth was part of the product scope: a shareable daily outfit card, widgets and an Apple Watch complication that answer without opening the app, one smart link that sends each phone to the right store, and a dedicated @hirka.app account with daily weather cards. For the move to 11 languages I created the series "Every mother has a cardigan sentence", one account and one character, with each episode showing how mothers in another country say it. <strong>21% of installs</strong> have opened the app straight from a notification.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wide-2 reveal">
+        <figure>
+          <div class="shot"><img src="images/projects/hirka/notifications.webp" alt="Lock screen with HIRKA notifications in Turkish: the weather turned, did you take your cardigan" width="1400" height="788" loading="lazy"></div>
+          <figcaption class="caption">Notifications in HIRKA's mom's voice</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="images/projects/hirka/widgets.webp" alt="HIRKA small, medium and large widgets, app icon and Apple Watch complication" width="1400" height="788" loading="lazy"></div>
+          <figcaption class="caption">Widgets and Apple Watch</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA STORY -->
+  <section class="block">
+    <div class="wrap">
+      <div class="data reveal">
+        <p class="label">Data over opinion</p>
+        <h2>Who buys HIRKA+, and why?</h2>
+        <p>Two weeks into the launch I ran a full analysis of buyer behaviour. My first report had recommended moving some premium features to the free tier. The data showed that those were exactly the features people paid for, so I changed my recommendation.</p>
+        <div class="data-grid">
+          <div class="data-card">
+            <h3>The question</h3>
+            <p>Who buys HIRKA+, what made them buy, and what do they use afterwards?</p>
+          </div>
+          <div class="data-card">
+            <h3>The method</h3>
+            <p>I followed every buyer's path before and after purchase and compared it with people who did not buy, from the first session to the paywall and beyond.</p>
+          </div>
+          <div class="data-card">
+            <h3>The outcome</h3>
+            <p>A new line between free and premium, tested on new installs only, with next-day return as the guardrail metric and a rollback rule if it drops.</p>
+          </div>
+        </div>
+        <p>People do not pay for features. They pay to avoid being caught out by the weather. The detailed numbers stay internal; I am happy to walk through the method in an interview.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND -->
+  <section class="block">
+    <div class="wrap brand-grid">
+      <div class="reveal">
+        <p class="label">Brand and design</p>
+        <h2>A product with a voice, and a look that belongs to it</h2>
+        <p class="muted">HIRKA speaks as HIRKA's mom: a mascot in a coral cable-knit cardigan and red glasses. She gives the advice, reacts to your day and appears across the app, notifications and social content. The voice rules: warm and a little bossy, never patronising.</p>
+        <p class="muted">My first redesign direction looked generic, so I threw it out and built a language from the cardigan itself: a coral knitted-rope signature, dashed stitch dividers, a woven HIRKA+ label, solid colours only, a cream and burgundy palette. The full overhaul covered 56 screens, a design system and a written developer handoff in about a week.</p>
+      </div>
+      <figure class="reveal">
+        <div class="phone"><img src="images/projects/hirka/screen-share-card.webp" alt="Share your card screen with HIRKA's mom on a Coat weather story card" width="786" height="1704" loading="lazy"></div>
+        <figcaption class="caption">The shareable daily card, starring HIRKA's mom</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- LEARNED -->
+  <section class="block">
+    <div class="wrap narrow">
+      <p class="label reveal">What I learned</p>
+      <h2 class="reveal">Three things I take to the next product</h2>
+      <ol class="learned reveal">
+        <li><strong>Read the comments.</strong> Users told me exactly what they wanted before I designed a single screen.</li>
+        <li><strong>A sentence everyone knows beats a feature list.</strong> "Take your cardigan" did more for positioning than any tagline could.</li>
+        <li><strong>Monetisation is the harder half.</strong> When the free tier fully solves the core need, premium has to earn its place with new value. That is what I am testing next.</li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer class="closing">
+  <div class="wrap">
+    <p>Selinay Iblikci Yildirim &middot; Product Owner &amp; Product Designer &middot; Amsterdam</p>
+    <a class="pill-link" href="mailto:selinay@puoistudio.nl">selinay@puoistudio.nl</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+  els.forEach(function (el) { observer.observe(el); });
+})();
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <title>SaaS Platform Design System — Selinay İblikci</title>
+  <title>SaaS Platform Design System | Selinay Iblikci Yildirim</title>
   <style>
 html {
   overflow-x: hidden !important;
@@ -687,7 +687,7 @@ html {
     .meta-val { color: rgba(236, 236, 240, 0.88); }
     .overview p { color: var(--page-muted); font-size: 15px; line-height: 1.65; }
 
-    /* Research approach (Context) — same pattern as design-system.html */
+    /* Research approach (Context) - same pattern as design-system.html */
     .research-approach {
       margin-top: 28px;
       padding: 20px 20px 22px;
@@ -761,7 +761,7 @@ html {
     .wi-title { font-size: 14px; font-weight: 600; color: var(--ink); }
     .wi-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.45; }
 
-    /* Design decisions (process) — matches design-system.html card pattern */
+    /* Design decisions (process) - matches design-system.html card pattern */
     .decision-cards {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1186,7 +1186,7 @@ html {
       color: #fafafa;
     }
 
-    /* Dark mode — themed component demo */
+    /* Dark mode - themed component demo */
     .dm-demo-stack {
       display: grid;
       gap: 20px;
@@ -1422,7 +1422,7 @@ html {
     .contrast-big { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
     .aaa { display: inline-block; margin-top: 10px; padding: 4px 10px; border-radius: 999px; background: rgba(22, 163, 74, 0.12); color: #15803d; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
 
-    /* Typography section — compact scale + spec tables */
+    /* Typography section - compact scale + spec tables */
     .ds-block--typography {
       padding-top: 44px;
       padding-bottom: 48px;
@@ -1736,7 +1736,7 @@ html {
     }
     .dim { position: absolute; font-size: 9px; font-weight: 700; color: var(--teal); background: rgba(13, 148, 136, 0.12); padding: 2px 4px; border-radius: 3px; }
 
-    /* Compact button state matrix: rows = states, cols = variants — fits one viewport */
+    /* Compact button state matrix: rows = states, cols = variants - fits one viewport */
     .btn-matrix-wrap {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -2001,13 +2001,13 @@ html {
             <article class="research-item">
               <h4 class="research-item-title">Module audit</h4>
               <p class="research-item-text">
-                Mapped every component across 5 dashboard modules — identified 32 chart variations, 3 different table patterns, and 4 conflicting filter styles.
+                Mapped every component across 5 dashboard modules, identified 32 chart variations, 3 different table patterns, and 4 conflicting filter styles.
               </p>
             </article>
             <article class="research-item">
               <h4 class="research-item-title">User observation</h4>
               <p class="research-item-text">
-                Shadowed 4 clinical analysts using the dashboards. Noticed they opened multiple modules side by side — inconsistent layouts forced them to re-learn each view.
+                Shadowed 4 clinical analysts using the dashboards. Noticed they opened multiple modules side by side, inconsistent layouts forced them to re-learn each view.
               </p>
             </article>
             <article class="research-item">
@@ -2024,7 +2024,7 @@ html {
       <section class="ds-block" id="whats-inside">
         <span class="found-tag tag-system">System map</span>
         <h2 class="ds-h2">What&rsquo;s inside</h2>
-        <p class="ds-lead">Foundations and components documented with the same precision as product UI—tokens first, then patterns.</p>
+        <p class="ds-lead">Foundations and components documented with the same precision as product UI, tokens first, then patterns.</p>
         <div class="grid-2-3">
           <article class="wi-card">
             <div class="wi-visual" aria-hidden="true">
@@ -2104,7 +2104,7 @@ html {
               Each dashboard module keeps its own component set vs. one shared system across all 5 modules
             </p>
             <p class="decision-card-decision">
-              Shared system. Teams were already duplicating work — 32 chart variations existed because each module built its own. A single source of truth meant fixes and improvements reached all modules at once.
+              Shared system. Teams were already duplicating work, 32 chart variations existed because each module built its own. A single source of truth meant fixes and improvements reached all modules at once.
             </p>
           </article>
           <article class="decision-card">
@@ -2113,7 +2113,7 @@ html {
               Using the existing brand blue as the primary UI color vs. introducing teal as a dedicated data/UI accent
             </p>
             <p class="decision-card-decision">
-              Teal. The brand blue was too saturated for dense dashboard interfaces — it competed with status colors (red/amber/green). Teal provided enough contrast for interactive elements while staying calm at high density.
+              Teal. The brand blue was too saturated for dense dashboard interfaces, it competed with status colors (red/amber/green). Teal provided enough contrast for interactive elements while staying calm at high density.
             </p>
           </article>
           <article class="decision-card">
@@ -2242,7 +2242,7 @@ html {
       <section class="ds-block ds-block--typography" id="typography">
         <span class="found-tag tag-foundation">Foundations</span>
         <h2 class="ds-h2">Typography</h2>
-        <p class="ds-lead">Inter for every surface—one family, explicit roles, so dense dashboards and long-form docs stay readable.</p>
+        <p class="ds-lead">Inter for every surface: one family, explicit roles, so dense dashboards and long-form docs stay readable.</p>
         <div class="board board--type">
           <h3 class="sub-h" style="margin-bottom:10px;">Type scale</h3>
           <div class="type-scale" aria-label="Type scale samples">
@@ -2361,7 +2361,7 @@ html {
             <div class="space-bar-v"><div class="bar" style="height:140px"></div><span class="lbl">160</span><span class="lbl mono">spacing-40</span></div>
           </div>
           <h3 class="sub-h sub-h--sp">Applied spacing</h3>
-          <p class="muted" style="margin-bottom:12px;">Padding and gaps use the same token scale—this strip shows common increments as proportional widths.</p>
+          <p class="muted" style="margin-bottom:12px;">Padding and gaps use the same token scale, this strip shows common increments as proportional widths.</p>
           <div class="spacing-applied-viz" aria-label="Spacing token widths">
             <div class="sp-block"><span class="sp-lbl">8px</span><div class="sp-bar" style="width:32px"></div></div>
             <div class="sp-block"><span class="sp-lbl">12px</span><div class="sp-bar" style="width:48px"></div></div>
@@ -2551,7 +2551,7 @@ html {
         <div class="btn-matrix-wrap">
           <div class="board grow">
             <h3 class="sub-h" style="margin-bottom:8px;">States × styles</h3>
-            <p class="muted" style="font-size:11px;margin-bottom:12px;">Same label in every cell—read rows by state, columns by style.</p>
+            <p class="muted" style="font-size:11px;margin-bottom:12px;">Same label in every cell, read rows by state, columns by style.</p>
             <div class="scroll-x">
             <div class="btn-matrix" style="min-width:480px;" aria-label="Button states matrix">
               <div class="bm-h"></div>
@@ -2653,7 +2653,7 @@ html {
       <section class="ds-block" id="status-badges">
         <span class="found-tag tag-components">Components</span>
         <h2 class="ds-h2">Status badges</h2>
-        <p class="ds-lead">Five visual treatments across semantic palettes—used in tables, filters, and timeline headers.</p>
+        <p class="ds-lead">Five visual treatments across semantic palettes, used in tables, filters, and timeline headers.</p>
         <div class="board scroll-x">
           <div class="badge-mx" style="min-width:520px;">
             <div></div>
@@ -2700,7 +2700,7 @@ html {
       <section class="ds-block" id="complex-components">
         <span class="found-tag tag-patterns">Patterns</span>
         <h2 class="ds-h2">Complex components</h2>
-        <p class="ds-lead">Composable modules for analytics workflows—tables, charts, and scheduling surfaces.</p>
+        <p class="ds-lead">Composable modules for analytics workflows, tables, charts, and scheduling surfaces.</p>
         <div class="board board--dark">
           <div class="simp-grid" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr));">
             <div class="simp" style="background:#262626;border-color:#404040;color:#a3a3a3;"><strong style="color:#fafafa;">Tables</strong>Rows, filters, badges</div>
@@ -2949,7 +2949,7 @@ html {
 
         <div class="board dm-token-board">
           <h3 class="sub-h">Token mapping</h3>
-          <p class="muted" style="margin-bottom:14px;font-size:13px;">Semantic tokens resolve to different primitives per theme—documentation and code reference the same names.</p>
+          <p class="muted" style="margin-bottom:14px;font-size:13px;">Semantic tokens resolve to different primitives per theme, documentation and code reference the same names.</p>
           <div class="scroll-x">
             <table class="token-map-table" style="min-width:520px;">
               <thead>
@@ -3005,7 +3005,7 @@ html {
           <div class="metric">
             <div class="v">~50%</div>
             <div class="l">Reduction in UI-related bugs</div>
-            <p class="metric-context">Tracked via Jira — UI inconsistency tickets dropped from ~12/sprint to ~6/sprint</p>
+            <p class="metric-context">Tracked via Jira: UI inconsistency tickets dropped from ~12/sprint to ~6/sprint</p>
           </div>
           <div class="metric">
             <div class="v">60%</div>
@@ -3015,7 +3015,7 @@ html {
           <div class="metric">
             <div class="v">100%</div>
             <div class="l">Accessible color contrast</div>
-            <p class="metric-context">All color pairings validated against WCAG 2.1 AA — automated checks in token docs</p>
+            <p class="metric-context">All color pairings validated against WCAG 2.1 AA, automated checks in token docs</p>
           </div>
         </div>
       </section>
@@ -3026,7 +3026,7 @@ html {
         <h2 class="ds-h2">Key learnings</h2>
         <p class="ds-lead">Principles I carry into the next systems-heavy product.</p>
         <div class="list">
-          <div class="li">Data-heavy products need extra attention to information hierarchy — the design system must enforce visual clarity, not just consistency.</div>
+          <div class="li">Data-heavy products need extra attention to information hierarchy, the design system must enforce visual clarity, not just consistency.</div>
           <div class="li">Involving engineers early in token naming and structure decisions led to much smoother adoption.</div>
         </div>
       </section>
